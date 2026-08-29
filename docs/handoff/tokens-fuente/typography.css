@@ -1,0 +1,17 @@
+:root{
+  --font-family-base:'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --weight-regular:400;
+  --weight-medium:500;
+  --weight-semibold:600;
+  --weight-bold:700;
+
+  --text-h1-size:56px; --text-h1-line:1.08; --text-h1-weight:var(--weight-bold); --text-h1-tracking:-0.02em;
+  --text-h2-size:40px; --text-h2-line:1.15; --text-h2-weight:var(--weight-semibold); --text-h2-tracking:-0.01em;
+  --text-h3-size:28px; --text-h3-line:1.25; --text-h3-weight:var(--weight-semibold); --text-h3-tracking:0;
+  --text-body-lg-size:18px; --text-body-lg-line:1.6; --text-body-lg-weight:var(--weight-regular);
+  --text-body-size:16px; --text-body-line:1.6; --text-body-weight:var(--weight-regular);
+  --text-body-sm-size:14px; --text-body-sm-line:1.5; --text-body-sm-weight:var(--weight-regular);
+  --text-emphasis-weight:var(--weight-medium);
+  --text-label-size:13px; --text-label-line:1.3; --text-label-weight:var(--weight-medium); --text-label-tracking:0.04em;
+}

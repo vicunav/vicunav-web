@@ -1,0 +1,127 @@
+:root{
+  /* Paleta base. design_handoff_vicunav_web/tokens-fuente/colors.css */
+  --color-dark:#2B2825;
+  --color-light:#F4EFE6;
+  --color-accent:#E8873A;
+  --color-secondary:#B7AE9F;
+  --color-white:#FFFFFF;
+
+  /* Derivados: mezclas oklch de los cuatro valores de marca. Nunca tonos inventados. */
+  --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, black);
+  --color-accent-press: color-mix(in oklch, var(--color-accent) 76%, black);
+  --color-accent-tint: color-mix(in oklch, var(--color-accent) 14%, var(--color-light));
+  --color-dark-2: color-mix(in oklch, var(--color-dark) 92%, white);
+  --color-dark-3: color-mix(in oklch, var(--color-dark) 84%, white);
+  --color-light-2: color-mix(in oklch, var(--color-light) 96%, var(--color-dark));
+  --color-secondary-hover: color-mix(in oklch, var(--color-secondary) 100%, var(--color-dark) 22%);
+  --color-border: color-mix(in oklch, var(--color-secondary) 35%, var(--color-light));
+  --color-border-dark: color-mix(in oklch, var(--color-secondary) 28%, var(--color-dark));
+
+  /* Alias semánticos del design system */
+  --surface-primary-dark: var(--color-dark);
+  --surface-primary-light: var(--color-light);
+  --surface-card-light: var(--color-light-2);
+  --surface-card-dark: var(--color-dark-2);
+  --surface-accent-tint: var(--color-accent-tint);
+  --text-on-dark: var(--color-light);
+  --text-on-light: var(--color-dark);
+  --text-secondary: var(--color-secondary);
+  --text-accent: var(--color-accent);
+  --border-default: var(--color-border);
+  --border-on-dark: var(--color-border-dark);
+
+  /* Derivados propios de los prototipos. design_handoff_vicunav_web/tokens.md, secciones 3 y 7 */
+  --text-muted: color-mix(in oklch, var(--color-dark) 82%, var(--color-secondary));
+  --accent-ink: color-mix(in oklch, var(--color-accent) 48%, var(--color-dark));
+  --page-bg: color-mix(in oklch, var(--color-dark) 8%, var(--color-light));
+  --border-strong: color-mix(in oklch, var(--color-dark) 16%, var(--color-light));
+  --border-on-dark-strong: color-mix(in oklch, var(--color-secondary) 24%, var(--color-dark));
+  --border-on-dark-soft: color-mix(in oklch, var(--color-secondary) 22%, var(--color-dark));
+  --ring-accent-on-dark: color-mix(in oklch, var(--color-accent) 34%, var(--color-dark));
+  --ring-accent-soft-on-dark: color-mix(in oklch, var(--color-accent) 12%, var(--color-dark));
+  --surface-tint-on-dark: color-mix(in oklch, var(--color-light) 8%, var(--color-dark));
+  --icon-tint-on-dark: color-mix(in oklch, var(--color-accent) 22%, var(--color-dark));
+  --chip-fill-on-light: color-mix(in oklch, var(--color-dark) 6%, var(--color-light));
+
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  /* Sombras cálidas. design_handoff_vicunav_web/tokens-fuente/shadows.css */
+  --shadow-sm: 0 1px 2px color-mix(in oklch, var(--color-dark) 14%, transparent);
+  --shadow-md: 0 8px 24px -8px color-mix(in oklch, var(--color-dark) 24%, transparent);
+  --shadow-lg: 0 20px 48px -16px color-mix(in oklch, var(--color-dark) 30%, transparent);
+
+  /* Sombras de capas múltiples usadas en los prototipos. tokens.md sección 7 */
+  --shadow-lift: 0 1px 2px color-mix(in oklch, var(--color-dark) 12%, transparent), 0 4px 8px color-mix(in oklch, var(--color-dark) 8%, transparent), 0 12px 24px color-mix(in oklch, var(--color-dark) 10%, transparent);
+  --shadow-float: 0 1px 2px color-mix(in oklch, var(--color-dark) 14%, transparent), 0 6px 12px color-mix(in oklch, var(--color-dark) 10%, transparent), 0 18px 36px color-mix(in oklch, var(--color-dark) 12%, transparent), 0 40px 72px color-mix(in oklch, var(--color-dark) 12%, transparent);
+  --shadow-hover: 0 2px 4px color-mix(in oklch, var(--color-dark) 16%, transparent), 0 10px 20px color-mix(in oklch, var(--color-dark) 12%, transparent), 0 28px 56px color-mix(in oklch, var(--color-dark) 16%, transparent), 0 56px 96px color-mix(in oklch, var(--color-dark) 14%, transparent);
+
+  /* Radios. design_handoff_vicunav_web/tokens-fuente/radii.css */
+  --radius-sm:8px;
+  --radius-md:12px;
+  --radius-lg:20px;
+  --radius-pill:999px;
+  /* Radios adicionales fuera de la escala, usados en tarjetas concretas de los prototipos. tokens.md sección 6 */
+  --radius-xs:8px;
+  --radius-14:14px;
+  --radius-16:16px;
+  --radius-18:18px;
+  --radius-24:24px;
+
+  /* Espaciado. design_handoff_vicunav_web/tokens-fuente/spacing.css */
+  --space-1:2px;
+  --space-2:4px;
+  --space-3:8px;
+  --space-4:16px;
+  --space-5:24px;
+  --space-6:32px;
+  --space-7:48px;
+  --space-8:64px;
+
+  /* Tipografía. design_handoff_vicunav_web/tokens-fuente/fonts.css y typography.css */
+  --font-family-base:'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --weight-regular:400;
+  --weight-medium:500;
+  --weight-semibold:600;
+  --weight-bold:700;
+  --weight-extrabold:800;
+
+  --text-h1-size:56px; --text-h1-line:1.08; --text-h1-weight:var(--weight-bold); --text-h1-tracking:-0.02em;
+  --text-h2-size:40px; --text-h2-line:1.15; --text-h2-weight:var(--weight-semibold); --text-h2-tracking:-0.01em;
+  --text-h3-size:28px; --text-h3-line:1.25; --text-h3-weight:var(--weight-semibold); --text-h3-tracking:0;
+  --text-body-lg-size:18px; --text-body-lg-line:1.6; --text-body-lg-weight:var(--weight-regular);
+  --text-body-size:16px; --text-body-line:1.6; --text-body-weight:var(--weight-regular);
+  --text-body-sm-size:14px; --text-body-sm-line:1.5; --text-body-sm-weight:var(--weight-regular);
+  --text-emphasis-weight:var(--weight-medium);
+  --text-label-size:13px; --text-label-line:1.3; --text-label-weight:var(--weight-medium); --text-label-tracking:0.04em;
+
+  /* Escala responsive compartida. design_handoff_vicunav_web/contrato-fuente.md, sección 5 */
+  --bp-pad:24px;
+  --bp-gap:16px;
+  --bp-hero-gap:32px;
+  --bp-section-py:56px;
+  --bp-card-pad:24px;
+  --bp-hero-pad-t:40px;
+}
+
+@media (min-width: 834px){
+  :root{
+    --bp-pad:40px;
+    --bp-gap:20px;
+    --bp-hero-gap:40px;
+    --bp-section-py:72px;
+    --bp-card-pad:28px;
+    --bp-hero-pad-t:56px;
+  }
+}
+
+@media (min-width: 1440px){
+  :root{
+    --bp-pad:80px;
+    --bp-gap:28px;
+    --bp-hero-gap:56px;
+    --bp-section-py:104px;
+    --bp-card-pad:40px;
+    --bp-hero-pad-t:88px;
+  }
+}

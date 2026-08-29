@@ -1,52 +1,73 @@
-# Vicunav Repository Template
+# Vicunav Web
 
-Reusable starting point for repositories in the Vicunav ecosystem. Creating a
-repository from this template copies its files and directory structure into a new,
-independent repository without treating it as a fork.
+Vicunav's own site: a from-scratch Gutenberg Full Site Editing block theme.
 
-## Included foundation
+This repository currently holds the static HTML, CSS and JavaScript baseline
+refined in Claude Code from the approved Claude Design prototypes. It is the
+intermediate step between design and the native block theme: fifteen real,
+navigable pages with no React, no Tailwind, no build step and no CDN
+dependencies. This baseline is what
+[`transform-claude-to-gutenberg`](https://github.com/vicunav/vicunav-transform-claude-to-gutenberg)
+will translate into the actual WordPress theme under a `paridad-1-1` contract.
 
-- `AGENTS.md` with placeholders for repository-specific instructions.
-- `CONTRIBUTING.md` with the atomic issue and squash-merge workflow.
-- `docs/standards/` pinned to the shared Vicunav standards.
-- A structured atomic-task issue form.
-- Visual-impact fields and a pull request evidence checklist.
-- PHP linting with WordPress Coding Standards in GitHub Actions.
-- GPL-2.0-or-later licensing suitable for WordPress themes and plugins.
+Vicunav's brand tokens live in this repository's own `theme.json` once the
+Gutenberg theme lands here; they are not shared with
+[`vicunav-theme-core`](https://github.com/vicunav/vicunav-theme-core). See
+[ADR 0012](https://github.com/vicunav/vicunav-hub/blob/main/docs/adr/0012-sitio-propio-vicunav-web.md)
+in `vicunav-hub` for the decision and its consequences. This repository runs
+in parallel with [`vicunav-gutenberg`](https://github.com/vicunav/vicunav-gutenberg),
+the site's previous version, without a dependency relationship between the
+two.
 
-## Creating a repository from this template
+## Pages
 
-1. Open this template repository on GitHub.
-2. Select **Use this template** and then **Create a new repository**.
-3. Choose the owner, repository name, description, and visibility.
-4. Select **Create repository**.
-5. Clone the new repository, including its submodules:
+| # | Page | File |
+| --- | --- | --- |
+| 01 | Home | `index.html` |
+| 02 | Services (index) | `servicios.html` |
+| 03 | Portfolio | `portafolio.html` |
+| 04 | Contact | `contacto.html` |
+| 05 | About | `nosotros.html` |
+| 06 | Vertical: Restaurants | `restaurantes.html` |
+| 07 | Vertical: Hotels and inns | `hoteles.html` |
+| 08 | Vertical: Wellness | `bienestar.html` |
+| 09 | Service: Custom systems | `sistemas.html` |
+| 10 | Service: Automation | `automatizacion.html` |
+| 11 | Service: Websites | `sitios.html` |
+| 12 | Service: Visibility | `visibilidad.html` |
+| 13 | Articles (listing) | `articulos.html` |
+| 14 | Article (single) | `articulo.html` |
+| 15 | Mario, recruiter landing (English) | `cv.html` |
 
-   ```bash
-   git clone --recurse-submodules https://github.com/OWNER/REPOSITORY.git
-   cd REPOSITORY
-   ```
+## Running locally
 
-If the repository was cloned without submodules, initialize them afterward:
+No build, no dependencies. Serve the directory with any static file server:
 
 ```bash
-git submodule update --init --recursive
+python3 -m http.server 8080
 ```
 
-## Required customization
+Then open `http://localhost:8080/index.html`.
 
-After creating the repository:
+## Structure
 
-1. Replace this README with project-specific documentation in English.
-2. Replace every placeholder in `AGENTS.md` and document the actual validation
-   commands.
-3. Confirm that the standards submodule points to the intended commit.
-4. Add the package bootstrap, tests, and tooling required by its contract.
-5. Configure branch protection and allow only squash-merge pull requests into `main`.
-6. Verify that no `{{PLACEHOLDER}}` values remain in versioned files.
+```text
+*.html                        The 15 templates, at the repository root
+assets/css/tokens.css         Design tokens as CSS custom properties
+assets/css/base.css           Reset, visible focus, prefers-reduced-motion
+assets/css/layout.css         Header, footer, WhatsApp floating button
+assets/css/components.css     Components shared across templates
+assets/css/pages/*.css        Local geometry per template
+assets/js/                    Mobile nav toggle, article category filter
+assets/fonts/                 Plus Jakarta Sans, self-hosted (SIL OFL)
+docs/standards/               Shared Vicunav ecosystem standards (submodule)
+docs/handoff/                 Design handoff package this baseline was built from
+```
 
-Do not add product-specific files to this template merely because one consumer needs
-them. Shared repository scaffolding belongs here; package behavior belongs in the new
-repository.
+See [AGENTS.md](AGENTS.md) for the decisions made while refining this
+baseline and the manual QA checklist.
 
-For more information, see the GitHub guide on [creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the atomic issue and squash-merge
+workflow used across the Vicunav ecosystem.
