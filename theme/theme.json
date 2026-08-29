@@ -6,6 +6,23 @@
     "layout": {
       "contentSize": "800px",
       "wideSize": "1200px"
+    },
+    "color": {
+      "palette": [
+        { "slug": "dark", "name": "Grafito", "color": "#2B2825" },
+        { "slug": "light", "name": "Crema", "color": "#F4EFE6" },
+        { "slug": "accent", "name": "Ámbar", "color": "#E8873A" },
+        { "slug": "secondary", "name": "Taupe", "color": "#B7AE9F" }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "slug": "base",
+          "name": "Plus Jakarta Sans",
+          "fontFamily": "'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif"
+        }
+      ]
     }
   },
   "templateParts": [
