@@ -19,7 +19,7 @@
   },
   "environment": {
     "browser": "Chromium",
-    "browserVersion": "auto",
+    "browserVersion": "151.0.7922.34",
     "locale": "es-VE",
     "timezone": "America/Caracas",
     "colorScheme": "light",
@@ -497,7 +497,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:04.531Z",
+      "sourceCaptureSha256": "268cf53782947b318a2613258f9dd92341ea5233866c1260460d317848738f29"
     },
     {
       "surface": "home",
@@ -511,7 +513,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:05.536Z",
+      "sourceCaptureSha256": "5087a7bc58c6135892d59858467fb61314aa9883d8b8d8d700697af5d3736739"
     },
     {
       "surface": "home",
@@ -525,7 +529,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:06.698Z",
+      "sourceCaptureSha256": "8281d8097065e790f8bc6139927c49414a2125b6bcc106d011b20124b36884e8"
     },
     {
       "surface": "servicios",
@@ -539,7 +545,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:07.631Z",
+      "sourceCaptureSha256": "d38b59b0a3380788e1fc371c2c4addf19785749585561df8c1c54e32783e4a37"
     },
     {
       "surface": "servicios",
@@ -553,7 +561,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:08.613Z",
+      "sourceCaptureSha256": "3d2472b29b2d0f33cbf406b401380236d6915aa5580200a3a67c03b8ceb72e9a"
     },
     {
       "surface": "servicios",
@@ -567,7 +577,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:09.642Z",
+      "sourceCaptureSha256": "9fa352f8c261d5224f0b9e8a5245dd318a0cffff6b5c6a21efb0d17a3f73ce7a"
     },
     {
       "surface": "portafolio",
@@ -581,7 +593,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:10.417Z",
+      "sourceCaptureSha256": "29f58b4da9eb70f29c7a8137531bbd925c27e050fa6e4d9d91a780a1c285881e"
     },
     {
       "surface": "portafolio",
@@ -595,7 +609,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:11.236Z",
+      "sourceCaptureSha256": "e8c5d20e99a470bc1ed2c4ee1acb4af6b4c7c7396a52ca54529317f4a807826d"
     },
     {
       "surface": "portafolio",
@@ -609,7 +625,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:12.119Z",
+      "sourceCaptureSha256": "72c54c33ff8c2f316ec833a977918eec78f25f169d381c28a7c25b154a01b3ba"
     },
     {
       "surface": "contacto",
@@ -623,7 +641,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:12.888Z",
+      "sourceCaptureSha256": "69cc84ea5c0d9a41552a5d4fc63ac220352d7ab6f77d1f78128397de2799223d"
     },
     {
       "surface": "contacto",
@@ -637,7 +657,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:13.678Z",
+      "sourceCaptureSha256": "2d9399d54a79f3603f9c4a1531e7eb9173ad5b88bb0c005d390448b5ea7043a9"
     },
     {
       "surface": "contacto",
@@ -651,7 +673,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:14.524Z",
+      "sourceCaptureSha256": "e0ef4df946b542db9ef77edfdf7b607ab055f6b684e5161faa8c7a3b9741e797"
     },
     {
       "surface": "nosotros",
@@ -665,7 +689,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:15.408Z",
+      "sourceCaptureSha256": "f252418a2586c18f67b1cd4edbe2a8c8f23e53d4d058adc8d55c802b4c74b2b1"
     },
     {
       "surface": "nosotros",
@@ -679,7 +705,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:16.351Z",
+      "sourceCaptureSha256": "00af33411abdf714dd2067dfd35ff0fb53c4a820ee4c5a190a1ed2fef3d04e21"
     },
     {
       "surface": "nosotros",
@@ -693,7 +721,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:17.420Z",
+      "sourceCaptureSha256": "6a32cd23a41d93e3c197e784f83af2e03706af6df9deb02a9937d2eb2ebe7b22"
     },
     {
       "surface": "restaurantes",
@@ -707,7 +737,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:18.402Z",
+      "sourceCaptureSha256": "d7179f1cb1f39786ea75bc8a2189c80121941966de1f66a7764dbd5adc259611"
     },
     {
       "surface": "restaurantes",
@@ -721,7 +753,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:19.452Z",
+      "sourceCaptureSha256": "ee400812e0865a5f24133ae8d59cec03b2229926a55f76c2968e4923daf52a23"
     },
     {
       "surface": "restaurantes",
@@ -735,7 +769,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:20.581Z",
+      "sourceCaptureSha256": "b43c516397b623f289abd1f073f88f6ce51633d75d92e9ffb53f1cac423727c2"
     },
     {
       "surface": "hoteles",
@@ -749,7 +785,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:21.555Z",
+      "sourceCaptureSha256": "477d396f7eb79a0e5277928a33ff10350db2401273d81483ea56b50431d965c8"
     },
     {
       "surface": "hoteles",
@@ -763,7 +801,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:22.583Z",
+      "sourceCaptureSha256": "3b7cb6779070539671cbac15e91fdbc155541ec8a88a1249a135a4546def0dcb"
     },
     {
       "surface": "hoteles",
@@ -777,7 +817,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:23.685Z",
+      "sourceCaptureSha256": "d4fe33b2b85bf73e3b5bd7910c4c38b8ea6b33ce85be962dac17ef848b31ef3d"
     },
     {
       "surface": "bienestar",
@@ -791,7 +833,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:24.647Z",
+      "sourceCaptureSha256": "e2caa207bf5ce8725d13934896ccd91272a34b3971e94e1b0afeba2fbffcab98"
     },
     {
       "surface": "bienestar",
@@ -805,7 +849,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:25.661Z",
+      "sourceCaptureSha256": "cd80712a104b9134fea260351851d76e8ff90c72db703486c2faf2366c9671b9"
     },
     {
       "surface": "bienestar",
@@ -819,7 +865,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:26.749Z",
+      "sourceCaptureSha256": "494bb242202373ab64b2dfafea9f77587f4104c65ddf221d90578b0566833c4b"
     },
     {
       "surface": "sistemas",
@@ -833,7 +881,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:27.654Z",
+      "sourceCaptureSha256": "79eca941ef669b1ec3702672d305765e573cde251bda921561ba6d3734f5fa88"
     },
     {
       "surface": "sistemas",
@@ -847,7 +897,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:28.614Z",
+      "sourceCaptureSha256": "59f3b07e7f1513ba8125678c51a41ad50bec9759a857e88088d875bd9258c523"
     },
     {
       "surface": "sistemas",
@@ -861,7 +913,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:29.632Z",
+      "sourceCaptureSha256": "18c27d588457bdbb077a102a6e48daf2ec075a3d376d4c94e074ea8e666a695e"
     },
     {
       "surface": "automatizacion",
@@ -875,7 +929,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:30.519Z",
+      "sourceCaptureSha256": "c685ce3fc915675be12535aa02a46ed1d1052d9491d884ea9f45380c3f0a4ba8"
     },
     {
       "surface": "automatizacion",
@@ -889,7 +945,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:31.465Z",
+      "sourceCaptureSha256": "14cb063cd83666513b131d7a0ccd1a44b22b9e67c814adccb95972b0f9d4dc09"
     },
     {
       "surface": "automatizacion",
@@ -903,7 +961,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:32.465Z",
+      "sourceCaptureSha256": "0dba95d5c5fa88a1936ea124429a802e2a66398f8ef8fb00b791d851a85a20cf"
     },
     {
       "surface": "sitios",
@@ -917,7 +977,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:33.376Z",
+      "sourceCaptureSha256": "c1a0adc174a16ca4eb23175d4d94ee8f2cf7ca7a2e2ee98bf523d5ffc3bfcd2b"
     },
     {
       "surface": "sitios",
@@ -931,7 +993,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:34.330Z",
+      "sourceCaptureSha256": "fc86a4e34000c298bd25f687e28abfa033f893b44e9cecabf7e3e3d5747a9569"
     },
     {
       "surface": "sitios",
@@ -945,7 +1009,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:35.327Z",
+      "sourceCaptureSha256": "e0621dd9433da88e383ba228bc6db1b3caf6b910456c9e9365290f5adaa3e31c"
     },
     {
       "surface": "visibilidad",
@@ -959,7 +1025,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:36.243Z",
+      "sourceCaptureSha256": "3d36f4b3d19f7a88e594ef7d00fe07996fa8adad389d004986df21f10c877596"
     },
     {
       "surface": "visibilidad",
@@ -973,7 +1041,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:37.176Z",
+      "sourceCaptureSha256": "2487a51c254d2641edabbd78863b92c14a1838bdc66cc8468b67062adad81136"
     },
     {
       "surface": "visibilidad",
@@ -987,7 +1057,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:38.197Z",
+      "sourceCaptureSha256": "ee795341d267c57d19f3c6b3cdde1e376289eb6bc47e02a998271de71b566db8"
     },
     {
       "surface": "articulos",
@@ -1001,7 +1073,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:39.039Z",
+      "sourceCaptureSha256": "be9484321eca4add561480fea3ac79f11dae20e5bf3739634c3b7d7599e29636"
     },
     {
       "surface": "articulos",
@@ -1015,7 +1089,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:39.860Z",
+      "sourceCaptureSha256": "b1f579b4c48ed3ddb9486cd60cb7f522d42ab25297f3ae54e07405e12d2e8965"
     },
     {
       "surface": "articulos",
@@ -1029,7 +1105,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:40.735Z",
+      "sourceCaptureSha256": "df19e9cb1138339ab50f946e0671b6c29c80a6742e9551f0928676ce2184c9ac"
     },
     {
       "surface": "articulo",
@@ -1043,7 +1121,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:41.636Z",
+      "sourceCaptureSha256": "3240bbfbf399af5116d6dc3eddbdc4f39a7e86719cf172b106886508e2fbe9f9"
     },
     {
       "surface": "articulo",
@@ -1057,7 +1137,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:42.619Z",
+      "sourceCaptureSha256": "36350d85190b180104d4f7a5035cf340dbbc2bcb37fd2fcdcf2aa00d9b806ba5"
     },
     {
       "surface": "articulo",
@@ -1071,7 +1153,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:43.660Z",
+      "sourceCaptureSha256": "bc6de035bf4294db1311f0c89baf3dc79b23e8b7c903b1d6da7ec5116a3ea713"
     },
     {
       "surface": "cv",
@@ -1085,7 +1169,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:44.646Z",
+      "sourceCaptureSha256": "d2f4efbf3a468504a07d6aca9000dffdf45a795bf7063d8ae2fce5adefd910d1"
     },
     {
       "surface": "cv",
@@ -1099,7 +1185,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:45.704Z",
+      "sourceCaptureSha256": "3c6cca8430b0bd0cb726bb4fe21b5d81723daf9fc7b2448b78a7c49116e3318a"
     },
     {
       "surface": "cv",
@@ -1113,7 +1201,9 @@
       "status": "pending",
       "difference": null,
       "approval": null,
-      "metrics": null
+      "metrics": null,
+      "sourceCapturedAt": "2026-08-29T20:58:46.804Z",
+      "sourceCaptureSha256": "83ccecff9ea4960bb88fcdae814bd6ae7a4b6290f89f8b943c00634b88adbc4f"
     }
   ],
   "report": {
