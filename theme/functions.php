@@ -23,8 +23,15 @@ function vicunav_enqueue_assets() {
 	wp_enqueue_style( 'vicunav-layout', $base . 'layout.css', array( 'vicunav-base' ), $ver );
 	wp_enqueue_style( 'vicunav-components', $base . 'components.css', array( 'vicunav-layout' ), $ver );
 
+	$page_css_slug = null;
 	if ( is_front_page() ) {
-		wp_enqueue_style( 'vicunav-page-home', $base . 'pages/home.css', array( 'vicunav-components' ), $ver );
+		$page_css_slug = 'home';
+	} elseif ( is_page() ) {
+		$page_css_slug = get_post_field( 'post_name', get_queried_object_id() );
+	}
+
+	if ( $page_css_slug && file_exists( get_stylesheet_directory() . '/assets/css/pages/' . $page_css_slug . '.css' ) ) {
+		wp_enqueue_style( 'vicunav-page-' . $page_css_slug, $base . 'pages/' . $page_css_slug . '.css', array( 'vicunav-components' ), $ver );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'vicunav_enqueue_assets' );
