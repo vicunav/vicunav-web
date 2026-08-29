@@ -36,19 +36,41 @@ como un error de carga.
 
 | # | Slot | Página | Ratio | Estado | Texto alternativo |
 | --- | --- | --- | --- | --- | --- |
-| A01 | Retrato de Mario, sección fundador | Home | 4:5 | Sustitución aprobada | Mario Vicuña, fundador de Vicunav |
-| A02 | Retrato de Mario, hero | Nosotros | 4:5 | Sustitución aprobada | Mario Vicuña en su espacio de trabajo |
-| A03 | Retrato de Mario, perfil | Mario, reclutadores | 1:1 | Sustitución aprobada | Mario Vicuna, Full Stack Developer |
-| A04 | Portada de caso, TatiPilates | Portafolio | 3:2 | Sustitución aprobada | Sitio de TatiPilates en escritorio y móvil |
-| A05 | Portada de caso, Bhoga Yoga | Portafolio | 3:2 | Sustitución aprobada | Sitio de Bhoga Yoga en escritorio y móvil |
-| A06 | Portada de caso, Nelson Look Flash | Portafolio | 3:2 | Sustitución aprobada | Sitio de Nelson Look Flash en escritorio y móvil |
-| A07 | Portada de caso, Clearpath Therapy | Portafolio | 3:2 | Sustitución aprobada, proyecto concepto | Proyecto concepto Clearpath Therapy |
-| A08 | Portada de caso, Eleanor Wilde | Portafolio | 3:2 | Sustitución aprobada, proyecto concepto | Proyecto concepto Eleanor Wilde |
-| A09 | Imagen de cabecera del artículo | Artículo | 16:9 | Sustitución aprobada | Cocina de restaurante en hora de servicio |
-| A10 | Miniatura por artículo del listado | Artículos | 3:2 | Sustitución aprobada, 7 slots | Según el tema de cada artículo |
-| A11 | Logotipo de Vicunav | Header y footer | Por definir | **Faltante real** | Vicunav |
+| A01 | Retrato de Mario, sección fundador | Home | 4:5 | **Asset real aplicado** | Mario Vicuña, fundador de Vicunav |
+| A02 | Retrato de Mario, hero | Nosotros | 4:5 | **Asset real aplicado** | Mario Vicuña en su espacio de trabajo |
+| A03 | Retrato de Mario, perfil | Mario, reclutadores | 1:1 | Sin slot en el prototipo aprobado, ver nota | Mario Vicuna, Full Stack Developer |
+| A04 | Portada de caso, TatiPilates | Portafolio | 3:2 en esta tabla; el prototipo usa 16/10, 4/3 y 4/5 según breakpoint | Sustitución aprobada | Sitio de TatiPilates en escritorio y móvil |
+| A05 | Portada de caso, Bhoga Yoga | Portafolio | 3:2 en esta tabla; el prototipo usa 4/5 y 4/3 según breakpoint | Sustitución aprobada | Sitio de Bhoga Yoga en escritorio y móvil |
+| A06 | Portada de caso, Nelson Look Flash | Portafolio | 3:2 | Sin slot en el prototipo aprobado, ver nota | Sitio de Nelson Look Flash en escritorio y móvil |
+| A07 | Portada de caso, Clearpath Therapy | Portafolio | 3:2 en esta tabla; el prototipo usa 4/3 y 4/5 según breakpoint | Sustitución aprobada, proyecto concepto | Proyecto concepto Clearpath Therapy |
+| A08 | Portada de caso, Eleanor Wilde | Portafolio | 3:2 en esta tabla; el prototipo usa 16/11 y 4/3 según breakpoint | Sustitución aprobada, proyecto concepto | Proyecto concepto Eleanor Wilde |
+| A09 | Imagen de cabecera del artículo | Artículo | 16:9 | Sin slot en el prototipo aprobado, ver nota | Cocina de restaurante en hora de servicio |
+| A10 | Miniatura por artículo del listado | Artículos | 3:2 | Sin slot en el prototipo aprobado, ver nota, 7 slots | Según el tema de cada artículo |
+| A11 | Logotipo de Vicunav | Header y footer | Por definir | Sustitución aprobada (opción 2, ver sección 4) | Vicunav |
 | A12 | Favicon y app icon | Global | 1:1 | **Faltante real** | No aplica |
 | A13 | Imagen de Open Graph por plantilla | Global | 1200x630 | **Faltante real** | No aplica |
+
+**Nota sobre A01 y A02:** el prototipo (`diseno/Vicunav Sitio Web v2.dc.html`) ya
+referenciaba una foto real y publicada de Mario
+(`https://vicunav.com/wp-content/uploads/2026/03/mario-vicuna-vicunav.jpg`), no
+un placeholder. Se descargó y quedó en
+`assets/img/mario-vicuna-vicunav.jpg`, usada en Home y Nosotros con el alt
+definitivo de esta tabla.
+
+**Nota sobre A03, A06, A09 y A10:** esta tabla los declara como slots, pero
+ninguno de los dos prototipos aprobados (`Vicunav Sitio Web v2.dc.html`,
+`Vicunav Landings SEO.dc.html`) renderiza esa imagen. El retrato de perfil en
+`cv.html`, el caso de Nelson Look Flash en el portafolio, la imagen de
+cabecera del artículo y las miniaturas del listado de artículos no existen en
+el HTML fuente: son contenido planeado en este documento que no llegó a
+implementarse en el diseño. No se agregaron al baseline para no inventar
+markup fuera del contrato de fuente. Si siguen vigentes, son una unidad de
+diseño pendiente antes de poder migrarlos, no un placeholder que falte
+colocar.
+
+**PDF de CV:** Mario proveyó su currículum real
+(`assets/cv/mario-vicuna-resume.pdf`), enlazado desde el botón "Download CV"
+de `cv.html`. Puede reemplazarse más adelante por una versión actualizada.
 
 ## 4. Faltantes reales, distintos de un placeholder
 

@@ -67,10 +67,20 @@ Lucide ni ningún sprite por CDN.
 - El widget de "arma tu platillo / reserva" en cada vertical sí tiene copy
   real del diseño aprobado y se migró literal, a diferencia de los Mockup
   anteriores.
-- El PDF de CV (`uploads/cv_files-1787863696971-ejq5.pdf`, enlazado desde
-  `cv.html`) no estaba en el paquete de diseño. El enlace se conserva con la
-  ruta literal del prototipo; el archivo es un faltante real, del mismo tipo
-  que el logotipo o el favicon, pendiente de que Mario lo provea.
+- El retrato de Mario en Home y Nosotros (A01, A02) no era un placeholder: el
+  prototipo ya referenciaba una foto real y publicada en
+  `vicunav.com/wp-content/uploads/2026/03/mario-vicuna-vicunav.jpg`. Se
+  descargó a `assets/img/mario-vicuna-vicunav.jpg` y se usa tal cual.
+- El PDF de CV (`assets/cv/mario-vicuna-resume.pdf`, enlazado desde
+  `cv.html`) lo proveyó Mario directamente; no estaba en el paquete de diseño
+  original, que enlazaba a una ruta de subida que nunca existió en este
+  repositorio.
+- `docs/handoff/inventario-assets.md` declara slots (A03, A06, A09, A10) que
+  ninguno de los dos prototipos aprobados llega a renderizar: retrato de
+  perfil en `cv.html`, caso "Nelson Look Flash" en portafolio, imagen de
+  cabecera de artículo y miniaturas del listado. No se agregaron al baseline
+  por no estar en el HTML fuente; quedan anotados en ese documento como
+  diseño pendiente, no como placeholder que falte colocar.
 - Los formularios (`contacto.html`) son visuales, sin envío real: es una
   desviación funcional aceptada en `docs/handoff/contrato-fuente.md`,
   sección 6. El botón de envío es `type="button"`, no `submit`, para no
