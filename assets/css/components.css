@@ -22,38 +22,254 @@
 .mockup-card{
   background:#fff;
   border-radius:var(--radius-lg);
-  padding:18px;
+  padding:20px;
   box-shadow:var(--shadow-float);
+}
+
+/* Variante "dashboard": cabecera + mini gráfico de barras + filas de datos */
+
+.mockup-dash{
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:16px;
 }
-.mockup-card__bar{
-  height:14px;
-  width:40%;
+.mockup-dash__head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.mockup-dash__head-title{
+  width:96px;
+  height:12px;
   border-radius:var(--radius-pill);
   background:var(--color-accent-tint);
 }
-.mockup-card__row{
-  height:16px;
+.mockup-dash__head-dot{
+  width:28px;
+  height:28px;
+  border-radius:var(--radius-pill);
+  background:var(--chip-fill-on-light);
+}
+.mockup-dash__chart{
+  display:flex;
+  align-items:flex-end;
+  gap:8px;
+  height:72px;
+  padding:10px;
+  background:var(--chip-fill-on-light);
+  border-radius:var(--radius-md);
+}
+.mockup-dash__bar{
+  flex:1;
+  border-radius:4px 4px 0 0;
+  background:var(--color-accent);
+}
+.mockup-dash__bar:nth-child(1){ height:38%; }
+.mockup-dash__bar:nth-child(2){ height:68%; background:var(--accent-ink); }
+.mockup-dash__bar:nth-child(3){ height:52%; }
+.mockup-dash__bar:nth-child(4){ height:92%; background:var(--accent-ink); }
+.mockup-dash__bar:nth-child(5){ height:62%; }
+.mockup-dash__bar:nth-child(6){ height:44%; background:var(--accent-ink); }
+.mockup-dash__rows{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.mockup-dash__row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.mockup-dash__row-icon{
+  width:22px;
+  height:22px;
+  border-radius:var(--radius-sm);
+  background:var(--color-accent-tint);
+  flex-shrink:0;
+}
+.mockup-dash__row-bar{
+  flex:1;
+  height:10px;
+  border-radius:var(--radius-pill);
+  background:var(--chip-fill-on-light);
+}
+
+/* Variante "booking": semana con un día activo + turnos disponibles */
+
+.mockup-booking{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.mockup-booking__week{
+  display:grid;
+  grid-template-columns:repeat(7, 1fr);
+  gap:6px;
+}
+.mockup-booking__day{
+  aspect-ratio:1;
   border-radius:var(--radius-sm);
   background:var(--chip-fill-on-light);
 }
-.mockup-card__row--sm{
-  width:70%;
-  height:12px;
+.mockup-booking__day--active{
+  background:var(--color-accent);
 }
-.mockup-card__grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+.mockup-booking__slots{
+  display:flex;
+  flex-direction:column;
   gap:10px;
-  margin-top:4px;
 }
-.mockup-card__tile{
-  aspect-ratio:1;
+.mockup-booking__slot{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 14px;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-sm);
+}
+.mockup-booking__slot--active{
+  border-color:var(--accent-ink);
+  background:var(--color-accent-tint);
+}
+.mockup-booking__slot-time{
+  width:40px;
+  height:10px;
+  border-radius:var(--radius-pill);
+  background:var(--color-accent-tint);
+  flex-shrink:0;
+}
+.mockup-booking__slot--active .mockup-booking__slot-time{
+  background:var(--accent-ink);
+}
+.mockup-booking__slot-bar{
+  flex:1;
+  height:10px;
+  border-radius:var(--radius-pill);
+  background:var(--chip-fill-on-light);
+}
+
+/* Variante "chat": burbujas alternadas */
+
+.mockup-chat{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.mockup-chat__bubble{
+  max-width:74%;
+  padding:12px 16px;
+  border-radius:var(--radius-14);
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.mockup-chat__bubble-line{
+  height:9px;
+  border-radius:var(--radius-pill);
+}
+.mockup-chat__bubble--in{
+  align-self:flex-start;
+  background:var(--chip-fill-on-light);
+  border-bottom-left-radius:4px;
+}
+.mockup-chat__bubble--in .mockup-chat__bubble-line{
+  background:var(--border-default);
+}
+.mockup-chat__bubble--out{
+  align-self:flex-end;
+  background:var(--color-accent);
+  border-bottom-right-radius:4px;
+}
+.mockup-chat__bubble--out .mockup-chat__bubble-line{
+  background:color-mix(in oklch, var(--color-dark) 35%, var(--color-accent));
+}
+
+/* Variante "seo": ranking con barras de progreso */
+
+.mockup-seo{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.mockup-seo__row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.mockup-seo__rank{
+  width:26px;
+  height:26px;
+  border-radius:var(--radius-pill);
+  background:var(--color-accent-tint);
+  color:var(--accent-ink);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  font-family:var(--font-family-base);
+  font-size:12px;
+  font-weight:800;
+}
+.mockup-seo__bar-track{
+  flex:1;
+  height:10px;
+  border-radius:var(--radius-pill);
+  background:var(--chip-fill-on-light);
+  overflow:hidden;
+}
+.mockup-seo__bar-fill{
+  display:block;
+  height:100%;
+  border-radius:var(--radius-pill);
+  background:var(--color-accent);
+}
+.mockup-seo__bar-fill--w90{ width:90%; }
+.mockup-seo__bar-fill--w70{ width:70%; }
+.mockup-seo__bar-fill--w50{ width:50%; }
+
+/* Variante "browser": barra de navegador + vista previa de página */
+
+.mockup-browser{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.mockup-browser__bar{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--border-default);
+}
+.mockup-browser__dot{
+  width:8px;
+  height:8px;
+  border-radius:var(--radius-pill);
+  background:var(--border-default);
+}
+.mockup-browser__url{
+  flex:1;
+  height:16px;
+  border-radius:var(--radius-pill);
+  background:var(--chip-fill-on-light);
+  margin-left:8px;
+}
+.mockup-browser__hero{
+  aspect-ratio:16/9;
   border-radius:var(--radius-md);
   background:var(--color-accent-tint);
 }
+.mockup-browser__lines{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.mockup-browser__line{
+  height:9px;
+  border-radius:var(--radius-pill);
+  background:var(--chip-fill-on-light);
+}
+.mockup-browser__line--w60{ width:60%; }
 
 /* Tarjetas de proyecto con overlay al hover (teaser de portafolio en Home) */
 
