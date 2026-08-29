@@ -1,0 +1,52 @@
+/* Portafolio. design_handoff_vicunav_web/diseno/Vicunav Sitio Web v2.dc.html, bloque isPortafolio */
+
+.hero-inner__ring{
+  left:-8%;
+  bottom:-46%;
+  width:32%;
+  aspect-ratio:1;
+}
+
+.portfolio-grid-section{
+  position:relative;
+  z-index:3;
+  background:var(--color-light);
+  padding:0 var(--bp-pad) var(--bp-section-py);
+}
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(1, 1fr);
+  gap:var(--bp-gap);
+  margin-top:var(--bp-hero-pad-t);
+}
+.project-card-full__cover{
+  aspect-ratio:4/3;
+}
+
+@media (min-width: 834px){
+  .portfolio-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+  .project-card-full--a .project-card-full__cover,
+  .project-card-full--d .project-card-full__cover{
+    aspect-ratio:4/3;
+  }
+  .project-card-full--b .project-card-full__cover,
+  .project-card-full--c .project-card-full__cover{
+    aspect-ratio:4/5;
+  }
+}
+
+@media (min-width: 1440px){
+  .portfolio-grid{
+    grid-template-columns:repeat(12, 1fr);
+  }
+  .project-card-full--a{ grid-column:span 7; }
+  .project-card-full--b{ grid-column:span 5; }
+  .project-card-full--c{ grid-column:span 5; }
+  .project-card-full--d{ grid-column:span 7; }
+  .project-card-full--a .project-card-full__cover{ aspect-ratio:16/10; }
+  .project-card-full--b .project-card-full__cover{ aspect-ratio:4/5; }
+  .project-card-full--c .project-card-full__cover{ aspect-ratio:4/3; }
+  .project-card-full--d .project-card-full__cover{ aspect-ratio:16/11; }
+}
