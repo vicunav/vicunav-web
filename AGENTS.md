@@ -32,6 +32,13 @@ Tailwind y sin CDN. El contexto completo del encargo está en
   Graph, PDF de CV).
 - [ADR 0012 de `vicunav-hub`](https://github.com/vicunav/vicunav-hub/blob/main/docs/adr/0012-sitio-propio-vicunav-web.md):
   decisión de crear este repositorio y arquitectura de contenido confirmada.
+- [`docs/claude-design-full/`](docs/claude-design-full/): export completo del
+  proyecto de Claude Design (no solo el handoff curado). Acá viven los
+  componentes reales que el zip de handoff no incluía:
+  `Mockup.dc.html` (paneles de interfaz decorativos: dashboard, reserva,
+  chat, navegador, SEO) y `Cover.dc.html` (las 4 portadas de proyecto). Si
+  falta reproducir algo 1 a 1 y no está en `docs/handoff/`, revisar acá
+  antes de aproximar nada.
 
 ## Estructura
 
@@ -59,28 +66,32 @@ Lucide ni ningún sprite por CDN.
 
 ## Decisiones tomadas durante el refinamiento
 
-- Los paneles "Mockup" del design system (dashboard, chat, SEO, navegador) no
-  están en el inventario de assets: son ilustración de interfaz sin
-  especificación propia. Se resolvieron como bloques de color intencional con
-  la misma geometría, siguiendo la regla de placeholder de
-  `docs/handoff/inventario-assets.md` sección 2, no como contenido inventado.
-- El widget de "arma tu platillo / reserva" en cada vertical sí tiene copy
-  real del diseño aprobado y se migró literal, a diferencia de los Mockup
-  anteriores.
+- Los paneles "Mockup" (dashboard, reserva, chat, navegador, SEO) y las
+  portadas de proyecto "Cover" (4 variantes geométricas) se transcribieron
+  literal desde los componentes reales del proyecto de Claude Design
+  (`docs/claude-design-full/Mockup.dc.html` y `Cover.dc.html`, provistos por
+  Mario después del zip inicial del handoff, que no los incluía). No son una
+  aproximación: mismo markup, mismo texto donde lo hay ("Panel de reservas",
+  "Confirmada", el diálogo del chat), convertido de estilos inline a clases
+  en `assets/css/components.css`. El widget de "arma tu platillo / reserva"
+  en cada vertical (`restaurantes.html`, etc.) es un componente distinto,
+  con su propio copy real ya migrado desde antes.
 - El retrato de Mario en Home y Nosotros (A01, A02) no era un placeholder: el
   prototipo ya referenciaba una foto real y publicada en
   `vicunav.com/wp-content/uploads/2026/03/mario-vicuna-vicunav.jpg`. Se
   descargó a `assets/img/mario-vicuna-vicunav.jpg` y se usa tal cual.
 - El PDF de CV (`assets/cv/mario-vicuna-resume.pdf`, enlazado desde
-  `cv.html`) lo proveyó Mario directamente; no estaba en el paquete de diseño
-  original, que enlazaba a una ruta de subida que nunca existió en este
-  repositorio.
+  `cv.html`) tampoco era un faltante real: es el mismo archivo, verificado
+  por checksum MD5, que ya estaba subido al proyecto de Claude Design en
+  `uploads/cv_files-1787863696971-ejq5.pdf`. Solo faltaba en el zip curado
+  del handoff inicial, igual que Mockup y Cover.
 - `docs/handoff/inventario-assets.md` declara slots (A03, A06, A09, A10) que
-  ninguno de los dos prototipos aprobados llega a renderizar: retrato de
-  perfil en `cv.html`, caso "Nelson Look Flash" en portafolio, imagen de
-  cabecera de artículo y miniaturas del listado. No se agregaron al baseline
-  por no estar en el HTML fuente; quedan anotados en ese documento como
-  diseño pendiente, no como placeholder que falte colocar.
+  no existen en ningún archivo fuente disponible (ni los dos prototipos
+  grandes, ni `Cover.dc.html`, ni `Mockup.dc.html`): retrato de perfil en
+  `cv.html`, caso "Nelson Look Flash" en portafolio, imagen de cabecera de
+  artículo y miniaturas del listado. No se agregaron al baseline por no
+  estar en ningún HTML fuente; quedan anotados en ese documento como diseño
+  pendiente, no como placeholder que falte colocar.
 - Los formularios (`contacto.html`) son visuales, sin envío real: es una
   desviación funcional aceptada en `docs/handoff/contrato-fuente.md`,
   sección 6. El botón de envío es `type="button"`, no `submit`, para no

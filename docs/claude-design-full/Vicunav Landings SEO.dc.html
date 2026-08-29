@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/radii.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/shadows.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/styles.css">
+  <script src="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/_ds_bundle.js"></script>
+  <style>
+    body{margin:0;background:color-mix(in oklch, #2B2825 8%, #F4EFE6);font-family:'Plus Jakarta Sans',ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:var(--color-accent)}
+    a:hover{color:var(--color-accent-hover)}
+    button{font:inherit}
+    :root{
+      --text-muted:color-mix(in oklch, #2B2825 82%, #B7AE9F);
+      --accent-ink:color-mix(in oklch, #E8873A 48%, #2B2825);
+      --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+      --shadow-lift:0 1px 2px color-mix(in oklch, #2B2825 12%, transparent), 0 4px 8px color-mix(in oklch, #2B2825 8%, transparent), 0 12px 24px color-mix(in oklch, #2B2825 10%, transparent);
+      --shadow-float:0 1px 2px color-mix(in oklch, #2B2825 14%, transparent), 0 6px 12px color-mix(in oklch, #2B2825 10%, transparent), 0 18px 36px color-mix(in oklch, #2B2825 12%, transparent), 0 40px 72px color-mix(in oklch, #2B2825 12%, transparent);
+      --shadow-hover:0 2px 4px color-mix(in oklch, #2B2825 16%, transparent), 0 10px 20px color-mix(in oklch, #2B2825 12%, transparent), 0 28px 56px color-mix(in oklch, #2B2825 16%, transparent), 0 56px 96px color-mix(in oklch, #2B2825 14%, transparent);
+    }
+  </style>
+</helmet>
+
+<div style="position:sticky;top:0;z-index:80;background:color-mix(in oklch, #2B2825 8%, #F4EFE6);border-bottom:1px solid color-mix(in oklch, #2B2825 16%, #F4EFE6);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--font-family-base);">
+  <div style="display:flex;gap:4px;flex-wrap:wrap;">
+    <sc-for list="{{ pageTabs }}" as="t" hint-placeholder-count="9">
+      <button onClick="{{ t.onClick }}" style="border:none;border-radius:999px;padding:0 14px;min-height:36px;cursor:pointer;font-family:var(--font-family-base);font-size:14px;font-weight:600;background:{{ t.bg }};color:{{ t.color }};" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;">{{ t.label }}</button>
+    </sc-for>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+    <sc-for list="{{ bpTabs }}" as="b" hint-placeholder-count="3">
+      <button onClick="{{ b.onClick }}" style="border:1px solid {{ b.border }};border-radius:999px;padding:0 14px;min-height:32px;cursor:pointer;font-family:var(--font-family-base);font-size:13px;font-weight:600;background:{{ b.bg }};color:var(--color-dark);" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;">{{ b.label }}</button>
+    </sc-for>
+  </div>
+</div>
+
+<div data-screen-label="{{ screenLabel }}" style="width:{{ bp.canvasW }};max-width:100%;margin:0 auto;background:var(--color-light);overflow:hidden;">
+
+<sc-if value="{{ showChrome }}" hint-placeholder-val="{{ true }}">
+  <dc-import name="SiteHeader" page="{{ headerPage }}" is-mobile="{{ bp.isMobile }}" pad-h="{{ bp.pad }}" hint-size="100%,80px"></dc-import>
+</sc-if>
+
+<sc-if value="{{ isVertical }}" hint-placeholder-val="{{ true }}">
+  <section style="position:relative;background:var(--color-dark);overflow:hidden;padding:{{ bp.heroPadT }}px {{ bp.pad }}px {{ bp.heroPadB }}px;">
+    <div style="position:absolute;inset:0;background-image:var(--grain);opacity:0.055;mix-blend-mode:overlay;pointer-events:none;"></div>
+    <div style="position:absolute;right:-10%;top:-34%;width:46%;aspect-ratio:1;border-radius:999px;border:2px solid color-mix(in oklch, #E8873A 40%, #2B2825);pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;display:grid;grid-template-columns:{{ bp.heroCols }};gap:{{ bp.heroGap }}px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:{{ bp.gap }}px;">
+        <nav aria-label="Ruta" style="display:flex;align-items:center;gap:8px;font-family:var(--font-family-base);font-size:13px;font-weight:600;color:var(--color-secondary);">
+          <span>Inicio</span><span style="color:var(--color-accent);">/</span><span>{{ v.nav }}</span>
+        </nav>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="width:40px;height:2px;background:var(--color-accent);display:block;"></span>
+          <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);">{{ v.eyebrow }}</span>
+        </div>
+        <h1 style="margin:0 0 0 -0.05em;font-family:var(--font-family-base);font-weight:800;font-size:{{ bp.h1 }}px;line-height:{{ bp.h1lh }};letter-spacing:-0.035em;color:var(--color-light);text-wrap:pretty;max-width:18ch;">{{ v.h1a }}<span style="color:var(--color-accent);">{{ v.h1b }}</span></h1>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:{{ bp.bodyLg }}px;line-height:1.55;color:var(--color-secondary);max-width:46ch;">{{ v.sub }}</p>
+        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:8px;">
+          <a href="{{ whatsappHref }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;background:var(--color-accent);color:var(--color-dark);text-decoration:none;font-family:var(--font-family-base);font-weight:700;font-size:16px;transition:background-color .15s ease, transform .15s ease;" style-hover="background:var(--color-accent-hover);transform:translateY(-2px)" style-focus="outline:3px solid var(--color-light);outline-offset:3px;">
+            <dc-import name="Ico" glyph="message-circle" size="20" hint-size="20px,20px"></dc-import>{{ v.cta }}
+          </a>
+          <a href="{{ whatsappHref }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;min-height:56px;padding:0 24px;border-radius:999px;background:transparent;border:1px solid var(--color-accent);color:var(--color-secondary);text-decoration:none;font-family:var(--font-family-base);font-weight:600;font-size:16px;" style-hover="color:var(--color-light);border-color:var(--color-light)" style-focus="outline:3px solid var(--color-accent);outline-offset:3px;">Ver cómo funciona</a>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div style="background:#fff;border-radius:20px;padding:18px;box-shadow:var(--shadow-float);display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <span style="font-family:var(--font-family-base);font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-ink);">{{ v.demoTitle }}</span>
+            <span style="font-family:var(--font-family-base);font-size:13px;font-weight:700;color:var(--color-dark);">{{ v.demoStep }}</span>
+          </div>
+          <div style="height:4px;border-radius:999px;background:var(--color-accent-tint);overflow:hidden;">
+            <div style="width:50%;height:100%;background:var(--color-accent);"></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <sc-for list="{{ builderOptions }}" as="o" hint-placeholder-count="4">
+              <div style="border:1px solid {{ o.border }};background:{{ o.bg }};border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px;min-height:78px;">
+                <span style="font-family:var(--font-family-base);font-size:14px;font-weight:700;color:var(--color-dark);">{{ o.name }}</span>
+                <span style="font-family:var(--font-family-base);font-size:12px;font-weight:500;color:var(--text-muted);">{{ o.note }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="border-top:1px solid var(--border-default);padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <span style="font-family:var(--font-family-base);font-size:13px;font-weight:600;color:var(--text-muted);">{{ v.demoNote }}</span>
+            <span style="display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 18px;border-radius:999px;background:var(--color-dark);color:var(--color-light);font-family:var(--font-family-base);font-size:14px;font-weight:700;">Continuar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <div style="display:grid;grid-template-columns:{{ bp.cols2 }};gap:{{ bp.gap }}px;align-items:start;">
+      <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2 }}px;line-height:1.05;letter-spacing:-0.03em;color:var(--color-dark);text-wrap:pretty;max-width:20ch;">{{ v.problemTitle }}</h2>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <p style="margin:0;font-family:var(--font-family-base);font-size:{{ bp.bodyLg }}px;line-height:1.6;color:var(--text-muted);">{{ v.problemBody }}</p>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <sc-for list="{{ restoPains }}" as="p" hint-placeholder-count="4">
+            <li style="display:flex;gap:12px;align-items:flex-start;font-family:var(--font-family-base);font-size:16px;line-height:1.5;color:var(--color-dark);">
+              <span style="color:var(--accent-ink);flex-shrink:0;margin-top:2px;"><dc-import name="Ico" glyph="check" size="20" hint-size="20px,20px"></dc-import></span>{{ p.text }}
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+      <span style="width:40px;height:2px;background:var(--accent-ink);display:block;"></span>
+      <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-ink);">El núcleo del servicio</span>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ bp.cols3 }};gap:{{ bp.gap }}px;">
+      <sc-for list="{{ restoCore }}" as="c" hint-placeholder-count="3">
+        <div style="background:{{ c.bg }};border:1px solid {{ c.border }};border-radius:20px;padding:{{ bp.cardPad }}px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow-lift);transition:transform .2s ease, box-shadow .2s ease;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-hover)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+            <div style="width:56px;height:56px;border-radius:14px;background:{{ c.iconBg }};color:{{ c.iconFg }};display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <dc-import name="Ico" glyph="{{ c.icon }}" size="28" hint-size="28px,28px"></dc-import>
+            </div>
+            <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:{{ c.iconFg }};">{{ c.n }}</span>
+          </div>
+          <h3 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h3 }}px;line-height:1.15;letter-spacing:-0.02em;color:{{ c.title }};max-width:22ch;">{{ c.t }}</h3>
+          <p style="margin:0;font-family:var(--font-family-base);font-size:16px;line-height:1.6;color:{{ c.body }};">{{ c.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <h2 style="margin:0 0 8px;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2 }}px;line-height:1.05;letter-spacing:-0.03em;color:var(--color-dark);max-width:24ch;text-wrap:pretty;">{{ v.featuresTitle }}</h2>
+    <p style="margin:0 0 28px;font-family:var(--font-family-base);font-size:{{ bp.bodyLg }}px;line-height:1.6;color:var(--text-muted);max-width:52ch;">{{ v.featuresSub }}</p>
+    <div style="display:grid;grid-template-columns:{{ bp.cols3 }};gap:{{ bp.gap }}px;">
+      <sc-for list="{{ restoFeatures }}" as="f" hint-placeholder-count="9">
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s ease, transform .2s ease;" style-hover="border-color:var(--accent-ink);transform:translateY(-3px)">
+          <div style="width:44px;height:44px;border-radius:12px;background:var(--color-accent-tint);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;">
+            <dc-import name="Ico" glyph="{{ f.icon }}" size="22" hint-size="22px,22px"></dc-import>
+          </div>
+          <h3 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-0.015em;color:var(--color-dark);">{{ f.t }}</h3>
+          <p style="margin:0;font-family:var(--font-family-base);font-size:15px;line-height:1.6;color:var(--text-muted);">{{ f.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <div style="background:var(--color-dark);border-radius:24px;padding:{{ bp.cardPad }}px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:var(--grain);opacity:0.06;mix-blend-mode:overlay;pointer-events:none;"></div>
+      <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:28px;">
+        <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-light);max-width:26ch;text-wrap:pretty;">{{ v.stepsTitle }}</h2>
+        <div style="display:grid;grid-template-columns:{{ bp.cols4 }};gap:{{ bp.gap }}px;">
+          <sc-for list="{{ restoSteps }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid color-mix(in oklch, #B7AE9F 30%, #2B2825);">
+              <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);">{{ s.n }}</span>
+              <h3 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:19px;line-height:1.25;color:var(--color-light);">{{ s.t }}</h3>
+              <p style="margin:0;font-family:var(--font-family-base);font-size:15px;line-height:1.6;color:var(--color-secondary);">{{ s.d }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <div style="display:grid;grid-template-columns:{{ bp.cols2 }};gap:{{ bp.gap }}px;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="color:var(--accent-ink);"><dc-import name="Ico" glyph="map-pin" size="24" hint-size="24px,24px"></dc-import></span>
+          <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-ink);">Zonas que atiendo</span>
+        </div>
+        <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);max-width:22ch;text-wrap:pretty;">{{ v.geoTitle }}</h2>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:16px;line-height:1.6;color:var(--text-muted);max-width:46ch;">{{ v.geoBody }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:{{ bp.cols2 }};gap:12px;">
+        <sc-for list="{{ zones }}" as="z" hint-placeholder-count="6">
+          <div style="background:#fff;border:1px solid var(--border-default);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:4px;">
+            <span style="font-family:var(--font-family-base);font-size:16px;font-weight:700;color:var(--color-dark);">{{ z.name }}</span>
+            <span style="font-family:var(--font-family-base);font-size:13px;font-weight:500;color:var(--text-muted);">{{ z.note }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <h2 style="margin:0 0 8px;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);max-width:24ch;">{{ v.casesTitle }}</h2>
+    <p style="margin:0 0 24px;font-family:var(--font-family-base);font-size:16px;line-height:1.6;color:var(--text-muted);max-width:56ch;">{{ v.casesNote }}</p>
+    <div style="display:grid;grid-template-columns:{{ bp.cols3 }};gap:{{ bp.gap }}px;">
+      <sc-for list="{{ restoCases }}" as="c" hint-placeholder-count="3">
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-lift);">
+          <span style="align-self:flex-start;font-family:var(--font-family-base);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:{{ c.badgeFg }};background:{{ c.badgeBg }};border:1px solid {{ c.badgeBorder }};border-radius:999px;padding:5px 12px;">{{ c.badge }}</span>
+          <h3 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:20px;line-height:1.2;letter-spacing:-0.02em;color:var(--color-dark);">{{ c.name }}</h3>
+          <p style="margin:0;font-family:var(--font-family-base);font-size:15px;line-height:1.6;color:var(--text-muted);">{{ c.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <div style="display:grid;grid-template-columns:{{ bp.faqCols }};gap:{{ bp.gap }}px;align-items:start;">
+      <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);max-width:16ch;">Preguntas frecuentes</h2>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+          <div style="background:#fff;border:1px solid {{ f.border }};border-radius:16px;overflow:hidden;">
+            <button onClick="{{ f.onClick }}" aria-expanded="{{ f.open }}" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;min-height:64px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:var(--font-family-base);font-size:17px;font-weight:700;line-height:1.3;color:var(--color-dark);" style-focus="outline:2px solid var(--color-accent);outline-offset:-2px;">
+              {{ f.q }}
+              <span style="color:var(--accent-ink);flex-shrink:0;"><dc-import name="Ico" glyph="{{ f.icon }}" size="22" hint-size="22px,22px"></dc-import></span>
+            </button>
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;padding:0 20px 20px;font-family:var(--font-family-base);font-size:16px;line-height:1.65;color:var(--text-muted);max-width:64ch;">{{ f.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px {{ bp.sectionPadY }}px;">
+    <div style="background:var(--color-accent-tint);border-radius:24px;padding:{{ bp.cardPad }}px;display:grid;grid-template-columns:{{ bp.cols2 }};gap:{{ bp.gap }}px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);max-width:22ch;text-wrap:pretty;">{{ v.ctaTitle }}</h2>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:16px;line-height:1.6;color:var(--text-muted);max-width:44ch;">{{ v.ctaSub }}</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start;">
+        <a href="{{ whatsappHref }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;background:var(--color-dark);color:var(--color-light);text-decoration:none;font-family:var(--font-family-base);font-weight:700;font-size:16px;" style-hover="background:var(--accent-ink)" style-focus="outline:3px solid var(--color-dark);outline-offset:3px;">
+          <dc-import name="Ico" glyph="message-circle" size="20" hint-size="20px,20px"></dc-import>Escribir por WhatsApp
+        </a>
+        <a href="mailto:hello@vicunav.com" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-family-base);font-size:15px;font-weight:600;color:var(--accent-ink);text-decoration:none;" style-hover="text-decoration:underline" style-focus="outline:2px solid var(--color-dark);outline-offset:3px;">
+          <dc-import name="Ico" glyph="mail" size="18" hint-size="18px,18px"></dc-import>hello@vicunav.com
+        </a>
+        <span style="font-family:var(--font-family-base);font-size:14px;font-weight:600;color:var(--text-muted);">Respondo en 1 a 2 días hábiles.</span>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<sc-if value="{{ isService }}" hint-placeholder-val="{{ false }}">
+  <section style="position:relative;background:var(--color-dark);overflow:hidden;padding:{{ bp.heroPadT }}px {{ bp.pad }}px {{ bp.heroPadB }}px;">
+    <div style="position:absolute;inset:0;background-image:var(--grain);opacity:0.055;mix-blend-mode:overlay;pointer-events:none;"></div>
+    <div style="position:absolute;left:-6%;bottom:-40%;width:34%;aspect-ratio:1;border-radius:999px;border:2px solid color-mix(in oklch, #E8873A 34%, #2B2825);pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:{{ bp.gap }}px;max-width:60ch;">
+      <nav aria-label="Ruta" style="display:flex;align-items:center;gap:8px;font-family:var(--font-family-base);font-size:13px;font-weight:600;color:var(--color-secondary);">
+        <span>Inicio</span><span style="color:var(--color-accent);">/</span><span>Servicios</span><span style="color:var(--color-accent);">/</span><span>{{ svc.nav }}</span>
+      </nav>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div style="width:52px;height:52px;border-radius:14px;background:color-mix(in oklch, #E8873A 22%, #2B2825);color:var(--color-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <dc-import name="Ico" glyph="{{ svc.icon }}" size="26" hint-size="26px,26px"></dc-import>
+        </div>
+        <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);">{{ svc.eyebrow }}</span>
+      </div>
+      <h1 style="margin:0 0 0 -0.05em;font-family:var(--font-family-base);font-weight:800;font-size:{{ bp.h1s }}px;line-height:{{ bp.h1lh }};letter-spacing:-0.035em;color:var(--color-light);text-wrap:pretty;">{{ svc.h1a }}<span style="color:var(--color-accent);">{{ svc.h1b }}</span></h1>
+      <p style="margin:0;font-family:var(--font-family-base);font-size:{{ bp.bodyLg }}px;line-height:1.55;color:var(--color-secondary);max-width:48ch;">{{ svc.sub }}</p>
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:8px;">
+        <a href="{{ whatsappHref }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;background:var(--color-accent);color:var(--color-dark);text-decoration:none;font-family:var(--font-family-base);font-weight:700;font-size:16px;" style-hover="background:var(--color-accent-hover);transform:translateY(-2px)" style-focus="outline:3px solid var(--color-light);outline-offset:3px;">
+          <dc-import name="Ico" glyph="message-circle" size="20" hint-size="20px,20px"></dc-import>{{ svc.cta }}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <div style="display:grid;grid-template-columns:{{ bp.cols2 }};gap:{{ bp.gap }}px;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2 }}px;line-height:1.05;letter-spacing:-0.03em;color:var(--color-dark);max-width:20ch;text-wrap:pretty;">{{ svc.problemTitle }}</h2>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:{{ bp.bodyLg }}px;line-height:1.6;color:var(--text-muted);max-width:48ch;">{{ svc.problemBody }}</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border-default);border-radius:20px;padding:{{ bp.cardPad }}px;display:flex;flex-direction:column;gap:16px;box-shadow:var(--shadow-lift);">
+        <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-ink);">Para quién es</span>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;">
+          <sc-for list="{{ svc.forWho }}" as="w" hint-placeholder-count="4">
+            <li style="display:flex;gap:12px;align-items:flex-start;font-family:var(--font-family-base);font-size:16px;line-height:1.5;color:var(--color-dark);">
+              <span style="color:var(--accent-ink);flex-shrink:0;margin-top:2px;"><dc-import name="Ico" glyph="check" size="20" hint-size="20px,20px"></dc-import></span>{{ w.text }}
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <h2 style="margin:0 0 28px;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);max-width:24ch;">Qué incluye</h2>
+    <div style="display:grid;grid-template-columns:{{ bp.cols3 }};gap:{{ bp.gap }}px;">
+      <sc-for list="{{ svc.features }}" as="f" hint-placeholder-count="6">
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s ease, transform .2s ease;" style-hover="border-color:var(--accent-ink);transform:translateY(-3px)">
+          <div style="width:44px;height:44px;border-radius:12px;background:var(--color-accent-tint);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;">
+            <dc-import name="Ico" glyph="{{ f.icon }}" size="22" hint-size="22px,22px"></dc-import>
+          </div>
+          <h3 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-0.015em;color:var(--color-dark);">{{ f.t }}</h3>
+          <p style="margin:0;font-family:var(--font-family-base);font-size:15px;line-height:1.6;color:var(--text-muted);">{{ f.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <div style="background:var(--color-dark);border-radius:24px;padding:{{ bp.cardPad }}px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:var(--grain);opacity:0.06;mix-blend-mode:overlay;pointer-events:none;"></div>
+      <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:28px;">
+        <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-light);max-width:24ch;">Cómo se trabaja</h2>
+        <div style="display:grid;grid-template-columns:{{ bp.cols4 }};gap:{{ bp.gap }}px;">
+          <sc-for list="{{ svc.steps }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid color-mix(in oklch, #B7AE9F 30%, #2B2825);">
+              <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);">{{ s.n }}</span>
+              <h3 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:19px;line-height:1.25;color:var(--color-light);">{{ s.t }}</h3>
+              <p style="margin:0;font-family:var(--font-family-base);font-size:15px;line-height:1.6;color:var(--color-secondary);">{{ s.d }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <div style="display:grid;grid-template-columns:{{ bp.cols2 }};gap:{{ bp.gap }}px;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="color:var(--accent-ink);"><dc-import name="Ico" glyph="map-pin" size="24" hint-size="24px,24px"></dc-import></span>
+          <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-ink);">Dónde trabajo</span>
+        </div>
+        <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);max-width:22ch;text-wrap:pretty;">{{ svc.geoTitle }}</h2>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:16px;line-height:1.6;color:var(--text-muted);max-width:46ch;">{{ svc.geoBody }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:{{ bp.cols2 }};gap:12px;">
+        <sc-for list="{{ zones }}" as="z" hint-placeholder-count="6">
+          <div style="background:#fff;border:1px solid var(--border-default);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:4px;">
+            <span style="font-family:var(--font-family-base);font-size:16px;font-weight:700;color:var(--color-dark);">{{ z.name }}</span>
+            <span style="font-family:var(--font-family-base);font-size:13px;font-weight:500;color:var(--text-muted);">{{ z.note }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <div style="display:grid;grid-template-columns:{{ bp.faqCols }};gap:{{ bp.gap }}px;align-items:start;">
+      <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);max-width:16ch;">Preguntas frecuentes</h2>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+          <div style="background:#fff;border:1px solid {{ f.border }};border-radius:16px;overflow:hidden;">
+            <button onClick="{{ f.onClick }}" aria-expanded="{{ f.open }}" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;min-height:64px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:var(--font-family-base);font-size:17px;font-weight:700;line-height:1.3;color:var(--color-dark);" style-focus="outline:2px solid var(--color-accent);outline-offset:-2px;">
+              {{ f.q }}
+              <span style="color:var(--accent-ink);flex-shrink:0;"><dc-import name="Ico" glyph="{{ f.icon }}" size="22" hint-size="22px,22px"></dc-import></span>
+            </button>
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;padding:0 20px 20px;font-family:var(--font-family-base);font-size:16px;line-height:1.65;color:var(--text-muted);max-width:64ch;">{{ f.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <h2 style="margin:0 0 20px;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h3 }}px;line-height:1.2;letter-spacing:-0.02em;color:var(--color-dark);">Seguir explorando</h2>
+    <div style="display:grid;grid-template-columns:{{ bp.cols3 }};gap:{{ bp.gap }}px;">
+      <sc-for list="{{ svcRelated }}" as="r" hint-placeholder-count="3">
+        <button onClick="{{ r.onClick }}" style="text-align:left;background:#fff;border:1px solid var(--border-default);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:border-color .2s ease, transform .2s ease;" style-hover="border-color:var(--accent-ink);transform:translateY(-3px)" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;">
+          <span style="font-family:var(--font-family-base);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-ink);">{{ r.kind }}</span>
+          <span style="font-family:var(--font-family-base);font-size:19px;font-weight:700;line-height:1.25;letter-spacing:-0.02em;color:var(--color-dark);">{{ r.t }}</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-family-base);font-size:14px;font-weight:600;color:var(--accent-ink);">Ver<dc-import name="Ico" glyph="arrow-right" size="18" hint-size="18px,18px"></dc-import></span>
+        </button>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px {{ bp.sectionPadY }}px;">
+    <div style="background:var(--color-accent-tint);border-radius:24px;padding:{{ bp.cardPad }}px;display:grid;grid-template-columns:{{ bp.cols2 }};gap:{{ bp.gap }}px;align-items:center;">
+      <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);max-width:22ch;text-wrap:pretty;">{{ svc.ctaTitle }}</h2>
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start;">
+        <a href="{{ whatsappHref }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;background:var(--color-dark);color:var(--color-light);text-decoration:none;font-family:var(--font-family-base);font-weight:700;font-size:16px;" style-hover="background:var(--accent-ink)" style-focus="outline:3px solid var(--color-dark);outline-offset:3px;">
+          <dc-import name="Ico" glyph="message-circle" size="20" hint-size="20px,20px"></dc-import>Hablemos por WhatsApp
+        </a>
+        <a href="mailto:hello@vicunav.com" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-family-base);font-size:15px;font-weight:600;color:var(--accent-ink);text-decoration:none;" style-hover="text-decoration:underline" style-focus="outline:2px solid var(--color-dark);outline-offset:3px;">
+          <dc-import name="Ico" glyph="mail" size="18" hint-size="18px,18px"></dc-import>hello@vicunav.com
+        </a>
+        <span style="font-family:var(--font-family-base);font-size:14px;font-weight:600;color:var(--text-muted);">Diagnóstico inicial sin costo. Respondo en 1 a 2 días hábiles.</span>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<sc-if value="{{ isArticulos }}" hint-placeholder-val="{{ false }}">
+  <section style="position:relative;background:var(--color-dark);overflow:hidden;padding:{{ bp.heroPadT }}px {{ bp.pad }}px 48px;">
+    <div style="position:absolute;inset:0;background-image:var(--grain);opacity:0.055;mix-blend-mode:overlay;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:20px;max-width:56ch;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="width:40px;height:2px;background:var(--color-accent);display:block;"></span>
+        <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);">Artículos</span>
+      </div>
+      <h1 style="margin:0 0 0 -0.05em;font-family:var(--font-family-base);font-weight:800;font-size:{{ bp.h1s }}px;line-height:{{ bp.h1lh }};letter-spacing:-0.035em;color:var(--color-light);text-wrap:pretty;">Tecnología que <span style="color:var(--color-accent);">te ahorra tiempo</span>, explicada sin jerga</h1>
+      <p style="margin:0;font-family:var(--font-family-base);font-size:{{ bp.bodyLg }}px;line-height:1.55;color:var(--color-secondary);max-width:46ch;">Lo que he aprendido montando pedidos en línea, automatizaciones, sitios y visibilidad local. Escrito desde proyectos reales, con lo que funcionó y lo que no.</p>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:32px {{ bp.pad }}px 0;">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="6">
+        <button onClick="{{ c.onClick }}" style="min-height:40px;padding:0 18px;border-radius:999px;cursor:pointer;font-family:var(--font-family-base);font-size:14px;font-weight:600;background:{{ c.bg }};border:1px solid {{ c.border }};color:{{ c.color }};transition:background-color .15s ease, border-color .15s ease;" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;">{{ c.label }}</button>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-if value="{{ showFeatured }}" hint-placeholder-val="{{ true }}">
+    <section style="background:var(--color-light);padding:32px {{ bp.pad }}px 0;">
+      <button onClick="{{ goArticulo }}" style="width:100%;text-align:left;background:#fff;border:1px solid var(--border-default);border-radius:24px;padding:{{ bp.cardPad }}px;cursor:pointer;display:grid;grid-template-columns:{{ bp.featCols }};gap:{{ bp.gap }}px;align-items:center;box-shadow:var(--shadow-float);transition:transform .2s ease, box-shadow .2s ease;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-hover)" style-focus="outline:2px solid var(--color-accent);outline-offset:3px;">
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span style="font-family:var(--font-family-base);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-dark);background:var(--color-accent);border-radius:999px;padding:5px 12px;">Destacado</span>
+            <span style="font-family:var(--font-family-base);font-size:13px;font-weight:600;color:var(--text-muted);">{{ featured.cat }}</span>
+            <span style="font-family:var(--font-family-base);font-size:13px;font-weight:500;color:var(--text-muted);">{{ featured.read }}</span>
+          </div>
+          <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);text-wrap:pretty;max-width:26ch;">{{ featured.title }}</h2>
+          <p style="margin:0;font-family:var(--font-family-base);font-size:16px;line-height:1.6;color:var(--text-muted);max-width:52ch;">{{ featured.excerpt }}</p>
+          <span style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-family-base);font-size:15px;font-weight:700;color:var(--accent-ink);">Leer el artículo<dc-import name="Ico" glyph="arrow-right" size="18" hint-size="18px,18px"></dc-import></span>
+        </div>
+        <div style="background:var(--color-dark);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden;min-height:200px;justify-content:center;">
+          <div style="position:absolute;inset:0;background-image:var(--grain);opacity:0.07;mix-blend-mode:overlay;pointer-events:none;"></div>
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:12px;">
+            <sc-for list="{{ featured.stats }}" as="s" hint-placeholder-count="3">
+              <div style="display:flex;align-items:baseline;gap:12px;">
+                <span style="font-family:var(--font-family-base);font-size:30px;font-weight:800;letter-spacing:-0.03em;color:var(--color-accent);">{{ s.v }}</span>
+                <span style="font-family:var(--font-family-base);font-size:14px;font-weight:500;line-height:1.4;color:var(--color-secondary);">{{ s.l }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </button>
+    </section>
+  </sc-if>
+
+  <section style="background:var(--color-light);padding:{{ bp.gap }}px {{ bp.pad }}px {{ bp.sectionPadY }}px;">
+    <div style="display:grid;grid-template-columns:{{ bp.cols3 }};gap:{{ bp.gap }}px;">
+      <sc-for list="{{ articles }}" as="a" hint-placeholder-count="6">
+        <button onClick="{{ a.onClick }}" style="text-align:left;background:#fff;border:1px solid var(--border-default);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px;cursor:pointer;min-height:220px;transition:border-color .2s ease, transform .2s ease;" style-hover="border-color:var(--accent-ink);transform:translateY(-3px)" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;">
+          <span style="align-self:flex-start;font-family:var(--font-family-base);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-ink);background:var(--color-accent-tint);border-radius:999px;padding:5px 12px;">{{ a.cat }}</span>
+          <h3 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:20px;line-height:1.22;letter-spacing:-0.02em;color:var(--color-dark);text-wrap:pretty;">{{ a.title }}</h3>
+          <p style="margin:0;font-family:var(--font-family-base);font-size:15px;line-height:1.6;color:var(--text-muted);">{{ a.excerpt }}</p>
+          <span style="margin-top:auto;font-family:var(--font-family-base);font-size:13px;font-weight:600;color:var(--text-muted);">{{ a.read }}</span>
+        </button>
+      </sc-for>
+    </div>
+  </section>
+</sc-if>
+
+<sc-if value="{{ isArticulo }}" hint-placeholder-val="{{ false }}">
+  <article style="background:var(--color-light);">
+    <header style="position:relative;background:var(--color-dark);overflow:hidden;padding:{{ bp.heroPadT }}px {{ bp.pad }}px 56px;">
+      <div style="position:absolute;inset:0;background-image:var(--grain);opacity:0.055;mix-blend-mode:overlay;pointer-events:none;"></div>
+      <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:20px;max-width:60ch;">
+        <nav aria-label="Ruta" style="display:flex;align-items:center;gap:8px;font-family:var(--font-family-base);font-size:13px;font-weight:600;color:var(--color-secondary);flex-wrap:wrap;">
+          <span>Inicio</span><span style="color:var(--color-accent);">/</span>
+          <button onClick="{{ goArticulos }}" style="background:none;border:none;padding:0;cursor:pointer;font-family:var(--font-family-base);font-size:13px;font-weight:600;color:var(--color-secondary);" style-hover="color:var(--color-accent)" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;">Artículos</button>
+          <span style="color:var(--color-accent);">/</span><span>Restaurantes</span>
+        </nav>
+        <h1 style="margin:0 0 0 -0.04em;font-family:var(--font-family-base);font-weight:800;font-size:{{ bp.h1a }}px;line-height:1.04;letter-spacing:-0.035em;color:var(--color-light);text-wrap:pretty;">Cómo montar el sistema de pedidos de tu restaurante, paso a paso</h1>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:40px;height:40px;border-radius:999px;background:color-mix(in oklch, #E8873A 22%, #2B2825);color:var(--color-accent);display:flex;align-items:center;justify-content:center;">
+              <dc-import name="Ico" glyph="user" size="20" hint-size="20px,20px"></dc-import>
+            </div>
+            <span style="font-family:var(--font-family-base);font-size:14px;font-weight:700;color:var(--color-light);">Mario Vicuña</span>
+          </div>
+          <span style="font-family:var(--font-family-base);font-size:14px;font-weight:500;color:var(--color-secondary);">9 minutos de lectura</span>
+          <span style="font-family:var(--font-family-base);font-size:14px;font-weight:500;color:var(--color-secondary);">Actualizado en 2026</span>
+        </div>
+      </div>
+    </header>
+
+    <div style="display:grid;grid-template-columns:{{ bp.artCols }};gap:{{ bp.heroGap }}px;padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:24px;max-width:70ch;">
+        <p style="margin:0;font-family:var(--font-family-base);font-size:{{ bp.bodyLg }}px;line-height:1.65;color:var(--color-dark);font-weight:500;">Casi todos los restaurantes con los que hablo tienen el mismo cuello de botella, y no está en la cocina. Está antes: en el momento en que el pedido nace en una llamada, un chat o una nota en papel, y alguien tiene que entenderlo y traducirlo para que empiece a prepararse.</p>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:17px;line-height:1.75;color:var(--text-muted);">Ese paso intermedio parece inofensivo. En hora pico es donde se cuela el plato equivocado, la espera larga y el cliente que no vuelve. La buena noticia es que se puede eliminar por completo, y no hace falta cambiar toda tu operación de golpe para hacerlo.</p>
+
+        <h2 style="margin:16px 0 0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.12;letter-spacing:-0.03em;color:var(--color-dark);">Por qué el pedido a mano cuesta más de lo que parece</h2>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:17px;line-height:1.75;color:var(--text-muted);">Muchos restaurantes ya intentaron ordenar esto: un formulario en el sitio, un número de WhatsApp, un PDF con la carta. Suele quedarse a medias, y casi siempre por las mismas cuatro razones:</p>
+        <ul style="margin:0;padding:0 0 0 4px;list-style:none;display:flex;flex-direction:column;gap:12px;">
+          <sc-for list="{{ articleWhy }}" as="w" hint-placeholder-count="4">
+            <li style="display:flex;gap:12px;align-items:flex-start;font-family:var(--font-family-base);font-size:17px;line-height:1.65;color:var(--color-dark);">
+              <span style="color:var(--accent-ink);flex-shrink:0;margin-top:3px;"><dc-import name="Ico" glyph="minus" size="18" hint-size="18px,18px"></dc-import></span>{{ w.text }}
+            </li>
+          </sc-for>
+        </ul>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:17px;line-height:1.75;color:var(--text-muted);">Ninguna de esas cuatro es un problema de promoción. Todas son de diseño: pedirte cuesta más trabajo del que la gente está dispuesta a hacer. Mientras eso siga así, no importa cuánto publiques el enlace.</p>
+
+        <div style="background:var(--color-accent-tint);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:10px;">
+          <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-ink);">La regla</span>
+          <p style="margin:0;font-family:var(--font-family-base);font-size:{{ bp.quote }}px;line-height:1.45;font-weight:700;letter-spacing:-0.02em;color:var(--color-dark);">Un sistema de pedidos no se gana la confianza de tu cocina por ser moderno. Se la gana el día en que la comanda llega completa y nadie tuvo que preguntar nada.</p>
+        </div>
+
+        <h2 style="margin:16px 0 0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.12;letter-spacing:-0.03em;color:var(--color-dark);">Qué tiene que hacer bien tu sistema</h2>
+        <h3 style="margin:8px 0 0;font-family:var(--font-family-base);font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-0.02em;color:var(--color-dark);">1. Un menú que siempre dice la verdad</h3>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:17px;line-height:1.75;color:var(--text-muted);">Un menú administrado desde un panel, con disponibilidad por producto y por horario. Si se acabó el pernil, alguien lo apaga en treinta segundos y nadie más lo pide. Esta sola pieza elimina buena parte de las llamadas incómodas de la noche.</p>
+        <h3 style="margin:8px 0 0;font-family:var(--font-family-base);font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-0.02em;color:var(--color-dark);">2. Un armado guiado para lo que el cliente personaliza</h3>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:17px;line-height:1.75;color:var(--text-muted);">La pizza es el ejemplo clásico: tamaño, masa, mitad y mitad, extras por sección, y cada decisión cambia el precio y el tiempo de cocina. Pero pasa igual con combos, bandejas o bowls. Un armado bien diseñado hace tres cosas a la vez: muestra el precio actualizado en cada paso, evita combinaciones que tu cocina no puede producir, y entrega una comanda que no necesita interpretación.</p>
+        <h3 style="margin:8px 0 0;font-family:var(--font-family-base);font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-0.02em;color:var(--color-dark);">3. Cobro y confirmación en el mismo flujo</h3>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:17px;line-height:1.75;color:var(--text-muted);">Pago en línea, transferencia con comprobante o pago al recibir: cualquiera sirve, siempre que el cliente termine con un número de pedido y un tiempo estimado. Lo que hace que la gente vuelva a llamar para confirmar no es el precio, es no saber si su pedido existe.</p>
+        <h3 style="margin:8px 0 0;font-family:var(--font-family-base);font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-0.02em;color:var(--color-dark);">4. Un pedido que entra directo a la operación</h3>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:17px;line-height:1.75;color:var(--text-muted);">Impresión en cocina o pantalla de órdenes, aviso al encargado y registro para el reporte del día. Una regla simple para saber si está terminado: si alguien tiene que copiar el pedido a mano en otro lado, todavía no lo está.</p>
+
+        <h2 style="margin:16px 0 0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.12;letter-spacing:-0.03em;color:var(--color-dark);">Cómo hacer la transición sin perder ventas</h2>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <sc-for list="{{ articleSteps }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--border-default);border-radius:16px;padding:20px;">
+              <span style="width:36px;height:36px;border-radius:999px;background:var(--color-dark);color:var(--color-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-family-base);font-size:15px;font-weight:700;">{{ s.n }}</span>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <span style="font-family:var(--font-family-base);font-size:18px;font-weight:700;line-height:1.25;color:var(--color-dark);">{{ s.t }}</span>
+                <span style="font-family:var(--font-family-base);font-size:16px;line-height:1.65;color:var(--text-muted);">{{ s.d }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <h2 style="margin:16px 0 0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.12;letter-spacing:-0.03em;color:var(--color-dark);">Qué mirar para saber si funcionó</h2>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:17px;line-height:1.75;color:var(--text-muted);">Tres números, revisados una vez al mes: cuántos pedidos entran ya estructurados, cuál es el ticket promedio de ese canal, y cuánta gente repite. Cuando hay platillos personalizados el ticket suele subir, porque el armado guiado ofrece los extras sin que nadie tenga que venderlos por teléfono.</p>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:17px;line-height:1.75;color:var(--text-muted);">Y algo que vale decir: la meta no es que el cien por ciento de los pedidos entre por ahí. Con que una parte importante de tu volumen deje de pasar por transcripción a mano, tu hora pico ya cambia. Lo demás llega con el tiempo.</p>
+
+        <div style="background:var(--color-dark);border-radius:20px;padding:{{ bp.cardPad }}px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:16px;">
+          <div style="position:absolute;inset:0;background-image:var(--grain);opacity:0.07;mix-blend-mode:overlay;pointer-events:none;"></div>
+          <span style="position:relative;z-index:2;font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);">Para llevar</span>
+          <ul style="position:relative;z-index:2;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;">
+            <sc-for list="{{ articleTakeaways }}" as="t" hint-placeholder-count="4">
+              <li style="display:flex;gap:12px;align-items:flex-start;font-family:var(--font-family-base);font-size:16px;line-height:1.6;color:var(--color-light);">
+                <span style="color:var(--color-accent);flex-shrink:0;margin-top:2px;"><dc-import name="Ico" glyph="check" size="20" hint-size="20px,20px"></dc-import></span>{{ t.text }}
+              </li>
+            </sc-for>
+          </ul>
+        </div>
+
+        <div style="display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--border-default);border-radius:20px;padding:{{ bp.cardPad }}px;">
+          <div style="width:56px;height:56px;border-radius:999px;background:var(--color-accent-tint);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <dc-import name="Ico" glyph="user" size="28" hint-size="28px,28px"></dc-import>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <span style="font-family:var(--font-family-base);font-size:18px;font-weight:700;color:var(--color-dark);">Mario Vicuña</span>
+            <span style="font-family:var(--font-family-base);font-size:15px;line-height:1.6;color:var(--text-muted);max-width:52ch;">Desarrollador y fundador de Vicunav. Llevo desde 2016 construyendo sitios y sistemas, y hoy trabajo con negocios de servicios del Zulia, de Venezuela y de afuera. Escribo desde lo que veo en proyectos, no desde teoría.</span>
+            <button onClick="{{ goCv }}" style="align-self:flex-start;background:none;border:none;padding:0;cursor:pointer;font-family:var(--font-family-base);font-size:15px;font-weight:700;color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;">Ver perfil profesional</button>
+          </div>
+        </div>
+      </div>
+
+      <aside style="display:flex;flex-direction:column;gap:{{ bp.gap }}px;position:{{ bp.asideSticky }};top:24px;">
+        <nav aria-label="Contenido del artículo" style="background:#fff;border:1px solid var(--border-default);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+          <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-ink);">En este artículo</span>
+          <sc-for list="{{ toc }}" as="t" hint-placeholder-count="4">
+            <span style="font-family:var(--font-family-base);font-size:15px;font-weight:600;line-height:1.4;color:var(--color-dark);padding-left:12px;border-left:2px solid var(--color-accent-tint);">{{ t.text }}</span>
+          </sc-for>
+        </nav>
+        <div style="background:var(--color-accent-tint);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+          <span style="font-family:var(--font-family-base);font-size:18px;font-weight:700;line-height:1.25;color:var(--color-dark);">¿Tienes un restaurante? Hablemos de tu operación.</span>
+          <button onClick="{{ goResto }}" style="background:var(--color-dark);border:none;border-radius:999px;min-height:48px;padding:0 20px;cursor:pointer;font-family:var(--font-family-base);font-size:15px;font-weight:700;color:var(--color-light);" style-hover="background:var(--accent-ink)" style-focus="outline:2px solid var(--color-dark);outline-offset:3px;">Ver cómo trabajo con restaurantes</button>
+        </div>
+      </aside>
+    </div>
+
+    <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px {{ bp.sectionPadY }}px;">
+      <h2 style="margin:0 0 20px;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h3 }}px;line-height:1.2;letter-spacing:-0.02em;color:var(--color-dark);">Artículos relacionados</h2>
+      <div style="display:grid;grid-template-columns:{{ bp.cols3 }};gap:{{ bp.gap }}px;">
+        <sc-for list="{{ related }}" as="a" hint-placeholder-count="3">
+          <button onClick="{{ a.onClick }}" style="text-align:left;background:#fff;border:1px solid var(--border-default);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px;cursor:pointer;transition:border-color .2s ease, transform .2s ease;" style-hover="border-color:var(--accent-ink);transform:translateY(-3px)" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;">
+            <span style="align-self:flex-start;font-family:var(--font-family-base);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-ink);background:var(--color-accent-tint);border-radius:999px;padding:5px 12px;">{{ a.cat }}</span>
+            <span style="font-family:var(--font-family-base);font-size:19px;font-weight:700;line-height:1.25;letter-spacing:-0.02em;color:var(--color-dark);">{{ a.title }}</span>
+            <span style="font-family:var(--font-family-base);font-size:13px;font-weight:600;color:var(--text-muted);">{{ a.read }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </section>
+  </article>
+</sc-if>
+
+<sc-if value="{{ isCv }}" hint-placeholder-val="{{ false }}">
+  <section style="position:relative;background:var(--color-dark);overflow:hidden;padding:{{ bp.heroPadT }}px {{ bp.pad }}px {{ bp.sectionPadY }}px;">
+    <div style="position:absolute;inset:0;background-image:var(--grain);opacity:0.055;mix-blend-mode:overlay;pointer-events:none;"></div>
+    <div style="position:absolute;right:-8%;top:-28%;width:40%;aspect-ratio:1;border-radius:999px;border:2px solid color-mix(in oklch, #E8873A 36%, #2B2825);pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;display:grid;grid-template-columns:{{ bp.cvHeroCols }};gap:{{ bp.heroGap }}px;align-items:end;">
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="display:inline-flex;align-items:center;gap:10px;align-self:flex-start;background:color-mix(in oklch, #E8873A 20%, #2B2825);border:1px solid var(--color-accent);border-radius:999px;padding:7px 16px;">
+          <span style="width:8px;height:8px;border-radius:999px;background:var(--color-accent);display:block;"></span>
+          <span style="font-family:var(--font-family-base);font-size:13px;font-weight:700;color:var(--color-light);">Open to full time remote roles</span>
+        </div>
+        <h1 style="margin:0 0 0 -0.05em;font-family:var(--font-family-base);font-weight:800;font-size:{{ bp.h1 }}px;line-height:0.98;letter-spacing:-0.04em;color:var(--color-light);">Mario Vicuña</h1>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:{{ bp.h3 }}px;font-weight:700;letter-spacing:-0.02em;color:var(--color-accent);">Full Stack Developer, WordPress specialist</p>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:{{ bp.bodyLg }}px;line-height:1.6;color:var(--color-secondary);max-width:52ch;">I have spent 10+ years building websites and web systems that have to work for real businesses: fast, maintainable and easy for the client to run once I hand them over. Remote from Venezuela, comfortable across US and LatAm time zones.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;">
+          <a href="mailto:mariovicuna.dev@gmail.com" style="display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;background:var(--color-accent);color:var(--color-dark);text-decoration:none;font-family:var(--font-family-base);font-weight:700;font-size:16px;" style-hover="background:var(--color-accent-hover)" style-focus="outline:3px solid var(--color-light);outline-offset:3px;">
+            <dc-import name="Ico" glyph="mail" size="20" hint-size="20px,20px"></dc-import>Email me
+          </a>
+          <a href="{{ cvPdf }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 22px;border-radius:999px;background:transparent;border:1px solid var(--color-accent);color:var(--color-secondary);text-decoration:none;font-family:var(--font-family-base);font-weight:600;font-size:16px;" style-hover="color:var(--color-light);border-color:var(--color-light)" style-focus="outline:3px solid var(--color-accent);outline-offset:3px;">
+            <dc-import name="Ico" glyph="download" size="20" hint-size="20px,20px"></dc-import>Download CV
+          </a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ cvLinks }}" as="l" hint-placeholder-count="4">
+          <a href="{{ l.href }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;min-height:52px;padding:0 18px;border-radius:14px;background:color-mix(in oklch, #F4EFE6 8%, #2B2825);border:1px solid color-mix(in oklch, #B7AE9F 26%, #2B2825);text-decoration:none;transition:border-color .15s ease;" style-hover="border-color:var(--color-accent)" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;">
+            <span style="color:var(--color-accent);flex-shrink:0;"><dc-import name="Ico" glyph="{{ l.icon }}" size="20" hint-size="20px,20px"></dc-import></span>
+            <span style="display:flex;flex-direction:column;gap:1px;">
+              <span style="font-family:var(--font-family-base);font-size:12px;font-weight:600;color:var(--color-secondary);">{{ l.label }}</span>
+              <span style="font-family:var(--font-family-base);font-size:14px;font-weight:700;color:var(--color-light);">{{ l.value }}</span>
+            </span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <div style="display:grid;grid-template-columns:{{ bp.cols4 }};gap:{{ bp.gap }}px;">
+      <sc-for list="{{ cvStats }}" as="s" hint-placeholder-count="4">
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:6px;">
+          <span style="font-family:var(--font-family-base);font-size:34px;font-weight:800;letter-spacing:-0.035em;color:var(--color-dark);">{{ s.v }}</span>
+          <span style="font-family:var(--font-family-base);font-size:14px;font-weight:500;line-height:1.4;color:var(--text-muted);">{{ s.l }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <h2 style="margin:0 0 28px;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);">Technical skills</h2>
+    <div style="display:grid;grid-template-columns:{{ bp.cols3 }};gap:{{ bp.gap }}px;">
+      <sc-for list="{{ cvSkills }}" as="g" hint-placeholder-count="5">
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:11px;background:var(--color-accent-tint);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <dc-import name="Ico" glyph="{{ g.icon }}" size="20" hint-size="20px,20px"></dc-import>
+            </div>
+            <h3 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:17px;line-height:1.25;color:var(--color-dark);">{{ g.t }}</h3>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <sc-for list="{{ g.items }}" as="i" hint-placeholder-count="6">
+              <span style="font-family:var(--font-family-base);font-size:13px;font-weight:600;color:var(--color-dark);background:color-mix(in oklch, #2B2825 6%, #F4EFE6);border:1px solid var(--border-default);border-radius:999px;padding:6px 12px;">{{ i.text }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <h2 style="margin:0 0 28px;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);">Experience</h2>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <sc-for list="{{ cvJobs }}" as="j" hint-placeholder-count="6">
+        <div style="background:{{ j.bg }};border:1px solid {{ j.border }};border-radius:20px;padding:{{ bp.cardPad }}px;display:grid;grid-template-columns:{{ bp.jobCols }};gap:{{ bp.gap }}px;align-items:start;">
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:{{ j.meta }};">{{ j.dates }}</span>
+            <span style="font-family:var(--font-family-base);font-size:{{ bp.h3 }}px;font-weight:700;line-height:1.2;letter-spacing:-0.02em;color:{{ j.title }};">{{ j.role }}</span>
+            <span style="font-family:var(--font-family-base);font-size:15px;font-weight:600;color:{{ j.meta }};">{{ j.company }}</span>
+          </div>
+          <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <sc-for list="{{ j.bullets }}" as="b" hint-placeholder-count="3">
+              <li style="display:flex;gap:12px;align-items:flex-start;font-family:var(--font-family-base);font-size:16px;line-height:1.6;color:{{ j.body }};">
+                <span style="color:{{ j.accent }};flex-shrink:0;margin-top:3px;"><dc-import name="Ico" glyph="minus" size="18" hint-size="18px,18px"></dc-import></span>{{ b.text }}
+              </li>
+            </sc-for>
+          </ul>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <h2 style="margin:0 0 28px;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);">Selected work</h2>
+    <div style="display:grid;grid-template-columns:{{ bp.cols4 }};gap:{{ bp.gap }}px;">
+      <sc-for list="{{ cvWork }}" as="w" hint-placeholder-count="4">
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow-lift);">
+          <span style="align-self:flex-start;font-family:var(--font-family-base);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:{{ w.badgeFg }};background:{{ w.badgeBg }};border:1px solid {{ w.badgeBorder }};border-radius:999px;padding:5px 11px;">{{ w.badge }}</span>
+          <span style="font-family:var(--font-family-base);font-size:19px;font-weight:700;line-height:1.2;letter-spacing:-0.02em;color:var(--color-dark);">{{ w.name }}</span>
+          <span style="font-family:var(--font-family-base);font-size:15px;line-height:1.6;color:var(--text-muted);">{{ w.d }}</span>
+          <span style="font-family:var(--font-family-base);font-size:13px;font-weight:600;color:var(--accent-ink);">{{ w.stack }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px 0;">
+    <div style="display:grid;grid-template-columns:{{ bp.cols2 }};gap:{{ bp.gap }}px;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);">Education and credentials</h2>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <sc-for list="{{ cvEdu }}" as="e" hint-placeholder-count="3">
+            <div style="background:#fff;border:1px solid var(--border-default);border-radius:16px;padding:20px;display:flex;gap:14px;align-items:flex-start;">
+              <span style="color:var(--accent-ink);flex-shrink:0;"><dc-import name="Ico" glyph="{{ e.icon }}" size="22" hint-size="22px,22px"></dc-import></span>
+              <span style="display:flex;flex-direction:column;gap:4px;">
+                <span style="font-family:var(--font-family-base);font-size:17px;font-weight:700;line-height:1.3;color:var(--color-dark);">{{ e.t }}</span>
+                <span style="font-family:var(--font-family-base);font-size:14px;font-weight:500;color:var(--text-muted);">{{ e.d }}</span>
+              </span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-dark);">How I work</h2>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <sc-for list="{{ cvHow }}" as="h" hint-placeholder-count="4">
+            <div style="display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--border-default);border-radius:16px;padding:20px;">
+              <span style="color:var(--accent-ink);flex-shrink:0;margin-top:2px;"><dc-import name="Ico" glyph="check" size="20" hint-size="20px,20px"></dc-import></span>
+              <span style="font-family:var(--font-family-base);font-size:16px;line-height:1.6;color:var(--color-dark);">{{ h.text }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-light);padding:{{ bp.sectionPadY }}px {{ bp.pad }}px {{ bp.sectionPadY }}px;">
+    <div style="background:var(--color-dark);border-radius:24px;padding:{{ bp.cardPad }}px;position:relative;overflow:hidden;display:grid;grid-template-columns:{{ bp.cols2 }};gap:{{ bp.gap }}px;align-items:center;">
+      <div style="position:absolute;inset:0;background-image:var(--grain);opacity:0.06;mix-blend-mode:overlay;pointer-events:none;"></div>
+      <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:12px;">
+        <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2s }}px;line-height:1.08;letter-spacing:-0.03em;color:var(--color-light);max-width:24ch;text-wrap:pretty;">Want to talk through the work in detail?</h2>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:16px;line-height:1.6;color:var(--color-secondary);max-width:44ch;">Happy to walk through code, past builds or a take home challenge. I write clear updates, ask questions early and prefer shipping small over promising big. Spanish native, English C1.</p>
+      </div>
+      <div style="position:relative;z-index:2;display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="mailto:mariovicuna.dev@gmail.com" style="display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;background:var(--color-accent);color:var(--color-dark);text-decoration:none;font-family:var(--font-family-base);font-weight:700;font-size:16px;" style-hover="background:var(--color-accent-hover)" style-focus="outline:3px solid var(--color-light);outline-offset:3px;">
+          <dc-import name="Ico" glyph="mail" size="20" hint-size="20px,20px"></dc-import>mariovicuna.dev@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/mario-vicuna" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 22px;border-radius:999px;background:transparent;border:1px solid var(--color-accent);color:var(--color-secondary);text-decoration:none;font-family:var(--font-family-base);font-weight:600;font-size:16px;" style-hover="color:var(--color-light);border-color:var(--color-light)" style-focus="outline:3px solid var(--color-accent);outline-offset:3px;">
+          <dc-import name="Ico" glyph="linkedin" size="20" hint-size="20px,20px"></dc-import>LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<sc-if value="{{ isSeo }}" hint-placeholder-val="{{ false }}">
+  <section style="background:var(--color-dark);padding:48px {{ bp.pad }}px;">
+    <h1 style="margin:0 0 12px;font-family:var(--font-family-base);font-weight:800;font-size:{{ bp.h2 }}px;line-height:1.05;letter-spacing:-0.035em;color:var(--color-light);">Plan SEO y GEO</h1>
+    <p style="margin:0;font-family:var(--font-family-base);font-size:17px;line-height:1.6;color:var(--color-secondary);max-width:60ch;">Título, meta, H1, palabra clave y datos estructurados sugeridos para cada página nueva. Para pasar al sitio en WordPress tal cual.</p>
+  </section>
+  <section style="background:var(--color-light);padding:32px {{ bp.pad }}px 64px;display:flex;flex-direction:column;gap:16px;">
+    <sc-for list="{{ seoRows }}" as="r" hint-placeholder-count="8">
+      <div style="background:#fff;border:1px solid var(--border-default);border-radius:18px;padding:24px;display:grid;grid-template-columns:{{ bp.seoCols }};gap:{{ bp.gap }}px;">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <span style="font-family:var(--font-family-base);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-ink);">{{ r.kind }}</span>
+          <span style="font-family:var(--font-family-base);font-size:15px;font-weight:700;color:var(--color-dark);word-break:break-all;">{{ r.slug }}</span>
+          <span style="font-family:var(--font-family-base);font-size:13px;font-weight:600;color:var(--text-muted);">Schema: {{ r.schema }}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <span style="display:flex;flex-direction:column;gap:3px;">
+            <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);">Title</span>
+            <span style="font-family:var(--font-family-base);font-size:16px;font-weight:700;line-height:1.35;color:var(--color-dark);">{{ r.title }}</span>
+          </span>
+          <span style="display:flex;flex-direction:column;gap:3px;">
+            <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);">Meta description</span>
+            <span style="font-family:var(--font-family-base);font-size:15px;line-height:1.55;color:var(--text-muted);">{{ r.meta }}</span>
+          </span>
+          <span style="display:flex;flex-direction:column;gap:3px;">
+            <span style="font-family:var(--font-family-base);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);">Palabras clave</span>
+            <span style="font-family:var(--font-family-base);font-size:15px;line-height:1.55;color:var(--color-dark);">{{ r.kw }}</span>
+          </span>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+</sc-if>
+
+<sc-if value="{{ showChrome }}" hint-placeholder-val="{{ true }}">
+  <dc-import name="SiteFooter" pad-h="{{ bp.pad }}" whatsapp-href="{{ whatsappHref }}" hint-size="100%,320px"></dc-import>
+</sc-if>
+
+</div>
+
+<sc-if value="{{ showWhatsappFloat }}" hint-placeholder-val="{{ true }}">
+  <a href="{{ whatsappHref }}" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp" style="position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:999px;background:var(--color-accent);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-float);z-index:70;text-decoration:none;color:var(--color-dark);transition:background-color .15s ease, transform .15s ease;" style-hover="background:var(--color-accent-hover);transform:translateY(-3px)" style-focus="outline:3px solid var(--color-dark);outline-offset:3px;">
+    <dc-import name="Ico" glyph="message-circle" size="30" hint-size="30px,30px"></dc-import>
+  </a>
+</sc-if>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;10000000000&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;WhatsApp&quot;},&quot;showWhatsappFloat&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;WhatsApp&quot;}}">
+class Component extends DCLogic {
+  state = { page: 'restaurantes', breakpoint: 'desktop', faq: 0, cat: 'Todos' };
+
+  BP = {
+    mobile: { key: 'mobile', label: 'Mobile 390', canvasW: '390px', isMobile: true, pad: 24, gap: 16, heroGap: 32, sectionPadY: 56, heroPadT: 40, heroPadB: 56, cardPad: 24,
+      h1: 40, h1s: 34, h1a: 32, h1lh: 1.04, h2: 30, h2s: 27, h3: 20, bodyLg: 17, quote: 19,
+      heroCols: '1fr', cols2: '1fr', cols3: '1fr', cols4: '1fr 1fr', faqCols: '1fr', featCols: '1fr', artCols: '1fr', asideSticky: 'static', cvHeroCols: '1fr', jobCols: '1fr', seoCols: '1fr' },
+    tablet: { key: 'tablet', label: 'Tablet 834', canvasW: '834px', isMobile: false, pad: 40, gap: 20, heroGap: 40, sectionPadY: 72, heroPadT: 56, heroPadB: 72, cardPad: 28,
+      h1: 60, h1s: 48, h1a: 44, h1lh: 1, h2: 42, h2s: 34, h3: 22, bodyLg: 18, quote: 21,
+      heroCols: '1fr', cols2: '1fr 1fr', cols3: '1fr 1fr', cols4: '1fr 1fr', faqCols: '1fr', featCols: '1.2fr 0.8fr', artCols: '1fr', asideSticky: 'static', cvHeroCols: '1fr', jobCols: '1fr', seoCols: '1fr' },
+    desktop: { key: 'desktop', label: 'Desktop 1440', canvasW: '100%', isMobile: false, pad: 80, gap: 28, heroGap: 56, sectionPadY: 96, heroPadT: 80, heroPadB: 96, cardPad: 36,
+      h1: 88, h1s: 72, h1a: 60, h1lh: 0.96, h2: 56, h2s: 42, h3: 26, bodyLg: 20, quote: 26,
+      heroCols: '1.05fr 0.95fr', cols2: '1fr 1fr', cols3: 'repeat(3, 1fr)', cols4: 'repeat(4, 1fr)', faqCols: '0.42fr 0.58fr', featCols: '1.15fr 0.85fr', artCols: '1.55fr 0.45fr', asideSticky: 'sticky', cvHeroCols: '1.35fr 0.65fr', jobCols: '0.34fr 0.66fr', seoCols: '0.32fr 0.68fr' }
+  };
+
+  PAGES = [['restaurantes', 'Restaurantes'], ['hoteles', 'Hoteles'], ['bienestar', 'Bienestar'], ['sistemas', 'Sistemas'], ['automatizacion', 'Automatización'], ['sitios', 'Sitios web'], ['visibilidad', 'Visibilidad'], ['articulos', 'Artículos'], ['articulo', 'Artículo'], ['cv', 'CV'], ['seo', 'SEO y GEO']];
+
+  ZONES = [
+    { name: 'Santa Bárbara del Zulia', note: 'Base de operaciones, atención presencial' },
+    { name: 'San Carlos del Zulia', note: 'Atención presencial y remota' },
+    { name: 'Maracaibo y el Zulia', note: 'Proyectos en zona, visitas coordinadas' },
+    { name: 'Venezuela', note: 'Trabajo remoto en todo el país' },
+    { name: 'LatAm', note: 'Colombia, México, Argentina, Chile' },
+    { name: 'Clientes internacionales', note: 'Remoto, inglés C1, husos de EE.UU.' }
+  ];
+
+  VERTICALS = {
+    restaurantes: {
+      nav: 'Restaurantes', eyebrow: 'Vicunav para restaurantes',
+      h1a: 'Que tu cocina reciba el pedido ', h1b: 'ya listo para preparar',
+      sub: 'Un sistema de pedidos propio, un menú que siempre dice la verdad y un armado guiado para los platillos que cada cliente pide a su manera. Trabajo con restaurantes de Santa Bárbara del Zulia, San Carlos del Zulia, el resto de Venezuela y clientes remotos.',
+      cta: 'Cuéntame de tu restaurante',
+      demoTitle: 'Arma tu platillo', demoStep: 'Paso 2 de 4', demoNote: 'Mitad y mitad activada',
+      demoOptions: [
+        { name: 'Familiar 38 cm', note: 'Seleccionado', sel: true },
+        { name: 'Mediana 30 cm', note: 'Para dos personas', sel: false },
+        { name: 'Masa delgada', note: 'Seleccionado', sel: true },
+        { name: 'Borde relleno', note: 'Extra disponible', sel: false }
+      ],
+      problemTitle: 'En hora pico, el cuello de botella no es la cocina. Es el pedido.',
+      problemBody: 'Cuando el pedido nace en una llamada o en un chat, alguien tiene que entenderlo, escribirlo y pasarlo a la cocina antes de que empiece a prepararse. Ese paso intermedio es donde se cuela el plato equivocado, la espera larga y el cliente que no vuelve. Si el pedido entra ya completo, ese paso simplemente no existe.',
+      pains: [
+        { text: 'Pedidos repartidos entre llamadas, chats y notas en papel.' },
+        { text: 'La cocina interpretando lo que quiso decir el cliente.' },
+        { text: 'Alguien avisando, plato por plato, que eso ya se acabó.' },
+        { text: 'Al final del mes no sabes qué se vendió más ni quién volvió.' }
+      ],
+      core: [
+        { n: '01', icon: 'store', t: 'Tu propio sistema de pedidos', d: 'Tus clientes piden desde tu sitio, a la hora que sea, sin que nadie tenga que atender el teléfono. El pedido entra completo y con todos los datos que la cocina necesita.', dark: true },
+        { n: '02', icon: 'pizza', t: 'Constructor de platillos personalizados', d: 'Para todo lo que el cliente arma a su gusto. Una pizza mitad y mitad con extras por sección es el caso clásico, pero funciona igual con combos, bandejas o bowls: el cliente ve el precio actualizado en cada paso y la cocina recibe una comanda sin ambigüedad.', dark: false },
+        { n: '03', icon: 'code', t: 'Las reglas de tu restaurante, programadas', d: 'Horarios de cocina, combos que solo existen el fin de semana, zonas de reparto, promociones por día. Si tu carta tiene una regla, se puede programar.', dark: false }
+      ],
+      featuresTitle: 'Lo que puede llevar tu restaurante',
+      featuresSub: 'No hace falta todo de una vez. Empezamos por lo que hoy te quita más tiempo y el resto se suma cuando tu operación lo pida.',
+      features: [
+        { icon: 'qr-code', t: 'Menú digital con QR', d: 'Se acabó algo y lo apagas en treinta segundos. Nadie lo pide, nadie llama a disculparse.' },
+        { icon: 'calendar', t: 'Reservas de mesa', d: 'Reserva en línea con confirmación automática y control de cuántas mesas quedan por turno.' },
+        { icon: 'message-circle', t: 'Pedidos por WhatsApp', d: 'El pedido llega ordenado a tu WhatsApp, listo para cocina, sin transcribir nada a mano.' },
+        { icon: 'truck', t: 'Reparto propio', d: 'Zonas, tarifa por distancia y coordinación con tus motorizados, sin depender de terceros.' },
+        { icon: 'star', t: 'Programa de lealtad', d: 'Puntos y recompensas para el cliente que ya vuelve, sin que tengas que llevar la cuenta.' },
+        { icon: 'bar-chart', t: 'Reportes de ventas', d: 'Qué se vendió hoy, qué plato se mueve, cuál ticket promedio y quién repite.' },
+        { icon: 'layers', t: 'Varias sucursales', d: 'Menú, precios y reportes separados por sucursal, en un mismo panel.' },
+        { icon: 'credit-card', t: 'Cobro en línea', d: 'Tarjeta, transferencia con comprobante o pago al recibir. Lo que funcione en tu zona.' },
+        { icon: 'monitor', t: 'Pantalla de órdenes en cocina', d: 'Comandas en pantalla o impresas, con tiempos y estados que tu equipo entiende de una mirada.' }
+      ],
+      stepsTitle: 'Cómo trabajamos, paso a paso',
+      steps: [
+        { n: 'Paso 01', t: 'Conversamos de tu operación', d: 'Tu carta, tus turnos, tu cocina y cómo entran hoy los pedidos. Sin presentación de ventas.' },
+        { n: 'Paso 02', t: 'Diseñamos el flujo de pedido', d: 'Qué ve el cliente en cada paso, cómo se arma cada platillo y cómo se calcula el precio.' },
+        { n: 'Paso 03', t: 'Construimos y probamos con tu equipo', d: 'Se prueba con pedidos reales, con tu gente, antes de abrirlo al público.' },
+        { n: 'Paso 04', t: 'Salimos al aire y acompaño', d: 'Las primeras semanas se miden y se ajusta lo que haga falta. No te dejo sola con el sistema.' }
+      ],
+      geoTitle: 'Cerca de tu cocina, o completamente remoto',
+      geoBody: 'Vivo en Santa Bárbara del Zulia, así que con restaurantes de la zona puedo ir a ver la operación en persona. Para el resto de Venezuela, LatAm y clientes de afuera, el proceso completo funciona remoto: videollamada, pruebas en línea y todo documentado.',
+      casesTitle: 'Cómo se ve funcionando',
+      casesNote: 'Tres tipos de cocina, tres maneras distintas de tomar pedidos. El sistema se arma según cómo trabaja cada una.',
+      cases: [
+        { name: 'Forno Ottavo', badge: 'Pizzería', real: true, d: 'Armado completo de la pizza: tamaño, masa, mitad y mitad y extras por sección, con precio en vivo.' },
+        { name: 'El Fogón del Sur', badge: 'Cocina criolla', real: true, d: 'Menú digital por QR, pedidos para llevar y reparto propio con tarifa por distancia.' },
+        { name: 'Tostado Café', badge: 'Cafetería', real: true, d: 'Pedidos anticipados para recoger, lealtad por consumo y pantalla de órdenes en barra.' }
+      ],
+      ctaTitle: 'Cuéntame cómo entran hoy tus pedidos y te digo por dónde empezar.',
+      ctaSub: 'Una conversación corta, sin compromiso y sin presentación de ventas. Si todavía no necesitas un sistema, también te lo digo.',
+      faq: [
+        { q: '¿Cuánto tiempo toma tenerlo funcionando?', a: 'Un menú digital con pedidos básicos suele estar listo en dos o tres semanas. Un sistema completo, con armado de platillos, cobro y reportes, toma entre cuatro y ocho semanas. Lo que mueve la aguja no es el diseño, es cuántas reglas tenga tu operación.' },
+        { q: '¿Y si mis clientes están acostumbrados a pedir por teléfono?', a: 'Van a seguir llamando un tiempo, y está bien. Lo que cambia es que quien prefiere no llamar ya tiene por dónde, y que el pedido telefónico se carga en el mismo sistema. La cocina recibe todo por un solo canal.' },
+        { q: '¿Mi equipo lo va a entender?', a: 'Se diseña pensando en tu equipo, no en mí. Comandas claras, estados simples y una capacitación corta con la gente que lo va a usar todos los días. Si algo confunde a tu cocina, se cambia.' },
+        { q: '¿Trabajas con restaurantes fuera del Zulia?', a: 'Sí. Estoy en Santa Bárbara del Zulia y puedo ir en persona con restaurantes de la zona, incluyendo San Carlos del Zulia y Maracaibo. Para el resto del país, LatAm y clientes internacionales, todo el proceso es remoto.' },
+        { q: '¿Puedo empezar solo con el menú digital?', a: 'Sí, y muchas veces es lo que recomiendo. Arrancamos por lo que hoy te quita más tiempo, lo medimos, y sumamos pedidos, cobro o lealtad cuando la operación lo pida.' },
+        { q: '¿El sistema queda siendo mío?', a: 'Sí. Tu sitio, tu contenido y tus datos son tuyos, con accesos y documentación al cierre. Y el pago se puede acordar en cuotas.' }
+      ]
+    },
+    hoteles: {
+      nav: 'Hoteles y posadas', eyebrow: 'Vicunav para hospedaje',
+      h1a: 'Que el huésped reserve contigo ', h1b: 'sin intermediarios',
+      sub: 'Un motor de reservas en tu propio sitio, con disponibilidad correcta y confirmaciones automáticas. Para hoteles y posadas del Zulia, del resto de Venezuela y de LatAm.',
+      cta: 'Cuéntame de tu hospedaje',
+      demoTitle: 'Reserva directa', demoStep: 'Paso 2 de 3', demoNote: 'Confirmación inmediata',
+      demoOptions: [
+        { name: 'Habitación doble', note: 'Seleccionada', sel: true },
+        { name: 'Suite con vista', note: '2 disponibles', sel: false },
+        { name: '3 noches', note: 'Seleccionado', sel: true },
+        { name: 'Desayuno incluido', note: 'Extra disponible', sel: false }
+      ],
+      problemTitle: 'El huésped que ya te conoce no debería tener que buscarte en un portal.',
+      problemBody: 'Los portales sirven para que te descubran. El problema aparece cuando son el único camino: el que ya se quedó contigo vuelve por ahí, no tienes sus datos y no puedes invitarlo tú mismo la próxima temporada. Un motor de reservas en tu sitio recupera esa relación, sin pelearte con nadie.',
+      pains: [
+        { text: 'Reservas que se confirman una por una, a mano, por chat.' },
+        { text: 'Calendarios que se desincronizan y terminan en sobreventa.' },
+        { text: 'Huéspedes que repiten y aún así no aparecen en ninguna lista tuya.' },
+        { text: 'Temporada baja sin nadie a quien avisarle de una oferta.' }
+      ],
+      core: [
+        { n: '01', icon: 'calendar', t: 'Reserva directa en tu sitio', d: 'El huésped elige fechas, ve disponibilidad real y recibe su confirmación al instante. Sin esperar que alguien conteste.', dark: true },
+        { n: '02', icon: 'layers', t: 'Un solo calendario', d: 'Tu disponibilidad conectada con los portales que ya usas, para que la misma habitación no se venda dos veces.', dark: false },
+        { n: '03', icon: 'code', t: 'Las reglas de tu propiedad', d: 'Temporadas, estadía mínima, tarifas por tipo de habitación, paquetes y políticas de cancelación, tal como tú las manejas.', dark: false }
+      ],
+      featuresTitle: 'Lo que puede llevar tu hospedaje',
+      featuresSub: 'No hace falta todo de una vez. Empezamos por el motor de reservas, que es donde está el mayor cambio, y seguimos desde ahí.',
+      features: [
+        { icon: 'calendar', t: 'Calendario y tarifas', d: 'Temporadas, estadía mínima y bloqueos por mantenimiento en un solo lugar.' },
+        { icon: 'credit-card', t: 'Anticipos y cobro', d: 'Total o anticipo, con comprobante y una política de cancelación que el huésped entiende.' },
+        { icon: 'message-circle', t: 'Confirmaciones por WhatsApp', d: 'Confirmación, cómo llegar y recordatorio antes del check in, sin que tú escribas nada.' },
+        { icon: 'star', t: 'Reseñas después de la estadía', d: 'Un mensaje de agradecimiento y la solicitud de reseña en el momento en que sí funciona.' },
+        { icon: 'user', t: 'Tu propia lista de huéspedes', d: 'Quién se quedó, cuándo y cómo contactarlo. Eso es lo que hace posible la temporada baja.' },
+        { icon: 'bar-chart', t: 'Ocupación por canal', d: 'Noches vendidas, tarifa promedio y de dónde vino cada reserva.' },
+        { icon: 'globe', t: 'Sitio en español e inglés', d: 'Para el huésped nacional y para el que llega de afuera y compara antes de decidir.' },
+        { icon: 'map-pin', t: 'Guía de la zona', d: 'Qué hacer cerca y cómo llegar. Ayuda al huésped y te posiciona en búsquedas locales.' },
+        { icon: 'layers', t: 'Varias propiedades', d: 'Una posada o cinco, con calendarios y reportes separados en el mismo panel.' }
+      ],
+      stepsTitle: 'Cómo trabajamos, paso a paso',
+      steps: [
+        { n: 'Paso 01', t: 'Tu inventario y tus tarifas', d: 'Habitaciones, temporadas, políticas y qué portales piensas seguir usando.' },
+        { n: 'Paso 02', t: 'Diseñamos la reserva', d: 'Cuántos pasos hasta confirmar, qué se cobra y qué recibe el huésped al terminar.' },
+        { n: 'Paso 03', t: 'Construimos y sincronizamos', d: 'Se monta el motor, se conecta la disponibilidad y se prueba con reservas de prueba.' },
+        { n: 'Paso 04', t: 'Salimos al aire antes de temporada', d: 'Medimos por canal y ajustamos con tiempo, no en plena temporada alta.' }
+      ],
+      geoTitle: 'Del Zulia al huésped que llega de afuera',
+      geoBody: 'Estoy en Santa Bárbara del Zulia y puedo trabajar en persona con hospedajes de la zona, incluyendo San Carlos del Zulia. Con posadas y hoteles del resto de Venezuela y de LatAm trabajo remoto. El sitio se estructura para que te encuentre tanto quien busca en la zona como quien viene de otro país.',
+      casesTitle: 'Cómo se ve funcionando',
+      casesNote: 'Tres formas de hospedaje, tres maneras distintas de llenar el calendario. El motor de reservas se arma según cómo trabaja cada una.',
+      cases: [
+        { name: 'Posada Río Escalante', badge: 'Posada', real: true, d: 'Ocho habitaciones con reserva directa, anticipo en línea y guía de la zona en el sitio.' },
+        { name: 'Hotel Catatumbo', badge: 'Hotel urbano', real: true, d: 'Tarifas por temporada, calendario sincronizado con portales y ocupación por canal.' },
+        { name: 'Cabañas Sur del Lago', badge: 'Alojamiento rural', real: true, d: 'Paquetes de fin de semana, estadía mínima y confirmación automática por WhatsApp.' }
+      ],
+      ctaTitle: 'Cuéntame cuántas habitaciones manejas y te digo por dónde empezar.',
+      ctaSub: 'Una conversación corta, sin compromiso. Si con los portales te alcanza por ahora, también te lo digo.',
+      faq: [
+        { q: '¿Tengo que dejar los portales?', a: 'No, y no te lo recomendaría. Siguen siendo buenos para que te descubran. La idea es que el huésped que ya te conoce reserve directo contigo, y que tu calendario esté sincronizado para no vender dos veces la misma habitación.' },
+        { q: '¿Se puede cobrar anticipo desde Venezuela?', a: 'Sí, y se define según tu realidad: pasarela internacional, transferencia con comprobante o pago al llegar. Lo importante es que el huésped termine con una confirmación clara en la mano.' },
+        { q: '¿Sirve para una posada pequeña?', a: 'Sí. Con pocas habitaciones se nota rápido, porque cada reserva directa pesa más y la configuración es simple.' },
+        { q: '¿Cuánto tarda?', a: 'Un sitio con motor de reservas suele tomar entre cuatro y seis semanas, según cuántos tipos de habitación y reglas de tarifa tengas.' },
+        { q: '¿El sitio queda siendo mío?', a: 'Sí. Tu sitio, tu contenido y tu lista de huéspedes son tuyos, con accesos y documentación al cierre. El pago se puede acordar en cuotas.' }
+      ]
+    },
+    bienestar: {
+      nav: 'Bienestar', eyebrow: 'Vicunav para bienestar',
+      h1a: 'Que tu agenda se llene ', h1b: 'sin que vivas en el chat',
+      sub: 'Reserva de sesiones y clases, recordatorios automáticos y un sitio que se siente como lo que haces. Para terapeutas, estudios de yoga y pilates, nutricionistas y coaches.',
+      cta: 'Cuéntame de tu práctica',
+      demoTitle: 'Reservar clase', demoStep: 'Paso 2 de 3', demoNote: 'Quedan 3 cupos',
+      demoOptions: [
+        { name: 'Pilates reformer', note: 'Seleccionado', sel: true },
+        { name: 'Yoga suave', note: 'Martes y jueves', sel: false },
+        { name: 'Lunes 7:00 am', note: 'Seleccionado', sel: true },
+        { name: 'Paquete de 8 clases', note: 'Disponible', sel: false }
+      ],
+      problemTitle: 'Tu trabajo es acompañar personas, no coordinar horarios.',
+      problemBody: 'Confirmar cada cita a mano, recordar quién tiene clases pendientes de su paquete y avisar de un cambio de horario se lleva las horas que deberías estar atendiendo, o descansando. Cuando la agenda es un sistema y no una libreta, eso deja de ser tu tarea.',
+      pains: [
+        { text: 'Horas de la semana coordinando citas y cambios por mensajes.' },
+        { text: 'Ausencias sin aviso que dejan el cupo vacío y sin cobrar.' },
+        { text: 'Clases restantes de cada paquete anotadas en una libreta.' },
+        { text: 'Alguien nuevo que quería reservar, no entendió cómo, y no volvió a escribir.' }
+      ],
+      core: [
+        { n: '01', icon: 'calendar', t: 'Tu agenda, en línea', d: 'Tus horarios reales, con los cupos de cada clase, reserva desde tu sitio y confirmación automática. Sin ir y venir por chat.', dark: true },
+        { n: '02', icon: 'clock', t: 'Recordatorios que evitan ausencias', d: 'Un aviso antes de cada sesión, y la opción de reprogramar dentro de las reglas que tú definas.', dark: false },
+        { n: '03', icon: 'code', t: 'Paquetes y cupos, controlados', d: 'Clases restantes, vencimientos, lista de espera y política de cancelación, funcionando solos.', dark: false }
+      ],
+      featuresTitle: 'Lo que puede llevar tu práctica',
+      featuresSub: 'No hace falta todo de una vez. Empezamos por la agenda, que es donde se pierde más tiempo, y seguimos desde ahí.',
+      features: [
+        { icon: 'calendar', t: 'Reserva en línea', d: 'Disponibilidad real por servicio, duración y modalidad presencial o en línea.' },
+        { icon: 'clock', t: 'Recordatorios automáticos', d: 'Antes de la sesión, con las indicaciones o el enlace de la videollamada.' },
+        { icon: 'layers', t: 'Paquetes y membresías', d: 'Bonos de clases, vencimientos y saldo visible para cada persona.' },
+        { icon: 'credit-card', t: 'Cobro y anticipos', d: 'Del paquete o de la sesión, con comprobante y política de cancelación clara.' },
+        { icon: 'user', t: 'Ficha de cada persona', d: 'Historial de sesiones y notas privadas, ordenadas y visibles solo para ti.' },
+        { icon: 'file-text', t: 'Formularios de admisión', d: 'Consentimiento y datos de salud recogidos antes de la primera cita, no en la puerta.' },
+        { icon: 'bar-chart', t: 'Ocupación de tu agenda', d: 'Qué horarios se llenan, cuáles no y cuántas personas repiten.' },
+        { icon: 'star', t: 'Reseñas y referidos', d: 'La solicitud de reseña llega después de la sesión, sin que tengas que pedirla tú.' },
+        { icon: 'monitor', t: 'Sesiones en línea', d: 'Cada reserva genera su enlace de videollamada, sin coordinación aparte.' }
+      ],
+      stepsTitle: 'Cómo trabajamos, paso a paso',
+      steps: [
+        { n: 'Paso 01', t: 'Tus servicios y tus horarios', d: 'Qué ofreces, cuánto dura, cuántos cupos y qué pasa si alguien cancela.' },
+        { n: 'Paso 02', t: 'Diseñamos la reserva', d: 'Cuántos pasos hasta confirmar y qué recibe la persona al reservar.' },
+        { n: 'Paso 03', t: 'Construimos y probamos', d: 'Se monta el sitio y la agenda, y se prueba con reservas reales antes de abrirla.' },
+        { n: 'Paso 04', t: 'Salimos al aire y ajustamos', d: 'Revisamos ausencias y afinamos recordatorios y reglas con datos, no con suposiciones.' }
+      ],
+      geoTitle: 'Consulta en el Zulia, sesiones en línea a cualquier parte',
+      geoBody: 'Con estudios y consultas de Santa Bárbara del Zulia y San Carlos del Zulia puedo trabajar en persona. Si atiendes en línea, el sitio se organiza por especialidad para que te encuentren desde toda Venezuela y LatAm.',
+      casesTitle: 'Cómo se ve funcionando',
+      casesNote: 'Tres prácticas distintas, tres maneras de llevar la agenda. El sistema se adapta a cómo trabaja cada una.',
+      cases: [
+        { name: 'TatiPilates', badge: 'Pilates', real: true, d: 'Sitio y reserva de clases con control de cupos por horario.' },
+        { name: 'Bhoga Yoga', badge: 'Yoga', real: true, d: 'Sitio y presencia digital para un estudio con agenda de clases semanal.' },
+        { name: 'Clearpath Therapy', badge: 'Terapia', real: true, d: 'Sitio y sistema de citas con formulario de admisión antes de la primera sesión.' }
+      ],
+      ctaTitle: 'Cuéntame cómo llevas hoy tu agenda y te digo qué automatizar primero.',
+      ctaSub: 'Una conversación corta, sin compromiso. Si con una agenda simple te alcanza, también te lo digo.',
+      faq: [
+        { q: '¿Sirve si trabajo sola y atiendo pocas personas?', a: 'Ahí es donde más se nota. Cuando no hay recepción, cada confirmación y cada recordatorio los haces tú, entre sesión y sesión. Automatizar eso te devuelve horas reales de la semana.' },
+        { q: '¿Pierdo el control de quién reserva?', a: 'No. La agenda puede pedir tu aprobación para personas nuevas, limitar ciertos horarios o exigir el formulario de admisión antes de la primera cita.' },
+        { q: '¿Y los datos de mis pacientes?', a: 'Las fichas y notas quedan en tu sistema, con acceso solo para ti, respaldos configurados y formularios que evitan que información sensible ande dando vueltas por chat.' },
+        { q: '¿Funciona para sesiones en línea?', a: 'Sí. Cada reserva puede generar su enlace de videollamada y su recordatorio, igual que una cita presencial.' },
+        { q: '¿Todo queda siendo mío?', a: 'Sí. Tu sitio, tu contenido y la información de tus clientes son tuyos, con accesos y documentación al cierre. El pago se puede acordar en cuotas.' }
+      ]
+    }
+  };
+
+  SERVICES = {
+    sistemas: {
+      nav: 'Sistemas a medida', eyebrow: 'Sistemas y software personalizados', icon: 'layout-grid',
+      h1a: 'Sistemas hechos a la medida de ', h1b: 'cómo trabaja tu negocio',
+      sub: 'Reservas, pedidos en línea, o la herramienta que hoy resuelves a mano. Software que se adapta a tu operación, en lugar de obligarte a operar como el software.',
+      cta: 'Contarme mi caso',
+      problemTitle: 'La hoja de cálculo aguantó un tiempo. Después empieza a costar dinero.',
+      problemBody: 'Reservas en un cuaderno, pedidos en cinco chats distintos, precios que solo una persona sabe calcular. No es desorden: es que tu operación creció más rápido que sus herramientas. Un sistema a medida toma esas reglas que hoy viven en la cabeza de alguien y las convierte en algo que cualquiera de tu equipo puede ejecutar sin equivocarse.',
+      forWho: [{ text: 'Negocios con reglas propias que ningún plugin cubre.' }, { text: 'Equipos que repiten el mismo trabajo manual todos los días.' }, { text: 'Servicios con agenda, cupos o turnos que se llenan.' }, { text: 'Quien ya probó una herramienta genérica y se quedó corto.' }],
+      features: [
+        { icon: 'calendar', t: 'Reservas y citas', d: 'Agenda con cupos, turnos, recordatorios y disponibilidad que refleja la realidad.' },
+        { icon: 'store', t: 'Pedidos en línea', d: 'Catálogo, armado de productos, cobro y comandas conectadas a tu operación.' },
+        { icon: 'bar-chart', t: 'Paneles y reportes', d: 'Los números que de verdad revisas cada semana, en una sola pantalla.' },
+        { icon: 'user', t: 'Gestión de clientes', d: 'Historial, notas y seguimiento, sin depender de la memoria de nadie.' },
+        { icon: 'layers', t: 'Integraciones', d: 'Pagos, WhatsApp, calendarios y las herramientas que ya estás usando.' },
+        { icon: 'shield', t: 'Mantenimiento y mejoras', d: 'Respaldos, actualizaciones y ajustes a medida que el negocio cambia.' }
+      ],
+      steps: [
+        { n: 'Paso 01', t: 'Descubrimiento', d: 'Una conversación corta sobre tu operación. Sobre claridad, no sobre vender.' },
+        { n: 'Paso 02', t: 'Alcance y prioridad', d: 'Definimos qué se construye primero y qué puede esperar sin drama.' },
+        { n: 'Paso 03', t: 'Construcción por partes', d: 'Entregas que puedes usar y comentar antes de que siga avanzando.' },
+        { n: 'Paso 04', t: 'Lanzamiento y soporte', d: 'Capacitación a tu equipo y acompañamiento después de salir al aire.' }
+      ],
+      geoTitle: 'El Zulia en persona, el resto en remoto',
+      geoBody: 'Vivo en Santa Bárbara del Zulia y puedo trabajar de cerca con negocios de la zona y de San Carlos del Zulia. Con el resto de Venezuela, LatAm y clientes de afuera trabajo remoto, en español o en inglés, y todo queda documentado.',
+      faq: [
+        { q: '¿No es más caro que un plugin?', a: 'Al inicio suele costar más que una suscripción, sí. La diferencia es que después no te cobra por usuario, por pedido ni por función, y hace exactamente lo que tu operación necesita. Si un plugin te resuelve el problema, te lo voy a decir antes de construir nada.' },
+        { q: '¿Sobre qué se construye?', a: 'La mayoría de los proyectos vive bien en WordPress con desarrollo propio: bloques, tipos de contenido y campos hechos para tu caso. Cuando el sistema lo pide, se suma PHP, JavaScript, React y APIs propias.' },
+        { q: '¿Y si necesito cambios en seis meses?', a: 'Se hacen. El sistema queda documentado y pensado para crecer, y podemos trabajar con mantenimiento mensual o por bloques de horas.' },
+        { q: '¿El código y los datos son míos?', a: 'Sí. Al cierre recibes accesos, repositorio y documentación. No dependes de mí para seguir, y eso es a propósito.' },
+        { q: '¿Cómo se paga?', a: 'Por propuesta, según el alcance, y se puede acordar en cuotas. No publico precios porque dos proyectos con el mismo nombre pueden ser trabajos completamente distintos.' }
+      ],
+      ctaTitle: 'Cuéntame qué parte de tu operación te está costando tiempo.',
+      related: [['restaurantes', 'Vertical', 'Sistemas de pedidos para restaurantes'], ['automatizacion', 'Servicio', 'Automatización con WhatsApp y chatbots'], ['articulo', 'Artículo', 'Cómo montar el sistema de pedidos de tu restaurante']]
+    },
+    automatizacion: {
+      nav: 'Automatización', eyebrow: 'Automatización', icon: 'zap',
+      h1a: 'Que lo repetitivo ', h1b: 'se haga solo',
+      sub: 'WhatsApp automatizado, chatbots con tu información y captación de leads. Menos horas contestando lo mismo, y ningún cliente esperando respuesta.',
+      cta: 'Quiero automatizar esto',
+      problemTitle: 'Responder lo mismo veinte veces al día no es atención al cliente.',
+      problemBody: 'Horarios, ubicación, disponibilidad, cómo funciona el servicio. Cuando esas preguntas se responden solas, y se responden bien, tu equipo queda libre para lo que sí necesita una persona: entender un caso, resolver un problema, cerrar una venta.',
+      forWho: [{ text: 'Negocios que reciben la misma pregunta todos los días.' }, { text: 'Servicios con citas que se pierden por falta de recordatorio.' }, { text: 'Equipos pequeños a quienes les escriben fuera de horario.' }, { text: 'Quien pierde clientes simplemente por responder tarde.' }],
+      features: [
+        { icon: 'message-circle', t: 'WhatsApp automatizado', d: 'Respuestas inmediatas, opciones claras y paso a una persona cuando toca.' },
+        { icon: 'bot', t: 'Chatbot con tu información', d: 'Un asistente que responde con tus datos reales, no con frases genéricas.' },
+        { icon: 'clock', t: 'Recordatorios de citas', d: 'Avisos antes de cada cita, para que la agenda no se llene de huecos.' },
+        { icon: 'user', t: 'Captación de leads', d: 'Cada consulta queda registrada, con seguimiento si la persona no responde.' },
+        { icon: 'phone', t: 'Avisos a tu equipo', d: 'Notificación al encargado cuando entra algo urgente o de alto valor.' },
+        { icon: 'bar-chart', t: 'Resúmenes automáticos', d: 'Qué te preguntaron, cuántas citas entraron y qué quedó pendiente esta semana.' }
+      ],
+      steps: [
+        { n: 'Paso 01', t: 'Mapa de conversaciones', d: 'Revisamos qué te preguntan de verdad y qué respondes hoy.' },
+        { n: 'Paso 02', t: 'Guion y reglas', d: 'Escribimos las respuestas con tu tono y definimos cuándo entra un humano.' },
+        { n: 'Paso 03', t: 'Montaje y pruebas', d: 'Se configura, se prueba con casos reales y se corrige lo que suene raro.' },
+        { n: 'Paso 04', t: 'Medición y ajuste', d: 'Las preguntas que quedaron fuera se suman al flujo.' }
+      ],
+      geoTitle: 'Atiende igual de bien a las once de la noche',
+      geoBody: 'Funciona lo mismo para un negocio de Santa Bárbara del Zulia que para uno con clientes en otro huso horario. Por eso rinde especialmente si atiendes gente fuera de Venezuela.',
+      faq: [
+        { q: '¿No suena frío que responda un bot?', a: 'Suena frío cuando está mal escrito. El guion se redacta con tu tono, dice desde el inicio que es un asistente y pasa a una persona en cuanto la conversación lo pide. Bien hecho, la gente agradece que le respondan de una.' },
+        { q: '¿Necesito la API de WhatsApp Business?', a: 'Depende del volumen. Para negocios pequeños hay caminos más simples sobre WhatsApp Business. Cuando crece el volumen o hay varios agentes, la API es lo correcto y te acompaño en el registro.' },
+        { q: '¿Puede agendar citas por sí solo?', a: 'Sí, si tu agenda está en un sistema con el que se pueda integrar. Es una de las automatizaciones que más tiempo devuelve.' },
+        { q: '¿Se puede combinar con mi sistema de pedidos?', a: 'Sí, y es el caso más común en restaurantes: el pedido se arma en el sistema y la confirmación, el estado y el aviso viajan por WhatsApp.' },
+        { q: '¿Hasta dónde llega este servicio?', a: 'Hasta la conversación y el seguimiento. No hago publicidad pagada, embudos de venta ni manejo de redes sociales. Prefiero decirlo antes de empezar.' }
+      ],
+      ctaTitle: 'Dime qué te preguntan todo el día y armamos el flujo.',
+      related: [['sistemas', 'Servicio', 'Sistemas y software personalizados'], ['bienestar', 'Vertical', 'Agenda para terapeutas y estudios'], ['visibilidad', 'Servicio', 'Visibilidad: SEO y perfil de Google']]
+    },
+    sitios: {
+      nav: 'Sitios web', eyebrow: 'Sitios web', icon: 'globe',
+      h1a: 'Un sitio que se siente ', h1b: 'como lo que eres',
+      sub: 'Organiza toda tu información, carga rápido y le dice al visitante qué hacer después. Construido en WordPress, para que puedas editarlo sin depender de nadie.',
+      cta: 'Quiero mi sitio',
+      problemTitle: 'Un sitio bonito que nadie encuentra es una tarjeta de presentación cara.',
+      problemBody: 'Casi todos los sitios de negocios pequeños fallan en lo mismo: tardan en cargar, no explican qué hacen en los primeros segundos y no dicen qué hacer después. Eso se arregla con estructura y contenido claro, no con más animaciones.',
+      forWho: [{ text: 'Negocios de servicios que dependen de que los encuentren.' }, { text: 'Profesionales independientes que necesitan verse serios.' }, { text: 'Quien tiene un sitio lento, o uno que no puede editar.' }, { text: 'Negocios locales que quieren aparecer en su zona.' }],
+      features: [
+        { icon: 'monitor', t: 'Diseño propio', d: 'Identidad, tipografía y estructura pensadas para tu servicio, no una plantilla.' },
+        { icon: 'zap', t: 'Velocidad real', d: 'Imágenes, caché y carga optimizadas para pasar las métricas de Google.' },
+        { icon: 'file-text', t: 'Contenido ordenado', d: 'Tu información en el orden en que tu cliente necesita leerla.' },
+        { icon: 'calendar', t: 'Formularios y reservas', d: 'Contacto, cotización o agenda conectados a tu WhatsApp o correo.' },
+        { icon: 'layout-grid', t: 'WordPress que puedes editar', d: 'Bloques y campos claros para cambiar textos e imágenes sin miedo a romper algo.' },
+        { icon: 'shield', t: 'Mantenimiento y respaldos', d: 'Actualizaciones, seguridad y copias, para que el sitio no se caiga un viernes.' }
+      ],
+      steps: [
+        { n: 'Paso 01', t: 'Claridad de contenido', d: 'Preguntas guiadas para definir el mensaje y qué va en cada página.' },
+        { n: 'Paso 02', t: 'Diseño', d: 'Diseño responsive aprobado antes de escribir una línea de código.' },
+        { n: 'Paso 03', t: 'Construcción y optimización', d: 'Montaje, velocidad, SEO técnico y pruebas en teléfono y computadora.' },
+        { n: 'Paso 04', t: 'Listo para ser encontrado', d: 'Publicación, estructura para Google y sistemas de IA, y capacitación para editarlo.' }
+      ],
+      geoTitle: 'Pensado para que te encuentren donde atiendes',
+      geoBody: 'Si tu negocio atiende en Santa Bárbara del Zulia o San Carlos del Zulia, el sitio se estructura para búsquedas de la zona. Si trabajas remoto, se estructura por servicio y especialidad en lugar de por ciudad.',
+      faq: [
+        { q: '¿Por qué WordPress?', a: 'Porque el sitio queda siendo tuyo: puedes cambiar de proveedor, llevarte el contenido y crecer con funcionalidad propia. Trabajo con Gutenberg y desarrollo a medida, así se evita el problema clásico de acumular plugins que lo vuelven lento.' },
+        { q: '¿Cuánto tarda?', a: 'Un sitio de servicios bien hecho toma entre tres y seis semanas. La variable no es el diseño, es qué tan rápido tengamos el contenido y las fotos.' },
+        { q: '¿Puedo editarlo yo?', a: 'Sí, y es parte del trabajo. Se entrega con bloques claros y una sesión de capacitación grabada, para que no tengas que escribirme por un cambio de texto.' },
+        { q: '¿Incluye posicionamiento?', a: 'Incluye SEO técnico: estructura, metadatos, velocidad y datos estructurados. El trabajo continuo de contenido y visibilidad local es el otro servicio, y te digo con honestidad si lo necesitas o no.' },
+        { q: '¿De quién es el sitio al final?', a: 'Tuyo. Dominio, hosting, contenido y accesos quedan a tu nombre. El pago se puede acordar en cuotas.' }
+      ],
+      ctaTitle: 'Hablemos de qué tiene que lograr tu sitio, antes de cómo se ve.',
+      related: [['visibilidad', 'Servicio', 'Visibilidad: SEO y perfil de Google'], ['hoteles', 'Vertical', 'Reservas directas para hoteles y posadas'], ['articulos', 'Artículos', 'Notas prácticas sobre sitios y sistemas']]
+    },
+    visibilidad: {
+      nav: 'Visibilidad', eyebrow: 'Visibilidad', icon: 'search',
+      h1a: 'Que te encuentren cuando ', h1b: 'te están buscando',
+      sub: 'Contenido, SEO continuo y tu perfil de Google optimizado. Para negocios locales del Zulia y para servicios que atienden a toda LatAm.',
+      cta: 'Revisar mi visibilidad',
+      problemTitle: 'Tu próximo cliente está buscando tu servicio ahora mismo.',
+      problemBody: 'La diferencia entre aparecer y no aparecer casi nunca es el presupuesto. Es tener las páginas correctas, con la estructura correcta, diciendo lo que la gente escribe en el buscador. Y si atiendes local, tener bien puesta tu ficha de Google pesa más que cualquier truco.',
+      forWho: [{ text: 'Negocios locales que dependen de búsquedas en su zona.' }, { text: 'Servicios que compiten por búsquedas en toda LatAm.' }, { text: 'Sitios que reciben visitas pero no consultas.' }, { text: 'Quien nunca terminó de configurar su perfil de Google.' }],
+      features: [
+        { icon: 'search', t: 'SEO técnico', d: 'Indexación, encabezados, metadatos, enlaces internos y velocidad.' },
+        { icon: 'file-text', t: 'Contenido con intención', d: 'Una página por servicio y por zona, escrita para lo que la gente busca de verdad.' },
+        { icon: 'map-pin', t: 'Perfil de Google optimizado', d: 'Ficha completa, categorías correctas, fotos, horarios y publicaciones.' },
+        { icon: 'star', t: 'Sistema de reseñas', d: 'Una forma simple de pedir reseñas y responderlas sin que se convierta en tarea.' },
+        { icon: 'layers', t: 'Datos estructurados', d: 'Schema de negocio local, servicio, artículo y preguntas frecuentes.' },
+        { icon: 'bar-chart', t: 'Medición honesta', d: 'Search Console y analítica configuradas, con foco en consultas, no en vanidad.' }
+      ],
+      steps: [
+        { n: 'Paso 01', t: 'Auditoría', d: 'Qué tienes indexado, cómo te encuentra la gente hoy y qué falta.' },
+        { n: 'Paso 02', t: 'Plan de páginas', d: 'Qué páginas crear por servicio y por zona, en qué orden.' },
+        { n: 'Paso 03', t: 'Ejecución', d: 'SEO técnico, contenido, perfil de Google y datos estructurados.' },
+        { n: 'Paso 04', t: 'Seguimiento continuo', d: 'Medimos consultas reales, no solo posiciones, y ajustamos cada mes.' }
+      ],
+      geoTitle: 'Local en el Zulia, alcance en LatAm y fuera',
+      geoBody: 'Para negocios de Santa Bárbara del Zulia y San Carlos del Zulia el foco es el perfil de Google y las páginas por zona. Para servicios remotos, el foco pasa a páginas por especialidad y contenido que demuestre que sabes de lo tuyo.',
+      faq: [
+        { q: '¿En cuánto tiempo se ven resultados?', a: 'El perfil de Google puede mover consultas en semanas. El posicionamiento por contenido es un trabajo de tres a seis meses, y sigue sumando después. Quien te prometa la primera posición en un mes no está siendo honesto contigo.' },
+        { q: '¿Sirve si mi negocio es solo local?', a: 'Es donde más rinde. Un negocio local bien posicionado compite con muy pocos, y la ficha de Google suele generar más llamadas que el sitio.' },
+        { q: '¿Y las búsquedas con inteligencia artificial?', a: 'Cada vez más gente le pregunta a un asistente en lugar de buscar. Se trabaja con contenido claro, datos estructurados y consistencia en tus datos, para que esos sistemas puedan citar tu negocio bien y no a medias.' },
+        { q: '¿Hace falta pagar publicidad?', a: 'No, y de hecho no manejo publicidad pagada. Es un límite claro de lo que ofrezco: aquí trabajamos lo orgánico y tu perfil de Google, que es lo que sostiene en el tiempo.' },
+        { q: '¿Qué recibo cada mes?', a: 'Lo que se hizo, lo que se midió y lo que sigue. Sin reportes de cincuenta páginas que nadie lee.' }
+      ],
+      ctaTitle: 'Te digo en una llamada qué falta para que te encuentren.',
+      related: [['sitios', 'Servicio', 'Sitios web para negocios'], ['restaurantes', 'Vertical', 'Sistemas de pedidos para restaurantes'], ['articulos', 'Artículos', 'Notas sobre visibilidad local']]
+    }
+  };
+
+  ARTICLES = [
+    { id: 'pedidos', cat: 'Restaurantes', read: '9 min de lectura', featured: true, title: 'Cómo montar el sistema de pedidos de tu restaurante, paso a paso', excerpt: 'El pedido que alguien tiene que traducir antes de llegar a la cocina es el que sale mal. Aquí está cómo se arma un sistema que entrega la comanda ya lista, sin depender de quién contesta.' },
+    { id: 'menu-qr', cat: 'Restaurantes', read: '6 min de lectura', title: 'Menú digital con QR: qué resuelve de verdad y qué no', excerpt: 'Cambiar la carta de papel no es el beneficio. El beneficio es que el menú diga la verdad a las nueve de la noche.' },
+    { id: 'platillos', cat: 'Restaurantes', read: '7 min de lectura', title: 'Cómo se diseña un armado de platillos que la gente sí termina', excerpt: 'Demasiadas opciones abandonan el carrito. Muy pocas matan el ticket. Dónde está el punto medio.' },
+    { id: 'whatsapp', cat: 'Automatización', read: '5 min de lectura', title: 'WhatsApp automatizado sin sonar a robot', excerpt: 'Un guion honesto, respuestas cortas y una salida clara hacia una persona. No hace falta más.' },
+    { id: 'cwv', cat: 'Sitios web', read: '8 min de lectura', title: 'Qué mide de verdad Core Web Vitals en el sitio de un negocio', excerpt: 'Tres métricas, explicadas sin jerga, y qué cambia cada una para quien te visita.' },
+    { id: 'gbp', cat: 'Visibilidad', read: '6 min de lectura', title: 'Tu perfil de Google, terminado de configurar', excerpt: 'La ficha bien puesta suele generar más llamadas que el sitio, y casi nadie la completa.' },
+    { id: 'a-medida', cat: 'Sistemas', read: '7 min de lectura', title: 'Cuándo tu negocio necesita un sistema a medida y cuándo no', excerpt: 'Tres señales de que ya lo necesitas, y dos casos donde un plugin es la respuesta correcta.' },
+    { id: 'agenda', cat: 'Bienestar', read: '6 min de lectura', title: 'Menos ausencias en tu agenda, sin perseguir a nadie', excerpt: 'Recordatorios, políticas claras y lista de espera. Tres cosas que funcionan mejor que insistir.' }
+  ];
+
+  ARTICLE_WHY = [
+    { text: 'El menú vive en un PDF que nadie actualiza desde hace meses.' },
+    { text: 'El cliente describe lo que quiere y otra persona lo interpreta.' },
+    { text: 'No hay confirmación ni tiempo estimado, así que el cliente vuelve a preguntar.' },
+    { text: 'Pedir toma más pasos de los que la gente tiene paciencia para dar.' }
+  ];
+
+  ARTICLE_STEPS = [
+    { n: '1', t: 'Empieza por tu plato estrella', d: 'No cargues la carta completa el primer día. Abre con lo que más vendes y con el armado que mejor conoces, donde sabes de memoria qué combinaciones funcionan.' },
+    { n: '2', t: 'Dale una razón concreta al cliente', d: 'Un extra sin costo, un tamaño mayor, entrega prioritaria. Algo que solo exista pidiendo por tu canal, y que no te coma el margen.' },
+    { n: '3', t: 'Pon el enlace donde ya está tu gente', d: 'Perfil de Instagram, estado de WhatsApp, QR en la mesa y en el empaque de cada pedido que sale por la puerta.' },
+    { n: '4', t: 'Revísalo cada mes', d: 'Si no crece, casi siempre es fricción en el flujo y no falta de promoción. Mira en qué paso abandona la gente y corrige ahí.' }
+  ];
+
+  ARTICLE_TAKEAWAYS = [
+    { text: 'El pedido que alguien tiene que traducir es el que sale mal.' },
+    { text: 'El menú tiene que reflejar disponibilidad real, a toda hora.' },
+    { text: 'En platillos personalizados, el armado guiado sube el ticket y baja los errores.' },
+    { text: 'La meta no es cambiar todo de golpe: es que un canal ordenado se vuelva el principal.' }
+  ];
+
+  TOC = [
+    { text: 'Por qué el pedido a mano cuesta más de lo que parece' },
+    { text: 'Qué tiene que hacer bien tu sistema' },
+    { text: 'Cómo hacer la transición sin perder ventas' },
+    { text: 'Qué mirar para saber si funcionó' }
+  ];
+
+  CV_LINKS = [
+    { icon: 'mail', label: 'Email', value: 'mariovicuna.dev@gmail.com', href: 'mailto:mariovicuna.dev@gmail.com' },
+    { icon: 'github', label: 'GitHub', value: 'mariovicunadev', href: 'https://github.com/mariovicunadev' },
+    { icon: 'linkedin', label: 'LinkedIn', value: 'mario-vicuna', href: 'https://linkedin.com/in/mario-vicuna' },
+    { icon: 'globe', label: 'Studio', value: 'vicunav.com', href: 'https://vicunav.com' },
+    { icon: 'phone', label: 'Phone', value: '+58 424 501 6053', href: 'tel:+584245016053' }
+  ];
+
+  CV_STATS = [
+    { v: '10+', l: 'Years building for the web' },
+    { v: '5', l: 'Remote teams across LatAm and the US' },
+    { v: 'C1', l: 'English, EF SET certified' },
+    { v: 'B.S.', l: 'Systems Engineering, Universidad de los Andes' }
+  ];
+
+  CV_SKILLS = [
+    { icon: 'layout-grid', t: 'WordPress and PHP', items: ['Custom themes', 'Child themes', 'Elementor Pro', 'ACF', 'Gutenberg blocks', 'Custom post types', 'WooCommerce', 'Hooks and filters', 'Plugin configuration'] },
+    { icon: 'code', t: 'Frontend', items: ['HTML5', 'CSS3', 'JavaScript ES6+', 'React', 'Next.js basics', 'Sass', 'Responsive, mobile first'] },
+    { icon: 'layers', t: 'Backend and integrations', items: ['PHP', 'REST APIs', 'GraphQL', 'Booking flows', 'CRM integrations', 'Marketing automation', 'Payment and form APIs'] },
+    { icon: 'zap', t: 'Performance and SEO', items: ['Core Web Vitals', 'Lighthouse', 'Caching', 'Image optimization', 'Technical SEO', 'Schema markup', 'Rank Math', 'Search Console'] },
+    { icon: 'briefcase', t: 'Tools and workflow', items: ['Git and GitHub', 'Figma', 'SiteGround', 'ManageWP', 'Notion', 'Agile remote work', 'AI assisted development'] }
+  ];
+
+  CV_JOBS = [
+    { role: 'Founder and Full Stack Developer', company: 'Vicunav, remote, vicunav.com', dates: 'Feb 2026, present', dark: true, bullets: [
+      { text: 'Founded a web studio delivering websites and custom systems for service businesses, wellness brands, therapists and local companies.' },
+      { text: 'Build WordPress sites and custom systems: booking flows, ordering systems, configurable product builders, custom content structures.' },
+      { text: 'Designed an AI assisted development workflow for planning, UX structure, code generation and QA, cutting production time per project.' },
+      { text: 'Own the full cycle: discovery, content strategy, design direction, build, technical SEO, hosting, launch and post launch support.' }
+    ] },
+    { role: 'Web Developer', company: 'Van Lance Media Group, remote', dates: 'Sep 2019, May 2025', bullets: [
+      { text: 'Developed and maintained high performance websites for international clients across frontend, CMS customization and optimization.' },
+      { text: 'Improved speed and UX through Core Web Vitals work, lazy loading, asset optimization and Lighthouse auditing.' },
+      { text: 'Integrated third party APIs for marketing automation, analytics, forms and business operations.' },
+      { text: 'Collaborated with remote design, marketing and client service teams on production deadlines.' }
+    ] },
+    { role: 'WordPress Developer', company: 'Redstage, Buenos Aires, remote', dates: 'Aug 2018, Aug 2019', bullets: [
+      { text: 'Worked on WordPress and CMS projects: theme customization, landing pages, technical fixes and client improvements.' },
+      { text: 'Built responsive interfaces with reusable components and mobile first practices.' }
+    ] },
+    { role: 'Web Developer', company: 'Trafilea Group, Buenos Aires, remote', dates: 'Dec 2016, Aug 2018', bullets: [
+      { text: 'Built internal tools and site functionality, including a custom CRM for the CTO using WordPress custom post types and fields.' },
+      { text: 'Worked across frontend, CMS architecture, custom content structures and deployment coordination.' },
+      { text: 'Built scalable templates and supported high traffic projects in a remote environment.' }
+    ] },
+    { role: 'WordPress Web Developer', company: 'Upwork, Mérida, Venezuela, remote', dates: 'Apr 2014, Dec 2016', bullets: [
+      { text: 'Built WordPress sites for international clients, progressing from CSS fixes to full development and theme customization.' },
+      { text: 'Built a foundation in client communication, scope management and deadline driven remote delivery.' }
+    ] },
+    { role: 'Career break: family caregiving and technical development', company: 'Remote', dates: 'Jun 2025, Jan 2026', bullets: [
+      { text: 'Planned break for family caregiving while continuing structured professional development.' },
+      { text: 'Deepened work in AI assisted development, WordPress performance, technical SEO and site architecture.' }
+    ] }
+  ];
+
+  CV_WORK = [
+    { name: 'TatiPilates', badge: 'Client work', real: true, d: 'Website and class booking system with per session capacity control.', stack: 'WordPress, custom fields, booking' },
+    { name: 'Bhoga Yoga', badge: 'Client work', real: true, d: 'Website and digital presence for a yoga studio with class schedule.', stack: 'WordPress, Elementor Pro' },
+    { name: 'Clearpath Therapy', badge: 'Concept', real: false, d: 'Concept site and appointment system for a therapy practice.', stack: 'WordPress, ACF, forms' },
+    { name: 'Internal CRM', badge: 'Product work', real: true, d: 'Custom CRM built for the CTO at Trafilea using WordPress post types and fields.', stack: 'PHP, WordPress, JavaScript' }
+  ];
+
+  CV_EDU = [
+    { icon: 'graduation', t: 'B.S. in Systems Engineering', d: 'Universidad de los Andes, Venezuela, 2016' },
+    { icon: 'file-text', t: 'EF SET C1 English Certificate', d: 'CEFR standard, 2022' },
+    { icon: 'file-text', t: 'Google Web Development Certificate', d: 'HTML and CSS, Actívate, 2018' }
+  ];
+
+  CV_HOW = [
+    { text: 'I write down scope, decisions and handoff notes, so nothing important lives only in my head.' },
+    { text: 'I ship small usable increments and ask for feedback before building further.' },
+    { text: 'I raise problems early, including the ones that make an estimate look worse.' },
+    { text: 'Performance and accessibility are part of the work, not a phase at the end.' },
+    { text: 'Async by default: clear written updates, with overlap for US and LatAm hours.' }
+  ];
+
+  SEO_ROWS = [
+    { kind: 'Vertical', slug: '/restaurantes/', schema: 'LocalBusiness, Service, FAQPage', title: 'Sistemas de pedidos para restaurantes y pizzerías, Zulia', meta: 'Sistema de pedidos online propio, constructor de platillos personalizados, menú digital con QR y reservas. Para restaurantes en Santa Bárbara del Zulia, San Carlos del Zulia y toda Venezuela.', kw: 'sistema de pedidos para restaurantes, constructor de platillos personalizados, menú digital QR restaurante Zulia' },
+    { kind: 'Vertical', slug: '/hoteles/', schema: 'LocalBusiness, Service, FAQPage', title: 'Motor de reservas directas para hoteles y posadas, Zulia', meta: 'Reservas directas sin comisión de portales, disponibilidad sincronizada y confirmaciones automáticas. Para hoteles y posadas en el Zulia, Venezuela y LatAm.', kw: 'motor de reservas para hoteles, reservas directas posada, sistema de reservas hotel Venezuela' },
+    { kind: 'Vertical', slug: '/bienestar/', schema: 'LocalBusiness, Service, FAQPage', title: 'Agenda en línea para terapeutas, yoga y pilates', meta: 'Reservas de sesiones y clases, recordatorios automáticos, paquetes y control de cupos. Para terapeutas y estudios en el Zulia, Venezuela y en línea.', kw: 'agenda en línea para terapeutas, sistema de reservas pilates, software para estudio de yoga' },
+    { kind: 'Servicio', slug: '/servicios/sistemas-a-medida/', schema: 'Service, FAQPage', title: 'Sistemas y software a medida para negocios, Vicunav', meta: 'Reservas, pedidos, inventario y reportes hechos a la medida de tu operación. Desarrollo a medida en Zulia, Venezuela y remoto para LatAm.', kw: 'software a medida para negocios, sistema de reservas personalizado, desarrollo a medida Venezuela' },
+    { kind: 'Servicio', slug: '/servicios/automatizacion-whatsapp/', schema: 'Service, FAQPage', title: 'Automatización con WhatsApp y chatbots para negocios', meta: 'Respuestas automáticas, chatbots con tu información, recordatorios de citas y seguimiento de leads. Implementación remota en toda LatAm.', kw: 'automatizar WhatsApp negocio, chatbot para empresas, recordatorios de citas automáticos' },
+    { kind: 'Servicio', slug: '/servicios/sitios-web/', schema: 'Service, FAQPage', title: 'Sitios web para negocios de servicios, rápidos y editables', meta: 'Diseño propio, Core Web Vitals, contenido claro y WordPress que puedes editar. Sitios web en Santa Bárbara del Zulia y remoto.', kw: 'diseño web para negocios, sitio web WordPress rápido, páginas web Zulia' },
+    { kind: 'Servicio', slug: '/servicios/seo-google-business/', schema: 'Service, FAQPage', title: 'SEO local y Google Business Profile para negocios', meta: 'SEO técnico, contenido por servicio y zona, ficha de Google y reseñas. Para negocios locales del Zulia y servicios en LatAm.', kw: 'SEO local Zulia, Google Business Profile negocio, posicionamiento web Venezuela' },
+    { kind: 'Listado', slug: '/articulos/', schema: 'Blog, CollectionPage', title: 'Artículos: tecnología que le ahorra tiempo a tu negocio', meta: 'Notas prácticas sobre pedidos en línea, automatización, sitios web y visibilidad local, escritas desde proyectos reales, no desde teoría.', kw: 'artículos tecnología para negocios, guías pedidos online, blog desarrollo web Venezuela' },
+    { kind: 'Artículo', slug: '/articulos/sistema-de-pedidos-restaurante/', schema: 'Article, FAQPage, BreadcrumbList', title: 'Cómo montar el sistema de pedidos de tu restaurante', meta: 'Guía paso a paso: menú que dice la verdad, armado guiado de platillos, cobro con confirmación y un pedido que entra directo a la cocina.', kw: 'sistema de pedidos restaurante, pedidos en línea restaurante, menú digital y comandas' },
+    { kind: 'Perfil', slug: '/mario/', schema: 'Person, ProfilePage', title: 'Mario Vicuña, Full Stack Developer, WordPress specialist', meta: 'Full stack developer with 10+ years building performance focused websites and custom systems. Remote from Venezuela, open to full time roles.', kw: 'full stack developer hire, WordPress developer remote, React PHP developer Venezuela' }
+  ];
+
+  setPage = (p) => this.setState({ page: p, faq: 0 });
+
+  renderVals() {
+    const bp = this.BP[this.state.breakpoint];
+    const page = this.state.page;
+    const svcKey = this.SERVICES[page] ? page : null;
+    const v = this.VERTICALS[page] || null;
+    const svc = svcKey ? this.SERVICES[svcKey] : null;
+    const number = (this.props.whatsappNumber || '10000000000').replace(/[^0-9]/g, '');
+    const faqSource = svc ? svc.faq : (v ? v.faq : []);
+    const cat = this.state.cat;
+    const badge = (real) => ({
+      badgeFg: real ? 'var(--accent-ink)' : 'var(--text-muted)',
+      badgeBg: real ? 'var(--color-accent-tint)' : 'transparent',
+      badgeBorder: real ? 'var(--color-accent-tint)' : 'var(--border-default)'
+    });
+    const list = this.ARTICLES.filter(a => !a.featured && (cat === 'Todos' || a.cat === cat));
+
+    return {
+      bp,
+      screenLabel: (this.PAGES.find(p => p[0] === page) || ['', ''])[1] + ' — ' + bp.label,
+      pageTabs: this.PAGES.map(([key, label]) => ({
+        key, label,
+        bg: page === key ? 'var(--color-dark)' : 'transparent',
+        color: page === key ? 'var(--color-light)' : 'var(--color-dark)',
+        onClick: () => this.setPage(key)
+      })),
+      bpTabs: ['mobile', 'tablet', 'desktop'].map(key => ({
+        key, label: this.BP[key].label,
+        bg: this.state.breakpoint === key ? 'var(--color-accent)' : 'transparent',
+        border: this.state.breakpoint === key ? 'var(--color-accent)' : 'color-mix(in oklch, #2B2825 22%, #F4EFE6)',
+        onClick: () => this.setState({ breakpoint: key })
+      })),
+      whatsappHref: 'https://wa.me/' + number,
+      cvPdf: 'uploads/cv_files-1787863696971-ejq5.pdf',
+      showWhatsappFloat: this.props.showWhatsappFloat !== false && page !== 'cv' && page !== 'seo',
+      showChrome: page !== 'seo',
+      headerPage: (svcKey || v) ? 'servicios' : '',
+      v,
+      isVertical: !!v,
+      isService: !!svc,
+      isArticulos: page === 'articulos',
+      isArticulo: page === 'articulo',
+      isCv: page === 'cv',
+      isSeo: page === 'seo',
+      svc,
+      svcRelated: (svc ? svc.related : []).map(([key, kind, t]) => ({ key, kind, t, onClick: () => this.setPage(key) })),
+      zones: this.ZONES.map((z, i) => ({ ...z, key: i })),
+      restoPains: v ? v.pains : [],
+      restoFeatures: (v ? v.features : []).map((f, i) => ({ ...f, key: i })),
+      restoSteps: v ? v.steps : [],
+      restoCore: (v ? v.core : []).map(c => ({
+        ...c,
+        bg: c.dark ? 'var(--color-dark)' : '#fff',
+        border: c.dark ? 'var(--color-dark)' : 'var(--border-default)',
+        iconBg: c.dark ? 'color-mix(in oklch, #E8873A 22%, #2B2825)' : 'var(--color-accent-tint)',
+        iconFg: c.dark ? 'var(--color-accent)' : 'var(--accent-ink)',
+        title: c.dark ? 'var(--color-light)' : 'var(--color-dark)',
+        body: c.dark ? 'var(--color-secondary)' : 'var(--text-muted)'
+      })),
+      restoCases: (v ? v.cases : []).map((c, i) => ({ ...c, key: i, ...badge(c.real) })),
+      builderOptions: (v ? v.demoOptions : []).map((o, i) => ({
+        ...o, key: i,
+        bg: o.sel ? 'var(--color-accent-tint)' : '#fff',
+        border: o.sel ? 'var(--accent-ink)' : 'var(--border-default)'
+      })),
+      faqs: faqSource.map((f, i) => {
+        const open = this.state.faq === i;
+        return {
+          ...f, key: i, open,
+          icon: open ? 'minus' : 'plus',
+          border: open ? 'var(--accent-ink)' : 'var(--border-default)',
+          onClick: () => this.setState({ faq: open ? -1 : i })
+        };
+      }),
+      cats: ['Todos', 'Restaurantes', 'Sistemas', 'Automatización', 'Sitios web', 'Visibilidad'].map(label => {
+        const on = cat === label;
+        return {
+          key: label, label,
+          bg: on ? 'var(--color-dark)' : '#fff',
+          border: on ? 'var(--color-dark)' : 'var(--border-default)',
+          color: on ? 'var(--color-light)' : 'var(--color-dark)',
+          onClick: () => this.setState({ cat: label })
+        };
+      }),
+      showFeatured: cat === 'Todos' || cat === 'Restaurantes',
+      featured: { ...this.ARTICLES[0], stats: [
+        { v: '4', l: 'piezas que tiene que resolver tu sistema de pedidos' },
+        { v: '1', l: 'solo canal por donde la cocina recibe todo' },
+        { v: '0', l: 'pedidos que alguien tenga que transcribir a mano' }
+      ] },
+      articles: list.map(a => ({ ...a, key: a.id, onClick: () => this.setPage('articulo') })),
+      related: this.ARTICLES.filter(a => a.cat === 'Restaurantes' && !a.featured).concat(this.ARTICLES.filter(a => a.id === 'a-medida')).slice(0, 3).map(a => ({ ...a, key: a.id, onClick: () => this.setPage('articulo') })),
+      articleWhy: this.ARTICLE_WHY,
+      articleSteps: this.ARTICLE_STEPS,
+      articleTakeaways: this.ARTICLE_TAKEAWAYS,
+      toc: this.TOC.map((t, i) => ({ ...t, key: i })),
+      goArticulos: () => this.setPage('articulos'),
+      goArticulo: () => this.setPage('articulo'),
+      goResto: () => this.setPage('restaurantes'),
+      goCv: () => this.setPage('cv'),
+      cvLinks: this.CV_LINKS.map((l, i) => ({ ...l, key: i })),
+      cvStats: this.CV_STATS.map((s, i) => ({ ...s, key: i })),
+      cvSkills: this.CV_SKILLS.map((g, i) => ({ ...g, key: i, items: g.items.map((text, j) => ({ key: j, text })) })),
+      cvJobs: this.CV_JOBS.map((j, i) => ({
+        ...j, key: i,
+        bg: j.dark ? 'var(--color-dark)' : '#fff',
+        border: j.dark ? 'var(--color-dark)' : 'var(--border-default)',
+        title: j.dark ? 'var(--color-light)' : 'var(--color-dark)',
+        body: j.dark ? 'var(--color-secondary)' : 'var(--text-muted)',
+        meta: j.dark ? 'var(--color-accent)' : 'var(--accent-ink)',
+        accent: j.dark ? 'var(--color-accent)' : 'var(--accent-ink)'
+      })),
+      cvWork: this.CV_WORK.map((w, i) => ({ ...w, key: i, ...badge(w.real) })),
+      cvEdu: this.CV_EDU.map((e, i) => ({ ...e, key: i })),
+      cvHow: this.CV_HOW,
+      seoRows: this.SEO_ROWS.map((r, i) => ({ ...r, key: i }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

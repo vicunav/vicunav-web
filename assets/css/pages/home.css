@@ -151,7 +151,6 @@
 }
 .pillar__mockup{
   margin-top:auto;
-  border-radius:var(--radius-14);
 }
 .pillar--dark{
   background:var(--color-dark);

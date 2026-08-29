@@ -1,0 +1,273 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/badges/**",
+              "components/buttons/**",
+              "components/cards/pillar/**",
+              "components/cards/project/**",
+              "components/forms/**",
+              "components/icon/**",
+              "ui_kits/website/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Plus Jakarta Sans))/i]",
+        "message": "Font not provided by the design system. Available: Plus Jakarta Sans."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|disabled|type|onClick|children|style|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, size, disabled, type, onClick, children, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'secondary'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:button|submit|reset)$/]",
+        "message": "<Button> type must be one of 'button' | 'submit' | 'reset'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|style|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, size, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|placeholder|type|helperText|error|multiline|value|onChange|style|key|ref|className|style|children)$/]",
+        "message": "<Input> doesn't accept that prop. Declared props: label, placeholder, type, helperText, error, multiline, value, onChange, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:text|email|tel)$/]",
+        "message": "<Input> type must be one of 'text' | 'email' | 'tel'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Kicker'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|tone|style|key|ref|className|style|children)$/]",
+        "message": "<Kicker> doesn't accept that prop. Declared props: children, tone, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Kicker'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:accent|on-dark)$/]",
+        "message": "<Kicker> tone must be one of 'accent' | 'on-dark'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PillarCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|title|description|style|key|ref|className|style|children)$/]",
+        "message": "<PillarCard> doesn't accept that prop. Declared props: icon, title, description, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ProjectCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|category|year|imageSlot|style|key|ref|className|style|children)$/]",
+        "message": "<ProjectCard> doesn't accept that prop. Declared props: title, category, year, imageSlot, style."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Button": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "Input": {
+        "replaces": []
+      },
+      "Kicker": {
+        "replaces": []
+      },
+      "PillarCard": {
+        "replaces": []
+      },
+      "ProjectCard": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--border-default",
+      "--border-on-dark",
+      "--color-accent",
+      "--color-accent-hover",
+      "--color-accent-press",
+      "--color-accent-tint",
+      "--color-border",
+      "--color-border-dark",
+      "--color-dark",
+      "--color-dark-2",
+      "--color-dark-3",
+      "--color-light",
+      "--color-light-2",
+      "--color-secondary",
+      "--color-secondary-hover",
+      "--color-white",
+      "--font-family-base",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--shadow-lg",
+      "--shadow-md",
+      "--shadow-sm",
+      "--space-1",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--surface-accent-tint",
+      "--surface-card-dark",
+      "--surface-card-light",
+      "--surface-primary-dark",
+      "--surface-primary-light",
+      "--text-accent",
+      "--text-body-lg-line",
+      "--text-body-lg-size",
+      "--text-body-lg-weight",
+      "--text-body-line",
+      "--text-body-size",
+      "--text-body-sm-line",
+      "--text-body-sm-size",
+      "--text-body-sm-weight",
+      "--text-body-weight",
+      "--text-emphasis-weight",
+      "--text-h1-line",
+      "--text-h1-size",
+      "--text-h1-tracking",
+      "--text-h1-weight",
+      "--text-h2-line",
+      "--text-h2-size",
+      "--text-h2-tracking",
+      "--text-h2-weight",
+      "--text-h3-line",
+      "--text-h3-size",
+      "--text-h3-tracking",
+      "--text-h3-weight",
+      "--text-label-line",
+      "--text-label-size",
+      "--text-label-tracking",
+      "--text-label-weight",
+      "--text-on-dark",
+      "--text-on-light",
+      "--text-secondary",
+      "--weight-bold",
+      "--weight-medium",
+      "--weight-regular",
+      "--weight-semibold"
+    ],
+    "tokenKinds": {
+      "--color-dark": "color",
+      "--color-light": "color",
+      "--color-accent": "color",
+      "--color-secondary": "color",
+      "--color-white": "color",
+      "--color-accent-hover": "color",
+      "--color-accent-press": "color",
+      "--color-accent-tint": "color",
+      "--color-dark-2": "color",
+      "--color-dark-3": "color",
+      "--color-light-2": "color",
+      "--color-secondary-hover": "color",
+      "--color-border": "color",
+      "--color-border-dark": "color",
+      "--surface-primary-dark": "color",
+      "--surface-primary-light": "color",
+      "--surface-card-light": "color",
+      "--surface-card-dark": "color",
+      "--surface-accent-tint": "color",
+      "--text-on-dark": "font",
+      "--text-on-light": "font",
+      "--text-secondary": "font",
+      "--text-accent": "font",
+      "--border-default": "color",
+      "--border-on-dark": "color",
+      "--font-family-base": "font",
+      "--weight-regular": "font",
+      "--weight-medium": "font",
+      "--weight-semibold": "font",
+      "--weight-bold": "font",
+      "--text-h1-size": "font",
+      "--text-h1-line": "font",
+      "--text-h1-weight": "font",
+      "--text-h1-tracking": "font",
+      "--text-h2-size": "font",
+      "--text-h2-line": "font",
+      "--text-h2-weight": "font",
+      "--text-h2-tracking": "font",
+      "--text-h3-size": "font",
+      "--text-h3-line": "font",
+      "--text-h3-weight": "font",
+      "--text-h3-tracking": "font",
+      "--text-body-lg-size": "font",
+      "--text-body-lg-line": "font",
+      "--text-body-lg-weight": "font",
+      "--text-body-size": "font",
+      "--text-body-line": "font",
+      "--text-body-weight": "font",
+      "--text-body-sm-size": "font",
+      "--text-body-sm-line": "font",
+      "--text-body-sm-weight": "font",
+      "--text-emphasis-weight": "font",
+      "--text-label-size": "font",
+      "--text-label-line": "font",
+      "--text-label-weight": "font",
+      "--text-label-tracking": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-pill": "radius",
+      "--shadow-sm": "shadow",
+      "--shadow-md": "shadow",
+      "--shadow-lg": "shadow"
+    },
+    "fontFamilies": [
+      "Plus Jakarta Sans"
+    ]
+  }
+}

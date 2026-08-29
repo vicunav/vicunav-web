@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/radii.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/shadows.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/styles.css">
+  <script src="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/_ds_bundle.js"></script>
+  <style>body{margin:0}</style>
+</helmet>
+<div style="position:relative;">
+  <header style="background:var(--color-dark);display:flex;align-items:center;justify-content:space-between;padding:{{ padTop }}px {{ padH }}px;position:relative;z-index:20;">
+    <button onClick="{{ goHome }}" style="background:none;border:none;min-height:44px;display:flex;align-items:center;padding:0 2px;cursor:pointer;font-family:var(--font-family-base);font-weight:700;font-size:20px;color:var(--color-light);" style-hover="color:var(--color-accent)" style-focus="outline:2px solid var(--color-accent);outline-offset:4px;border-radius:4px;">Vicunav</button>
+    <sc-if value="{{ isWide }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;align-items:center;gap:32px;">
+        <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+          <button onClick="{{ l.onClick }}" style="background:none;border:none;min-height:44px;display:flex;align-items:center;padding:0 2px;cursor:pointer;font-family:var(--font-family-base);font-size:15px;font-weight:500;color:{{ l.color }};" style-hover="color:var(--color-accent)" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;border-radius:4px;">{{ l.label }}</button>
+        </sc-for>
+        <x-import component-from-global-scope="VicunavTechDesignSystem_8a7481.Button" onClick="{{ goContacto }}" variant="primary" size="md" hint-size="120px,44px">Hablemos</x-import>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button aria-label="{{ menuLabel }}" aria-expanded="{{ open }}" onClick="{{ toggle }}" style="width:44px;height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;border-radius:8px;">
+        <span style="display:block;width:22px;height:2px;background:var(--color-light);border-radius:2px;transition:transform .15s ease;transform:{{ barTopTransform }};"></span>
+        <span style="display:block;width:22px;height:2px;background:var(--color-light);border-radius:2px;transition:opacity .15s ease;opacity:{{ barMidOpacity }};"></span>
+        <span style="display:block;width:22px;height:2px;background:var(--color-light);border-radius:2px;transition:transform .15s ease;transform:{{ barBotTransform }};"></span>
+      </button>
+    </sc-if>
+  </header>
+  <sc-if value="{{ showDropdown }}" hint-placeholder-val="{{ false }}">
+    <div style="background:var(--color-dark-2);display:flex;flex-direction:column;padding:8px {{ padH }}px 24px;gap:2px;position:relative;z-index:19;">
+      <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+        <button onClick="{{ l.onClick }}" style="text-align:left;background:none;border:none;min-height:44px;display:flex;align-items:center;padding:0 4px;cursor:pointer;font-family:var(--font-family-base);font-size:16px;font-weight:500;color:{{ l.color }};" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;border-radius:4px;">{{ l.label }}</button>
+      </sc-for>
+      <x-import component-from-global-scope="VicunavTechDesignSystem_8a7481.Button" onClick="{{ goContacto }}" variant="primary" size="md" style="{{ mobileBtnStyle }}" hint-size="100%,48px">Hablemos</x-import>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:80},&quot;page&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;isMobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;padH&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:64,&quot;min&quot;:16,&quot;max&quot;:96,&quot;tsType&quot;:&quot;number&quot;},&quot;onNavigate&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(key:string)=&gt;void&quot;}}">
+class Component extends DCLogic {
+  state = { open: false };
+
+  toggle = () => this.setState(s => ({ open: !s.open }));
+  navigate = (key) => {
+    this.setState({ open: false });
+    if (this.props.onNavigate) this.props.onNavigate(key);
+  };
+
+  renderVals() {
+    const page = this.props.page;
+    const isMobile = !!this.props.isMobile;
+    const padH = this.props.padH ?? 64;
+    const defs = [['home', 'Inicio'], ['servicios', 'Servicios'], ['portafolio', 'Portafolio'], ['contacto', 'Contacto']];
+    const links = defs.map(([key, label]) => ({
+      key, label,
+      color: page === key ? 'var(--color-accent)' : 'var(--color-light)',
+      onClick: () => this.navigate(key)
+    }));
+    return {
+      isWide: !isMobile,
+      isMobile,
+      padH,
+      padTop: isMobile ? 16 : 20,
+      links,
+      goHome: () => this.navigate('home'),
+      goContacto: () => this.navigate('contacto'),
+      open: this.state.open,
+      showDropdown: isMobile && this.state.open,
+      toggle: this.toggle,
+      menuLabel: this.state.open ? 'Cerrar menú' : 'Abrir menú',
+      barTopTransform: this.state.open ? 'translateY(7px) rotate(45deg)' : 'none',
+      barBotTransform: this.state.open ? 'translateY(-7px) rotate(-45deg)' : 'none',
+      barMidOpacity: this.state.open ? 0 : 1,
+      mobileBtnStyle: { width: '100%', marginTop: 4, minHeight: 48 }
+    };
+  }
+}
+</script>
+</body>
+</html>
