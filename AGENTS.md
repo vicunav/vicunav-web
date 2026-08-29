@@ -40,6 +40,35 @@ Tailwind y sin CDN. El contexto completo del encargo está en
   falta reproducir algo 1 a 1 y no está en `docs/handoff/`, revisar acá
   antes de aproximar nada.
 
+## Fuente del theme de WordPress (`theme/`)
+
+Decisión de Mario, 2026-08-29: para el theme de WordPress, la fuente directa
+y única es **el proyecto de Claude Design en
+[`docs/claude-design-full/`](docs/claude-design-full/)** — los `.dc.html`
+reales (`Vicunav Sitio Web v2.dc.html`, `Vicunav Landings SEO.dc.html`,
+`SiteHeader.dc.html`, `SiteFooter.dc.html`, `Mockup.dc.html`, `Cover.dc.html`,
+`Ico.dc.html`), no el baseline estático de la raíz de este repo. Cada unidad
+de trabajo del theme cita el `.dc.html` exacto de donde sale su markup, igual
+que ya exige la plantilla de issue/PR de este repo.
+
+Las 15 páginas HTML estáticas de la raíz (`index.html`, etc.) y sus
+`assets/css/*` **se conservan intactas** como referencia histórica: fueron la
+primera transcripción 1:1 de este mismo proyecto de Claude Design, auditada
+exhaustivamente durante el refinamiento (ver sección siguiente). El theme
+reutiliza ese CSS ya verificado vía symlink (`theme/assets` → `../assets`,
+ver `theme/functions.php`), pero el markup del theme se deriva leyendo los
+`.dc.html` directamente, no copiando el HTML estático. En la práctica ambas
+fuentes producen el mismo resultado — se verificó número por número contra
+el objeto de breakpoints (`BP`) de `Vicunav Sitio Web v2.dc.html` — pero la
+`.dc.html` es la que manda si alguna vez difieren.
+
+Los `.dc.html` usan el motor de plantillas propio de Claude Design (`sc-if`,
+`sc-for`, `x-dc`, `x-import`, una clase `DCLogic` con `renderVals()`). Antes
+de traducir una sección hay que resolver esa lógica: encontrar el bloque
+condicional de la página/vista correcta, y resolver los valores `{{ bp.* }}`
+contra el objeto `BP` (definido cerca del final del archivo, con una entrada
+por breakpoint: mobile/tablet/desktop).
+
 ## Estructura
 
 ```text
