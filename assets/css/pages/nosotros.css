@@ -1,0 +1,196 @@
+/* Nosotros. design_handoff_vicunav_web/diseno/Vicunav Sitio Web v2.dc.html, bloque isNosotros */
+
+.hero-nosotros .hero-inner__ring{
+  right:-12%;
+  top:-34%;
+  width:42%;
+  aspect-ratio:1;
+}
+.hero-nosotros__grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--bp-hero-gap);
+  align-items:end;
+}
+.hero-nosotros__title{
+  margin-left:-0.045em;
+  line-height:0.96;
+  letter-spacing:-0.04em;
+  max-width:14ch;
+}
+.hero-nosotros__art{
+  position:relative;
+}
+.hero-nosotros__img{
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-float);
+}
+.hero-nosotros__tag{
+  position:absolute;
+  right:-10px;
+  bottom:-10px;
+  background:var(--color-accent);
+  border-radius:var(--radius-14);
+  padding:14px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.hero-nosotros__tag-kicker{
+  font-family:var(--font-family-base);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--color-dark);
+}
+.hero-nosotros__tag-name{
+  font-family:var(--font-family-base);
+  font-size:16px;
+  font-weight:700;
+  color:var(--color-dark);
+}
+
+@media (min-width: 834px){
+  .hero-nosotros__grid{
+    grid-template-columns:1.15fr 0.85fr;
+  }
+}
+@media (min-width: 1440px){
+  .hero-nosotros__grid{
+    grid-template-columns:1.25fr 0.75fr;
+  }
+}
+
+.story-section{
+  background:var(--color-light);
+  padding:var(--bp-section-py) var(--bp-pad);
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--bp-hero-gap);
+  align-items:start;
+}
+.story-section__title{
+  margin-left:-0.03em;
+  font-size:30px;
+  line-height:1.02;
+  letter-spacing:-0.035em;
+  max-width:15ch;
+}
+.story-section__copy{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  max-width:62ch;
+}
+.story-section__lead{
+  font-family:var(--font-family-base);
+  font-size:20px;
+  line-height:1.5;
+  letter-spacing:-0.01em;
+  color:var(--color-dark);
+}
+.story-section__p{
+  font-family:var(--font-family-base);
+  font-size:17px;
+  line-height:1.65;
+  color:var(--text-muted);
+}
+.story-section__quote{
+  border-radius:var(--radius-lg);
+  padding:var(--bp-card-pad);
+}
+.story-section__quote-text{
+  font-family:var(--font-family-base);
+  font-size:19px;
+  font-weight:600;
+  line-height:1.35;
+  letter-spacing:-0.02em;
+  color:var(--color-light);
+}
+
+@media (min-width: 1440px){
+  .story-section{
+    grid-template-columns:0.85fr 1.15fr;
+  }
+  .story-section__title{
+    font-size:42px;
+  }
+  .story-section__lead{
+    font-size:30px;
+  }
+  .story-section__quote-text{
+    font-size:26px;
+  }
+}
+
+.principios-section{
+  background:var(--chip-fill-on-light);
+  padding:var(--bp-section-py) var(--bp-pad);
+  display:flex;
+  flex-direction:column;
+  gap:var(--bp-gap);
+}
+.principios-section__title{
+  margin:0 0 8px -0.03em;
+  font-size:30px;
+  line-height:1.02;
+  letter-spacing:-0.035em;
+  max-width:18ch;
+}
+.principios-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--bp-gap);
+}
+@media (min-width: 834px){
+  .principios-section__title{ font-size:42px; }
+  .principios-grid{ grid-template-columns:1fr 1fr; }
+}
+@media (min-width: 1440px){
+  .principios-section__title{ font-size:60px; }
+}
+
+.sectores-section{
+  padding:var(--bp-section-py) var(--bp-pad);
+}
+.sectores-section__inner{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  gap:var(--bp-gap);
+}
+.sectores-section__title{
+  margin:0 0 8px -0.03em;
+  font-size:30px;
+  line-height:1.02;
+  letter-spacing:-0.035em;
+  color:var(--color-light);
+  max-width:20ch;
+}
+.sectores-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--bp-gap);
+}
+.sectores-section__note{
+  margin:8px 0 0;
+  font-family:var(--font-family-base);
+  font-size:17px;
+  line-height:1.6;
+  color:var(--color-secondary);
+  max-width:64ch;
+}
+@media (min-width: 834px){
+  .sectores-section__title{ font-size:42px; }
+}
+@media (min-width: 1440px){
+  .sectores-section__title{ font-size:60px; }
+  .sectores-grid{ grid-template-columns:repeat(3, 1fr); }
+  .sectores-section__note{ font-size:20px; }
+}
