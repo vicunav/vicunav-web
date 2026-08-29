@@ -53,6 +53,8 @@
   gap:var(--bp-gap);
 }
 .contacto-aside__how{
+  position:relative;
+  overflow:hidden;
   border-radius:var(--radius-24);
   padding:var(--bp-card-pad);
 }
