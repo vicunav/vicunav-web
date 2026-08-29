@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "800px",
+      "wideSize": "1200px"
+    }
+  },
+  "templateParts": [
+    { "name": "header", "area": "header", "title": "Header" },
+    { "name": "footer", "area": "footer", "title": "Footer" }
+  ],
+  "styles": {}
+}
