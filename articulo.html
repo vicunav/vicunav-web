@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="es-VE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo montar el sistema de pedidos de tu restaurante | Vicunav</title>
+<meta name="description" content="Guía paso a paso: menú que dice la verdad, armado guiado de platillos, cobro con confirmación y un pedido que entra directo a la cocina.">
+<link rel="canonical" href="https://vicunav.com/articulos/sistema-de-pedidos-restaurante.html">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/pages/articulo.css">
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<svg class="icon-defs" aria-hidden="true">
+    <symbol id="ico-message-circle" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.5 9.5 0 0 1-3.6-.7L3 21l1.9-4.9A8.3 8.3 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"></path><path d="M8.5 12h.01"></path><path d="M12 12h.01"></path><path d="M15.5 12h.01"></path></symbol>
+    <symbol id="ico-user" viewBox="0 0 24 24"><path d="M12 4a4 4 0 1 0 0 8a4 4 0 1 0 0-8"></path><path d="M4 20c0-3.3 3.6-5 8-5s8 1.7 8 5"></path></symbol>
+    <symbol id="ico-minus" viewBox="0 0 24 24"><path d="M6 12h12"></path></symbol>
+    <symbol id="ico-check" viewBox="0 0 24 24"><path d="m5 13 4 4 10-10"></path></symbol>
+  </svg>
+  <header class="site-header">
+    <div class="site-header__bar">
+      <a class="brand" href="index.html">Vicunav<span class="brand__dot"></span></a>
+      <nav class="site-nav" aria-label="Principal">
+        <a class="site-nav__link" href="index.html">Inicio</a>
+        <a class="site-nav__link" href="servicios.html">Servicios</a>
+        <a class="site-nav__link" href="portafolio.html">Portafolio</a>
+        <a class="site-nav__link" href="nosotros.html">Nosotros</a>
+        <a class="site-nav__link" href="contacto.html">Contacto</a>
+        <div class="site-nav__divider"></div>
+        <a class="btn btn--accent btn--sm" href="contacto.html">Hablemos</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav-mobile" data-nav-toggle>
+        <span class="nav-toggle__bar nav-toggle__bar--top"></span>
+        <span class="nav-toggle__bar nav-toggle__bar--mid"></span>
+        <span class="nav-toggle__bar nav-toggle__bar--bottom"></span>
+      </button>
+    </div>
+    <nav class="site-nav-mobile" id="site-nav-mobile" aria-label="Principal, móvil">
+          <a class="site-nav-mobile__link" href="index.html">Inicio</a>
+          <a class="site-nav-mobile__link" href="servicios.html">Servicios</a>
+          <a class="site-nav-mobile__link" href="portafolio.html">Portafolio</a>
+          <a class="site-nav-mobile__link" href="nosotros.html">Nosotros</a>
+          <a class="site-nav-mobile__link" href="contacto.html">Contacto</a>
+      <a class="btn btn--accent" href="contacto.html">Hablemos</a>
+    </nav>
+  </header>
+
+<main id="contenido">
+  <article class="articulo">
+    <header class="articulo-header section-dark">
+      <div class="grain"></div>
+      <div class="articulo-header__inner">
+        <nav class="breadcrumb" aria-label="Ruta"><a href="index.html">Inicio</a><span class="breadcrumb__sep">/</span><a href="articulos.html">Artículos</a><span class="breadcrumb__sep">/</span><span>Restaurantes</span></nav>
+        <h1 class="articulo-header__title">Cómo montar el sistema de pedidos de tu restaurante, paso a paso</h1>
+        <div class="articulo-header__meta">
+          <div class="articulo-header__author">
+            <span class="articulo-header__avatar"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#ico-user"></use></svg></span>
+            <span class="articulo-header__author-name">Mario Vicuña</span>
+          </div>
+          <span class="articulo-header__meta-text">9 minutos de lectura</span>
+          <span class="articulo-header__meta-text">Actualizado en 2026</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="articulo-layout">
+      <div class="article-body">
+        <p class="article-body__lead">Casi todos los restaurantes con los que hablo tienen el mismo cuello de botella, y no está en la cocina. Está antes: en el momento en que el pedido nace en una llamada, un chat o una nota en papel, y alguien tiene que entenderlo y traducirlo para que empiece a prepararse.</p>
+        <p class="article-body__p">Ese paso intermedio parece inofensivo. En hora pico es donde se cuela el plato equivocado, la espera larga y el cliente que no vuelve. La buena noticia es que se puede eliminar por completo, y no hace falta cambiar toda tu operación de golpe para hacerlo.</p>
+
+        <h2 class="article-body__h2">Por qué el pedido a mano cuesta más de lo que parece</h2>
+        <p class="article-body__p">Muchos restaurantes ya intentaron ordenar esto: un formulario en el sitio, un número de WhatsApp, un PDF con la carta. Suele quedarse a medias, y casi siempre por las mismas cuatro razones:</p>
+        <ul class="check-list article-body__list">
+          <li>
+            <span class="check-list__icon"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#ico-minus"></use></svg></span>
+            <span>El menú vive en un PDF que nadie actualiza desde hace meses.</span>
+          </li>
+          <li>
+            <span class="check-list__icon"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#ico-minus"></use></svg></span>
+            <span>El cliente describe lo que quiere y otra persona lo interpreta.</span>
+          </li>
+          <li>
+            <span class="check-list__icon"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#ico-minus"></use></svg></span>
+            <span>No hay confirmación ni tiempo estimado, así que el cliente vuelve a preguntar.</span>
+          </li>
+          <li>
+            <span class="check-list__icon"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#ico-minus"></use></svg></span>
+            <span>Pedir toma más pasos de los que la gente tiene paciencia para dar.</span>
+          </li>
+        </ul>
+        <p class="article-body__p">Ninguna de esas cuatro es un problema de promoción. Todas son de diseño: pedirte cuesta más trabajo del que la gente está dispuesta a hacer. Mientras eso siga así, no importa cuánto publiques el enlace.</p>
+
+        <div class="article-body__quote">
+          <span class="kicker__label kicker__label--ink">La regla</span>
+          <p class="article-body__quote-text">Un sistema de pedidos no se gana la confianza de tu cocina por ser moderno. Se la gana el día en que la comanda llega completa y nadie tuvo que preguntar nada.</p>
+        </div>
+
+        <h2 class="article-body__h2">Qué tiene que hacer bien tu sistema</h2>
+        <h3 class="article-body__h3">1. Un menú que siempre dice la verdad</h3>
+        <p class="article-body__p">Un menú administrado desde un panel, con disponibilidad por producto y por horario. Si se acabó el pernil, alguien lo apaga en treinta segundos y nadie más lo pide. Esta sola pieza elimina buena parte de las llamadas incómodas de la noche.</p>
+        <h3 class="article-body__h3">2. Un armado guiado para lo que el cliente personaliza</h3>
+        <p class="article-body__p">La pizza es el ejemplo clásico: tamaño, masa, mitad y mitad, extras por sección, y cada decisión cambia el precio y el tiempo de cocina. Pero pasa igual con combos, bandejas o bowls. Un armado bien diseñado hace tres cosas a la vez: muestra el precio actualizado en cada paso, evita combinaciones que tu cocina no puede producir, y entrega una comanda que no necesita interpretación.</p>
+        <h3 class="article-body__h3">3. Cobro y confirmación en el mismo flujo</h3>
+        <p class="article-body__p">Pago en línea, transferencia con comprobante o pago al recibir: cualquiera sirve, siempre que el cliente termine con un número de pedido y un tiempo estimado. Lo que hace que la gente vuelva a llamar para confirmar no es el precio, es no saber si su pedido existe.</p>
+        <h3 class="article-body__h3">4. Un pedido que entra directo a la operación</h3>
+        <p class="article-body__p">Impresión en cocina o pantalla de órdenes, aviso al encargado y registro para el reporte del día. Una regla simple para saber si está terminado: si alguien tiene que copiar el pedido a mano en otro lado, todavía no lo está.</p>
+
+        <h2 class="article-body__h2">Cómo hacer la transición sin perder ventas</h2>
+        <div class="step-inline-list">
+          <div class="step-inline">
+            <span class="step-inline__n">1</span>
+            <div class="step-inline__copy">
+              <span class="step-inline__title">Empieza por tu plato estrella</span>
+              <span class="step-inline__desc">No cargues la carta completa el primer día. Abre con lo que más vendes y con el armado que mejor conoces, donde sabes de memoria qué combinaciones funcionan.</span>
+            </div>
+          </div>
+          <div class="step-inline">
+            <span class="step-inline__n">2</span>
+            <div class="step-inline__copy">
+              <span class="step-inline__title">Dale una razón concreta al cliente</span>
+              <span class="step-inline__desc">Un extra sin costo, un tamaño mayor, entrega prioritaria. Algo que solo exista pidiendo por tu canal, y que no te coma el margen.</span>
+            </div>
+          </div>
+          <div class="step-inline">
+            <span class="step-inline__n">3</span>
+            <div class="step-inline__copy">
+              <span class="step-inline__title">Pon el enlace donde ya está tu gente</span>
+              <span class="step-inline__desc">Perfil de Instagram, estado de WhatsApp, QR en la mesa y en el empaque de cada pedido que sale por la puerta.</span>
+            </div>
+          </div>
+          <div class="step-inline">
+            <span class="step-inline__n">4</span>
+            <div class="step-inline__copy">
+              <span class="step-inline__title">Revísalo cada mes</span>
+              <span class="step-inline__desc">Si no crece, casi siempre es fricción en el flujo y no falta de promoción. Mira en qué paso abandona la gente y corrige ahí.</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="article-body__h2">Qué mirar para saber si funcionó</h2>
+        <p class="article-body__p">Tres números, revisados una vez al mes: cuántos pedidos entran ya estructurados, cuál es el ticket promedio de ese canal, y cuánta gente repite. Cuando hay platillos personalizados el ticket suele subir, porque el armado guiado ofrece los extras sin que nadie tenga que venderlos por teléfono.</p>
+        <p class="article-body__p">Y algo que vale decir: la meta no es que el cien por ciento de los pedidos entre por ahí. Con que una parte importante de tu volumen deje de pasar por transcripción a mano, tu hora pico ya cambia. Lo demás llega con el tiempo.</p>
+
+        <div class="article-body__takeaways">
+          <span class="kicker__label">Para llevar</span>
+          <ul class="check-list check-list--on-dark">
+            <li>
+              <span class="check-list__icon"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#ico-check"></use></svg></span>
+              <span>El pedido que alguien tiene que traducir es el que sale mal.</span>
+            </li>
+            <li>
+              <span class="check-list__icon"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#ico-check"></use></svg></span>
+              <span>El menú tiene que reflejar disponibilidad real, a toda hora.</span>
+            </li>
+            <li>
+              <span class="check-list__icon"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#ico-check"></use></svg></span>
+              <span>En platillos personalizados, el armado guiado sube el ticket y baja los errores.</span>
+            </li>
+            <li>
+              <span class="check-list__icon"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#ico-check"></use></svg></span>
+              <span>La meta no es cambiar todo de golpe: es que un canal ordenado se vuelva el principal.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="author-card">
+          <span class="author-card__avatar"><svg class="icon" width="28" height="28" aria-hidden="true"><use href="#ico-user"></use></svg></span>
+          <div class="author-card__copy">
+            <span class="author-card__name">Mario Vicuña</span>
+            <span class="author-card__bio">Desarrollador y fundador de Vicunav. Llevo desde 2016 construyendo sitios y sistemas, y hoy trabajo con negocios de servicios del Zulia, de Venezuela y de afuera. Escribo desde lo que veo en proyectos, no desde teoría.</span>
+            <a class="author-card__link" href="cv.html">Ver perfil profesional</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="articulo-aside">
+        <nav class="toc-nav" aria-label="Contenido del artículo">
+          <span class="kicker__label kicker__label--ink">En este artículo</span>
+<span class="toc-nav__item">Por qué el pedido a mano cuesta más de lo que parece</span>
+<span class="toc-nav__item">Qué tiene que hacer bien tu sistema</span>
+<span class="toc-nav__item">Cómo hacer la transición sin perder ventas</span>
+<span class="toc-nav__item">Qué mirar para saber si funcionó</span>
+        </nav>
+        <div class="articulo-aside__cta">
+          <span class="articulo-aside__cta-text">¿Tienes un restaurante? Hablemos de tu operación.</span>
+          <a class="btn btn--dark articulo-aside__cta-btn" href="restaurantes.html">Ver cómo trabajo con restaurantes</a>
+        </div>
+      </aside>
+    </div>
+
+    <section class="articulo-related">
+      <h2 class="section-header__title--h3">Artículos relacionados</h2>
+      <div class="grid-3">
+      <a class="article-card article-card--compact" href="articulo.html">
+        <span class="badge badge--accent">Restaurantes</span>
+        <span class="article-card__title">Menú digital con QR: qué resuelve de verdad y qué no</span>
+        <span class="article-card__read">6 min de lectura</span>
+      </a>
+      <a class="article-card article-card--compact" href="articulo.html">
+        <span class="badge badge--accent">Restaurantes</span>
+        <span class="article-card__title">Cómo se diseña un armado de platillos que la gente sí termina</span>
+        <span class="article-card__read">7 min de lectura</span>
+      </a>
+      <a class="article-card article-card--compact" href="articulo.html">
+        <span class="badge badge--accent">Sistemas</span>
+        <span class="article-card__title">Cuándo tu negocio necesita un sistema a medida y cuándo no</span>
+        <span class="article-card__read">7 min de lectura</span>
+      </a>
+      </div>
+    </section>
+  </article>
+</main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <a class="site-footer__wordmark" href="index.html">Vicunav<span class="brand__dot"></span></a>
+          <p class="site-footer__desc">Sitios web y herramientas para profesionales independientes y negocios de servicios.</p>
+        </div>
+        <nav class="site-footer__nav" aria-label="Sitio">
+          <span class="site-footer__label">Sitio</span>
+          <a class="site-footer__link" href="index.html">Inicio</a>
+          <a class="site-footer__link" href="servicios.html">Servicios</a>
+          <a class="site-footer__link" href="portafolio.html">Portafolio</a>
+          <a class="site-footer__link" href="nosotros.html">Nosotros</a>
+          <a class="site-footer__link" href="contacto.html">Contacto</a>
+        </nav>
+        <div class="site-footer__nav">
+          <span class="site-footer__label">Contacto</span>
+          <a class="site-footer__link" href="mailto:hello@vicunav.com">hello@vicunav.com</a>
+          <a class="site-footer__link" href="https://wa.me/10000000000" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span>© 2026 Vicunav. Todos los derechos reservados.</span>
+        <span>Respuesta en 1 a 2 días hábiles.</span>
+      </div>
+    </div>
+  </footer>
+  <a class="whatsapp-float" href="https://wa.me/10000000000" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg class="icon" width="30" height="30" aria-hidden="true"><use href="#ico-message-circle"></use></svg>
+  </a>
+<script src="assets/js/nav.js"></script>
+</body>
+</html>

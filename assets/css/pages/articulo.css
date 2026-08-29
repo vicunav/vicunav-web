@@ -1,0 +1,292 @@
+/* Artículo (single). design_handoff_vicunav_web/diseno/Vicunav Landings SEO.dc.html, bloque isArticulo */
+
+.articulo-header{
+  padding:var(--bp-hero-pad-t) var(--bp-pad) 56px;
+}
+.articulo-header__inner{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  max-width:60ch;
+}
+.articulo-header__title{
+  margin:0 0 0 -0.04em;
+  font-family:var(--font-family-base);
+  font-weight:800;
+  font-size:32px;
+  line-height:1.04;
+  letter-spacing:-0.035em;
+  color:var(--color-light);
+}
+.articulo-header__meta{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.articulo-header__author{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.articulo-header__avatar{
+  width:40px;
+  height:40px;
+  border-radius:var(--radius-pill);
+  background:var(--icon-tint-on-dark);
+  color:var(--color-accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.articulo-header__author-name{
+  font-family:var(--font-family-base);
+  font-size:14px;
+  font-weight:700;
+  color:var(--color-light);
+}
+.articulo-header__meta-text{
+  font-family:var(--font-family-base);
+  font-size:14px;
+  font-weight:500;
+  color:var(--color-secondary);
+}
+@media (min-width: 834px){
+  .articulo-header__title{ font-size:44px; }
+}
+@media (min-width: 1440px){
+  .articulo-header__title{ font-size:60px; line-height:1; }
+}
+
+.articulo-layout{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--bp-hero-gap);
+  padding:var(--bp-section-py) var(--bp-pad) 0;
+  align-items:start;
+}
+@media (min-width: 1440px){
+  .articulo-layout{
+    grid-template-columns:1.55fr 0.45fr;
+  }
+}
+
+.article-body{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  max-width:70ch;
+}
+.article-body__lead{
+  margin:0;
+  font-family:var(--font-family-base);
+  font-size:17px;
+  line-height:1.65;
+  color:var(--color-dark);
+  font-weight:500;
+}
+.article-body__p{
+  margin:0;
+  font-family:var(--font-family-base);
+  font-size:17px;
+  line-height:1.75;
+  color:var(--text-muted);
+}
+.article-body__h2{
+  margin:16px 0 0;
+  font-family:var(--font-family-base);
+  font-weight:700;
+  font-size:27px;
+  line-height:1.12;
+  letter-spacing:-0.03em;
+  color:var(--color-dark);
+}
+.article-body__h3{
+  margin:8px 0 0;
+  font-family:var(--font-family-base);
+  font-weight:700;
+  font-size:21px;
+  line-height:1.25;
+  letter-spacing:-0.02em;
+  color:var(--color-dark);
+}
+.article-body__list{
+  padding-left:4px;
+}
+.article-body__quote{
+  background:var(--color-accent-tint);
+  border-radius:var(--radius-18);
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.article-body__quote-text{
+  margin:0;
+  font-family:var(--font-family-base);
+  font-size:19px;
+  line-height:1.45;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  color:var(--color-dark);
+}
+.article-body__takeaways{
+  background:var(--color-dark);
+  border-radius:var(--radius-lg);
+  padding:var(--bp-card-pad);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.article-body__takeaways::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:var(--grain);
+  opacity:0.07;
+  mix-blend-mode:overlay;
+}
+.article-body__takeaways .check-list{
+  position:relative;
+  z-index:2;
+}
+@media (min-width: 834px){
+  .article-body__h2{ font-size:34px; }
+  .article-body__quote-text{ font-size:21px; }
+}
+@media (min-width: 1440px){
+  .article-body__h2{ font-size:42px; }
+  .article-body__quote-text{ font-size:26px; }
+}
+
+.step-inline-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.step-inline__copy{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.step-inline__title{
+  font-family:var(--font-family-base);
+  font-size:18px;
+  font-weight:700;
+  line-height:1.25;
+  color:var(--color-dark);
+}
+.step-inline__desc{
+  font-family:var(--font-family-base);
+  font-size:16px;
+  line-height:1.65;
+  color:var(--text-muted);
+}
+
+.author-card{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-lg);
+  padding:var(--bp-card-pad);
+}
+.author-card__avatar{
+  width:56px;
+  height:56px;
+  border-radius:var(--radius-pill);
+  background:var(--color-accent-tint);
+  color:var(--accent-ink);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.author-card__copy{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.author-card__name{
+  font-family:var(--font-family-base);
+  font-size:18px;
+  font-weight:700;
+  color:var(--color-dark);
+}
+.author-card__bio{
+  font-family:var(--font-family-base);
+  font-size:15px;
+  line-height:1.6;
+  color:var(--text-muted);
+  max-width:52ch;
+}
+.author-card__link{
+  align-self:flex-start;
+  font-family:var(--font-family-base);
+  font-size:15px;
+  font-weight:700;
+  color:var(--accent-ink);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+.articulo-aside{
+  display:flex;
+  flex-direction:column;
+  gap:var(--bp-gap);
+  position:static;
+}
+@media (min-width: 1440px){
+  .articulo-aside{
+    position:sticky;
+    top:24px;
+  }
+}
+.toc-nav{
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-18);
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.toc-nav__item{
+  font-family:var(--font-family-base);
+  font-size:15px;
+  font-weight:600;
+  line-height:1.4;
+  color:var(--color-dark);
+  padding-left:12px;
+  border-left:2px solid var(--color-accent-tint);
+}
+.articulo-aside__cta{
+  background:var(--color-accent-tint);
+  border-radius:var(--radius-18);
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.articulo-aside__cta-text{
+  font-family:var(--font-family-base);
+  font-size:18px;
+  font-weight:700;
+  line-height:1.25;
+  color:var(--color-dark);
+}
+.articulo-aside__cta-btn{
+  align-self:flex-start;
+  min-height:48px;
+  padding:0 20px;
+}
+
+.articulo-related{
+  background:var(--color-light);
+  padding:var(--bp-section-py) var(--bp-pad);
+}
