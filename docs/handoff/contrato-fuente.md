@@ -12,12 +12,18 @@ Cumple el gate 1 del ADR 0010 y la sección "Fijar el baseline" de
 | Archivos fuente | `diseno/Vicunav Sitio Web v2.dc.html`, `diseno/Vicunav Landings SEO.dc.html` |
 | Runtime | `diseno/support.js` |
 | Componentes | `SiteHeader.dc.html`, `SiteFooter.dc.html`, `Ico.dc.html` |
-| Commit del baseline | **PENDIENTE.** Se fija al congelar el refinamiento en Claude Code. |
+| Commit del baseline | [`99c3c2d`](https://github.com/vicunav/vicunav-web/commit/99c3c2da096eda6463e6b0e49ae376109c5f8428) en `main` de `vicunav-web` |
 
-**El commit del baseline no existe todavía.** Es un requisito bloqueante: hasta
-que el proyecto se refine en Claude Code y se haga commit, no hay contrato
-`paridad-1-1` posible. Ese commit se anota aquí y se referencia en el manifiesto
-de migración.
+El refinamiento en Claude Code está completo: las 15 plantillas de la
+sección 3 existen como HTML, CSS y JavaScript estático en `vicunav-web`,
+un commit por plantilla, todos fusionados en `main`. Ese commit,
+`99c3c2d`, es el baseline inmutable de este contrato `paridad-1-1` y debe
+referenciarse en el manifiesto de migración de Codex.
+
+Decisiones registradas durante el refinamiento, ver `vicunav-web/AGENTS.md`:
+los paneles "Mockup" del design system se resolvieron como bloques de color
+intencional (no están en el inventario de assets); el PDF de CV enlazado
+desde la plantilla 15 es un faltante real, no incluido en este paquete.
 
 ## 2. Condiciones de captura
 
