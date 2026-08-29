@@ -1,0 +1,417 @@
+/* Mario, landing de reclutadores. design_handoff_vicunav_web/diseno/Vicunav Landings SEO.dc.html, bloque isCv */
+
+.cv-hero{
+  padding:var(--bp-hero-pad-t) var(--bp-pad) var(--bp-section-py);
+}
+.cv-hero__ring{
+  right:-8%;
+  top:-28%;
+  width:40%;
+  aspect-ratio:1;
+}
+.cv-hero__grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--bp-hero-gap);
+  align-items:end;
+}
+.cv-hero__copy{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.cv-hero__badge{
+  align-self:flex-start;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--icon-tint-on-dark);
+  border:1px solid var(--color-accent);
+  border-radius:var(--radius-pill);
+  padding:7px 16px;
+}
+.cv-hero__badge-dot{
+  width:8px;
+  height:8px;
+  border-radius:var(--radius-pill);
+  background:var(--color-accent);
+  display:block;
+}
+.cv-hero__badge-text{
+  font-family:var(--font-family-base);
+  font-size:13px;
+  font-weight:700;
+  color:var(--color-light);
+}
+.cv-hero__title{
+  margin:0 0 0 -0.05em;
+  font-family:var(--font-family-base);
+  font-weight:800;
+  font-size:40px;
+  line-height:0.98;
+  letter-spacing:-0.04em;
+  color:var(--color-light);
+}
+.cv-hero__role{
+  margin:0;
+  font-family:var(--font-family-base);
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  color:var(--color-accent);
+}
+.cv-hero__bio{
+  margin:0;
+  font-family:var(--font-family-base);
+  font-size:17px;
+  line-height:1.6;
+  color:var(--color-secondary);
+  max-width:52ch;
+}
+.cv-hero__actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:4px;
+}
+.cv-hero__links{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.cv-link-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-height:52px;
+  padding:0 18px;
+  border-radius:var(--radius-14);
+  background:var(--surface-tint-on-dark);
+  border:1px solid var(--border-on-dark-strong);
+  text-decoration:none;
+  transition:border-color .15s ease;
+}
+.cv-link-card:hover{
+  border-color:var(--color-accent);
+}
+.cv-link-card:focus-visible{
+  outline:2px solid var(--color-accent);
+  outline-offset:2px;
+}
+.cv-link-card__icon{
+  color:var(--color-accent);
+  flex-shrink:0;
+}
+.cv-link-card__text{
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+}
+.cv-link-card__label{
+  font-family:var(--font-family-base);
+  font-size:12px;
+  font-weight:600;
+  color:var(--color-secondary);
+}
+.cv-link-card__value{
+  font-family:var(--font-family-base);
+  font-size:14px;
+  font-weight:700;
+  color:var(--color-light);
+}
+
+@media (min-width: 834px){
+  .cv-hero__title{ font-size:60px; }
+  .cv-hero__role{ font-size:22px; }
+  .cv-hero__bio{ font-size:18px; }
+}
+@media (min-width: 1440px){
+  .cv-hero__grid{ grid-template-columns:1.35fr 0.65fr; }
+  .cv-hero__title{ font-size:88px; }
+  .cv-hero__role{ font-size:26px; }
+  .cv-hero__bio{ font-size:20px; }
+}
+
+.cv-stats-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:var(--bp-gap);
+}
+@media (min-width: 1440px){
+  .cv-stats-grid{ grid-template-columns:repeat(4, 1fr); }
+}
+.cv-stat{
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-md);
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.cv-stat__v{
+  font-family:var(--font-family-base);
+  font-size:34px;
+  font-weight:800;
+  letter-spacing:-0.035em;
+  color:var(--color-dark);
+}
+.cv-stat__l{
+  font-family:var(--font-family-base);
+  font-size:14px;
+  font-weight:500;
+  line-height:1.4;
+  color:var(--text-muted);
+}
+
+.cv-skills-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--bp-gap);
+}
+@media (min-width: 834px){
+  .cv-skills-grid{ grid-template-columns:1fr 1fr; }
+}
+@media (min-width: 1440px){
+  .cv-skills-grid{ grid-template-columns:repeat(3, 1fr); }
+}
+.cv-skill-card{
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-18);
+  padding:var(--bp-card-pad);
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.cv-skill-card__head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.cv-skill-card__icon{
+  width:40px;
+  height:40px;
+  border-radius:11px;
+  background:var(--color-accent-tint);
+  color:var(--accent-ink);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.cv-skill-card__title{
+  margin:0;
+  font-family:var(--font-family-base);
+  font-weight:700;
+  font-size:17px;
+  line-height:1.25;
+  color:var(--color-dark);
+}
+.cv-skill-card__tags{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.tag-pill--sm{
+  font-size:13px;
+  font-weight:600;
+  padding:6px 12px;
+  border-radius:var(--radius-pill);
+  background:var(--chip-fill-on-light);
+}
+
+.cv-jobs-list{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.cv-job{
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-lg);
+  padding:var(--bp-card-pad);
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--bp-gap);
+  align-items:start;
+}
+.cv-job--dark{
+  background:var(--color-dark);
+  border-color:var(--color-dark);
+}
+.cv-job__meta{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.cv-job__dates{
+  font-family:var(--font-family-base);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--accent-ink);
+}
+.cv-job--dark .cv-job__dates{
+  color:var(--color-accent);
+}
+.cv-job__role{
+  font-family:var(--font-family-base);
+  font-size:20px;
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:-0.02em;
+  color:var(--color-dark);
+}
+.cv-job--dark .cv-job__role{
+  color:var(--color-light);
+}
+.cv-job__company{
+  font-family:var(--font-family-base);
+  font-size:15px;
+  font-weight:600;
+  color:var(--accent-ink);
+}
+.cv-job--dark .cv-job__company{
+  color:var(--color-accent);
+}
+@media (min-width: 1440px){
+  .cv-job{
+    grid-template-columns:0.34fr 0.66fr;
+  }
+}
+
+.cv-work-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:var(--bp-gap);
+}
+@media (min-width: 1440px){
+  .cv-work-grid{ grid-template-columns:repeat(4, 1fr); }
+}
+.cv-work-card{
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-18);
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  box-shadow:var(--shadow-lift);
+}
+.cv-work-card__name{
+  font-family:var(--font-family-base);
+  font-size:19px;
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:-0.02em;
+  color:var(--color-dark);
+}
+.cv-work-card__desc{
+  font-family:var(--font-family-base);
+  font-size:15px;
+  line-height:1.6;
+  color:var(--text-muted);
+}
+.cv-work-card__stack{
+  font-family:var(--font-family-base);
+  font-size:13px;
+  font-weight:600;
+  color:var(--accent-ink);
+}
+
+.cv-side-col{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.cv-edu-list, .cv-how-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.cv-edu-card{
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-md);
+  padding:20px;
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+.cv-edu-card__icon{
+  color:var(--accent-ink);
+  flex-shrink:0;
+}
+.cv-edu-card__copy{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.cv-edu-card__title{
+  font-family:var(--font-family-base);
+  font-size:17px;
+  font-weight:700;
+  line-height:1.3;
+  color:var(--color-dark);
+}
+.cv-edu-card__desc{
+  font-family:var(--font-family-base);
+  font-size:14px;
+  font-weight:500;
+  color:var(--text-muted);
+}
+.cv-how-card{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-md);
+  padding:20px;
+}
+.cv-how-card__text{
+  font-family:var(--font-family-base);
+  font-size:16px;
+  line-height:1.6;
+  color:var(--color-dark);
+}
+
+.cv-cta{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--bp-gap);
+  align-items:center;
+  padding:var(--bp-card-pad);
+  border-radius:var(--radius-24);
+}
+.cv-cta__copy{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.cv-cta__title{
+  color:var(--color-light);
+  max-width:24ch;
+}
+.cv-cta__sub{
+  color:var(--color-secondary);
+  max-width:44ch;
+}
+.cv-cta__actions{
+  position:relative;
+  z-index:2;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+@media (min-width: 1440px){
+  .cv-cta{
+    grid-template-columns:1fr 1fr;
+  }
+}
