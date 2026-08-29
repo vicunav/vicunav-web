@@ -1,0 +1,1123 @@
+{
+  "schemaVersion": 1,
+  "impact": "paridad-1-1",
+  "project": {
+    "id": "vicunav-web",
+    "title": "Vicunav — sitio propio"
+  },
+  "source": {
+    "repository": "vicunav/vicunav-web",
+    "commit": "0b2174e97693966f80f190430562a66d186e0c36",
+    "installCommand": "none",
+    "runCommand": "python3 -m http.server 8080"
+  },
+  "target": {
+    "repository": "vicunav/vicunav-web",
+    "commit": null,
+    "wordpressVersion": "7.1",
+    "phpVersion": "8.2.29"
+  },
+  "environment": {
+    "browser": "Chromium",
+    "browserVersion": "auto",
+    "locale": "es-VE",
+    "timezone": "America/Caracas",
+    "colorScheme": "light",
+    "reducedMotion": "reduce",
+    "fonts": [
+      "Plus Jakarta Sans 400",
+      "Plus Jakarta Sans 500",
+      "Plus Jakarta Sans 600",
+      "Plus Jakarta Sans 700"
+    ],
+    "ignoreHTTPSErrors": true
+  },
+  "viewports": [
+    {
+      "id": "mobile",
+      "width": 390,
+      "height": 844,
+      "deviceScaleFactor": 1
+    },
+    {
+      "id": "tablet",
+      "width": 834,
+      "height": 1112,
+      "deviceScaleFactor": 1
+    },
+    {
+      "id": "desktop",
+      "width": 1440,
+      "height": 900,
+      "deviceScaleFactor": 1
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "home",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/index.html",
+      "targetUrl": "https://vicunav-web.local/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "servicios",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/servicios.html",
+      "targetUrl": "https://vicunav-web.local/servicios/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "portafolio",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/portafolio.html",
+      "targetUrl": "https://vicunav-web.local/portafolio/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "contacto",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/contacto.html",
+      "targetUrl": "https://vicunav-web.local/contacto/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "nosotros",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/nosotros.html",
+      "targetUrl": "https://vicunav-web.local/nosotros/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "restaurantes",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/restaurantes.html",
+      "targetUrl": "https://vicunav-web.local/verticales/restaurantes/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "hoteles",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/hoteles.html",
+      "targetUrl": "https://vicunav-web.local/verticales/hoteles/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "bienestar",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/bienestar.html",
+      "targetUrl": "https://vicunav-web.local/verticales/bienestar/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "sistemas",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/sistemas.html",
+      "targetUrl": "https://vicunav-web.local/servicios/sistemas/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "automatizacion",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/automatizacion.html",
+      "targetUrl": "https://vicunav-web.local/servicios/automatizacion/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "sitios",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/sitios.html",
+      "targetUrl": "https://vicunav-web.local/servicios/sitios/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "visibilidad",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/visibilidad.html",
+      "targetUrl": "https://vicunav-web.local/servicios/visibilidad/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "articulos",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/articulos.html",
+      "targetUrl": "https://vicunav-web.local/articulos/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "articulo",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/articulo.html",
+      "targetUrl": "https://vicunav-web.local/articulos/menu-qr/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    },
+    {
+      "id": "cv",
+      "owner": "vicunav/vicunav-web",
+      "sourceUrl": "http://127.0.0.1:8080/cv.html",
+      "targetUrl": "https://vicunav-web.local/mario/",
+      "fixture": "public-default",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "capture": {
+        "fullPage": true,
+        "readySelector": "main",
+        "states": {
+          "default": {
+            "source": [],
+            "target": []
+          }
+        }
+      }
+    }
+  ],
+  "ownership": [
+    {
+      "id": "global-tokens",
+      "kind": "token",
+      "owner": "vicunav/vicunav-web"
+    }
+  ],
+  "assets": [
+    {
+      "id": "founder-photo",
+      "status": "available",
+      "owner": "vicunav/vicunav-web",
+      "source": "assets/img/mario-vicuna-vicunav.jpg",
+      "license": "documented"
+    },
+    {
+      "id": "cv-pdf",
+      "status": "available",
+      "owner": "vicunav/vicunav-web",
+      "source": "assets/cv/mario-vicuna-resume.pdf",
+      "license": "documented"
+    },
+    {
+      "id": "plus-jakarta-sans",
+      "status": "available",
+      "owner": "vicunav/vicunav-web",
+      "source": "assets/fonts/",
+      "license": "SIL Open Font License 1.1"
+    },
+    {
+      "id": "logo-vicunav",
+      "status": "approved-substitute",
+      "owner": "vicunav/vicunav-web",
+      "source": "wordmark tipografico Plus Jakarta Sans, header/footer",
+      "license": "n/a",
+      "approval": {
+        "authority": "Mario Vicuña",
+        "reference": "vicunav-hub ADR 0012, 2026-08-28"
+      }
+    },
+    {
+      "id": "favicon",
+      "status": "missing",
+      "owner": "vicunav/vicunav-web",
+      "source": "no entregado, ver docs/handoff/inventario-assets.md A12",
+      "license": "no aplica hasta recibir el asset"
+    },
+    {
+      "id": "og-image",
+      "status": "missing",
+      "owner": "vicunav/vicunav-web",
+      "source": "no entregado, ver docs/handoff/inventario-assets.md A13",
+      "license": "no aplica hasta recibir el asset"
+    }
+  ],
+  "evidence": [
+    {
+      "surface": "home",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/home-default-mobile.png",
+      "targetCapture": "evidence/target/home-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/home-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/home-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/home-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "home",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/home-default-tablet.png",
+      "targetCapture": "evidence/target/home-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/home-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/home-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/home-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "home",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/home-default-desktop.png",
+      "targetCapture": "evidence/target/home-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/home-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/home-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/home-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "servicios",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/servicios-default-mobile.png",
+      "targetCapture": "evidence/target/servicios-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/servicios-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/servicios-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/servicios-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "servicios",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/servicios-default-tablet.png",
+      "targetCapture": "evidence/target/servicios-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/servicios-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/servicios-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/servicios-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "servicios",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/servicios-default-desktop.png",
+      "targetCapture": "evidence/target/servicios-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/servicios-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/servicios-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/servicios-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "portafolio",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/portafolio-default-mobile.png",
+      "targetCapture": "evidence/target/portafolio-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/portafolio-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/portafolio-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/portafolio-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "portafolio",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/portafolio-default-tablet.png",
+      "targetCapture": "evidence/target/portafolio-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/portafolio-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/portafolio-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/portafolio-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "portafolio",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/portafolio-default-desktop.png",
+      "targetCapture": "evidence/target/portafolio-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/portafolio-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/portafolio-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/portafolio-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "contacto",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/contacto-default-mobile.png",
+      "targetCapture": "evidence/target/contacto-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/contacto-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/contacto-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/contacto-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "contacto",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/contacto-default-tablet.png",
+      "targetCapture": "evidence/target/contacto-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/contacto-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/contacto-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/contacto-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "contacto",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/contacto-default-desktop.png",
+      "targetCapture": "evidence/target/contacto-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/contacto-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/contacto-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/contacto-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "nosotros",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/nosotros-default-mobile.png",
+      "targetCapture": "evidence/target/nosotros-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/nosotros-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/nosotros-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/nosotros-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "nosotros",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/nosotros-default-tablet.png",
+      "targetCapture": "evidence/target/nosotros-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/nosotros-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/nosotros-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/nosotros-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "nosotros",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/nosotros-default-desktop.png",
+      "targetCapture": "evidence/target/nosotros-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/nosotros-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/nosotros-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/nosotros-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "restaurantes",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/restaurantes-default-mobile.png",
+      "targetCapture": "evidence/target/restaurantes-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/restaurantes-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/restaurantes-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/restaurantes-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "restaurantes",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/restaurantes-default-tablet.png",
+      "targetCapture": "evidence/target/restaurantes-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/restaurantes-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/restaurantes-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/restaurantes-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "restaurantes",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/restaurantes-default-desktop.png",
+      "targetCapture": "evidence/target/restaurantes-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/restaurantes-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/restaurantes-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/restaurantes-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "hoteles",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/hoteles-default-mobile.png",
+      "targetCapture": "evidence/target/hoteles-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/hoteles-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/hoteles-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/hoteles-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "hoteles",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/hoteles-default-tablet.png",
+      "targetCapture": "evidence/target/hoteles-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/hoteles-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/hoteles-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/hoteles-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "hoteles",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/hoteles-default-desktop.png",
+      "targetCapture": "evidence/target/hoteles-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/hoteles-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/hoteles-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/hoteles-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "bienestar",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/bienestar-default-mobile.png",
+      "targetCapture": "evidence/target/bienestar-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/bienestar-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/bienestar-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/bienestar-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "bienestar",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/bienestar-default-tablet.png",
+      "targetCapture": "evidence/target/bienestar-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/bienestar-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/bienestar-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/bienestar-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "bienestar",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/bienestar-default-desktop.png",
+      "targetCapture": "evidence/target/bienestar-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/bienestar-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/bienestar-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/bienestar-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "sistemas",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/sistemas-default-mobile.png",
+      "targetCapture": "evidence/target/sistemas-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/sistemas-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/sistemas-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/sistemas-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "sistemas",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/sistemas-default-tablet.png",
+      "targetCapture": "evidence/target/sistemas-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/sistemas-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/sistemas-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/sistemas-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "sistemas",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/sistemas-default-desktop.png",
+      "targetCapture": "evidence/target/sistemas-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/sistemas-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/sistemas-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/sistemas-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "automatizacion",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/automatizacion-default-mobile.png",
+      "targetCapture": "evidence/target/automatizacion-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/automatizacion-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/automatizacion-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/automatizacion-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "automatizacion",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/automatizacion-default-tablet.png",
+      "targetCapture": "evidence/target/automatizacion-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/automatizacion-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/automatizacion-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/automatizacion-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "automatizacion",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/automatizacion-default-desktop.png",
+      "targetCapture": "evidence/target/automatizacion-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/automatizacion-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/automatizacion-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/automatizacion-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "sitios",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/sitios-default-mobile.png",
+      "targetCapture": "evidence/target/sitios-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/sitios-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/sitios-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/sitios-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "sitios",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/sitios-default-tablet.png",
+      "targetCapture": "evidence/target/sitios-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/sitios-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/sitios-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/sitios-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "sitios",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/sitios-default-desktop.png",
+      "targetCapture": "evidence/target/sitios-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/sitios-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/sitios-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/sitios-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "visibilidad",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/visibilidad-default-mobile.png",
+      "targetCapture": "evidence/target/visibilidad-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/visibilidad-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/visibilidad-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/visibilidad-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "visibilidad",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/visibilidad-default-tablet.png",
+      "targetCapture": "evidence/target/visibilidad-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/visibilidad-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/visibilidad-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/visibilidad-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "visibilidad",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/visibilidad-default-desktop.png",
+      "targetCapture": "evidence/target/visibilidad-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/visibilidad-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/visibilidad-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/visibilidad-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "articulos",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/articulos-default-mobile.png",
+      "targetCapture": "evidence/target/articulos-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/articulos-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/articulos-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/articulos-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "articulos",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/articulos-default-tablet.png",
+      "targetCapture": "evidence/target/articulos-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/articulos-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/articulos-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/articulos-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "articulos",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/articulos-default-desktop.png",
+      "targetCapture": "evidence/target/articulos-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/articulos-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/articulos-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/articulos-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "articulo",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/articulo-default-mobile.png",
+      "targetCapture": "evidence/target/articulo-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/articulo-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/articulo-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/articulo-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "articulo",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/articulo-default-tablet.png",
+      "targetCapture": "evidence/target/articulo-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/articulo-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/articulo-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/articulo-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "articulo",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/articulo-default-desktop.png",
+      "targetCapture": "evidence/target/articulo-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/articulo-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/articulo-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/articulo-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "cv",
+      "state": "default",
+      "viewport": "mobile",
+      "sourceCapture": "evidence/source/cv-default-mobile.png",
+      "targetCapture": "evidence/target/cv-default-mobile.png",
+      "comparisonCapture": "evidence/comparison/cv-default-mobile-side-by-side.png",
+      "overlayCapture": "evidence/comparison/cv-default-mobile-overlay.png",
+      "diffCapture": "evidence/comparison/cv-default-mobile-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "cv",
+      "state": "default",
+      "viewport": "tablet",
+      "sourceCapture": "evidence/source/cv-default-tablet.png",
+      "targetCapture": "evidence/target/cv-default-tablet.png",
+      "comparisonCapture": "evidence/comparison/cv-default-tablet-side-by-side.png",
+      "overlayCapture": "evidence/comparison/cv-default-tablet-overlay.png",
+      "diffCapture": "evidence/comparison/cv-default-tablet-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    },
+    {
+      "surface": "cv",
+      "state": "default",
+      "viewport": "desktop",
+      "sourceCapture": "evidence/source/cv-default-desktop.png",
+      "targetCapture": "evidence/target/cv-default-desktop.png",
+      "comparisonCapture": "evidence/comparison/cv-default-desktop-side-by-side.png",
+      "overlayCapture": "evidence/comparison/cv-default-desktop-overlay.png",
+      "diffCapture": "evidence/comparison/cv-default-desktop-diff.png",
+      "status": "pending",
+      "difference": null,
+      "approval": null,
+      "metrics": null
+    }
+  ],
+  "report": {
+    "json": "evidence/visual-report.json",
+    "html": "evidence/visual-report.html"
+  }
+}
