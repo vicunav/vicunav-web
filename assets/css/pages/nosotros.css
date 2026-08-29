@@ -104,8 +104,11 @@
   color:var(--text-muted);
 }
 .story-section__quote{
+  position:relative;
+  overflow:hidden;
   border-radius:var(--radius-lg);
   padding:var(--bp-card-pad);
+  box-shadow:var(--shadow-lift);
 }
 .story-section__quote-text{
   font-family:var(--font-family-base);
