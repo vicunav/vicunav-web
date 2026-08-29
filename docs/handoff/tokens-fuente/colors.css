@@ -1,0 +1,32 @@
+:root{
+  /* base */
+  --color-dark:#2B2825;
+  --color-light:#F4EFE6;
+  --color-accent:#E8873A;
+  --color-secondary:#B7AE9F;
+  --color-white:#FFFFFF;
+
+  /* derived (oklch mixes off the four brand values — never invented hues) */
+  --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, black);
+  --color-accent-press: color-mix(in oklch, var(--color-accent) 76%, black);
+  --color-accent-tint: color-mix(in oklch, var(--color-accent) 14%, var(--color-light));
+  --color-dark-2: color-mix(in oklch, var(--color-dark) 92%, white);
+  --color-dark-3: color-mix(in oklch, var(--color-dark) 84%, white);
+  --color-light-2: color-mix(in oklch, var(--color-light) 96%, var(--color-dark));
+  --color-secondary-hover: color-mix(in oklch, var(--color-secondary) 100%, var(--color-dark) 22%);
+  --color-border: color-mix(in oklch, var(--color-secondary) 35%, var(--color-light));
+  --color-border-dark: color-mix(in oklch, var(--color-secondary) 28%, var(--color-dark));
+
+  /* semantic aliases */
+  --surface-primary-dark: var(--color-dark);
+  --surface-primary-light: var(--color-light);
+  --surface-card-light: var(--color-light-2);
+  --surface-card-dark: var(--color-dark-2);
+  --surface-accent-tint: var(--color-accent-tint);
+  --text-on-dark: var(--color-light);
+  --text-on-light: var(--color-dark);
+  --text-secondary: var(--color-secondary);
+  --text-accent: var(--color-accent);
+  --border-default: var(--color-border);
+  --border-on-dark: var(--color-border-dark);
+}

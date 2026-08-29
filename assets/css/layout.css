@@ -1,0 +1,330 @@
+/* Cabecera. design_handoff_vicunav_web/diseno/SiteHeader.dc.html */
+
+.site-header{
+  position:relative;
+  background:var(--color-dark);
+}
+
+.site-header__bar{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--space-5);
+  padding:18px var(--space-5);
+  border-bottom:1px solid var(--border-on-dark-soft);
+}
+
+.brand{
+  background:none;
+  border:none;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:0 2px;
+  cursor:pointer;
+  text-decoration:none;
+  font-family:var(--font-family-base);
+  font-weight:800;
+  font-size:20px;
+  letter-spacing:-0.02em;
+  color:var(--color-light);
+}
+.brand:hover{
+  color:var(--color-accent);
+}
+.brand:focus-visible{
+  outline:2px solid var(--color-accent);
+  outline-offset:4px;
+  border-radius:6px;
+}
+.brand__dot{
+  width:6px;
+  height:6px;
+  border-radius:var(--radius-pill);
+  background:var(--color-accent);
+  display:block;
+  margin-bottom:12px;
+}
+
+.site-nav{
+  display:none;
+  align-items:center;
+  gap:8px;
+}
+
+.site-nav__link{
+  background:none;
+  border:1px solid transparent;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  padding:0 14px;
+  cursor:pointer;
+  text-decoration:none;
+  font-family:var(--font-family-base);
+  font-size:15px;
+  font-weight:500;
+  border-radius:var(--radius-pill);
+  color:var(--color-light);
+  transition:color .15s ease, border-color .15s ease;
+}
+.site-nav__link:hover{
+  color:var(--color-accent);
+}
+.site-nav__link[aria-current="page"]{
+  color:var(--color-accent);
+  border-color:var(--color-accent);
+}
+
+.site-nav__divider{
+  width:1px;
+  height:24px;
+  background:var(--border-on-dark-soft);
+  margin:0 8px;
+}
+
+.nav-toggle{
+  width:44px;
+  height:44px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+.nav-toggle__bar{
+  display:block;
+  width:22px;
+  height:2px;
+  background:var(--color-light);
+  border-radius:2px;
+  transition:transform .15s ease, opacity .15s ease;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar--top{
+  transform:translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar--mid{
+  opacity:0;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar--bottom{
+  transform:translateY(-7px) rotate(-45deg);
+}
+
+.site-nav-mobile{
+  position:relative;
+  z-index:2;
+  background:var(--color-dark);
+  display:none;
+  flex-direction:column;
+  padding:8px var(--space-5) var(--space-5);
+  gap:2px;
+  border-bottom:1px solid var(--border-on-dark-soft);
+}
+.site-nav-mobile.is-open{
+  display:flex;
+}
+.site-nav-mobile__link{
+  text-align:left;
+  background:none;
+  border:none;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  padding:0 4px;
+  cursor:pointer;
+  text-decoration:none;
+  font-family:var(--font-family-base);
+  font-size:17px;
+  font-weight:600;
+  color:var(--color-light);
+}
+.site-nav-mobile__link[aria-current="page"]{
+  color:var(--color-accent);
+}
+.site-nav-mobile .btn{
+  width:100%;
+  margin-top:8px;
+  min-height:48px;
+}
+
+@media (min-width: 834px){
+  .site-nav{
+    display:flex;
+  }
+  .nav-toggle{
+    display:none;
+  }
+  .site-nav-mobile{
+    display:none !important;
+  }
+}
+
+/* Pie de página. design_handoff_vicunav_web/diseno/SiteFooter.dc.html */
+
+.site-footer{
+  position:relative;
+  background:var(--color-dark);
+  padding:64px var(--space-5) 32px;
+  overflow:hidden;
+}
+.site-footer::before{
+  content:"";
+  position:absolute;
+  right:-6%;
+  top:-40%;
+  width:38%;
+  aspect-ratio:1;
+  border-radius:var(--radius-pill);
+  border:2px solid var(--ring-accent-on-dark);
+  pointer-events:none;
+}
+.site-footer__inner{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+}
+.site-footer__top{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:40px;
+}
+.site-footer__brand{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  max-width:380px;
+}
+.site-footer__wordmark{
+  display:flex;
+  align-items:flex-end;
+  gap:8px;
+  font-family:var(--font-family-base);
+  font-weight:800;
+  font-size:30px;
+  letter-spacing:-0.03em;
+  line-height:1;
+  color:var(--color-light);
+  text-decoration:none;
+}
+.site-footer__wordmark .brand__dot{
+  width:9px;
+  height:9px;
+  margin-bottom:6px;
+}
+.site-footer__desc{
+  font-size:16px;
+  line-height:1.6;
+  color:var(--color-secondary);
+}
+.site-footer__nav{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.site-footer__label{
+  font-family:var(--font-family-base);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  margin-bottom:8px;
+}
+.site-footer__link{
+  text-align:left;
+  background:none;
+  border:none;
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  padding:0;
+  font-family:var(--font-family-base);
+  font-size:16px;
+  font-weight:500;
+  color:var(--color-light);
+  text-decoration:none;
+  transition:color .15s ease;
+}
+.site-footer__link:hover{
+  color:var(--color-accent);
+}
+.site-footer__bottom{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  padding-top:24px;
+  border-top:1px solid var(--border-on-dark-soft);
+  font-size:14px;
+  color:var(--color-secondary);
+}
+
+@media (min-width: 1440px){
+  .site-footer{
+    padding-top:80px;
+  }
+  .site-footer__inner{
+    gap:56px;
+  }
+  .site-footer__wordmark{
+    font-size:40px;
+  }
+  .site-footer__wordmark .brand__dot{
+    width:9px;
+    height:9px;
+  }
+}
+
+/* Botón flotante de WhatsApp */
+
+.whatsapp-float{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  width:60px;
+  height:60px;
+  border-radius:var(--radius-pill);
+  background:var(--color-accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow-float);
+  z-index:70;
+  text-decoration:none;
+  color:var(--color-dark);
+  transition:background-color .15s ease, transform .15s ease;
+}
+.whatsapp-float:hover{
+  background:var(--color-accent-hover);
+  transform:translateY(-3px);
+}
+.whatsapp-float:focus-visible{
+  outline:3px solid var(--color-dark);
+  outline-offset:3px;
+}
+
+/* Grano sobre superficies oscuras */
+
+.grain{
+  position:absolute;
+  inset:0;
+  background-image:var(--grain);
+  opacity:0.055;
+  mix-blend-mode:overlay;
+  pointer-events:none;
+}
+
+.section-dark{
+  position:relative;
+  background:var(--color-dark);
+  overflow:hidden;
+}
