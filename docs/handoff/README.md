@@ -7,6 +7,13 @@ Codex y el skill `transform-claude-to-gutenberg`.
 Idioma de este documento: español, por ser documentación interna
 (`vicunav-standards/docs/documentation-language.md`).
 
+> **Estado: resuelto.** Las tres decisiones de la sección 3 ya las tomó
+> Mario. El ADR real es el
+> [ADR 0012](https://github.com/vicunav/vicunav-hub/blob/main/docs/adr/0012-sitio-propio-vicunav-web.md)
+> en `vicunav-hub` (`adr-borrador-vicunav-web.md`, mencionado más abajo, era
+> el borrador y ya no existe en este paquete). El resto del documento queda
+> como registro de cómo se llegó a esas decisiones.
+
 ## 1. Qué contiene este paquete
 
 Los archivos `.dc.html` incluidos son **referencias de diseño en HTML**: prototipos
