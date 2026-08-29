@@ -1,0 +1,106 @@
+<!-- Fuente: docs/claude-design-full/Vicunav Sitio Web v2.dc.html, bloque isContacto, leído directo -->
+
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
+
+<!-- wp:group {"className":"hero-inner section-dark","layout":{"type":"constrained"}} -->
+<div class="wp-block-group hero-inner section-dark">
+<!-- wp:html --><div class="grain"></div><!-- /wp:html -->
+<!-- wp:group {"className":"hero-inner__inner","layout":{"type":"constrained"}} -->
+<div class="wp-block-group hero-inner__inner">
+<!-- wp:group {"className":"kicker","layout":{"type":"flex"}} -->
+<div class="wp-block-group kicker">
+<!-- wp:group {"className":"kicker__rule","layout":{"type":"constrained"}} --><div class="wp-block-group kicker__rule"></div><!-- /wp:group -->
+<!-- wp:paragraph {"className":"kicker__label"} --><p class="kicker__label">Contacto</p><!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:heading {"level":1,"className":"hero-inner__title hero-contacto__title"} -->
+<h1 class="wp-block-heading hero-inner__title hero-contacto__title">Hablemos de tu proyecto</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"hero-inner__sub"} -->
+<p class="hero-inner__sub">Revisamos tu mensaje personalmente, respondemos dentro de 1 a 2 días hábiles.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"contacto-section","layout":{"type":"constrained"}} -->
+<div class="wp-block-group contacto-section">
+<!-- wp:html -->
+<div class="contacto-grid">
+  <div class="card contacto-form-card">
+    <div class="contact-form">
+      <div class="field">
+        <label for="f-nombre">Nombre</label>
+        <input id="f-nombre" type="text" placeholder="Tu nombre" autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="f-correo">Correo</label>
+        <input id="f-correo" type="email" placeholder="tú@empresa.com" autocomplete="email">
+      </div>
+      <fieldset class="choice-group">
+        <legend class="choice-group__label">Tienes sitio actualmente</legend>
+        <div class="choice-row" role="radiogroup">
+          <input class="chip-radio-input" type="radio" name="tiene-sitio" id="sitio-si" value="si">
+          <label class="chip" for="sitio-si">Sí</label>
+          <input class="chip-radio-input" type="radio" name="tiene-sitio" id="sitio-no" value="no">
+          <label class="chip" for="sitio-no">No</label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="f-situacion">Cuéntanos tu situación</label>
+        <textarea id="f-situacion" placeholder="Cuéntanos qué necesita tu negocio..."></textarea>
+      </div>
+      <fieldset class="choice-group">
+        <legend class="choice-group__label">Cómo prefieres que continuemos</legend>
+        <div class="choice-row" role="radiogroup">
+          <input class="chip-radio-input" type="radio" name="continuar-via" id="via-whatsapp" value="whatsapp">
+          <label class="chip" for="via-whatsapp">WhatsApp</label>
+          <input class="chip-radio-input" type="radio" name="continuar-via" id="via-llamada" value="llamada">
+          <label class="chip" for="via-llamada">Llamada</label>
+          <input class="chip-radio-input" type="radio" name="continuar-via" id="via-correo" value="correo">
+          <label class="chip" for="via-correo">Correo electrónico</label>
+        </div>
+      </fieldset>
+      <div class="contact-form__actions">
+        <button type="button" class="btn btn--accent">Enviar mensaje</button>
+        <span class="contact-form__note">Respondemos dentro de 1 a 2 días hábiles.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="contacto-aside">
+    <div class="info-box info-box--dark contacto-aside__how">
+      <div class="grain"></div>
+      <span class="info-box__label">Cómo trabajamos</span>
+      <p class="contacto-aside__how-text">Revisamos tu mensaje personalmente, respondemos dentro de 1 a 2 días hábiles.</p>
+      <div class="contacto-aside__divider"></div>
+      <div class="contacto-aside__note">
+        <span class="contacto-aside__dot"></span>
+        <span class="contacto-aside__note-text">Sin precios cerrados, cada proyecto se cotiza aparte.</span>
+      </div>
+    </div>
+    <a class="contacto-whatsapp" href="https://wa.me/10000000000" target="_blank" rel="noopener">
+      <span class="contacto-whatsapp__text">
+        <span class="contacto-whatsapp__kicker">WhatsApp</span>
+        <span class="contacto-whatsapp__title">Hablemos ahora</span>
+      </span>
+      <span class="contacto-whatsapp__icon"><svg class="icon" width="28" height="28" aria-hidden="true"><use href="#ico-message-circle"></use></svg></span>
+    </a>
+    <div class="contacto-email">
+      <span class="kicker__label kicker__label--ink">Correo</span>
+      <a class="contacto-email__link" href="mailto:hello@vicunav.com">hello@vicunav.com</a>
+    </div>
+  </div>
+</div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
