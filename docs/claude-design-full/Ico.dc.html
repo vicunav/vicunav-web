@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<span style="display:inline-flex;align-items:center;justify-content:center;width:{{ size }}px;height:{{ size }}px;color:inherit;">
+  <sc-if value="{{ isLayout }}" hint-placeholder-val="{{ false }}">
+    <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+      <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+      <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+      <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+    </svg>
+  </sc-if>
+  <sc-if value="{{ isZap }}" hint-placeholder-val="{{ false }}">
+    <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"></path>
+    </svg>
+  </sc-if>
+  <sc-if value="{{ isGlobe }}" hint-placeholder-val="{{ false }}">
+    <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M3 12h18"></path>
+      <path d="M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z"></path>
+    </svg>
+  </sc-if>
+  <sc-if value="{{ isSearch }}" hint-placeholder-val="{{ false }}">
+    <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"></circle>
+      <path d="m20 20-4.3-4.3"></path>
+    </svg>
+  </sc-if>
+  <sc-if value="{{ isPathIcon }}" hint-placeholder-val="{{ false }}">
+    <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <sc-for list="{{ paths }}" as="p" hint-placeholder-count="1">
+        <path d="{{ p.d }}"></path>
+      </sc-for>
+    </svg>
+  </sc-if>
+  <sc-if value="{{ isChat }}" hint-placeholder-val="{{ false }}">
+    <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.5 9.5 0 0 1-3.6-.7L3 21l1.9-4.9A8.3 8.3 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"></path>
+      <path d="M8.5 12h.01"></path>
+      <path d="M12 12h.01"></path>
+      <path d="M15.5 12h.01"></path>
+    </svg>
+  </sc-if>
+</span>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:64,&quot;height&quot;:64},&quot;glyph&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;layout-grid&quot;,&quot;zap&quot;,&quot;globe&quot;,&quot;search&quot;,&quot;message-circle&quot;,&quot;utensils&quot;,&quot;pizza&quot;,&quot;qr-code&quot;,&quot;calendar&quot;,&quot;credit-card&quot;,&quot;truck&quot;,&quot;bar-chart&quot;,&quot;store&quot;,&quot;monitor&quot;,&quot;phone&quot;,&quot;check&quot;,&quot;clock&quot;,&quot;arrow-right&quot;,&quot;star&quot;,&quot;code&quot;,&quot;user&quot;,&quot;mail&quot;,&quot;github&quot;,&quot;linkedin&quot;,&quot;briefcase&quot;,&quot;heart-pulse&quot;,&quot;graduation&quot;,&quot;file-text&quot;,&quot;map-pin&quot;,&quot;bot&quot;,&quot;shield&quot;,&quot;layers&quot;,&quot;download&quot;,&quot;eye&quot;,&quot;tag&quot;,&quot;plus&quot;,&quot;minus&quot;],&quot;default&quot;:&quot;zap&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;size&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:24,&quot;min&quot;:16,&quot;max&quot;:64,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  PATHS = {
+    utensils: ['M5 3v5a2 2 0 0 0 4 0V3', 'M7 10v11', 'M16 3c2 2.5 2 6.5 0 9', 'M16 12v9'],
+    pizza: ['M4 20.5 12 3l8 17.5a24 24 0 0 1-16 0z', 'M9 13h.01', 'M13.6 15.6h.01', 'M12 9h.01'],
+    'qr-code': ['M4 4h6v6H4z', 'M14 4h6v6h-6z', 'M4 14h6v6H4z', 'M14 14h2v2h-2z', 'M18 18h2v2h-2z', 'M14 20h2', 'M20 14h.01'],
+    calendar: ['M5 6h14v15H5z', 'M5 10h14', 'M8 3v4', 'M16 3v4', 'M9 15h2'],
+    'credit-card': ['M3 6h18v12H3z', 'M3 10h18', 'M7 14h4'],
+    truck: ['M3 6h11v9H3z', 'M14 9h4l3 3v3h-3.5', 'M7.5 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z', 'M17.5 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z', 'M3 15h1.5', 'M9 15h7'],
+    'bar-chart': ['M4 20h16', 'M7 20v-6', 'M12 20V7', 'M17 20v-9'],
+    store: ['M4 9v11h16V9', 'M3 9l2-5h14l2 5z', 'M9 20v-6h6v6'],
+    monitor: ['M3 4h18v12H3z', 'M9 20h6', 'M12 16v4'],
+    phone: ['M7 3h4l1.5 4-2 1.5a11 11 0 0 0 5 5L17 11.5 21 13v4a2 2 0 0 1-2 2A16 16 0 0 1 5 5a2 2 0 0 1 2-2z'],
+    check: ['m5 13 4 4 10-10'],
+    clock: ['M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18', 'M12 7.5V12l3.5 2'],
+    'arrow-right': ['M4 12h15', 'm13 6 6 6-6 6'],
+    star: ['M12 3.5l2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-3-5.3 3 1.1-6L3.4 9.9l6-.8z'],
+    code: ['m8 8-4 4 4 4', 'm16 8 4 4-4 4', 'M14 4l-4 16'],
+    user: ['M12 4a4 4 0 1 0 0 8a4 4 0 1 0 0-8', 'M4 20c0-3.3 3.6-5 8-5s8 1.7 8 5'],
+    mail: ['M3 5h18v14H3z', 'm3 6 9 7 9-7'],
+    github: ['M9 20.5c-4.5 1.3-4.5-2.3-6-3m12 5v-3.6c0-1 .1-1.4-.5-2 2.4-.3 4.5-1.2 4.5-5.2a4 4 0 0 0-1.1-2.8 3.7 3.7 0 0 0-.1-2.8s-1.2-.4-3.8 1.4a9.4 9.4 0 0 0-5 0C6.4 4.9 5.2 5.3 5.2 5.3a3.7 3.7 0 0 0-.1 2.8A4 4 0 0 0 4 10.9c0 4 2.1 4.9 4.5 5.2-.6.6-.6 1.2-.5 2V21'],
+    linkedin: ['M5 9.5v10.5', 'M5 5.6h.01', 'M10.5 20V9.5', 'M10.5 14a3.5 3.5 0 0 1 7 0v6'],
+    briefcase: ['M4 8h16v12H4z', 'M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2', 'M4 13h16'],
+    'heart-pulse': ['M19.5 12.6 12 20l-7.5-7.4a4.7 4.7 0 0 1 6.6-6.6l.9.8.9-.8a4.7 4.7 0 0 1 6.6 6.6z', 'M3.6 12h3l1.4-2.4L11 15l1.6-3'],
+    graduation: ['M2.5 9 12 4.5 21.5 9 12 13.5z', 'M6 11v5c0 1.6 3 3 6 3s6-1.4 6-3v-5', 'M21.5 9v5'],
+    'file-text': ['M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z', 'M14 3v5h5', 'M9 13h6', 'M9 17h4'],
+    'map-pin': ['M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z', 'M12 9a2.5 2.5 0 1 0 0 5a2.5 2.5 0 1 0 0-5'],
+    bot: ['M6 8h12v10H6z', 'M12 4v4', 'M9.5 12h.01', 'M14.5 12h.01', 'M3 12v3', 'M21 12v3', 'M10 16h4'],
+    shield: ['M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z', 'm9 12 2 2 4-4'],
+    layers: ['m12 3 9 5-9 5-9-5z', 'm3 13 9 5 9-5'],
+    download: ['M12 4v11', 'm7.5 11.5 4.5 4.5 4.5-4.5', 'M4 20h16'],
+    eye: ['M2.5 12S6 6.5 12 6.5 21.5 12 21.5 12 18 17.5 12 17.5 2.5 12 2.5 12z', 'M12 9.5a2.5 2.5 0 1 0 0 5a2.5 2.5 0 1 0 0-5'],
+    tag: ['M11 3H4v7l10 10 7-7z', 'M8 8h.01'],
+    plus: ['M12 6v12', 'M6 12h12'],
+    minus: ['M6 12h12']
+  };
+  renderVals() {
+    const name = this.props.glyph || 'zap';
+    const paths = this.PATHS[name];
+    return {
+      size: this.props.size ?? 24,
+      isPathIcon: !!paths,
+      paths: (paths || []).map((d, i) => ({ key: i, d })),
+      isLayout: name === 'layout-grid',
+      isZap: name === 'zap',
+      isGlobe: name === 'globe',
+      isSearch: name === 'search',
+      isChat: name === 'message-circle'
+    };
+  }
+}
+</script>
+</body>
+</html>

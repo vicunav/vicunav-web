@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/fonts.css">
+  <script src="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/_ds_bundle.js"></script>
+  <style>body{margin:0}</style>
+</helmet>
+<div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden;">
+  <sc-if value="{{ isA }}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute;inset:0;background:var(--color-dark);"></div>
+    <div style="position:absolute;left:-14%;top:-24%;width:96%;aspect-ratio:1;border-radius:999px;border:2px solid color-mix(in oklch, #E8873A 70%, #2B2825);"></div>
+    <div style="position:absolute;left:6%;top:-4%;width:78%;aspect-ratio:1;border-radius:999px;border:2px solid color-mix(in oklch, #E8873A 42%, #2B2825);"></div>
+    <div style="position:absolute;right:-18%;bottom:-30%;width:66%;aspect-ratio:1;border-radius:999px;background:var(--color-accent);"></div>
+  </sc-if>
+  <sc-if value="{{ isB }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;inset:0;background:var(--color-light);"></div>
+    <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(6,1fr);">
+      <sc-for list="{{ cells }}" as="c" hint-placeholder-count="36">
+        <span style="display:block;margin:auto;width:5px;height:5px;border-radius:999px;background:{{ c.color }};"></span>
+      </sc-for>
+    </div>
+    <div style="position:absolute;left:16%;top:22%;width:44%;aspect-ratio:1;background:var(--color-accent);border-radius:8px;transform:rotate(-9deg);"></div>
+    <div style="position:absolute;left:34%;top:38%;width:38%;aspect-ratio:1;border:2px solid var(--color-dark);border-radius:8px;transform:rotate(6deg);"></div>
+  </sc-if>
+  <sc-if value="{{ isC }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;inset:0;background:var(--color-dark);"></div>
+    <div style="position:absolute;left:-10%;top:12%;width:120%;height:14%;background:var(--color-accent);transform:rotate(-14deg);"></div>
+    <div style="position:absolute;left:-10%;top:44%;width:120%;height:6%;background:color-mix(in oklch, #F4EFE6 70%, #2B2825);transform:rotate(-14deg);"></div>
+    <div style="position:absolute;left:-10%;top:62%;width:120%;height:10%;background:color-mix(in oklch, #E8873A 45%, #2B2825);transform:rotate(-14deg);"></div>
+  </sc-if>
+  <sc-if value="{{ isD }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;inset:0;background:var(--color-light);"></div>
+    <div style="position:absolute;left:8%;bottom:-18%;width:56%;aspect-ratio:1;border-radius:999px;background:var(--color-accent-tint);"></div>
+    <div style="position:absolute;right:6%;bottom:-10%;width:46%;aspect-ratio:1;border-radius:999px;background:var(--color-accent);"></div>
+    <div style="position:absolute;left:12%;top:14%;width:64%;height:2px;background:var(--color-dark);"></div>
+    <div style="position:absolute;left:12%;top:24%;width:38%;height:2px;background:var(--color-dark);"></div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:320,&quot;height&quot;:220},&quot;variant&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:0,&quot;min&quot;:0,&quot;max&quot;:3,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const v = Number(this.props.variant ?? 0) % 4;
+    const cells = [];
+    for (let i = 0; i < 36; i++) cells.push({ key: i, color: 'color-mix(in oklch, #2B2825 22%, #F4EFE6)' });
+    return { cells, isA: v === 0, isB: v === 1, isC: v === 2, isD: v === 3 };
+  }
+}
+</script>
+</body>
+</html>

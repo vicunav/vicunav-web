@@ -69,32 +69,63 @@
         </div>
       </div>
       <div class="hero-home__art">
-        <div class="mockup-card" aria-hidden="true">
-          <div class="mockup-dash">
-            <div class="mockup-dash__head">
-              <span class="mockup-dash__head-title"></span>
-              <span class="mockup-dash__head-dot"></span>
-            </div>
-            <div class="mockup-dash__chart">
-              <span class="mockup-dash__bar"></span>
-              <span class="mockup-dash__bar"></span>
-              <span class="mockup-dash__bar"></span>
-              <span class="mockup-dash__bar"></span>
-              <span class="mockup-dash__bar"></span>
-              <span class="mockup-dash__bar"></span>
-            </div>
-            <div class="mockup-dash__rows">
-              <div class="mockup-dash__row">
-                <span class="mockup-dash__row-icon"></span>
-                <span class="mockup-dash__row-bar"></span>
-              </div>
-              <div class="mockup-dash__row">
-                <span class="mockup-dash__row-icon"></span>
-                <span class="mockup-dash__row-bar"></span>
-              </div>
-            </div>
-          </div>
+<div class="mockup-dash" aria-hidden="true">
+  <div class="mockup-dash__topbar">
+    <div class="mockup-dash__dots">
+      <span class="mockup-dash__dot"></span>
+      <span class="mockup-dash__dot"></span>
+      <span class="mockup-dash__dot mockup-dash__dot--accent"></span>
+    </div>
+    <span class="mockup-dash__topbar-label">Panel de reservas</span>
+  </div>
+  <div class="mockup-dash__body">
+    <div class="mockup-dash__sidebar">
+      <span class="mockup-dash__sidebar-bar mockup-dash__sidebar-bar--accent w-70"></span>
+      <span class="mockup-dash__sidebar-bar w-52"></span>
+      <span class="mockup-dash__sidebar-bar w-64"></span>
+      <span class="mockup-dash__sidebar-bar w-44"></span>
+      <span class="mockup-dash__sidebar-divider"></span>
+      <span class="mockup-dash__sidebar-bar w-58"></span>
+    </div>
+    <div class="mockup-dash__main">
+      <div class="mockup-dash__stats">
+        <div class="mockup-dash__stat">
+          <span class="mockup-dash__stat-label">Hoy</span>
+          <span class="mockup-dash__stat-value">24</span>
         </div>
+        <div class="mockup-dash__stat mockup-dash__stat--accent">
+          <span class="mockup-dash__stat-label">Ocupación</span>
+          <span class="mockup-dash__stat-value">86%</span>
+        </div>
+        <div class="mockup-dash__stat">
+          <span class="mockup-dash__stat-label">Auto</span>
+          <span class="mockup-dash__stat-value">31</span>
+        </div>
+      </div>
+      <div class="mockup-dash__chart">
+        <span class="mockup-dash__chart-bar"></span>
+        <span class="mockup-dash__chart-bar"></span>
+        <span class="mockup-dash__chart-bar"></span>
+        <span class="mockup-dash__chart-bar mockup-dash__chart-bar--accent"></span>
+        <span class="mockup-dash__chart-bar"></span>
+        <span class="mockup-dash__chart-bar"></span>
+        <span class="mockup-dash__chart-bar"></span>
+      </div>
+      <div class="mockup-dash__rows">
+        <div class="mockup-dash__row">
+          <span class="mockup-dash__row-dot mockup-dash__row-dot--accent"></span>
+          <span class="mockup-dash__row-bar"></span>
+          <span class="mockup-dash__row-tag mockup-dash__row-tag--accent">Confirmada</span>
+        </div>
+        <div class="mockup-dash__row">
+          <span class="mockup-dash__row-dot"></span>
+          <span class="mockup-dash__row-bar"></span>
+          <span class="mockup-dash__row-tag">En espera</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       </div>
     </div>
   </section>
@@ -108,27 +139,57 @@
         </div>
         <h3 class="pillar__title pillar__title--lg">Sistemas y software personalizados</h3>
         <p class="pillar__desc">Sistemas de reservas, pedidos online, o cualquier herramienta hecha a la medida de tu negocio.</p>
-        <div class="pillar__mockup mockup-card" aria-hidden="true">
-          <div class="mockup-booking">
-            <div class="mockup-booking__week">
-              <span class="mockup-booking__day"></span>
-              <span class="mockup-booking__day"></span>
-              <span class="mockup-booking__day"></span>
-              <span class="mockup-booking__day mockup-booking__day--active"></span>
-              <span class="mockup-booking__day"></span>
-              <span class="mockup-booking__day"></span>
-              <span class="mockup-booking__day"></span>
+        <div class="pillar__mockup mockup-booking" aria-hidden="true">
+          <div class="mockup-booking__head">
+            <span class="mockup-booking__month">Marzo</span>
+            <div class="mockup-booking__nav">
+              <span class="mockup-booking__nav-btn"></span>
+              <span class="mockup-booking__nav-btn"></span>
             </div>
-            <div class="mockup-booking__slots">
-              <div class="mockup-booking__slot mockup-booking__slot--active">
-                <span class="mockup-booking__slot-time"></span>
-                <span class="mockup-booking__slot-bar"></span>
-              </div>
-              <div class="mockup-booking__slot">
-                <span class="mockup-booking__slot-time"></span>
-                <span class="mockup-booking__slot-bar"></span>
-              </div>
-            </div>
+          </div>
+          <div class="mockup-booking__week">
+              <span class="mockup-booking__day"></span>
+              <span class="mockup-booking__day"></span>
+              <span class="mockup-booking__day"></span>
+              <span class="mockup-booking__day mockup-booking__day--in">1</span>
+              <span class="mockup-booking__day mockup-booking__day--in">2</span>
+              <span class="mockup-booking__day mockup-booking__day--in">3</span>
+              <span class="mockup-booking__day mockup-booking__day--in">4</span>
+              <span class="mockup-booking__day mockup-booking__day--in">5</span>
+              <span class="mockup-booking__day mockup-booking__day--in">6</span>
+              <span class="mockup-booking__day mockup-booking__day--in mockup-booking__day--marked">7</span>
+              <span class="mockup-booking__day mockup-booking__day--in">8</span>
+              <span class="mockup-booking__day mockup-booking__day--in mockup-booking__day--marked">9</span>
+              <span class="mockup-booking__day mockup-booking__day--in">10</span>
+              <span class="mockup-booking__day mockup-booking__day--in">11</span>
+              <span class="mockup-booking__day mockup-booking__day--in">12</span>
+              <span class="mockup-booking__day mockup-booking__day--in">13</span>
+              <span class="mockup-booking__day mockup-booking__day--in mockup-booking__day--selected">14</span>
+              <span class="mockup-booking__day mockup-booking__day--in">15</span>
+              <span class="mockup-booking__day mockup-booking__day--in">16</span>
+              <span class="mockup-booking__day mockup-booking__day--in">17</span>
+              <span class="mockup-booking__day mockup-booking__day--in mockup-booking__day--marked">18</span>
+              <span class="mockup-booking__day mockup-booking__day--in">19</span>
+              <span class="mockup-booking__day mockup-booking__day--in">20</span>
+              <span class="mockup-booking__day mockup-booking__day--in">21</span>
+              <span class="mockup-booking__day mockup-booking__day--in mockup-booking__day--marked">22</span>
+              <span class="mockup-booking__day mockup-booking__day--in">23</span>
+              <span class="mockup-booking__day mockup-booking__day--in">24</span>
+              <span class="mockup-booking__day mockup-booking__day--in">25</span>
+              <span class="mockup-booking__day mockup-booking__day--in mockup-booking__day--marked">26</span>
+              <span class="mockup-booking__day mockup-booking__day--in">27</span>
+              <span class="mockup-booking__day mockup-booking__day--in">28</span>
+              <span class="mockup-booking__day mockup-booking__day--in">29</span>
+              <span class="mockup-booking__day mockup-booking__day--in">30</span>
+              <span class="mockup-booking__day mockup-booking__day--in">31</span>
+              <span class="mockup-booking__day"></span>
+          </div>
+          <div class="mockup-booking__divider"></div>
+          <div class="mockup-booking__slots">
+            <span class="mockup-booking__slot mockup-booking__slot--selected">09:00</span>
+            <span class="mockup-booking__slot">10:30</span>
+            <span class="mockup-booking__slot">12:00</span>
+            <span class="mockup-booking__slot mockup-booking__slot--muted">17:00</span>
           </div>
         </div>
       </article>
@@ -161,21 +222,24 @@
           <h3 class="pillar__title">Visibilidad</h3>
           <p class="pillar__desc pillar__desc--wide">Contenido, SEO continuo, y tu perfil de Google optimizado, para que te encuentren.</p>
         </div>
-        <div class="pillar__wide-art mockup-card" aria-hidden="true">
-          <div class="mockup-seo">
-            <div class="mockup-seo__row">
-              <span class="mockup-seo__rank">1</span>
-              <span class="mockup-seo__bar-track"><span class="mockup-seo__bar-fill mockup-seo__bar-fill--w90"></span></span>
-            </div>
-            <div class="mockup-seo__row">
-              <span class="mockup-seo__rank">2</span>
-              <span class="mockup-seo__bar-track"><span class="mockup-seo__bar-fill mockup-seo__bar-fill--w70"></span></span>
-            </div>
-            <div class="mockup-seo__row">
-              <span class="mockup-seo__rank">3</span>
-              <span class="mockup-seo__bar-track"><span class="mockup-seo__bar-fill mockup-seo__bar-fill--w50"></span></span>
-            </div>
-          </div>
+        <div class="mockup-seo pillar__wide-art" aria-hidden="true">
+          <svg viewBox="0 0 400 300" role="presentation">
+            <line x1="200" y1="150" x2="200" y2="62" stroke="#B7AE9F" stroke-width="2" stroke-linecap="round"></line>
+            <line x1="200" y1="150" x2="200" y2="238" stroke="#B7AE9F" stroke-width="2" stroke-linecap="round"></line>
+            <line x1="200" y1="150" x2="72" y2="150" stroke="#B7AE9F" stroke-width="2" stroke-linecap="round"></line>
+            <line x1="200" y1="150" x2="328" y2="150" stroke="#B7AE9F" stroke-width="2" stroke-linecap="round"></line>
+            <circle cx="200" cy="150" r="46" fill="#E8873A"></circle>
+            <text x="200" y="146" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" font-weight="700" fill="#2B2825">Tu</text>
+            <text x="200" y="162" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" font-weight="700" fill="#2B2825">negocio</text>
+            <rect x="146" y="24" width="108" height="38" rx="12" fill="none" stroke="#2B2825" stroke-width="2"></rect>
+            <text x="200" y="48" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="#2B2825">Google</text>
+            <rect x="146" y="238" width="108" height="38" rx="12" fill="none" stroke="#2B2825" stroke-width="2"></rect>
+            <text x="200" y="262" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="#2B2825">Reseñas</text>
+            <rect x="8" y="131" width="64" height="38" rx="12" fill="none" stroke="#2B2825" stroke-width="2"></rect>
+            <text x="40" y="155" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="#2B2825">IA</text>
+            <rect x="328" y="131" width="64" height="38" rx="12" fill="none" stroke="#2B2825" stroke-width="2"></rect>
+            <text x="360" y="155" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#2B2825">SEO</text>
+          </svg>
         </div>
       </article>
     </div>
@@ -194,7 +258,11 @@
     </div>
     <div class="portfolio-teaser__grid">
       <a class="project-card project-card--a" href="portafolio.html">
-        <img class="placeholder project-card__cover" src="assets/img/placeholder.svg" alt="Sitio de TatiPilates en escritorio y móvil">
+        <div class="project-card__cover ui-cover ui-cover--a" aria-hidden="true">
+          <div class="ui-cover__ring1"></div>
+          <div class="ui-cover__ring2"></div>
+          <div class="ui-cover__circle"></div>
+        </div>
         <div class="project-card__bar">
           <span class="project-card__name">TatiPilates</span>
           <span class="badge badge--accent">Colaboración real</span>
@@ -206,7 +274,47 @@
         </div>
       </a>
       <a class="project-card project-card--b" href="portafolio.html">
-        <img class="placeholder project-card__cover" src="assets/img/placeholder.svg" alt="Sitio de Bhoga Yoga en escritorio y móvil">
+        <div class="project-card__cover ui-cover ui-cover--b" aria-hidden="true">
+          <div class="ui-cover__dots">
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+            <span class="ui-cover__dot"></span>
+          </div>
+          <div class="ui-cover__square1"></div>
+          <div class="ui-cover__square2"></div>
+        </div>
         <div class="project-card__bar">
           <span class="project-card__name">Bhoga Yoga</span>
           <span class="badge badge--accent">Colaboración real</span>
@@ -218,7 +326,11 @@
         </div>
       </a>
       <a class="project-card project-card--c" href="portafolio.html">
-        <img class="placeholder project-card__cover" src="assets/img/placeholder.svg" alt="Proyecto concepto Clearpath Therapy">
+        <div class="project-card__cover ui-cover ui-cover--c" aria-hidden="true">
+          <div class="ui-cover__stripe1"></div>
+          <div class="ui-cover__stripe2"></div>
+          <div class="ui-cover__stripe3"></div>
+        </div>
         <div class="project-card__bar">
           <span class="project-card__name">Clearpath Therapy</span>
           <span class="badge badge--muted">Proyecto concepto</span>
@@ -230,7 +342,12 @@
         </div>
       </a>
       <a class="project-card project-card--d" href="portafolio.html">
-        <img class="placeholder project-card__cover" src="assets/img/placeholder.svg" alt="Proyecto concepto Eleanor Wilde">
+        <div class="project-card__cover ui-cover ui-cover--d" aria-hidden="true">
+          <div class="ui-cover__circle1"></div>
+          <div class="ui-cover__circle2"></div>
+          <div class="ui-cover__line1"></div>
+          <div class="ui-cover__line2"></div>
+        </div>
         <div class="project-card__bar">
           <span class="project-card__name">Eleanor Wilde</span>
           <span class="badge badge--muted">Proyecto concepto</span>

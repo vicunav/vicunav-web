@@ -14,110 +14,229 @@
   line-height:1.05;
 }
 
-/* Placeholders de imagen. design_handoff_vicunav_web/inventario-assets.md, sección 2.
-   Va temprano en la cascada a propósito: cualquier clase de contexto que
-   necesite otra altura o posicionamiento (position:absolute, height:100%,
-   etc.) debe poder ganarle por orden de aparición sin recurrir a
-   especificidad extra. Si esta regla se mueve, revisar que siga siendo la
-   primera de las dos. */
-
-.placeholder{
-  display:block;
-  width:100%;
-  height:auto;
-  object-fit:cover;
-  background:var(--color-accent-tint);
-}
-.placeholder--dark{
-  background:var(--color-dark-2);
-}
-
-/* Placeholder decorativo de interfaz (paneles "Mockup" del design system).
-   No es un asset del inventario: es la ilustración de UI que acompaña texto,
-   sin contenido propio que reproducir en un 1 a 1 literal. Se resuelve como
-   bloque intencional, con la misma geometría que ocupaba en el prototipo. */
-
-.mockup-card{
-  background:#fff;
-  border-radius:var(--radius-lg);
-  padding:20px;
-  box-shadow:var(--shadow-float);
-}
-
-/* Variante "dashboard": cabecera + mini gráfico de barras + filas de datos */
+/* Paneles de interfaz decorativos. Transcritos literal de Mockup.dc.html
+   (proyecto de Claude Design), no son una aproximación: mismo markup,
+   mismo texto ("Panel de reservas", "Confirmada", el diálogo del chat),
+   convertido de estilos inline a estas clases. aria-hidden en el elemento
+   raíz, igual que en la fuente. */
 
 .mockup-dash{
+  width:100%;
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-16);
+  overflow:hidden;
+  box-shadow:var(--shadow-float);
+  font-family:var(--font-family-base);
+}
+.mockup-dash__topbar{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 18px;
+  background:var(--color-light);
+  border-bottom:1px solid var(--border-default);
+}
+.mockup-dash__dots{
+  display:flex;
+  gap:6px;
+}
+.mockup-dash__dot{
+  width:9px;
+  height:9px;
+  border-radius:var(--radius-pill);
+  background:color-mix(in oklch, var(--color-dark) 26%, var(--color-light));
+  display:block;
+}
+.mockup-dash__dot--accent{
+  background:var(--color-accent);
+}
+.mockup-dash__topbar-label{
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+.mockup-dash__body{
+  display:flex;
+}
+.mockup-dash__sidebar{
+  width:26%;
+  min-width:96px;
+  border-right:1px solid var(--border-default);
+  padding:16px 12px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  background:color-mix(in oklch, var(--color-light) 55%, #fff);
+}
+.mockup-dash__sidebar-bar{
+  height:8px;
+  border-radius:4px;
+  background:color-mix(in oklch, var(--color-secondary) 62%, #fff);
+  display:block;
+}
+.mockup-dash__sidebar-bar--accent{
+  background:var(--accent-ink);
+}
+
+/* Anchos puntuales reutilizados por las variantes de Mockup (barras, líneas).
+   Geometría local exacta de Mockup.dc.html, no una escala compartida. */
+.w-44{ width:44%; }
+.w-48{ width:48%; }
+.w-52{ width:52%; }
+.w-58{ width:58%; }
+.w-60{ width:60%; }
+.w-64{ width:64%; }
+.w-70{ width:70%; }
+.w-72{ width:72%; }
+.w-76{ width:76%; }
+.w-80{ width:80%; }
+.mockup-dash__sidebar-divider{
+  height:1px;
+  width:100%;
+  background:var(--border-default);
+  display:block;
+  margin:4px 0;
+}
+.mockup-dash__main{
+  flex:1;
+  padding:18px;
   display:flex;
   flex-direction:column;
   gap:16px;
 }
-.mockup-dash__head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+.mockup-dash__stats{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
 }
-.mockup-dash__head-title{
-  width:96px;
-  height:12px;
-  border-radius:var(--radius-pill);
+.mockup-dash__stat{
+  border:1px solid var(--border-default);
+  border-radius:10px;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.mockup-dash__stat--accent{
   background:var(--color-accent-tint);
 }
-.mockup-dash__head-dot{
-  width:28px;
-  height:28px;
-  border-radius:var(--radius-pill);
-  background:var(--chip-fill-on-light);
+.mockup-dash__stat-label{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+.mockup-dash__stat--accent .mockup-dash__stat-label{
+  color:var(--accent-ink);
+}
+.mockup-dash__stat-value{
+  font-size:19px;
+  font-weight:700;
+  color:var(--color-dark);
+  line-height:1;
 }
 .mockup-dash__chart{
   display:flex;
   align-items:flex-end;
   gap:8px;
-  height:72px;
-  padding:10px;
-  background:var(--chip-fill-on-light);
-  border-radius:var(--radius-md);
+  height:76px;
+  padding-top:4px;
 }
-.mockup-dash__bar{
+.mockup-dash__chart-bar{
   flex:1;
-  border-radius:4px 4px 0 0;
+  border-radius:5px 5px 2px 2px;
+  background:color-mix(in oklch, var(--color-secondary) 55%, #fff);
+  display:block;
+}
+.mockup-dash__chart-bar--accent{
   background:var(--color-accent);
 }
-.mockup-dash__bar:nth-child(1){ height:38%; }
-.mockup-dash__bar:nth-child(2){ height:68%; background:var(--accent-ink); }
-.mockup-dash__bar:nth-child(3){ height:52%; }
-.mockup-dash__bar:nth-child(4){ height:92%; background:var(--accent-ink); }
-.mockup-dash__bar:nth-child(5){ height:62%; }
-.mockup-dash__bar:nth-child(6){ height:44%; background:var(--accent-ink); }
+.mockup-dash__chart-bar:nth-child(1){ height:38%; }
+.mockup-dash__chart-bar:nth-child(2){ height:56%; }
+.mockup-dash__chart-bar:nth-child(3){ height:44%; }
+.mockup-dash__chart-bar:nth-child(4){ height:82%; }
+.mockup-dash__chart-bar:nth-child(5){ height:64%; }
+.mockup-dash__chart-bar:nth-child(6){ height:72%; }
+.mockup-dash__chart-bar:nth-child(7){ height:50%; }
 .mockup-dash__rows{
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:8px;
 }
 .mockup-dash__row{
   display:flex;
   align-items:center;
   gap:10px;
+  padding:9px 10px;
+  border:1px solid var(--border-default);
+  border-radius:8px;
 }
-.mockup-dash__row-icon{
-  width:22px;
-  height:22px;
-  border-radius:var(--radius-sm);
-  background:var(--color-accent-tint);
+.mockup-dash__row-dot{
+  width:20px;
+  height:20px;
+  border-radius:var(--radius-pill);
+  background:color-mix(in oklch, var(--color-dark) 30%, var(--color-light));
+  display:block;
   flex-shrink:0;
 }
+.mockup-dash__row-dot--accent{
+  background:var(--color-accent-tint);
+}
 .mockup-dash__row-bar{
+  height:7px;
   flex:1;
-  height:10px;
-  border-radius:var(--radius-pill);
-  background:var(--chip-fill-on-light);
+  border-radius:4px;
+  background:color-mix(in oklch, var(--color-secondary) 55%, #fff);
+  display:block;
+}
+.mockup-dash__row-tag{
+  font-size:10px;
+  font-weight:600;
+  color:var(--text-muted);
+  white-space:nowrap;
+}
+.mockup-dash__row-tag--accent{
+  color:var(--accent-ink);
 }
 
-/* Variante "booking": semana con un día activo + turnos disponibles */
+/* Variante "booking": calendario de marzo + horarios disponibles */
 
 .mockup-booking{
+  width:100%;
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-16);
+  padding:20px;
   display:flex;
   flex-direction:column;
   gap:16px;
+  box-shadow:var(--shadow-float);
+  font-family:var(--font-family-base);
+}
+.mockup-booking__head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.mockup-booking__month{
+  font-size:14px;
+  font-weight:700;
+  color:var(--color-dark);
+}
+.mockup-booking__nav{
+  display:flex;
+  gap:6px;
+}
+.mockup-booking__nav-btn{
+  width:24px;
+  height:24px;
+  border-radius:8px;
+  border:1px solid var(--border-default);
+  display:block;
 }
 .mockup-booking__week{
   display:grid;
@@ -126,168 +245,421 @@
 }
 .mockup-booking__day{
   aspect-ratio:1;
-  border-radius:var(--radius-sm);
-  background:var(--chip-fill-on-light);
-}
-.mockup-booking__day--active{
-  background:var(--color-accent);
-}
-.mockup-booking__slots{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.mockup-booking__slot{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:10px 14px;
-  border:1px solid var(--border-default);
-  border-radius:var(--radius-sm);
-}
-.mockup-booking__slot--active{
-  border-color:var(--accent-ink);
-  background:var(--color-accent-tint);
-}
-.mockup-booking__slot-time{
-  width:40px;
-  height:10px;
-  border-radius:var(--radius-pill);
-  background:var(--color-accent-tint);
-  flex-shrink:0;
-}
-.mockup-booking__slot--active .mockup-booking__slot-time{
-  background:var(--accent-ink);
-}
-.mockup-booking__slot-bar{
-  flex:1;
-  height:10px;
-  border-radius:var(--radius-pill);
-  background:var(--chip-fill-on-light);
-}
-
-/* Variante "chat": burbujas alternadas */
-
-.mockup-chat{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.mockup-chat__bubble{
-  max-width:74%;
-  padding:12px 16px;
-  border-radius:var(--radius-14);
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-.mockup-chat__bubble-line{
-  height:9px;
-  border-radius:var(--radius-pill);
-}
-.mockup-chat__bubble--in{
-  align-self:flex-start;
-  background:var(--chip-fill-on-light);
-  border-bottom-left-radius:4px;
-}
-.mockup-chat__bubble--in .mockup-chat__bubble-line{
-  background:var(--border-default);
-}
-.mockup-chat__bubble--out{
-  align-self:flex-end;
-  background:var(--color-accent);
-  border-bottom-right-radius:4px;
-}
-.mockup-chat__bubble--out .mockup-chat__bubble-line{
-  background:color-mix(in oklch, var(--color-dark) 35%, var(--color-accent));
-}
-
-/* Variante "seo": ranking con barras de progreso */
-
-.mockup-seo{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-.mockup-seo__row{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-.mockup-seo__rank{
-  width:26px;
-  height:26px;
-  border-radius:var(--radius-pill);
-  background:var(--color-accent-tint);
-  color:var(--accent-ink);
+  border-radius:8px;
   display:flex;
   align-items:center;
   justify-content:center;
-  flex-shrink:0;
-  font-family:var(--font-family-base);
-  font-size:12px;
-  font-weight:800;
+  font-size:11px;
+  font-weight:600;
+  background:transparent;
+  color:transparent;
+  border:1px solid transparent;
 }
-.mockup-seo__bar-track{
-  flex:1;
-  height:10px;
+.mockup-booking__day--in{
+  color:var(--color-dark);
+}
+.mockup-booking__day--marked{
+  background:var(--color-accent-tint);
+}
+.mockup-booking__day--selected{
+  background:var(--color-accent);
+  border-color:var(--color-accent);
+}
+.mockup-booking__divider{
+  height:1px;
+  background:var(--border-default);
+}
+.mockup-booking__slots{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.mockup-booking__slot{
+  padding:7px 14px;
   border-radius:var(--radius-pill);
-  background:var(--chip-fill-on-light);
-  overflow:hidden;
+  font-size:12px;
+  font-weight:600;
+  border:1px solid var(--border-default);
+  color:var(--color-dark);
 }
-.mockup-seo__bar-fill{
-  display:block;
-  height:100%;
+.mockup-booking__slot--selected{
+  background:var(--color-accent);
+  color:var(--color-dark);
+  border-color:var(--color-accent);
+}
+.mockup-booking__slot--muted{
+  color:var(--text-muted);
+}
+
+/* Variante "chat": conversación con respuesta automática */
+
+.mockup-chat{
+  width:100%;
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-16);
+  overflow:hidden;
+  box-shadow:var(--shadow-float);
+  font-family:var(--font-family-base);
+}
+.mockup-chat__head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 16px;
+  background:var(--color-dark);
+}
+.mockup-chat__head-avatar{
+  width:28px;
+  height:28px;
   border-radius:var(--radius-pill);
   background:var(--color-accent);
+  display:block;
 }
-.mockup-seo__bar-fill--w90{ width:90%; }
-.mockup-seo__bar-fill--w70{ width:70%; }
-.mockup-seo__bar-fill--w50{ width:50%; }
+.mockup-chat__head-copy{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+.mockup-chat__head-name{
+  font-size:12px;
+  font-weight:600;
+  color:var(--color-light);
+}
+.mockup-chat__head-status{
+  font-size:10px;
+  color:var(--color-secondary);
+}
+.mockup-chat__body{
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  background:color-mix(in oklch, var(--color-light) 60%, #fff);
+}
+.mockup-chat__bubble{
+  max-width:78%;
+  padding:10px 12px;
+  font-size:12px;
+  line-height:1.5;
+  color:var(--color-dark);
+}
+.mockup-chat__bubble--in{
+  align-self:flex-start;
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:12px 12px 12px 4px;
+}
+.mockup-chat__bubble--out{
+  align-self:flex-end;
+  max-width:80%;
+  background:var(--color-accent-tint);
+  border:1px solid color-mix(in oklch, var(--color-accent) 30%, var(--color-light));
+  border-radius:12px 12px 4px 12px;
+}
+.mockup-chat__bubble-auto{
+  align-self:flex-end;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  align-items:flex-end;
+}
+.mockup-chat__bubble-tag{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--accent-ink);
+}
+.mockup-chat__foot{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 16px;
+  border-top:1px solid var(--border-default);
+}
+.mockup-chat__foot-input{
+  flex:1;
+  height:9px;
+  border-radius:5px;
+  background:color-mix(in oklch, var(--color-secondary) 50%, #fff);
+  display:block;
+}
+.mockup-chat__foot-send{
+  width:26px;
+  height:26px;
+  border-radius:var(--radius-pill);
+  background:var(--color-accent);
+  display:block;
+  flex-shrink:0;
+}
+
+/* Variante "seo": diagrama de negocio conectado a Google, reseñas, IA y SEO */
+
+.mockup-seo{
+  width:100%;
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-16);
+  padding:24px;
+  box-shadow:var(--shadow-float);
+}
+.mockup-seo svg{
+  width:100%;
+  height:auto;
+  display:block;
+}
 
 /* Variante "browser": barra de navegador + vista previa de página */
 
 .mockup-browser{
-  display:flex;
-  flex-direction:column;
-  gap:16px;
+  width:100%;
+  background:#fff;
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-16);
+  overflow:hidden;
+  box-shadow:var(--shadow-float);
+  font-family:var(--font-family-base);
 }
 .mockup-browser__bar{
   display:flex;
   align-items:center;
-  gap:6px;
-  padding-bottom:14px;
+  gap:12px;
+  padding:12px 16px;
+  background:var(--color-light);
   border-bottom:1px solid var(--border-default);
 }
+.mockup-browser__dots{
+  display:flex;
+  gap:6px;
+}
 .mockup-browser__dot{
-  width:8px;
-  height:8px;
+  width:9px;
+  height:9px;
   border-radius:var(--radius-pill);
-  background:var(--border-default);
+  background:color-mix(in oklch, var(--color-dark) 26%, var(--color-light));
+  display:block;
 }
 .mockup-browser__url{
   flex:1;
-  height:16px;
+  background:#fff;
+  border:1px solid var(--border-default);
   border-radius:var(--radius-pill);
-  background:var(--chip-fill-on-light);
-  margin-left:8px;
+  padding:5px 12px;
+  font-size:11px;
+  color:var(--text-muted);
 }
 .mockup-browser__hero{
-  aspect-ratio:16/9;
-  border-radius:var(--radius-md);
-  background:var(--color-accent-tint);
-}
-.mockup-browser__lines{
+  background:var(--color-dark);
+  padding:22px 20px;
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:10px;
 }
-.mockup-browser__line{
-  height:9px;
+.mockup-browser__hero-line{
+  height:12px;
+  border-radius:6px;
+  background:var(--color-light);
+  display:block;
+}
+.mockup-browser__hero-line--muted{
+  background:color-mix(in oklch, var(--color-light) 45%, var(--color-dark));
+}
+.mockup-browser__hero-btn{
+  margin-top:6px;
+  height:26px;
+  width:104px;
   border-radius:var(--radius-pill);
-  background:var(--chip-fill-on-light);
+  background:var(--color-accent);
+  display:block;
 }
-.mockup-browser__line--w60{ width:60%; }
+.mockup-browser__grid{
+  padding:18px 20px;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+}
+.mockup-browser__card{
+  border:1px solid var(--border-default);
+  border-radius:10px;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+.mockup-browser__card-icon{
+  width:18px;
+  height:18px;
+  border-radius:6px;
+  background:var(--color-accent-tint);
+  display:block;
+}
+.mockup-browser__card-line{
+  height:6px;
+  border-radius:3px;
+  background:color-mix(in oklch, var(--color-secondary) 55%, #fff);
+  display:block;
+}
+.mockup-browser__foot{
+  padding:0 20px 20px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.mockup-browser__foot-input{
+  flex:1;
+  height:30px;
+  border-radius:8px;
+  border:1px solid var(--border-default);
+  display:block;
+}
+.mockup-browser__foot-btn{
+  width:88px;
+  height:30px;
+  border-radius:var(--radius-pill);
+  background:var(--color-dark);
+  display:block;
+}
+
+/* Cover.dc.html: patrón geométrico de marca por proyecto, 4 variantes.
+   Decorativo puro (aria-hidden en la fuente): no representa una captura de
+   pantalla, así que no lleva alt ni necesita una foto de reemplazo. */
+
+.ui-cover{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+.ui-cover--a{ background:var(--color-dark); }
+.ui-cover--a .ui-cover__ring1{
+  position:absolute;
+  left:-14%;
+  top:-24%;
+  width:96%;
+  aspect-ratio:1;
+  border-radius:var(--radius-pill);
+  border:2px solid color-mix(in oklch, var(--color-accent) 70%, var(--color-dark));
+}
+.ui-cover--a .ui-cover__ring2{
+  position:absolute;
+  left:6%;
+  top:-4%;
+  width:78%;
+  aspect-ratio:1;
+  border-radius:var(--radius-pill);
+  border:2px solid color-mix(in oklch, var(--color-accent) 42%, var(--color-dark));
+}
+.ui-cover--a .ui-cover__circle{
+  position:absolute;
+  right:-18%;
+  bottom:-30%;
+  width:66%;
+  aspect-ratio:1;
+  border-radius:var(--radius-pill);
+  background:var(--color-accent);
+}
+
+.ui-cover--b{ background:var(--color-light); }
+.ui-cover--b .ui-cover__dots{
+  position:absolute;
+  inset:0;
+  display:grid;
+  grid-template-columns:repeat(6, 1fr);
+  grid-template-rows:repeat(6, 1fr);
+}
+.ui-cover--b .ui-cover__dot{
+  display:block;
+  margin:auto;
+  width:5px;
+  height:5px;
+  border-radius:var(--radius-pill);
+  background:color-mix(in oklch, var(--color-dark) 22%, var(--color-light));
+}
+.ui-cover--b .ui-cover__square1{
+  position:absolute;
+  left:16%;
+  top:22%;
+  width:44%;
+  aspect-ratio:1;
+  background:var(--color-accent);
+  border-radius:8px;
+  transform:rotate(-9deg);
+}
+.ui-cover--b .ui-cover__square2{
+  position:absolute;
+  left:34%;
+  top:38%;
+  width:38%;
+  aspect-ratio:1;
+  border:2px solid var(--color-dark);
+  border-radius:8px;
+  transform:rotate(6deg);
+}
+
+.ui-cover--c{ background:var(--color-dark); }
+.ui-cover--c .ui-cover__stripe1{
+  position:absolute;
+  left:-10%;
+  top:12%;
+  width:120%;
+  height:14%;
+  background:var(--color-accent);
+  transform:rotate(-14deg);
+}
+.ui-cover--c .ui-cover__stripe2{
+  position:absolute;
+  left:-10%;
+  top:44%;
+  width:120%;
+  height:6%;
+  background:color-mix(in oklch, var(--color-light) 70%, var(--color-dark));
+  transform:rotate(-14deg);
+}
+.ui-cover--c .ui-cover__stripe3{
+  position:absolute;
+  left:-10%;
+  top:62%;
+  width:120%;
+  height:10%;
+  background:color-mix(in oklch, var(--color-accent) 45%, var(--color-dark));
+  transform:rotate(-14deg);
+}
+
+.ui-cover--d{ background:var(--color-light); }
+.ui-cover--d .ui-cover__circle1{
+  position:absolute;
+  left:8%;
+  bottom:-18%;
+  width:56%;
+  aspect-ratio:1;
+  border-radius:var(--radius-pill);
+  background:var(--color-accent-tint);
+}
+.ui-cover--d .ui-cover__circle2{
+  position:absolute;
+  right:6%;
+  bottom:-10%;
+  width:46%;
+  aspect-ratio:1;
+  border-radius:var(--radius-pill);
+  background:var(--color-accent);
+}
+.ui-cover--d .ui-cover__line1{
+  position:absolute;
+  left:12%;
+  top:14%;
+  width:64%;
+  height:2px;
+  background:var(--color-dark);
+}
+.ui-cover--d .ui-cover__line2{
+  position:absolute;
+  left:12%;
+  top:24%;
+  width:38%;
+  height:2px;
+  background:var(--color-dark);
+}
 
 /* Tarjetas de proyecto con overlay al hover (teaser de portafolio en Home) */
 

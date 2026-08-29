@@ -32,18 +32,26 @@ con el radio que corresponde a su contenedor y sin borde adicional. Sin icono de
 cámara, sin texto dentro. Debe leerse como un bloque de color intencional, no
 como un error de carga.
 
+**Este tratamiento genérico ya no se usa en el baseline actual.** Se aplicó
+en una primera pasada mientras el paquete de diseño completo (carpeta `_ds/`
+y los componentes `Mockup.dc.html`/`Cover.dc.html`) no estaba disponible.
+Cuando Mario proveyó el proyecto completo de Claude Design, A01, A02 y A04 a
+A08 dejaron de ser placeholders genéricos: son ahora la reproducción exacta
+del componente real (ver sección 3). La regla de esta sección se conserva
+como referencia, por si aparece un slot nuevo sin fuente real disponible.
+
 ## 3. Inventario
 
 | # | Slot | Página | Ratio | Estado | Texto alternativo |
 | --- | --- | --- | --- | --- | --- |
 | A01 | Retrato de Mario, sección fundador | Home | 4:5 | **Asset real aplicado** | Mario Vicuña, fundador de Vicunav |
 | A02 | Retrato de Mario, hero | Nosotros | 4:5 | **Asset real aplicado** | Mario Vicuña en su espacio de trabajo |
-| A03 | Retrato de Mario, perfil | Mario, reclutadores | 1:1 | Sin slot en el prototipo aprobado, ver nota | Mario Vicuna, Full Stack Developer |
-| A04 | Portada de caso, TatiPilates | Portafolio | 3:2 en esta tabla; el prototipo usa 16/10, 4/3 y 4/5 según breakpoint | Sustitución aprobada | Sitio de TatiPilates en escritorio y móvil |
-| A05 | Portada de caso, Bhoga Yoga | Portafolio | 3:2 en esta tabla; el prototipo usa 4/5 y 4/3 según breakpoint | Sustitución aprobada | Sitio de Bhoga Yoga en escritorio y móvil |
-| A06 | Portada de caso, Nelson Look Flash | Portafolio | 3:2 | Sin slot en el prototipo aprobado, ver nota | Sitio de Nelson Look Flash en escritorio y móvil |
-| A07 | Portada de caso, Clearpath Therapy | Portafolio | 3:2 en esta tabla; el prototipo usa 4/3 y 4/5 según breakpoint | Sustitución aprobada, proyecto concepto | Proyecto concepto Clearpath Therapy |
-| A08 | Portada de caso, Eleanor Wilde | Portafolio | 3:2 en esta tabla; el prototipo usa 16/11 y 4/3 según breakpoint | Sustitución aprobada, proyecto concepto | Proyecto concepto Eleanor Wilde |
+| A03 | Retrato de Mario, perfil | Mario, reclutadores | 1:1 | Sin slot en el prototipo aprobado, ver nota | No aplica, no es una fotografía |
+| A04 | Portada de caso, TatiPilates | Portafolio | Variable según breakpoint | **Componente Cover real, variante A** | No aplica, decorativo (ver nota) |
+| A05 | Portada de caso, Bhoga Yoga | Portafolio | Variable según breakpoint | **Componente Cover real, variante B** | No aplica, decorativo (ver nota) |
+| A06 | Portada de caso, Nelson Look Flash | Portafolio | — | Sin slot en el prototipo aprobado, ver nota | No aplica |
+| A07 | Portada de caso, Clearpath Therapy | Portafolio | Variable según breakpoint | **Componente Cover real, variante C** | No aplica, decorativo (ver nota) |
+| A08 | Portada de caso, Eleanor Wilde | Portafolio | Variable según breakpoint | **Componente Cover real, variante D** | No aplica, decorativo (ver nota) |
 | A09 | Imagen de cabecera del artículo | Artículo | 16:9 | Sin slot en el prototipo aprobado, ver nota | Cocina de restaurante en hora de servicio |
 | A10 | Miniatura por artículo del listado | Artículos | 3:2 | Sin slot en el prototipo aprobado, ver nota, 7 slots | Según el tema de cada artículo |
 | A11 | Logotipo de Vicunav | Header y footer | Por definir | Sustitución aprobada (opción 2, ver sección 4) | Vicunav |
@@ -57,20 +65,44 @@ un placeholder. Se descargó y quedó en
 `assets/img/mario-vicuna-vicunav.jpg`, usada en Home y Nosotros con el alt
 definitivo de esta tabla.
 
-**Nota sobre A03, A06, A09 y A10:** esta tabla los declara como slots, pero
-ninguno de los dos prototipos aprobados (`Vicunav Sitio Web v2.dc.html`,
-`Vicunav Landings SEO.dc.html`) renderiza esa imagen. El retrato de perfil en
-`cv.html`, el caso de Nelson Look Flash en el portafolio, la imagen de
-cabecera del artículo y las miniaturas del listado de artículos no existen en
-el HTML fuente: son contenido planeado en este documento que no llegó a
-implementarse en el diseño. No se agregaron al baseline para no inventar
-markup fuera del contrato de fuente. Si siguen vigentes, son una unidad de
-diseño pendiente antes de poder migrarlos, no un placeholder que falte
-colocar.
+**Nota sobre A04, A05, A07 y A08 — corrección importante:** esta tabla los
+declaraba originalmente como slots de fotografía pendientes de reemplazo.
+Eso era un error: al revisar `Cover.dc.html` (el componente real del
+proyecto de Claude Design, en `docs/claude-design-full/Cover.dc.html`), la
+portada de cada proyecto **no es una captura de pantalla**, es un patrón
+geométrico de marca, decorativo, con 4 variantes fijas (A, B, C, D) que el
+propio componente fuente marca `aria-hidden="true"` sin texto alternativo.
+No hay foto que sustituir. Implementado 1 a 1 como `.ui-cover--a/b/c/d` en
+`assets/css/components.css`, usado en `index.html` (teaser de portafolio) y
+`portafolio.html`. Estos cuatro slots quedan **completos**, no pendientes.
 
-**PDF de CV:** Mario proveyó su currículum real
-(`assets/cv/mario-vicuna-resume.pdf`), enlazado desde el botón "Download CV"
-de `cv.html`. Puede reemplazarse más adelante por una versión actualizada.
+**Nota sobre A03, A06, A09 y A10:** estos sí siguen sin slot en ninguno de
+los dos prototipos aprobados (`Vicunav Sitio Web v2.dc.html`,
+`Vicunav Landings SEO.dc.html`) ni en los componentes reales revisados
+(`Cover.dc.html`, `Mockup.dc.html`). El retrato de perfil en `cv.html`, el
+caso de Nelson Look Flash en el portafolio, la imagen de cabecera del
+artículo y las miniaturas del listado de artículos no existen en ningún
+archivo fuente disponible: son contenido planeado en este documento que no
+llegó a implementarse en el diseño. No se agregaron al baseline para no
+inventar markup fuera del contrato de fuente. Si siguen vigentes, son una
+unidad de diseño pendiente antes de poder migrarlos, no un placeholder que
+falte colocar.
+
+**Los paneles "Mockup" (dashboard, reserva, chat, navegador, SEO)** tampoco
+eran ilustración inventada desde el momento en que se tuvo acceso a
+`Mockup.dc.html` (en `docs/claude-design-full/`): son la transcripción
+exacta de ese componente, incluido su texto real ("Panel de reservas",
+"Confirmada", "En espera", el diálogo del chat, el diagrama SEO). No están
+en esta tabla de assets porque el propio componente los marca decorativos
+(`aria-hidden="true"`), igual que Cover.
+
+**PDF de CV:** tampoco era un faltante real. El export completo del proyecto
+de Claude Design incluye `uploads/cv_files-1787863696971-ejq5.pdf`, la misma
+ruta a la que apuntaba el enlace original del prototipo. Se verificó por
+checksum (MD5) que es el archivo **idéntico, byte a byte**, al que Mario
+proveyó directamente. Queda en `assets/cv/mario-vicuna-resume.pdf` con un
+nombre de archivo legible en vez del nombre de subida autogenerado; puede
+reemplazarse más adelante por una versión actualizada del CV.
 
 ## 4. Faltantes reales, distintos de un placeholder
 

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/radii.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/shadows.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/styles.css">
+  <script src="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/_ds_bundle.js"></script>
+  <style>
+    body{margin:0;font-family:'Plus Jakarta Sans',ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    a{color:var(--color-accent)}
+    a:hover{color:var(--color-accent-hover)}
+    button{font:inherit}
+    :root{--text-muted:color-mix(in oklch, var(--color-dark) 82%, var(--color-secondary));--accent-ink:color-mix(in oklch, #E8873A 48%, #2B2825)}
+  </style>
+</helmet>
+
+<div style="position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--border-default);padding:16px 24px;display:flex;flex-direction:column;gap:12px;font-family:var(--font-family-base);">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <span style="font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-muted);">Vicunav · Sitio web</span>
+    <div style="display:flex;gap:4px;flex-wrap:wrap;">
+      <sc-for list="{{ pageTabs }}" as="t" hint-placeholder-count="5">
+        <button onClick="{{ t.onClick }}" style="border:none;border-radius:999px;padding:8px 16px;min-height:36px;cursor:pointer;font-family:var(--font-family-base);font-size:14px;font-weight:600;background:{{ t.bg }};color:{{ t.color }};" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;">{{ t.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+  <sc-if value="{{ showBpTabs }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <sc-for list="{{ bpTabs }}" as="b" hint-placeholder-count="3">
+        <button onClick="{{ b.onClick }}" style="border:1px solid {{ b.border }};border-radius:999px;padding:6px 14px;min-height:32px;cursor:pointer;font-family:var(--font-family-base);font-size:13px;font-weight:500;background:{{ b.bg }};color:{{ b.color }};" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;">{{ b.label }}</button>
+      </sc-for>
+    </div>
+  </sc-if>
+</div>
+
+<div style="background:var(--color-light-2);min-height:calc(100vh - 96px);padding:40px 24px 80px;display:flex;justify-content:center;">
+
+  <sc-if value="{{ showArtboard }}" hint-placeholder-val="{{ true }}">
+    <div data-screen-label="{{ screenLabel }}" style="position:relative;width:{{ bp.width }}px;max-width:100%;background:var(--color-light);border-radius:16px;overflow:hidden;border:1px solid var(--border-default);box-shadow:0 24px 64px color-mix(in oklch, var(--color-dark) 22%, transparent);">
+      <div style="height:{{ bp.height }}px;overflow-y:auto;">
+
+        <dc-import name="Header" page="{{ page }}" is-mobile="{{ bp.isMobile }}" pad-h="{{ bp.pad }}" on-navigate="{{ setPage }}" hint-size="100%,64px"></dc-import>
+
+        <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+          <section style="background:var(--color-dark);padding:{{ bp.pad }}px;display:flex;flex-direction:column;gap:24px;">
+            <h1 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h1 }}px;line-height:1.08;letter-spacing:-0.02em;color:var(--color-light);max-width:640px;">Tecnología que le ahorra tiempo y dinero a tu negocio.</h1>
+            <p style="margin:0;font-family:var(--font-family-base);font-size:{{ bp.bodyLg }}px;line-height:1.6;color:var(--color-secondary);max-width:520px;">Desde un sitio web hasta sistemas que trabajan por ti, sin pagar de más por lo que no necesitas.</p>
+            <div>
+              <x-import component-from-global-scope="VicunavTechDesignSystem_8a7481.Button" onClick="{{ goContacto }}" variant="primary" size="lg" hint-size="140px,56px">Hablemos</x-import>
+            </div>
+          </section>
+
+          <section style="background:var(--color-light);padding:{{ bp.pad }}px;display:flex;flex-direction:column;gap:32px;">
+            <span style="align-self:flex-start;display:inline-flex;align-items:center;font-family:var(--font-family-base);font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;background:var(--color-accent-tint);color:var(--accent-ink);">Lo que hacemos</span>
+            <div style="display:grid;grid-template-columns:repeat({{ bp.cols }}, 1fr);gap:{{ bp.gap }}px;">
+              <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
+                <div style="display:flex;flex-direction:column;gap:16px;padding:32px;background:var(--surface-card-light);border:1px solid var(--border-default);border-radius:20px;">
+                  <div style="width:48px;height:48px;border-radius:12px;background:var(--surface-accent-tint);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <dc-import name="Ico" glyph="{{ p.icon }}" size="26" hint-size="26px,26px"></dc-import>
+                  </div>
+                  <h3 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:{{ bp.h3 }}px;line-height:1.25;color:var(--color-dark);">{{ p.title }}</h3>
+                  <p style="margin:0;font-family:var(--font-family-base);font-size:15px;line-height:1.6;color:var(--text-muted);">{{ p.desc }}</p>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+
+          <section style="background:var(--color-light-2);padding:{{ bp.pad }}px;display:flex;flex-direction:column;gap:32px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+              <span style="align-self:flex-start;display:inline-flex;align-items:center;font-family:var(--font-family-base);font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;background:var(--color-accent-tint);color:var(--accent-ink);">Portafolio</span>
+              <button onClick="{{ goPortafolio }}" style="background:none;border:none;cursor:pointer;font-family:var(--font-family-base);font-size:14px;font-weight:600;color:var(--color-dark);min-height:44px;display:flex;align-items:center;padding:0 4px;" style-hover="color:var(--color-accent)" style-focus="outline:2px solid var(--color-accent);outline-offset:2px;">Ver todo el portafolio</button>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat({{ bp.cols }}, 1fr);gap:{{ bp.gap }}px;">
+              <sc-for list="{{ projectsHome }}" as="pr" hint-placeholder-count="4">
+                <div style="display:flex;flex-direction:column;border-radius:20px;overflow:hidden;background:var(--color-white);border:1px solid var(--border-default);">
+                  <div style="aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:var(--surface-card-light);border-bottom:1px solid var(--border-default);color:var(--text-muted);font-family:var(--font-family-base);font-size:14px;text-align:center;padding:16px;">Imagen del proyecto</div>
+                  <div style="display:flex;flex-direction:column;gap:12px;padding:24px;">
+                    <sc-if value="{{ pr.isReal }}" hint-placeholder-val="{{ true }}">
+                      <span style="align-self:flex-start;font-family:var(--font-family-base);font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:var(--color-accent-tint);color:var(--accent-ink);">{{ pr.statusLabel }}</span>
+                    </sc-if>
+                    <sc-if value="{{ pr.isConcepto }}" hint-placeholder-val="{{ false }}">
+                      <span style="align-self:flex-start;font-family:var(--font-family-base);font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:var(--surface-card-light);color:var(--text-muted);border:1px solid var(--border-default);">{{ pr.statusLabel }}</span>
+                    </sc-if>
+                    <h3 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:{{ bp.h3 }}px;line-height:1.25;color:var(--color-dark);">{{ pr.name }}</h3>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+
+          <section style="background:var(--color-dark);padding:{{ bp.pad }}px;display:flex;flex-direction:column;gap:24px;align-items:flex-start;">
+            <h2 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:{{ bp.h2 }}px;line-height:1.15;color:var(--color-light);max-width:600px;">Cuéntame qué necesita tu negocio. Hablemos.</h2>
+            <x-import component-from-global-scope="VicunavTechDesignSystem_8a7481.Button" onClick="{{ goContacto }}" variant="primary" size="lg" hint-size="140px,56px">Hablemos</x-import>
+          </section>
+        </sc-if>
+
+        <sc-if value="{{ isServicios }}" hint-placeholder-val="{{ false }}">
+          <section style="background:var(--color-light);padding:{{ bp.pad }}px;display:flex;flex-direction:column;gap:16px;">
+            <span style="align-self:flex-start;display:inline-flex;align-items:center;font-family:var(--font-family-base);font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;background:var(--color-accent-tint);color:var(--accent-ink);">Servicios</span>
+            <h1 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2 }}px;line-height:1.15;letter-spacing:-0.01em;color:var(--color-dark);max-width:680px;">Cuatro formas de resolver lo que tu negocio necesita.</h1>
+            <p style="margin:0;font-family:var(--font-family-base);font-size:{{ bp.bodyLg }}px;line-height:1.6;color:var(--text-muted);max-width:560px;">No vendemos paquetes cerrados: resolvemos problemas concretos. Elige uno, o combina los que apliquen.</p>
+          </section>
+
+          <sc-for list="{{ servicios }}" as="s" hint-placeholder-count="4">
+            <section style="background:var(--color-light-2);padding:{{ bp.pad }}px;display:flex;flex-direction:column;gap:32px;border-top:1px solid var(--border-default);">
+              <div style="display:flex;flex-direction:column;gap:12px;max-width:640px;">
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <div style="width:48px;height:48px;border-radius:12px;background:var(--surface-accent-tint);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <dc-import name="Ico" glyph="{{ s.icon }}" size="24" hint-size="24px,24px"></dc-import>
+                  </div>
+                  <span style="align-self:flex-start;display:inline-flex;align-items:center;font-family:var(--font-family-base);font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;background:var(--color-accent-tint);color:var(--accent-ink);">Pilar {{ s.num }}</span>
+                </div>
+                <h2 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:{{ bp.h3 }}px;line-height:1.25;color:var(--color-dark);">{{ s.title }}</h2>
+                <p style="margin:0;font-family:var(--font-family-base);font-size:16px;line-height:1.6;color:var(--text-muted);">{{ s.intro }}</p>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat({{ s.blocksCols }}, 1fr);gap:{{ bp.gap }}px;">
+                <sc-for list="{{ s.blocks }}" as="b" hint-placeholder-count="2">
+                  <div style="background:var(--color-white);border:1px solid var(--border-default);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px;">
+                    <span style="font-family:var(--font-family-base);font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--accent-ink);">{{ b.label }}</span>
+                    <sc-for list="{{ b.items }}" as="it" hint-placeholder-count="3">
+                      <div style="display:flex;gap:10px;align-items:flex-start;">
+                        <span style="width:6px;height:6px;border-radius:999px;background:var(--accent-ink);margin-top:8px;flex-shrink:0;"></span>
+                        <span style="font-family:var(--font-family-base);font-size:15px;line-height:1.6;color:var(--color-dark);">{{ it.text }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-for>
+              </div>
+            </section>
+          </sc-for>
+
+          <section style="background:var(--color-dark);padding:{{ bp.pad }}px;display:flex;flex-direction:column;gap:24px;align-items:flex-start;">
+            <h2 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:{{ bp.h2 }}px;line-height:1.15;color:var(--color-light);max-width:600px;">Cuéntame qué necesita tu negocio. Hablemos.</h2>
+            <x-import component-from-global-scope="VicunavTechDesignSystem_8a7481.Button" onClick="{{ goContacto }}" variant="primary" size="lg" hint-size="140px,56px">Hablemos</x-import>
+          </section>
+        </sc-if>
+
+        <sc-if value="{{ isPortafolio }}" hint-placeholder-val="{{ false }}">
+          <section style="background:var(--color-light);padding:{{ bp.pad }}px;display:flex;flex-direction:column;gap:16px;">
+            <span style="align-self:flex-start;display:inline-flex;align-items:center;font-family:var(--font-family-base);font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;background:var(--color-accent-tint);color:var(--accent-ink);">Portafolio</span>
+            <h1 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2 }}px;line-height:1.15;letter-spacing:-0.01em;color:var(--color-dark);max-width:680px;">Proyectos</h1>
+            <p style="margin:0;font-family:var(--font-family-base);font-size:{{ bp.bodyLg }}px;line-height:1.6;color:var(--text-muted);max-width:640px;">Estos son algunos de los proyectos en los que hemos trabajado. Marcamos con claridad cuáles son colaboraciones reales y cuáles son proyectos concepto.</p>
+          </section>
+          <section style="background:var(--color-light);padding:0 {{ bp.pad }}px {{ bp.pad }}px;display:grid;grid-template-columns:repeat({{ portfolioCols }}, 1fr);gap:{{ bp.gap }}px;">
+            <sc-for list="{{ projectsPortfolio }}" as="pr" hint-placeholder-count="4">
+              <div style="display:flex;flex-direction:column;border-radius:20px;overflow:hidden;background:var(--color-white);border:1px solid var(--border-default);">
+                <div style="aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:var(--color-light-2);border-bottom:1px solid var(--border-default);color:var(--text-muted);font-family:var(--font-family-base);font-size:14px;text-align:center;padding:16px;">Imagen del proyecto</div>
+                <div style="display:flex;flex-direction:column;gap:12px;padding:24px;">
+                  <sc-if value="{{ pr.isReal }}" hint-placeholder-val="{{ true }}">
+                    <span style="align-self:flex-start;font-family:var(--font-family-base);font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:var(--color-accent-tint);color:var(--accent-ink);">{{ pr.statusLabel }}</span>
+                  </sc-if>
+                  <sc-if value="{{ pr.isConcepto }}" hint-placeholder-val="{{ false }}">
+                    <span style="align-self:flex-start;font-family:var(--font-family-base);font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:var(--color-light-2);color:var(--text-muted);border:1px solid var(--border-default);">{{ pr.statusLabel }}</span>
+                  </sc-if>
+                  <h3 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:{{ bp.h3 }}px;line-height:1.25;color:var(--color-dark);">{{ pr.name }}</h3>
+                  <p style="margin:0;font-family:var(--font-family-base);font-size:15px;line-height:1.6;color:var(--text-muted);">{{ pr.desc }}</p>
+                </div>
+              </div>
+            </sc-for>
+          </section>
+        </sc-if>
+
+        <sc-if value="{{ isContacto }}" hint-placeholder-val="{{ false }}">
+          <section style="background:var(--color-light);padding:{{ bp.pad }}px;display:flex;flex-direction:column;gap:16px;">
+            <span style="align-self:flex-start;display:inline-flex;align-items:center;font-family:var(--font-family-base);font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;background:var(--color-accent-tint);color:var(--accent-ink);">Contacto</span>
+            <h1 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:{{ bp.h2 }}px;line-height:1.15;letter-spacing:-0.01em;color:var(--color-dark);max-width:640px;">Hablemos de tu proyecto</h1>
+            <p style="margin:0;font-family:var(--font-family-base);font-size:{{ bp.bodyLg }}px;line-height:1.6;color:var(--text-muted);max-width:560px;">Cuéntanos qué necesita tu negocio. Revisamos tu mensaje personalmente y respondemos dentro de 1 a 2 días hábiles.</p>
+          </section>
+          <section style="background:var(--color-light);padding:0 {{ bp.pad }}px {{ bp.pad }}px;">
+            <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+              <div style="background:var(--color-accent-tint);border:1px solid var(--border-default);border-radius:16px;padding:32px;max-width:560px;display:flex;flex-direction:column;gap:8px;">
+                <span style="font-family:var(--font-family-base);font-weight:600;font-size:18px;color:var(--color-dark);">Gracias por escribirnos.</span>
+                <span style="font-family:var(--font-family-base);font-size:15px;line-height:1.6;color:var(--text-muted);">Revisamos tu mensaje personalmente y te contactamos dentro de 1 a 2 días hábiles.</span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+              <form onSubmit="{{ submitForm }}" style="display:flex;flex-direction:column;gap:24px;max-width:560px;">
+                <x-import component-from-global-scope="VicunavTechDesignSystem_8a7481.Input" label="Nombre" placeholder="Tu nombre" hint-size="100%,72px"></x-import>
+                <x-import component-from-global-scope="VicunavTechDesignSystem_8a7481.Input" label="Correo" type="email" placeholder="tú@empresa.com" hint-size="100%,72px"></x-import>
+
+                <div style="display:flex;flex-direction:column;gap:10px;">
+                  <span style="font-family:var(--font-family-base);font-size:13px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;color:var(--color-dark);">¿Tienes sitio actualmente?</span>
+                  <div style="display:flex;gap:10px;">
+                    <sc-for list="{{ tieneSitioOpts }}" as="o" hint-placeholder-count="2">
+                      <button type="button" onClick="{{ o.onClick }}" aria-pressed="{{ o.selected }}" style="min-height:44px;padding:0 24px;border-radius:999px;cursor:pointer;font-family:var(--font-family-base);font-size:15px;font-weight:600;background:{{ o.bg }};border:1px solid {{ o.border }};color:var(--color-dark);" style-focus="outline:2px solid var(--color-dark);outline-offset:2px;">{{ o.label }}</button>
+                    </sc-for>
+                  </div>
+                </div>
+
+                <x-import component-from-global-scope="VicunavTechDesignSystem_8a7481.Input" label="Cuéntanos tu situación" multiline="{{ true }}" placeholder="Cuéntanos qué necesita tu negocio..." hint-size="100%,120px"></x-import>
+
+                <div style="display:flex;flex-direction:column;gap:10px;">
+                  <span style="font-family:var(--font-family-base);font-size:13px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;color:var(--color-dark);">¿Cómo prefieres que continuemos?</span>
+                  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                    <sc-for list="{{ continuarOpts }}" as="o" hint-placeholder-count="3">
+                      <button type="button" onClick="{{ o.onClick }}" aria-pressed="{{ o.selected }}" style="min-height:44px;padding:0 20px;border-radius:999px;cursor:pointer;font-family:var(--font-family-base);font-size:15px;font-weight:600;background:{{ o.bg }};border:1px solid {{ o.border }};color:var(--color-dark);" style-focus="outline:2px solid var(--color-dark);outline-offset:2px;">{{ o.label }}</button>
+                    </sc-for>
+                  </div>
+                </div>
+
+                <p style="margin:0;font-family:var(--font-family-base);font-size:13px;color:var(--text-muted);">Respondemos dentro de 1 a 2 días hábiles.</p>
+                <div>
+                  <x-import component-from-global-scope="VicunavTechDesignSystem_8a7481.Button" type="submit" variant="primary" size="lg" hint-size="180px,56px">Enviar mensaje</x-import>
+                </div>
+              </form>
+            </sc-if>
+          </section>
+        </sc-if>
+
+        <dc-import name="Footer" pad-h="{{ bp.pad }}" on-navigate="{{ setPage }}" hint-size="100%,220px"></dc-import>
+      </div>
+
+      <sc-if value="{{ showWhatsappFloat }}" hint-placeholder-val="{{ true }}">
+        <a href="{{ whatsappHref }}" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp" style="position:absolute;bottom:20px;right:20px;width:56px;height:56px;border-radius:999px;background:var(--color-accent);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px color-mix(in oklch, var(--color-dark) 35%, transparent);z-index:30;text-decoration:none;color:var(--color-dark);" style-hover="background:var(--color-accent-hover)" style-focus="outline:2px solid var(--color-dark);outline-offset:3px;">
+          <dc-import name="Ico" glyph="message-circle" size="28" hint-size="28px,28px"></dc-import>
+        </a>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isSistema }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Sistema de diseño" style="width:1040px;max-width:100%;display:flex;flex-direction:column;gap:48px;background:var(--color-light);border-radius:16px;border:1px solid var(--border-default);padding:48px;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-family:var(--font-family-base);font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--accent-ink);">Sistema de diseño</span>
+        <h2 style="margin:0;font-family:var(--font-family-base);font-weight:700;font-size:32px;color:var(--color-dark);">Referencia visual de Vicunav</h2>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <h3 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:20px;color:var(--color-dark);">Paleta</h3>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+          <sc-for list="{{ palette }}" as="c" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="height:88px;border-radius:12px;background:{{ c.hex }};border:1px solid var(--border-default);"></div>
+              <span style="font-family:var(--font-family-base);font-size:14px;font-weight:600;color:var(--color-dark);">{{ c.name }}</span>
+              <span style="font-family:var(--font-family-base);font-size:13px;color:var(--text-muted);">{{ c.hex }} · {{ c.note }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <h3 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:20px;color:var(--color-dark);">Tipografía</h3>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:14px;color:var(--text-muted);">Plus Jakarta Sans, una sola familia para todo. Pesos disponibles de 200 a 800, en uso principal 400, 500, 600 y 700.</p>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <sc-for list="{{ typeScale }}" as="t" hint-placeholder-count="5">
+            <div style="display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--border-default);padding-bottom:12px;">
+              <span style="font-family:var(--font-family-base);font-weight:{{ t.weight }};font-size:{{ t.size }}px;color:var(--color-dark);flex:1;">{{ t.sample }}</span>
+              <span style="font-family:var(--font-family-base);font-size:13px;color:var(--text-muted);white-space:nowrap;">{{ t.meta }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <h3 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:20px;color:var(--color-dark);">Espaciado</h3>
+        <div style="display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;">
+          <sc-for list="{{ spacingScale }}" as="s" hint-placeholder-count="8">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+              <div style="width:{{ s.px }}px;height:24px;background:var(--color-accent);border-radius:4px;"></div>
+              <span style="font-family:var(--font-family-base);font-size:12px;color:var(--text-muted);">{{ s.px }}px</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <h3 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:20px;color:var(--color-dark);">Botones</h3>
+        <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+          <x-import component-from-global-scope="VicunavTechDesignSystem_8a7481.Button" variant="primary" size="md" hint-size="140px,48px">Primario</x-import>
+          <div style="background:var(--color-dark);border-radius:12px;padding:12px 24px;display:flex;align-items:center;">
+            <x-import component-from-global-scope="VicunavTechDesignSystem_8a7481.Button" variant="secondary" size="md" hint-size="120px,40px">Secundario</x-import>
+          </div>
+        </div>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:14px;color:var(--text-muted);">El botón secundario usa el color secundario sólido, pensado para fondos grafito. Nunca con opacity reducida.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <h3 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:20px;color:var(--color-dark);">Cards</h3>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
+          <div style="display:flex;flex-direction:column;gap:16px;padding:32px;background:var(--surface-card-light);border:1px solid var(--border-default);border-radius:20px;">
+            <div style="width:48px;height:48px;border-radius:12px;background:var(--surface-accent-tint);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;">
+              <dc-import name="Ico" glyph="zap" size="26" hint-size="26px,26px"></dc-import>
+            </div>
+            <h3 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:22px;line-height:1.25;color:var(--color-dark);">Automatización</h3>
+            <p style="margin:0;font-family:var(--font-family-base);font-size:15px;line-height:1.6;color:var(--text-muted);">WhatsApp automatizado, chatbots, y captación de leads.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;border-radius:20px;overflow:hidden;background:var(--color-white);border:1px solid var(--border-default);">
+            <div style="aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:var(--surface-card-light);border-bottom:1px solid var(--border-default);color:var(--text-muted);font-family:var(--font-family-base);font-size:14px;">Imagen del proyecto</div>
+            <div style="display:flex;flex-direction:column;gap:12px;padding:24px;">
+              <span style="align-self:flex-start;font-family:var(--font-family-base);font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:var(--color-accent-tint);color:var(--accent-ink);">Colaboración real</span>
+              <h3 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:22px;line-height:1.25;color:var(--color-dark);">TatiPilates</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <h3 style="margin:0;font-family:var(--font-family-base);font-weight:600;font-size:20px;color:var(--color-dark);">Iconografía</h3>
+        <p style="margin:0;font-family:var(--font-family-base);font-size:14px;color:var(--text-muted);">Outline, trazo 2px, sin relleno, esquinas redondeadas, base 64px.</p>
+        <div style="display:flex;gap:32px;">
+          <sc-for list="{{ iconSamples }}" as="i" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--color-dark);">
+              <dc-import name="Ico" glyph="{{ i.name }}" size="28" hint-size="28px,28px"></dc-import>
+              <span style="font-family:var(--font-family-base);font-size:12px;color:var(--text-muted);">{{ i.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;10000000000&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;WhatsApp&quot;},&quot;showWhatsappFloat&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;WhatsApp&quot;},&quot;contactConfirmation&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Contacto&quot;}}">
+class Component extends DCLogic {
+  state = { page: 'home', breakpoint: 'desktop', tieneSitio: null, continuarVia: null, sent: false };
+
+  BP = {
+    mobile:  { key: 'mobile',  label: 'Mobile · 390',   width: 390,  height: 844,  pad: 24, gap: 16, cols: 1, h1: 34, h2: 26, h3: 20, bodyLg: 17, isMobile: true },
+    tablet:  { key: 'tablet',  label: 'Tablet · 834',   width: 834,  height: 1120, pad: 48, gap: 24, cols: 2, h1: 44, h2: 32, h3: 23, bodyLg: 18, isMobile: false },
+    desktop: { key: 'desktop', label: 'Desktop · 1440', width: 1440, height: 900,  pad: 64, gap: 32, cols: 4, h1: 56, h2: 40, h3: 28, bodyLg: 19, isMobile: false }
+  };
+
+  PAGES = [['home', 'Home'], ['servicios', 'Servicios'], ['portafolio', 'Portafolio'], ['contacto', 'Contacto'], ['sistema', 'Sistema']];
+
+  PILLARS = [
+    { icon: 'layout-grid', title: 'Sistemas y software personalizados', desc: 'Sistemas de reservas, pedidos online, o cualquier herramienta hecha a la medida de tu negocio.' },
+    { icon: 'zap', title: 'Automatización', desc: 'WhatsApp automatizado, chatbots, y captación de leads: las automatizaciones que tu negocio realmente necesita.' },
+    { icon: 'globe', title: 'Sitios web', desc: 'Un sitio que organiza toda tu información y te ayuda a conseguir clientes.' },
+    { icon: 'search', title: 'Visibilidad', desc: 'Contenido, SEO continuo, y tu perfil de Google optimizado, para que te encuentren.' }
+  ];
+
+  PROJECTS = [
+    { name: 'TatiPilates', status: 'real', statusLabel: 'Colaboración real', desc: 'Sitio y sistema de reservas de clases para un estudio de pilates.' },
+    { name: 'Bhoga Yoga', status: 'real', statusLabel: 'Colaboración real', desc: 'Sitio y presencia digital para un estudio de yoga.' },
+    { name: 'Clearpath Therapy', status: 'concepto', statusLabel: 'Proyecto concepto', desc: 'Exploración de sitio y sistema de citas para una práctica de terapia.' },
+    { name: 'Eleanor Wilde', status: 'concepto', statusLabel: 'Proyecto concepto', desc: 'Exploración de presencia digital para una profesional independiente.' }
+  ];
+
+  SERVICIOS = [
+    { num: '01', icon: 'layout-grid', title: 'Sistemas y software personalizados',
+      intro: 'Sistemas de reservas, pedidos online, o cualquier herramienta hecha a la medida de tu negocio.',
+      blocks: [
+        { label: 'Proceso', items: ['Cuéntanos qué necesitas.', 'Evaluamos si es posible.', 'Te presentamos una propuesta clara.', 'Construimos si decides avanzar.'] },
+        { label: 'Alcance', items: ['Desde un sistema de reservas simple hasta plataformas de gestión completas con automatización e IA integrada.', 'No hay un precio fijo publicado: cada sistema es distinto.'] },
+        { label: 'Situaciones que resuelve', items: ['Manejas tu operación con una mezcla de hojas de cálculo, WhatsApp y memoria.', 'Tus clientes tienen que escribirte o llamarte para algo que debería resolverse solo.', 'Ya probaste herramientas genéricas y ninguna se ajusta a cómo trabaja tu negocio.', 'Tu proceso funciona, pero te quita tiempo que deberías invertir en crecer.'] }
+      ]
+    },
+    { num: '02', icon: 'zap', title: 'Automatización',
+      intro: 'WhatsApp automatizado, chatbots, y captación de leads: las automatizaciones que tu negocio realmente necesita.',
+      blocks: [
+        { label: 'Qué incluye', items: ['Respuestas automáticas de WhatsApp para preguntas frecuentes.', 'Chatbots para calificar leads o agendar citas sin intervención manual.', 'Captación automática de leads desde tu sitio o redes, con seguimiento.', 'Notificaciones automáticas cuando algo necesita tu atención real.'] },
+        { label: 'Para quién es', items: ['Negocios que reciben muchos mensajes repetitivos.', 'Negocios que pierden oportunidades porque no pueden responder al instante.'] }
+      ]
+    },
+    { num: '03', icon: 'globe', title: 'Sitios web',
+      intro: 'Un sitio que organiza toda tu información y te ayuda a conseguir clientes.',
+      blocks: [
+        { label: 'Qué incluye', items: ['Página larga o multipágina según complejidad.', 'Mensaje y copy claro.', 'Diseño limpio, mobile first.', 'Formulario de contacto con WhatsApp integrado.', 'Estructura preparada para que te encuentren en Google y en sistemas de IA.', 'Sistema de citas si tu negocio lo necesita.'] }
+      ]
+    },
+    { num: '04', icon: 'search', title: 'Visibilidad',
+      intro: 'Contenido, SEO continuo, y tu perfil de Google optimizado, para que te encuentren.',
+      blocks: [
+        { label: 'Qué incluye', items: ['Configuración y optimización de tu Perfil de Empresa en Google.', 'Contenido continuo pensado para búsquedas reales.', 'SEO técnico.', 'Preparación para que sistemas de IA te citen correctamente.', 'Sistema de reseñas.'] }
+      ]
+    }
+  ];
+
+  setPage = (p) => this.setState({ page: p });
+  setBreakpoint = (b) => this.setState({ breakpoint: b });
+  setTieneSitio = (v) => this.setState({ tieneSitio: v });
+  setContinuarVia = (v) => this.setState({ continuarVia: v });
+  goContacto = () => this.setPage('contacto');
+  goPortafolio = () => this.setPage('portafolio');
+  submitForm = (e) => {
+    e.preventDefault();
+    if (this.props.contactConfirmation) this.setState({ sent: true });
+  };
+
+  renderVals() {
+    const bp = this.BP[this.state.breakpoint];
+    const page = this.state.page;
+    const whatsappNumber = (this.props.whatsappNumber || '10000000000').replace(/[^0-9]/g, '');
+    const whatsappHref = 'https://wa.me/' + whatsappNumber;
+    const showWhatsappFloat = this.props.showWhatsappFloat !== false;
+
+    const pageTabs = this.PAGES.map(([key, label]) => ({
+      key, label,
+      bg: page === key ? 'var(--color-dark)' : 'transparent',
+      color: page === key ? 'var(--color-light)' : 'var(--color-dark)',
+      onClick: () => this.setPage(key)
+    }));
+
+    const bpTabs = ['mobile', 'tablet', 'desktop'].map(key => {
+      const active = this.state.breakpoint === key;
+      return {
+        key, label: this.BP[key].label,
+        bg: active ? 'var(--color-accent)' : 'transparent',
+        border: active ? 'var(--color-accent)' : 'var(--border-default)',
+        color: 'var(--color-dark)',
+        onClick: () => this.setBreakpoint(key)
+      };
+    });
+
+    const pillars = this.PILLARS.map(p => ({ ...p }));
+    const projectsHome = this.PROJECTS.map(p => ({ ...p, isReal: p.status === 'real', isConcepto: p.status !== 'real' }));
+    const projectsPortfolio = this.PROJECTS.map(p => ({ ...p, isReal: p.status === 'real', isConcepto: p.status !== 'real' }));
+
+    const bColsCap = bp.cols === 4 ? 3 : bp.cols;
+    const servicios = this.SERVICIOS.map(s => ({
+      ...s,
+      blocksCols: Math.max(1, Math.min(s.blocks.length, bColsCap)),
+      blocks: s.blocks.map(b => ({ ...b, items: b.items.map((t, i) => ({ text: t, key: i })) }))
+    }));
+
+    const tieneSitioOpts = ['si', 'no'].map(v => {
+      const selected = this.state.tieneSitio === v;
+      return { key: v, label: v === 'si' ? 'Sí' : 'No', selected, bg: selected ? 'var(--color-accent)' : 'var(--color-white)', border: selected ? 'var(--color-accent)' : 'var(--border-default)', onClick: () => this.setTieneSitio(v) };
+    });
+    const continuarOpts = [['whatsapp', 'WhatsApp'], ['llamada', 'Llamada'], ['correo', 'Correo electrónico']].map(([v, label]) => {
+      const selected = this.state.continuarVia === v;
+      return { key: v, label, selected, bg: selected ? 'var(--color-accent)' : 'var(--color-white)', border: selected ? 'var(--color-accent)' : 'var(--border-default)', onClick: () => this.setContinuarVia(v) };
+    });
+
+    return {
+      bp, page,
+      whatsappHref, showWhatsappFloat,
+      pageTabs, bpTabs,
+      showBpTabs: page !== 'sistema',
+      showArtboard: page !== 'sistema',
+      isSistema: page === 'sistema',
+      isHome: page === 'home', isServicios: page === 'servicios', isPortafolio: page === 'portafolio', isContacto: page === 'contacto',
+      screenLabel: (this.PAGES.find(p => p[0] === page) || ['', ''])[1] + ' — ' + bp.label,
+      setPage: this.setPage,
+      goContacto: this.goContacto,
+      goPortafolio: this.goPortafolio,
+      pillars, projectsHome, projectsPortfolio, servicios,
+      portfolioCols: bp.width >= 834 ? 2 : 1,
+      tieneSitioOpts, continuarOpts,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submitForm: this.submitForm,
+      palette: [
+        { name: 'Grafito (dark)', hex: '#2B2825', note: '12.8:1 con crema' },
+        { name: 'Crema (light)', hex: '#F4EFE6', note: 'base clara' },
+        { name: 'Ámbar (acento)', hex: '#E8873A', note: '5.55:1 con grafito' },
+        { name: 'Secundario', hex: '#B7AE9F', note: '6.68:1 con grafito' }
+      ],
+      typeScale: [
+        { sample: 'H1 · Título principal', size: 40, weight: 700, meta: '56 / 44 / 34 px según breakpoint' },
+        { sample: 'H2 · Subtítulo', size: 32, weight: 600, meta: '40 / 32 / 26 px' },
+        { sample: 'H3 · Card', size: 24, weight: 600, meta: '28 / 23 / 20 px' },
+        { sample: 'Cuerpo', size: 16, weight: 400, meta: '16 px, línea 1.6' },
+        { sample: 'ETIQUETA', size: 13, weight: 500, meta: '13 px, mayúsculas, 0.04em' }
+      ],
+      spacingScale: [2, 4, 8, 16, 24, 32, 48, 64].map(px => ({ px })),
+      iconSamples: [
+        { name: 'layout-grid', label: 'Sistemas' },
+        { name: 'zap', label: 'Automatización' },
+        { name: 'globe', label: 'Sitios web' },
+        { name: 'search', label: 'Visibilidad' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

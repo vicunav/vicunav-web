@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/radii.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/tokens/shadows.css">
+  <link rel="stylesheet" href="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/styles.css">
+  <script src="_ds/vicunav-tech-design-system-8a748154-b18c-4805-8ad1-18b641a17f56/_ds_bundle.js"></script>
+  <style>
+    body{margin:0}
+    :root{
+      --text-muted:color-mix(in oklch, #2B2825 82%, #B7AE9F);
+      --accent-ink:color-mix(in oklch, #E8873A 48%, #2B2825);
+      --shadow-float:0 1px 2px color-mix(in oklch, #2B2825 14%, transparent), 0 6px 12px color-mix(in oklch, #2B2825 10%, transparent), 0 18px 36px color-mix(in oklch, #2B2825 12%, transparent), 0 40px 72px color-mix(in oklch, #2B2825 10%, transparent);
+    }
+  </style>
+</helmet>
+
+<div aria-hidden="true" style="width:100%;font-family:var(--font-family-base);">
+
+  <sc-if value="{{ isDashboard }}" hint-placeholder-val="{{ true }}">
+    <div style="width:100%;background:#fff;border:1px solid var(--border-default);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-float);">
+      <div style="display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--color-light);border-bottom:1px solid var(--border-default);">
+        <div style="display:flex;gap:6px;">
+          <span style="width:9px;height:9px;border-radius:999px;background:color-mix(in oklch, #2B2825 26%, #F4EFE6);display:block;"></span>
+          <span style="width:9px;height:9px;border-radius:999px;background:color-mix(in oklch, #2B2825 26%, #F4EFE6);display:block;"></span>
+          <span style="width:9px;height:9px;border-radius:999px;background:var(--color-accent);display:block;"></span>
+        </div>
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-muted);">Panel de reservas</span>
+      </div>
+      <div style="display:flex;">
+        <div style="width:26%;min-width:96px;border-right:1px solid var(--border-default);padding:16px 12px;display:flex;flex-direction:column;gap:10px;background:color-mix(in oklch, #F4EFE6 55%, #fff);">
+          <span style="height:8px;width:70%;border-radius:4px;background:var(--accent-ink);display:block;"></span>
+          <span style="height:8px;width:52%;border-radius:4px;background:color-mix(in oklch, #B7AE9F 62%, #fff);display:block;"></span>
+          <span style="height:8px;width:64%;border-radius:4px;background:color-mix(in oklch, #B7AE9F 62%, #fff);display:block;"></span>
+          <span style="height:8px;width:44%;border-radius:4px;background:color-mix(in oklch, #B7AE9F 62%, #fff);display:block;"></span>
+          <span style="height:1px;width:100%;background:var(--border-default);display:block;margin:4px 0;"></span>
+          <span style="height:8px;width:58%;border-radius:4px;background:color-mix(in oklch, #B7AE9F 62%, #fff);display:block;"></span>
+        </div>
+        <div style="flex:1;padding:18px;display:flex;flex-direction:column;gap:16px;">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+            <div style="border:1px solid var(--border-default);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:6px;">
+              <span style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);">Hoy</span>
+              <span style="font-size:19px;font-weight:700;color:var(--color-dark);line-height:1;">24</span>
+            </div>
+            <div style="border:1px solid var(--border-default);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:6px;background:var(--color-accent-tint);">
+              <span style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent-ink);">Ocupación</span>
+              <span style="font-size:19px;font-weight:700;color:var(--color-dark);line-height:1;">86%</span>
+            </div>
+            <div style="border:1px solid var(--border-default);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:6px;">
+              <span style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);">Auto</span>
+              <span style="font-size:19px;font-weight:700;color:var(--color-dark);line-height:1;">31</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-end;gap:8px;height:76px;padding-top:4px;">
+            <span style="flex:1;height:38%;border-radius:5px 5px 2px 2px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+            <span style="flex:1;height:56%;border-radius:5px 5px 2px 2px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+            <span style="flex:1;height:44%;border-radius:5px 5px 2px 2px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+            <span style="flex:1;height:82%;border-radius:5px 5px 2px 2px;background:var(--color-accent);display:block;"></span>
+            <span style="flex:1;height:64%;border-radius:5px 5px 2px 2px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+            <span style="flex:1;height:72%;border-radius:5px 5px 2px 2px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+            <span style="flex:1;height:50%;border-radius:5px 5px 2px 2px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:10px;padding:9px 10px;border:1px solid var(--border-default);border-radius:8px;">
+              <span style="width:20px;height:20px;border-radius:999px;background:var(--color-accent-tint);display:block;flex-shrink:0;"></span>
+              <span style="height:7px;flex:1;border-radius:4px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+              <span style="font-size:10px;font-weight:600;color:var(--accent-ink);white-space:nowrap;">Confirmada</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:9px 10px;border:1px solid var(--border-default);border-radius:8px;">
+              <span style="width:20px;height:20px;border-radius:999px;background:color-mix(in oklch, #F4EFE6 70%, #2B2825);display:block;flex-shrink:0;"></span>
+              <span style="height:7px;flex:1;border-radius:4px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+              <span style="font-size:10px;font-weight:600;color:var(--text-muted);white-space:nowrap;">En espera</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isBooking }}" hint-placeholder-val="{{ false }}">
+    <div style="width:100%;background:#fff;border:1px solid var(--border-default);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:16px;box-shadow:var(--shadow-float);">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <span style="font-size:14px;font-weight:700;color:var(--color-dark);">Marzo</span>
+        <div style="display:flex;gap:6px;">
+          <span style="width:24px;height:24px;border-radius:8px;border:1px solid var(--border-default);display:block;"></span>
+          <span style="width:24px;height:24px;border-radius:8px;border:1px solid var(--border-default);display:block;"></span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;">
+        <sc-for list="{{ days }}" as="d" hint-placeholder-count="35">
+          <span style="aspect-ratio:1;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;background:{{ d.bg }};color:{{ d.fg }};border:1px solid {{ d.border }};">{{ d.label }}</span>
+        </sc-for>
+      </div>
+      <div style="height:1px;background:var(--border-default);"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="padding:7px 14px;border-radius:999px;font-size:12px;font-weight:600;background:var(--color-accent);color:var(--color-dark);">09:00</span>
+        <span style="padding:7px 14px;border-radius:999px;font-size:12px;font-weight:600;border:1px solid var(--border-default);color:var(--color-dark);">10:30</span>
+        <span style="padding:7px 14px;border-radius:999px;font-size:12px;font-weight:600;border:1px solid var(--border-default);color:var(--color-dark);">12:00</span>
+        <span style="padding:7px 14px;border-radius:999px;font-size:12px;font-weight:600;border:1px solid var(--border-default);color:var(--text-muted);">17:00</span>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isChat }}" hint-placeholder-val="{{ false }}">
+    <div style="width:100%;background:#fff;border:1px solid var(--border-default);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-float);">
+      <div style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:var(--color-dark);">
+        <span style="width:28px;height:28px;border-radius:999px;background:var(--color-accent);display:block;"></span>
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <span style="font-size:12px;font-weight:600;color:var(--color-light);">Tu negocio</span>
+          <span style="font-size:10px;color:var(--color-secondary);">responde al instante</span>
+        </div>
+      </div>
+      <div style="padding:16px;display:flex;flex-direction:column;gap:10px;background:color-mix(in oklch, #F4EFE6 60%, #fff);">
+        <div style="align-self:flex-start;max-width:78%;background:#fff;border:1px solid var(--border-default);border-radius:12px 12px 12px 4px;padding:10px 12px;font-size:12px;line-height:1.5;color:var(--color-dark);">Hola, tienen mesa para 4 el sábado?</div>
+        <div style="align-self:flex-end;max-width:80%;display:flex;flex-direction:column;gap:5px;align-items:flex-end;">
+          <span style="font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent-ink);">Automático</span>
+          <div style="background:var(--color-accent-tint);border:1px solid color-mix(in oklch, #E8873A 30%, #F4EFE6);border-radius:12px 12px 4px 12px;padding:10px 12px;font-size:12px;line-height:1.5;color:var(--color-dark);">Sí. Tenemos 20:00 y 21:30. Cuál prefieres?</div>
+        </div>
+        <div style="align-self:flex-start;max-width:60%;background:#fff;border:1px solid var(--border-default);border-radius:12px 12px 12px 4px;padding:10px 12px;font-size:12px;line-height:1.5;color:var(--color-dark);">20:00 está perfecto</div>
+        <div style="align-self:flex-end;max-width:80%;background:var(--color-accent-tint);border:1px solid color-mix(in oklch, #E8873A 30%, #F4EFE6);border-radius:12px 12px 4px 12px;padding:10px 12px;font-size:12px;line-height:1.5;color:var(--color-dark);">Reserva confirmada. Te esperamos.</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid var(--border-default);">
+        <span style="flex:1;height:9px;border-radius:5px;background:color-mix(in oklch, #B7AE9F 50%, #fff);display:block;"></span>
+        <span style="width:26px;height:26px;border-radius:999px;background:var(--color-accent);display:block;flex-shrink:0;"></span>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isBrowser }}" hint-placeholder-val="{{ false }}">
+    <div style="width:100%;background:#fff;border:1px solid var(--border-default);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-float);">
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--color-light);border-bottom:1px solid var(--border-default);">
+        <div style="display:flex;gap:6px;">
+          <span style="width:9px;height:9px;border-radius:999px;background:color-mix(in oklch, #2B2825 26%, #F4EFE6);display:block;"></span>
+          <span style="width:9px;height:9px;border-radius:999px;background:color-mix(in oklch, #2B2825 26%, #F4EFE6);display:block;"></span>
+          <span style="width:9px;height:9px;border-radius:999px;background:color-mix(in oklch, #2B2825 26%, #F4EFE6);display:block;"></span>
+        </div>
+        <span style="flex:1;background:#fff;border:1px solid var(--border-default);border-radius:999px;padding:5px 12px;font-size:11px;color:var(--text-muted);">tunegocio.com</span>
+      </div>
+      <div style="padding:0;">
+        <div style="background:var(--color-dark);padding:22px 20px;display:flex;flex-direction:column;gap:10px;">
+          <span style="height:12px;width:72%;border-radius:6px;background:var(--color-light);display:block;"></span>
+          <span style="height:12px;width:48%;border-radius:6px;background:color-mix(in oklch, #F4EFE6 45%, #2B2825);display:block;"></span>
+          <span style="margin-top:6px;height:26px;width:104px;border-radius:999px;background:var(--color-accent);display:block;"></span>
+        </div>
+        <div style="padding:18px 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+          <div style="border:1px solid var(--border-default);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:7px;">
+            <span style="width:18px;height:18px;border-radius:6px;background:var(--color-accent-tint);display:block;"></span>
+            <span style="height:6px;width:80%;border-radius:3px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+            <span style="height:6px;width:60%;border-radius:3px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+          </div>
+          <div style="border:1px solid var(--border-default);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:7px;">
+            <span style="width:18px;height:18px;border-radius:6px;background:var(--color-accent-tint);display:block;"></span>
+            <span style="height:6px;width:70%;border-radius:3px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+            <span style="height:6px;width:52%;border-radius:3px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+          </div>
+          <div style="border:1px solid var(--border-default);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:7px;">
+            <span style="width:18px;height:18px;border-radius:6px;background:var(--color-accent-tint);display:block;"></span>
+            <span style="height:6px;width:76%;border-radius:3px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+            <span style="height:6px;width:44%;border-radius:3px;background:color-mix(in oklch, #B7AE9F 55%, #fff);display:block;"></span>
+          </div>
+        </div>
+        <div style="padding:0 20px 20px;display:flex;gap:10px;align-items:center;">
+          <span style="flex:1;height:30px;border-radius:8px;border:1px solid var(--border-default);display:block;"></span>
+          <span style="width:88px;height:30px;border-radius:999px;background:var(--color-dark);display:block;"></span>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isSeo }}" hint-placeholder-val="{{ false }}">
+    <div style="width:100%;background:#fff;border:1px solid var(--border-default);border-radius:16px;padding:24px;box-shadow:var(--shadow-float);">
+      <svg viewBox="0 0 400 300" style="width:100%;height:auto;display:block;" role="presentation">
+        <line x1="200" y1="150" x2="200" y2="62" stroke="#B7AE9F" stroke-width="2" stroke-linecap="round"></line>
+        <line x1="200" y1="150" x2="200" y2="238" stroke="#B7AE9F" stroke-width="2" stroke-linecap="round"></line>
+        <line x1="200" y1="150" x2="72" y2="150" stroke="#B7AE9F" stroke-width="2" stroke-linecap="round"></line>
+        <line x1="200" y1="150" x2="328" y2="150" stroke="#B7AE9F" stroke-width="2" stroke-linecap="round"></line>
+        <circle cx="200" cy="150" r="46" fill="#E8873A"></circle>
+        <text x="200" y="146" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" font-weight="700" fill="#2B2825">Tu</text>
+        <text x="200" y="162" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" font-weight="700" fill="#2B2825">negocio</text>
+        <rect x="146" y="24" width="108" height="38" rx="12" fill="none" stroke="#2B2825" stroke-width="2"></rect>
+        <text x="200" y="48" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="#2B2825">Google</text>
+        <rect x="146" y="238" width="108" height="38" rx="12" fill="none" stroke="#2B2825" stroke-width="2"></rect>
+        <text x="200" y="262" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="#2B2825">Reseñas</text>
+        <rect x="8" y="131" width="64" height="38" rx="12" fill="none" stroke="#2B2825" stroke-width="2"></rect>
+        <text x="40" y="155" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="#2B2825">IA</text>
+        <rect x="328" y="131" width="64" height="38" rx="12" fill="none" stroke="#2B2825" stroke-width="2"></rect>
+        <text x="360" y="155" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#2B2825">SEO</text>
+      </svg>
+    </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:520,&quot;height&quot;:380},&quot;kind&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dashboard&quot;,&quot;booking&quot;,&quot;chat&quot;,&quot;browser&quot;,&quot;seo&quot;],&quot;default&quot;:&quot;dashboard&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const kind = this.props.kind || 'dashboard';
+    const days = [];
+    for (let i = 0; i < 35; i++) {
+      const n = i - 2;
+      const inMonth = n >= 1 && n <= 31;
+      const selected = n === 14;
+      const marked = [7, 9, 18, 22, 26].includes(n);
+      days.push({
+        key: i,
+        label: inMonth ? String(n) : '',
+        bg: selected ? 'var(--color-accent)' : marked ? 'var(--color-accent-tint)' : 'transparent',
+        fg: inMonth ? 'var(--color-dark)' : 'transparent',
+        border: selected ? 'var(--color-accent)' : 'transparent'
+      });
+    }
+    return {
+      days,
+      isDashboard: kind === 'dashboard',
+      isBooking: kind === 'booking',
+      isChat: kind === 'chat',
+      isBrowser: kind === 'browser',
+      isSeo: kind === 'seo'
+    };
+  }
+}
+</script>
+</body>
+</html>
