@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="es-VE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automatización con WhatsApp y chatbots para negocios | Vicunav</title>
+<meta name="description" content="Respuestas automáticas, chatbots con tu información, recordatorios de citas y seguimiento de leads. Implementación remota en toda LatAm.">
+<link rel="canonical" href="https://vicunav.com/automatizacion.html">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/pages/automatizacion.css">
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<svg class="icon-defs" aria-hidden="true">
+    <symbol id="ico-message-circle" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.5 9.5 0 0 1-3.6-.7L3 21l1.9-4.9A8.3 8.3 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"></path><path d="M8.5 12h.01"></path><path d="M12 12h.01"></path><path d="M15.5 12h.01"></path></symbol>
+    <symbol id="ico-check" viewBox="0 0 24 24"><path d="m5 13 4 4 10-10"></path></symbol>
+    <symbol id="ico-map-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"></path><path d="M12 9a2.5 2.5 0 1 0 0 5a2.5 2.5 0 1 0 0-5"></path></symbol>
+    <symbol id="ico-mail" viewBox="0 0 24 24"><path d="M3 5h18v14H3z"></path><path d="m3 6 9 7 9-7"></path></symbol>
+    <symbol id="ico-plus" viewBox="0 0 24 24"><path d="M12 6v12"></path><path d="M6 12h12"></path></symbol>
+    <symbol id="ico-minus" viewBox="0 0 24 24"><path d="M6 12h12"></path></symbol>
+    <symbol id="ico-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15"></path><path d="m13 6 6 6-6 6"></path></symbol>
+    <symbol id="ico-zap" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"></path></symbol>
+    <symbol id="ico-bot" viewBox="0 0 24 24"><path d="M6 8h12v10H6z"></path><path d="M12 4v4"></path><path d="M9.5 12h.01"></path><path d="M14.5 12h.01"></path><path d="M3 12v3"></path><path d="M21 12v3"></path><path d="M10 16h4"></path></symbol>
+    <symbol id="ico-clock" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18"></path><path d="M12 7.5V12l3.5 2"></path></symbol>
+    <symbol id="ico-user" viewBox="0 0 24 24"><path d="M12 4a4 4 0 1 0 0 8a4 4 0 1 0 0-8"></path><path d="M4 20c0-3.3 3.6-5 8-5s8 1.7 8 5"></path></symbol>
+    <symbol id="ico-phone" viewBox="0 0 24 24"><path d="M7 3h4l1.5 4-2 1.5a11 11 0 0 0 5 5L17 11.5 21 13v4a2 2 0 0 1-2 2A16 16 0 0 1 5 5a2 2 0 0 1 2-2z"></path></symbol>
+    <symbol id="ico-bar-chart" viewBox="0 0 24 24"><path d="M4 20h16"></path><path d="M7 20v-6"></path><path d="M12 20V7"></path><path d="M17 20v-9"></path></symbol>
+  </svg>
+  <header class="site-header">
+    <div class="site-header__bar">
+      <a class="brand" href="index.html">Vicunav<span class="brand__dot"></span></a>
+      <nav class="site-nav" aria-label="Principal">
+        <a class="site-nav__link" href="index.html">Inicio</a>
+        <a class="site-nav__link" href="servicios.html" aria-current="page">Servicios</a>
+        <a class="site-nav__link" href="portafolio.html">Portafolio</a>
+        <a class="site-nav__link" href="nosotros.html">Nosotros</a>
+        <a class="site-nav__link" href="contacto.html">Contacto</a>
+        <div class="site-nav__divider"></div>
+        <a class="btn btn--accent btn--sm" href="contacto.html">Hablemos</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav-mobile" data-nav-toggle>
+        <span class="nav-toggle__bar nav-toggle__bar--top"></span>
+        <span class="nav-toggle__bar nav-toggle__bar--mid"></span>
+        <span class="nav-toggle__bar nav-toggle__bar--bottom"></span>
+      </button>
+    </div>
+    <nav class="site-nav-mobile" id="site-nav-mobile" aria-label="Principal, móvil">
+          <a class="site-nav-mobile__link" href="index.html">Inicio</a>
+          <a class="site-nav-mobile__link" href="servicios.html" aria-current="page">Servicios</a>
+          <a class="site-nav-mobile__link" href="portafolio.html">Portafolio</a>
+          <a class="site-nav-mobile__link" href="nosotros.html">Nosotros</a>
+          <a class="site-nav-mobile__link" href="contacto.html">Contacto</a>
+      <a class="btn btn--accent" href="contacto.html">Hablemos</a>
+    </nav>
+  </header>
+
+<main id="contenido">
+  <section class="hero-vs hero-vs--service section-dark">
+    <div class="grain"></div>
+    <div class="deco-ring hero-vs__ring"></div>
+    <div class="hero-vs__copy">
+      <nav class="breadcrumb" aria-label="Ruta"><a href="index.html">Inicio</a><span class="breadcrumb__sep">/</span><a href="servicios.html">Servicios</a><span class="breadcrumb__sep">/</span><span>Automatización</span></nav>
+      <div class="hero-vs__eyebrow-row">
+        <div class="hero-vs__icon-tile"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#ico-zap"></use></svg></div>
+        <span class="kicker__label">Automatización</span>
+      </div>
+      <h1 class="hero-vs__title">Que lo repetitivo <span class="text-accent">se haga solo</span></h1>
+      <p class="hero-vs__sub">WhatsApp automatizado, chatbots con tu información y captación de leads. Menos horas contestando lo mismo, y ningún cliente esperando respuesta.</p>
+      <div class="hero-vs__actions">
+        <a class="btn btn--accent" href="https://wa.me/10000000000" target="_blank" rel="noopener"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#ico-message-circle"></use></svg>Quiero automatizar esto</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="grid-2 grid-2--align-start">
+      <div class="vs-problem-copy">
+        <h2 class="section-header__title vs-problem-title">Responder lo mismo veinte veces al día no es atención al cliente.</h2>
+        <p class="section-header__sub vs-problem-body">Horarios, ubicación, disponibilidad, cómo funciona el servicio. Cuando esas preguntas se responden solas, y se responden bien, tu equipo queda libre para lo que sí necesita una persona: entender un caso, resolver un problema, cerrar una venta.</p>
+      </div>
+      <div class="for-who-card">
+        <span class="kicker__label kicker__label--ink">Para quién es</span>
+        <ul class="check-list check-list--lg">
+          <li>
+            <span class="check-list__icon"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#ico-check"></use></svg></span>
+            <span>Negocios que reciben la misma pregunta todos los días.</span>
+          </li>
+          <li>
+            <span class="check-list__icon"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#ico-check"></use></svg></span>
+            <span>Servicios con citas que se pierden por falta de recordatorio.</span>
+          </li>
+          <li>
+            <span class="check-list__icon"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#ico-check"></use></svg></span>
+            <span>Equipos pequeños a quienes les escriben fuera de horario.</span>
+          </li>
+          <li>
+            <span class="check-list__icon"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#ico-check"></use></svg></span>
+            <span>Quien pierde clientes simplemente por responder tarde.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2 class="section-header__title section-header__title--standalone">Qué incluye</h2>
+    <div class="grid-3">
+      <div class="feature-card">
+        <div class="feature-card__icon"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-message-circle"></use></svg></div>
+        <h3 class="feature-card__title">WhatsApp automatizado</h3>
+        <p class="feature-card__desc">Respuestas inmediatas, opciones claras y paso a una persona cuando toca.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-bot"></use></svg></div>
+        <h3 class="feature-card__title">Chatbot con tu información</h3>
+        <p class="feature-card__desc">Un asistente que responde con tus datos reales, no con frases genéricas.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-clock"></use></svg></div>
+        <h3 class="feature-card__title">Recordatorios de citas</h3>
+        <p class="feature-card__desc">Avisos antes de cada cita, para que la agenda no se llene de huecos.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-user"></use></svg></div>
+        <h3 class="feature-card__title">Captación de leads</h3>
+        <p class="feature-card__desc">Cada consulta queda registrada, con seguimiento si la persona no responde.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-phone"></use></svg></div>
+        <h3 class="feature-card__title">Avisos a tu equipo</h3>
+        <p class="feature-card__desc">Notificación al encargado cuando entra algo urgente o de alto valor.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-bar-chart"></use></svg></div>
+        <h3 class="feature-card__title">Resúmenes automáticos</h3>
+        <p class="feature-card__desc">Qué te preguntaron, cuántas citas entraron y qué quedó pendiente esta semana.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="steps-panel">
+      <h2 class="steps-panel__title">Cómo se trabaja</h2>
+      <div class="grid-4">
+        <div class="step-dark">
+          <span class="step-dark__n">Paso 01</span>
+          <h3 class="step-dark__title">Mapa de conversaciones</h3>
+          <p class="step-dark__desc">Revisamos qué te preguntan de verdad y qué respondes hoy.</p>
+        </div>
+        <div class="step-dark">
+          <span class="step-dark__n">Paso 02</span>
+          <h3 class="step-dark__title">Guion y reglas</h3>
+          <p class="step-dark__desc">Escribimos las respuestas con tu tono y definimos cuándo entra un humano.</p>
+        </div>
+        <div class="step-dark">
+          <span class="step-dark__n">Paso 03</span>
+          <h3 class="step-dark__title">Montaje y pruebas</h3>
+          <p class="step-dark__desc">Se configura, se prueba con casos reales y se corrige lo que suene raro.</p>
+        </div>
+        <div class="step-dark">
+          <span class="step-dark__n">Paso 04</span>
+          <h3 class="step-dark__title">Medición y ajuste</h3>
+          <p class="step-dark__desc">Las preguntas que quedaron fuera se suman al flujo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="grid-2 grid-2--align-start">
+      <div class="vs-geo-copy">
+        <div class="kicker">
+          <span class="text-accent-ink"><svg class="icon" width="24" height="24" aria-hidden="true"><use href="#ico-map-pin"></use></svg></span>
+          <span class="kicker__label kicker__label--ink">Dónde trabajo</span>
+        </div>
+        <h2 class="section-header__title vs-geo-title">Atiende igual de bien a las once de la noche</h2>
+        <p class="section-header__sub vs-geo-body">Funciona lo mismo para un negocio de Santa Bárbara del Zulia que para uno con clientes en otro huso horario. Por eso rinde especialmente si atiendes gente fuera de Venezuela.</p>
+      </div>
+      <div class="grid-2">
+        <div class="zone-card">
+          <span class="zone-card__name">Santa Bárbara del Zulia</span>
+          <span class="zone-card__note">Base de operaciones, atención presencial</span>
+        </div>
+        <div class="zone-card">
+          <span class="zone-card__name">San Carlos del Zulia</span>
+          <span class="zone-card__note">Atención presencial y remota</span>
+        </div>
+        <div class="zone-card">
+          <span class="zone-card__name">Maracaibo y el Zulia</span>
+          <span class="zone-card__note">Proyectos en zona, visitas coordinadas</span>
+        </div>
+        <div class="zone-card">
+          <span class="zone-card__name">Venezuela</span>
+          <span class="zone-card__note">Trabajo remoto en todo el país</span>
+        </div>
+        <div class="zone-card">
+          <span class="zone-card__name">LatAm</span>
+          <span class="zone-card__note">Colombia, México, Argentina, Chile</span>
+        </div>
+        <div class="zone-card">
+          <span class="zone-card__name">Clientes internacionales</span>
+          <span class="zone-card__note">Remoto, inglés C1, husos de EE.UU.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="grid-faq">
+      <h2 class="section-header__title vs-faq-title">Preguntas frecuentes</h2>
+      <div class="faq-list">
+        <details class="faq-item" name="faq-automatizacion" open>
+          <summary>
+            ¿No suena frío que responda un bot?
+            <span class="faq-item__icon faq-item__icon--plus"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-plus"></use></svg></span>
+            <span class="faq-item__icon faq-item__icon--minus"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-minus"></use></svg></span>
+          </summary>
+          <p class="faq-item__body">Suena frío cuando está mal escrito. El guion se redacta con tu tono, dice desde el inicio que es un asistente y pasa a una persona en cuanto la conversación lo pide. Bien hecho, la gente agradece que le respondan de una.</p>
+        </details>
+        <details class="faq-item" name="faq-automatizacion">
+          <summary>
+            ¿Necesito la API de WhatsApp Business?
+            <span class="faq-item__icon faq-item__icon--plus"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-plus"></use></svg></span>
+            <span class="faq-item__icon faq-item__icon--minus"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-minus"></use></svg></span>
+          </summary>
+          <p class="faq-item__body">Depende del volumen. Para negocios pequeños hay caminos más simples sobre WhatsApp Business. Cuando crece el volumen o hay varios agentes, la API es lo correcto y te acompaño en el registro.</p>
+        </details>
+        <details class="faq-item" name="faq-automatizacion">
+          <summary>
+            ¿Puede agendar citas por sí solo?
+            <span class="faq-item__icon faq-item__icon--plus"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-plus"></use></svg></span>
+            <span class="faq-item__icon faq-item__icon--minus"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-minus"></use></svg></span>
+          </summary>
+          <p class="faq-item__body">Sí, si tu agenda está en un sistema con el que se pueda integrar. Es una de las automatizaciones que más tiempo devuelve.</p>
+        </details>
+        <details class="faq-item" name="faq-automatizacion">
+          <summary>
+            ¿Se puede combinar con mi sistema de pedidos?
+            <span class="faq-item__icon faq-item__icon--plus"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-plus"></use></svg></span>
+            <span class="faq-item__icon faq-item__icon--minus"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-minus"></use></svg></span>
+          </summary>
+          <p class="faq-item__body">Sí, y es el caso más común en restaurantes: el pedido se arma en el sistema y la confirmación, el estado y el aviso viajan por WhatsApp.</p>
+        </details>
+        <details class="faq-item" name="faq-automatizacion">
+          <summary>
+            ¿Hasta dónde llega este servicio?
+            <span class="faq-item__icon faq-item__icon--plus"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-plus"></use></svg></span>
+            <span class="faq-item__icon faq-item__icon--minus"><svg class="icon" width="22" height="22" aria-hidden="true"><use href="#ico-minus"></use></svg></span>
+          </summary>
+          <p class="faq-item__body">Hasta la conversación y el seguimiento. No hago publicidad pagada, embudos de venta ni manejo de redes sociales. Prefiero decirlo antes de empezar.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2 class="section-header__title section-header__title--h3">Seguir explorando</h2>
+    <div class="grid-3">
+      <a class="related-card" href="sistemas.html">
+        <span class="related-card__kind">Servicio</span>
+        <span class="related-card__title">Sistemas y software personalizados</span>
+        <span class="link-underline">Ver<svg class="icon" width="18" height="18" aria-hidden="true"><use href="#ico-arrow-right"></use></svg></span>
+      </a>
+      <a class="related-card" href="bienestar.html">
+        <span class="related-card__kind">Vertical</span>
+        <span class="related-card__title">Agenda para terapeutas y estudios</span>
+        <span class="link-underline">Ver<svg class="icon" width="18" height="18" aria-hidden="true"><use href="#ico-arrow-right"></use></svg></span>
+      </a>
+      <a class="related-card" href="visibilidad.html">
+        <span class="related-card__kind">Servicio</span>
+        <span class="related-card__title">Visibilidad: SEO y perfil de Google</span>
+        <span class="link-underline">Ver<svg class="icon" width="18" height="18" aria-hidden="true"><use href="#ico-arrow-right"></use></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="cta-band cta-band--tint">
+    <div class="cta-panel cta-panel--tint">
+      <div class="cta-panel__copy">
+        <h2 class="section-header__title">Dime qué te preguntan todo el día y armamos el flujo.</h2>
+        
+      </div>
+      <div class="cta-panel__actions">
+        <a class="btn btn--dark" href="https://wa.me/10000000000" target="_blank" rel="noopener">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#ico-message-circle"></use></svg>Hablemos por WhatsApp
+        </a>
+        <a class="link-underline" href="mailto:hello@vicunav.com">
+          <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#ico-mail"></use></svg>hello@vicunav.com
+        </a>
+        <span class="cta-panel__note">Respondo en 1 a 2 días hábiles.</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <a class="site-footer__wordmark" href="index.html">Vicunav<span class="brand__dot"></span></a>
+          <p class="site-footer__desc">Sitios web y herramientas para profesionales independientes y negocios de servicios.</p>
+        </div>
+        <nav class="site-footer__nav" aria-label="Sitio">
+          <span class="site-footer__label">Sitio</span>
+          <a class="site-footer__link" href="index.html">Inicio</a>
+          <a class="site-footer__link" href="servicios.html">Servicios</a>
+          <a class="site-footer__link" href="portafolio.html">Portafolio</a>
+          <a class="site-footer__link" href="nosotros.html">Nosotros</a>
+          <a class="site-footer__link" href="contacto.html">Contacto</a>
+        </nav>
+        <div class="site-footer__nav">
+          <span class="site-footer__label">Contacto</span>
+          <a class="site-footer__link" href="mailto:hello@vicunav.com">hello@vicunav.com</a>
+          <a class="site-footer__link" href="https://wa.me/10000000000" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span>© 2026 Vicunav. Todos los derechos reservados.</span>
+        <span>Respuesta en 1 a 2 días hábiles.</span>
+      </div>
+    </div>
+  </footer>
+  <a class="whatsapp-float" href="https://wa.me/10000000000" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg class="icon" width="30" height="30" aria-hidden="true"><use href="#ico-message-circle"></use></svg>
+  </a>
+<script src="assets/js/nav.js"></script>
+</body>
+</html>
