@@ -100,6 +100,26 @@ Lucide ni ningún sprite por CDN.
   `name` compartido por grupo, para que solo un ítem quede abierto a la vez
   sin JavaScript.
 
+## Uso de modelos al trabajar en este repositorio
+
+La política transversal de pivoteo entre modelos vive en el `CLAUDE.md` global
+del usuario, no se repite aquí. Esta sección solo mapea esa política a las
+tareas concretas de este repositorio:
+
+- **Nivel A (Haiku, directo):** edición mecánica de un archivo HTML ya
+  especificado por completo (markup exacto provisto, solo aplicarlo), ajustes
+  de `icon-defs` para que coincida con los `<use href>` usados, formateo.
+- **Nivel B (Sonnet, borrador a revisar):** comparar una plantilla contra su
+  fuente en `docs/claude-design-full/` o `docs/handoff/diseno/` y reportar
+  discrepancias de markup, texto o estructura. Es juicio, no mecánico, pero no
+  requiere "ver" nada, así que no necesita el modelo tope de la sesión. El
+  resultado es un informe a revisar, nunca un commit directo.
+- **Nivel C (el modelo de la sesión, directo):** diseño de CSS compartido,
+  decisiones de arquitectura de página, y siempre la verificación visual final
+  (capturas en el navegador, comparación lado a lado) antes de dar por cerrada
+  cualquier unidad `paridad-1-1`. Un hallazgo de un subagente Nivel B nunca se
+  da por válido sin esta verificación.
+
 ## Validación
 
 No hay build ni dependencias que instalar. Para revisar cambios:

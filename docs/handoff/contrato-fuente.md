@@ -21,9 +21,11 @@ un commit por plantilla, todos fusionados en `main`. Ese commit,
 referenciarse en el manifiesto de migración de Codex.
 
 Decisiones registradas durante el refinamiento, ver `vicunav-web/AGENTS.md`:
-los paneles "Mockup" del design system se resolvieron como bloques de color
-intencional (no están en el inventario de assets); el PDF de CV enlazado
-desde la plantilla 15 es un faltante real, no incluido en este paquete.
+los paneles "Mockup" (dashboard, reserva, chat, navegador, SEO) y las portadas
+de proyecto "Cover" se transcribieron literal desde los componentes reales del
+proyecto de Claude Design, provistos en `docs/claude-design-full/`; el PDF de
+CV enlazado desde la plantilla 15 no es un faltante real, es el mismo archivo,
+verificado por checksum MD5, que ya estaba subido a ese proyecto.
 
 ## 2. Condiciones de captura
 
