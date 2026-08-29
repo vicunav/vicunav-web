@@ -1,27 +1,33 @@
-<!-- wp:group {"align":"full","backgroundColor":"dark","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap","verticalAlignment":"center"},"style":{"spacing":{"padding":{"top":"1rem","bottom":"1rem","left":"1.5rem","right":"1.5rem"}}}} -->
-<div class="wp-block-group alignfull has-dark-background-color has-background" style="padding-top:1rem;padding-right:1.5rem;padding-bottom:1rem;padding-left:1.5rem">
+<!-- wp:group {"className":"site-header","layout":{"type":"constrained"}} -->
+<div class="wp-block-group site-header">
 
-<!-- wp:site-title {"level":0,"textColor":"light","style":{"typography":{"fontWeight":"800"}}} /-->
+<!-- wp:group {"className":"site-header__bar","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+<div class="wp-block-group site-header__bar">
+
+<!-- wp:site-title {"level":0,"className":"brand"} /-->
 
 <!-- TODO: brand dot decorative glyph -->
 
-<!-- wp:navigation {"textColor":"light","overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"right","orientation":"horizontal"}} -->
-<!-- wp:navigation-link {"label":"Inicio","url":"/"} /-->
+<!-- wp:navigation {"className":"site-nav","overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"right","orientation":"horizontal"}} -->
+<!-- wp:navigation-link {"label":"Inicio","url":"/","className":"site-nav__link"} /-->
 
-<!-- wp:navigation-link {"label":"Servicios","url":"/servicios/"} /-->
+<!-- wp:navigation-link {"label":"Servicios","url":"/servicios/","className":"site-nav__link"} /-->
 
-<!-- wp:navigation-link {"label":"Portafolio","url":"/portafolio/"} /-->
+<!-- wp:navigation-link {"label":"Portafolio","url":"/portafolio/","className":"site-nav__link"} /-->
 
-<!-- wp:navigation-link {"label":"Nosotros","url":"/nosotros/"} /-->
+<!-- wp:navigation-link {"label":"Nosotros","url":"/nosotros/","className":"site-nav__link"} /-->
 
-<!-- wp:navigation-link {"label":"Contacto","url":"/contacto/"} /-->
+<!-- wp:navigation-link {"label":"Contacto","url":"/contacto/","className":"site-nav__link"} /-->
 
 <!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"accent","textColor":"light"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-light-color has-accent-background-color has-text-color has-background wp-element-button" href="/contacto/">Hablemos</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"btn btn--accent btn--sm"} -->
+<div class="wp-block-button btn btn--accent btn--sm"><a class="wp-block-button__link wp-element-button" href="/contacto/">Hablemos</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 <!-- /wp:navigation -->
+
+</div>
+<!-- /wp:group -->
 
 </div>
 <!-- /wp:group -->

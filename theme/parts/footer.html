@@ -1,84 +1,90 @@
-<!-- wp:group {"align":"full","backgroundColor":"dark","style":{"spacing":{"padding":{"top":"3rem","bottom":"2rem","left":"1.5rem","right":"1.5rem"}}}} -->
-<div class="wp-block-group alignfull has-dark-background-color has-background" style="padding-top:3rem;padding-right:1.5rem;padding-bottom:2rem;padding-left:1.5rem">
+<!-- wp:group {"className":"site-footer","layout":{"type":"constrained"}} -->
+<div class="wp-block-group site-footer">
 
-<!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
-<div class="wp-block-group">
+<!-- wp:group {"className":"site-footer__inner","layout":{"type":"constrained"}} -->
+<div class="wp-block-group site-footer__inner">
 
-<!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
+<!-- wp:group {"className":"site-footer__top","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
+<div class="wp-block-group site-footer__top">
 
-<!-- wp:site-title {"level":0,"textColor":"light","style":{"typography":{"fontWeight":"800","fontSize":"1.875rem"}}} /-->
+<!-- wp:group {"className":"site-footer__brand","layout":{"type":"constrained"}} -->
+<div class="wp-block-group site-footer__brand">
+
+<!-- wp:site-title {"level":0,"className":"site-footer__wordmark"} /-->
 
 <!-- TODO: brand dot decorative glyph -->
 
-<!-- wp:paragraph {"textColor":"secondary"} -->
-<p class="has-secondary-color has-text-color">Sitios web y herramientas para profesionales independientes y negocios de servicios.</p>
+<!-- wp:paragraph {"className":"site-footer__desc"} -->
+<p class="site-footer__desc">Sitios web y herramientas para profesionales independientes y negocios de servicios.</p>
 <!-- /wp:paragraph -->
 
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
-<div class="wp-block-group">
+<!-- wp:group {"className":"site-footer__nav","layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+<div class="wp-block-group site-footer__nav">
 
-<!-- wp:paragraph {"textColor":"secondary","style":{"typography":{"fontSize":"0.8rem","textTransform":"uppercase","letterSpacing":"0.05em","fontWeight":"700"}}} -->
-<p class="has-secondary-color has-text-color">Sitio</p>
+<!-- wp:paragraph {"className":"site-footer__label"} -->
+<p class="site-footer__label">Sitio</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"light"} -->
-<p class="has-light-color has-text-color"><a href="/">Inicio</a></p>
+<!-- wp:paragraph -->
+<p><a class="site-footer__link" href="/">Inicio</a></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"light"} -->
-<p class="has-light-color has-text-color"><a href="/servicios/">Servicios</a></p>
+<!-- wp:paragraph -->
+<p><a class="site-footer__link" href="/servicios/">Servicios</a></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"light"} -->
-<p class="has-light-color has-text-color"><a href="/portafolio/">Portafolio</a></p>
+<!-- wp:paragraph -->
+<p><a class="site-footer__link" href="/portafolio/">Portafolio</a></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"light"} -->
-<p class="has-light-color has-text-color"><a href="/nosotros/">Nosotros</a></p>
+<!-- wp:paragraph -->
+<p><a class="site-footer__link" href="/nosotros/">Nosotros</a></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"light"} -->
-<p class="has-light-color has-text-color"><a href="/contacto/">Contacto</a></p>
-<!-- /wp:paragraph -->
-
-</div>
-<!-- /wp:group -->
-
-<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
-<div class="wp-block-group">
-
-<!-- wp:paragraph {"textColor":"secondary","style":{"typography":{"fontSize":"0.8rem","textTransform":"uppercase","letterSpacing":"0.05em","fontWeight":"700"}}} -->
-<p class="has-secondary-color has-text-color">Contacto</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"textColor":"light"} -->
-<p class="has-light-color has-text-color"><a href="mailto:hello@vicunav.com">hello@vicunav.com</a></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"textColor":"light"} -->
-<p class="has-light-color has-text-color"><a href="https://wa.me/10000000000" target="_blank" rel="noopener">WhatsApp</a></p>
+<!-- wp:paragraph -->
+<p><a class="site-footer__link" href="/contacto/">Contacto</a></p>
 <!-- /wp:paragraph -->
 
 </div>
 <!-- /wp:group -->
 
+<!-- wp:group {"className":"site-footer__nav","layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+<div class="wp-block-group site-footer__nav">
+
+<!-- wp:paragraph {"className":"site-footer__label"} -->
+<p class="site-footer__label">Contacto</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><a class="site-footer__link" href="mailto:hello@vicunav.com">hello@vicunav.com</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><a class="site-footer__link" href="https://wa.me/10000000000" target="_blank" rel="noopener">WhatsApp</a></p>
+<!-- /wp:paragraph -->
+
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"},"style":{"spacing":{"margin":{"top":"2rem"},"padding":{"top":"1.5rem"}},"border":{"top":{"color":"var:preset|color|secondary","width":"1px"}}}} -->
-<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--secondary);border-top-width:1px;margin-top:2rem;padding-top:1.5rem">
+</div>
+<!-- /wp:group -->
 
-<!-- wp:paragraph {"textColor":"secondary","style":{"typography":{"fontSize":"0.85rem"}}} -->
-<p class="has-secondary-color has-text-color">© 2026 Vicunav. Todos los derechos reservados.</p>
+<!-- wp:group {"className":"site-footer__bottom","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
+<div class="wp-block-group site-footer__bottom">
+
+<!-- wp:paragraph -->
+<p>© 2026 Vicunav. Todos los derechos reservados.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"secondary","style":{"typography":{"fontSize":"0.85rem"}}} -->
-<p class="has-secondary-color has-text-color">Respuesta en 1 a 2 días hábiles.</p>
+<!-- wp:paragraph -->
+<p>Respuesta en 1 a 2 días hábiles.</p>
 <!-- /wp:paragraph -->
+
+</div>
+<!-- /wp:group -->
 
 </div>
 <!-- /wp:group -->
