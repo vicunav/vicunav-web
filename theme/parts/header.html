@@ -40,15 +40,13 @@
 </svg>
 <!-- /wp:html -->
 
-<!-- wp:group {"className":"site-header","layout":{"type":"constrained"}} -->
+<!-- wp:group {"className":"site-header","layout":{"type":"default"}} -->
 <div class="wp-block-group site-header">
 
 <!-- wp:group {"className":"site-header__bar","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap","verticalAlignment":"center"}} -->
 <div class="wp-block-group site-header__bar">
 
 <!-- wp:site-title {"level":0,"className":"brand"} /-->
-
-<!-- TODO: brand dot decorativo (span de 6px, background accent, después del wordmark) — sin equivalente en bloque core sin recurrir a core/html -->
 
 <!-- wp:navigation {"className":"site-nav","overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"right","orientation":"horizontal"}} -->
 <!-- wp:navigation-link {"label":"Inicio","url":"/","className":"site-nav__link"} /-->
@@ -62,8 +60,8 @@
 <!-- wp:navigation-link {"label":"Contacto","url":"/contacto/","className":"site-nav__link"} /-->
 
 <!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button btn btn--accent btn--sm" href="/contacto/">Hablemos</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"btn btn--accent btn--sm"} -->
+<div class="wp-block-button btn btn--accent btn--sm"><a class="wp-block-button__link wp-element-button" href="/contacto/">Hablemos</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 <!-- /wp:navigation -->
