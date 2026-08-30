@@ -51,6 +51,8 @@ function vicunav_enqueue_assets() {
 		$page_css_slug = 'articulo';
 	} elseif ( is_category() || is_home() ) {
 		$page_css_slug = 'articulos';
+	} elseif ( is_singular( 'vicu_vertical' ) ) {
+		$page_css_slug = get_post_field( 'post_name', get_queried_object_id() );
 	}
 
 	if ( $page_css_slug && file_exists( get_stylesheet_directory() . '/assets/css/pages/' . $page_css_slug . '.css' ) ) {
