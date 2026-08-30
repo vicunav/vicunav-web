@@ -20,17 +20,60 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function vicunav_editor_styles() {
 	add_theme_support( 'editor-styles' );
-	add_editor_style(
-		array(
-			'assets/css/fonts.css',
-			'assets/css/tokens.css',
-			'assets/css/base.css',
-			'assets/css/layout.css',
-			'assets/css/components.css',
-		)
+	add_theme_support( 'align-wide' );
+
+	$styles = array(
+		'assets/css/fonts.css',
+		'assets/css/tokens.css',
+		'assets/css/base.css',
+		'assets/css/layout.css',
+		'assets/css/components.css',
 	);
+
+	/*
+	 * wp_enqueue_scripts (frontend) resuelve el CSS de cada página por slug
+	 * en tiempo de ejecución (ver vicunav_enqueue_assets), pero
+	 * add_editor_style() no tiene ese contexto por post al registrarse:
+	 * corre una sola vez en after_setup_theme para todo el sitio. Sin las
+	 * 15 hojas de assets/css/pages/*.css, el editor nunca ve el color,
+	 * tipografía o posicionamiento propios de cada página (ej.: el H1 de
+	 * Home usaba var(--color-light) desde pages/home.css y se veía oscuro
+	 * sobre fondo oscuro solo en el editor) aunque el frontend sí se viera
+	 * bien. Cada archivo usa un prefijo de clase único por página, así que
+	 * cargarlos todos a la vez en el editor no genera colisiones.
+	 */
+	$page_styles = glob( get_stylesheet_directory() . '/assets/css/pages/*.css' );
+	foreach ( (array) $page_styles as $page_style_path ) {
+		$styles[] = 'assets/css/pages/' . basename( $page_style_path );
+	}
+
+	add_editor_style( $styles );
 }
 add_action( 'after_setup_theme', 'vicunav_editor_styles' );
+
+/*
+ * El editor de bloques (Página/Entrada y Site Editor) clampea a 800px
+ * cualquier bloque de nivel superior en post_content que no tenga la clase
+ * "alignfull"/"alignwide" (regla propia del editor: ".is-root-container >
+ * :not(.alignfull)"). Esa regla nunca existe en el frontend, así que el
+ * frontend siempre se vio bien mientras el editor se veía angosto y con
+ * secciones amontonadas. Marcar el atributo "align":"full" en el bloque no
+ * basta: en esta versión de WordPress, un core/group con layout.type
+ * "default" no recibe la clase "alignfull" en el DOM del editor aunque el
+ * atributo esté guardado (confirmado con wp.data.select('core/block-editor')
+ * mostrando align:"full" pero el elemento renderizado sin la clase). La
+ * clase "vicu-full-bleed" la añadimos nosotros directamente en el HTML
+ * guardado de cada sección de nivel superior, y aquí neutralizamos el
+ * clamp del editor para esa clase con !important, sin depender de que
+ * WordPress aplique alignfull correctamente.
+ */
+function vicunav_editor_only_css() {
+	wp_add_inline_style(
+		'wp-edit-blocks',
+		'.editor-styles-wrapper .is-root-container > .vicu-full-bleed{max-width:none !important;margin-left:0 !important;margin-right:0 !important;}'
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'vicunav_editor_only_css' );
 
 function vicunav_enqueue_assets() {
 	$base = get_stylesheet_directory_uri() . '/assets/css/';
