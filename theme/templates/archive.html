@@ -1,0 +1,51 @@
+<!-- Fuente: sin equivalente directo en el .dc.html (el prototipo no modela archivos de categoría); reutiliza las clases de hero-articulos/articulos-grid para mantener coherencia visual con la página Artículos. -->
+
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"default"}} -->
+<main class="wp-block-group">
+
+<!-- wp:group {"className":"hero-articulos section-dark","layout":{"type":"default"}} -->
+<div class="wp-block-group hero-articulos section-dark">
+<!-- wp:html --><div class="grain"></div><!-- /wp:html -->
+<!-- wp:group {"className":"hero-inner__inner","layout":{"type":"default"}} -->
+<div class="wp-block-group hero-inner__inner">
+<!-- wp:group {"className":"kicker","layout":{"type":"flex"}} -->
+<div class="wp-block-group kicker">
+<!-- wp:group {"className":"kicker__rule","layout":{"type":"default"}} --><div class="wp-block-group kicker__rule"></div><!-- /wp:group -->
+<!-- wp:paragraph {"className":"kicker__label"} --><p class="kicker__label">Artículos</p><!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:query-title {"type":"archive","level":1,"className":"hero-inner__title"} /-->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"articulos-grid-section","layout":{"type":"default"}} -->
+<div class="wp-block-group articulos-grid-section">
+<!-- wp:query {"queryId":2,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true}} -->
+<div class="wp-block-query">
+<!-- wp:post-template {"className":"articulos-grid"} -->
+<!-- wp:group {"className":"article-card","layout":{"type":"default"}} -->
+<div class="wp-block-group article-card">
+<!-- wp:post-terms {"term":"category","className":"badge badge--accent"} /-->
+<!-- wp:post-title {"isLink":true,"level":3,"className":"article-card__title"} /-->
+<!-- wp:post-excerpt {"className":"article-card__excerpt"} /-->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>Todavía no hay artículos en esta categoría.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
