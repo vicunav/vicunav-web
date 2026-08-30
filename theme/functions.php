@@ -13,6 +13,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/*
+ * El iframe del Site Editor / editor de bloques no hereda wp_enqueue_scripts
+ * (ese hook solo pinta el frontend). Sin esto, el editor renderiza los
+ * bloques con cero CSS del tema aplicado.
+ */
+function vicunav_editor_styles() {
+	add_theme_support( 'editor-styles' );
+	add_editor_style(
+		array(
+			'assets/css/fonts.css',
+			'assets/css/tokens.css',
+			'assets/css/base.css',
+			'assets/css/layout.css',
+			'assets/css/components.css',
+		)
+	);
+}
+add_action( 'after_setup_theme', 'vicunav_editor_styles' );
+
 function vicunav_enqueue_assets() {
 	$base = get_stylesheet_directory_uri() . '/assets/css/';
 	$ver  = wp_get_theme()->get( 'Version' );
@@ -33,5 +52,18 @@ function vicunav_enqueue_assets() {
 	if ( $page_css_slug && file_exists( get_stylesheet_directory() . '/assets/css/pages/' . $page_css_slug . '.css' ) ) {
 		wp_enqueue_style( 'vicunav-page-' . $page_css_slug, $base . 'pages/' . $page_css_slug . '.css', array( 'vicunav-components' ), $ver );
 	}
+
+	/*
+	 * El bloque core/button exige que "className" viva en el div contenedor
+	 * (".wp-block-button"), no en el enlace, o el editor lo marca inválido.
+	 * WordPress pinta su propio botón oscuro por defecto en ".wp-block-button__link"
+	 * cuando no tiene color propio asignado; lo neutralizamos para que el
+	 * contenedor (con las clases reales .btn/.btn--accent) sea el único que
+	 * pinta, sin duplicar la píldora.
+	 */
+	wp_add_inline_style(
+		'vicunav-components',
+		'.wp-block-button.btn .wp-block-button__link{background:none;color:inherit;padding:0;border-radius:0;min-height:0;text-decoration:none;}'
+	);
 }
 add_action( 'wp_enqueue_scripts', 'vicunav_enqueue_assets' );
