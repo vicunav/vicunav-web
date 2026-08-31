@@ -13,7 +13,7 @@
   },
   "target": {
     "repository": "vicunav/vicunav-web",
-    "commit": "d4cf9a745599b65ac5bb9502b0711054f357ad56",
+    "commit": "cdc016d868713e532121fbfe975b9e5c39678fd8",
     "wordpressVersion": "7.1",
     "phpVersion": "8.2.29"
   },
