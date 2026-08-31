@@ -14,6 +14,55 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /*
+ * El baseline estático mostraba "X min de lectura" en cada tarjeta de
+ * artículo, como <span class="article-card__read"> HERMANO del título y el
+ * excerpt dentro de .article-card (que es flex column; el CSS usa
+ * margin-top:auto en ese span para empujarlo al fondo de la tarjeta). No
+ * existe un bloque core para "tiempo de lectura" porque depende del
+ * contenido real de cada post.
+ *
+ * Un core/shortcode dentro de core/post-template (el Query Loop de
+ * templates/archive.html) NO se expande — confirmado con render_block()
+ * aislado: la expansión de do_shortcode() ocurre como parte del filtro
+ * the_content sobre el contenido YA renderizado de una página completa, y
+ * el Query Loop no pasa por ese filtro.
+ *
+ * Colgar el badge del filtro de core/post-excerpt tampoco sirve: lo
+ * anidaría DENTRO de .article-card__excerpt en vez de como hermano, y
+ * margin-top:auto no empuja nada al fondo si su padre inmediato no es el
+ * contenedor flex (.article-card__excerpt no lo es). La solución correcta:
+ * el filtro genérico render_block, que sí se dispara por cada bloque del
+ * Query Loop con el post correcto ya establecido, apuntado solo al
+ * core/group con className "article-card" (el wrapper real de la
+ * tarjeta) e insertando el span antes de su última etiqueta de cierre.
+ */
+function vicunav_append_reading_time_to_article_card( $block_content, $parsed_block ) {
+	if ( ( $parsed_block['blockName'] ?? '' ) !== 'core/group' ) {
+		return $block_content;
+	}
+	$class_names = explode( ' ', trim( (string) ( $parsed_block['attrs']['className'] ?? '' ) ) );
+	if ( ! in_array( 'article-card', $class_names, true ) ) {
+		return $block_content;
+	}
+
+	$word_count = str_word_count( wp_strip_all_tags( get_the_content() ) );
+	$minutes    = max( 1, (int) ceil( $word_count / 200 ) );
+	$label      = sprintf(
+		/* translators: %d: reading time in minutes. */
+		_n( '%d min de lectura', '%d min de lectura', $minutes, 'vicunav' ),
+		$minutes
+	);
+	$badge = '<span class="article-card__read">' . esc_html( $label ) . '</span>';
+
+	$last_closing_tag = strrpos( $block_content, '</div>' );
+	if ( false === $last_closing_tag ) {
+		return $block_content . $badge;
+	}
+	return substr_replace( $block_content, $badge . '</div>', $last_closing_tag, strlen( '</div>' ) );
+}
+add_filter( 'render_block', 'vicunav_append_reading_time_to_article_card', 10, 2 );
+
+/*
  * El iframe del Site Editor / editor de bloques no hereda wp_enqueue_scripts
  * (ese hook solo pinta el frontend). Sin esto, el editor renderiza los
  * bloques con cero CSS del tema aplicado.
