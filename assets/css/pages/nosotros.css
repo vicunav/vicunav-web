@@ -23,7 +23,14 @@
 .hero-nosotros__art{
   position:relative;
 }
-.hero-nosotros__img{
+/*
+ * Selector doble a propósito, ver founder-teaser__img en pages/home.css:
+ * este mismo archivo lo usan el baseline estático (className directo en el
+ * <img>) y WordPress (className en el <figure> que envuelve al <img> vía
+ * core/image) — sin la segunda parte, la foto no se recorta a 4:5 en WP.
+ */
+.hero-nosotros__img,
+.hero-nosotros__img img{
   display:block;
   width:100%;
   height:auto;

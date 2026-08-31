@@ -345,6 +345,21 @@
 .founder-teaser__img{
   position:relative;
   z-index:2;
+}
+/*
+ * Selector doble a propósito: este mismo archivo lo usan tanto el baseline
+ * estático (theme/assets es symlink a ../assets, mismo archivo físico) como
+ * el theme de WordPress. En el baseline, ".founder-teaser__img" va
+ * directo en el <img>. En WordPress, el bloque core/image pone el
+ * className en el <figure> que envuelve al <img>, nunca en el <img> mismo
+ * — sin la segunda parte del selector, "object-fit" no tiene efecto sobre
+ * un <figure> (no es un elemento reemplazado) y la foto se estira a su
+ * proporción nativa (2:3) en vez de recortarse a 4:5, quedando más alta de
+ * lo esperado. Cubrir ambos casos evita necesitar un archivo CSS separado
+ * por plataforma para el mismo componente.
+ */
+.founder-teaser__img,
+.founder-teaser__img img{
   display:block;
   width:100%;
   height:auto;

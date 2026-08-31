@@ -67,13 +67,130 @@ add_action( 'after_setup_theme', 'vicunav_editor_styles' );
  * clamp del editor para esa clase con !important, sin depender de que
  * WordPress aplique alignfull correctamente.
  */
+/*
+ * CSS compartido entre frontend (wp_enqueue_scripts) y editor
+ * (enqueue_block_editor_assets): correcciones sobre las clases reales del
+ * baseline que WordPress no resuelve solo. Vivir en una sola función evita
+ * que una de las dos superficies quede desactualizada respecto a la otra,
+ * que es exactamente cómo se coló el bug de botones más grandes en el
+ * editor (este bloque vivía solo en el hook de frontend).
+ */
+function vicunav_shared_inline_css() {
+	return
+		/*
+		 * El bloque core/button exige que "className" viva en el div
+		 * contenedor (".wp-block-button"), no en el enlace, o el editor lo
+		 * marca inválido. WordPress pinta su propio botón oscuro por
+		 * defecto en ".wp-block-button__link" cuando no tiene color propio
+		 * asignado; lo neutralizamos para que el contenedor (con las clases
+		 * reales .btn/.btn--accent) sea el único que pinta, sin duplicar la
+		 * píldora.
+		 */
+		'.wp-block-button.btn .wp-block-button__link{background:none;color:inherit;padding:0;border-radius:0;min-height:0;text-decoration:none;}' .
+		/*
+		 * El baseline diseñó .filter-chip y los títulos de article-card
+		 * como <button>/texto plano; aquí son enlaces reales de WordPress
+		 * (navegación real a archivos de categoría y a cada post), así que
+		 * se resetea el subrayado por defecto del navegador para <a>.
+		 */
+		'.filter-chip{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;} .article-card__title a,.article-card__title.wp-block-post-title a,.badge a,.badge.wp-block-post-terms a{text-decoration:none;color:inherit;} ul.wp-block-post-template{list-style:none;margin:0;padding:0;} ul.wp-block-post-template>li{margin:0;}' .
+		/*
+		 * WordPress core (block-library/style.css, cargado en frontend Y
+		 * editor) trae una regla global "is-layout-flow > * { margin-block:
+		 * 24px 0px; }" — su sistema de "block spacing" automático entre
+		 * hijos de cualquier core/group con layout tipo "flow"/"default".
+		 * El diseño aprobado nunca usó ese sistema: cada componente controla
+		 * su propio espaciado con "gap" explícito (.pillars__grid, .kicker,
+		 * .founder-teaser, etc.) o márgenes puntuales ya definidos en
+		 * components.css/pages/*.css. El resultado, sin este reset, es
+		 * espaciado duplicado (gap + el margin-top de WordPress) en
+		 * prácticamente cualquier sección con elementos apilados de las 15
+		 * páginas — confirmado midiendo Home a 390px: pillars pasaba de
+		 * 1439px (baseline) a 1727px (WordPress), founder-teaser de 1135px a
+		 * 1365px, únicamente por este margin extra sumado varias veces en
+		 * cascada. No es "is-layout-flex"/"is-layout-grid" (esos ya usan
+		 * gap nativo de CSS, no margin) — solo "is-layout-flow" necesita el
+		 * reset.
+		 */
+		'.is-layout-flow > *{margin-block-start:0 !important;}';
+}
+
 function vicunav_editor_only_css() {
 	wp_add_inline_style(
 		'wp-edit-blocks',
-		'.editor-styles-wrapper .is-root-container > .vicu-full-bleed{max-width:none !important;margin-left:0 !important;margin-right:0 !important;}'
+		'.editor-styles-wrapper .is-root-container > .vicu-full-bleed{max-width:none !important;margin-left:0 !important;margin-right:0 !important;}' .
+		/*
+		 * Cada página/CPT usa un template genérico sin wp:post-title (el
+		 * hero real, con su propio título grande, vive en el post_content).
+		 * Sin un wp:post-title explícito en el template, el editor de
+		 * bloques igual inyecta un campo de título editable arriba del
+		 * canvas (.editor-visual-editor__post-title-wrapper) — no viene del
+		 * template ni del post_content, es UI del editor. En el frontend
+		 * nunca aparece. Se oculta acá; el título real del post sigue
+		 * editable desde el panel lateral (Page/Post) o el listado, no se
+		 * pierde la capacidad de renombrar la página.
+		 */
+		'.editor-visual-editor__post-title-wrapper{display:none !important;}' .
+		vicunav_shared_inline_css()
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'vicunav_editor_only_css' );
+
+/*
+ * Los 35 <symbol> de íconos (ico-mail, ico-download, etc.) viven en
+ * theme/parts/header.html, un template part. El editor de bloques de una
+ * página/entrada individual (a diferencia del Site Editor) NUNCA renderiza
+ * el header/footer dentro de su iframe de canvas — solo el post_content —
+ * así que cualquier <use href="#ico-X"> dentro de una página no encuentra
+ * su <symbol> y el ícono queda invisible, aunque en el frontend (donde el
+ * header sí se renderiza en el mismo documento) se vea perfecto. Centralizar
+ * los símbolos en el header evita duplicarlos en las 15 páginas; el precio
+ * es que hay que inyectarlos también en el editor. Se inyecta el mismo
+ * bloque <svg class="icon-defs"> leído en el servidor desde header.html
+ * directamente en el <body> del iframe del canvas vía JS, con reintentos
+ * porque el iframe no existe todavía en el primer render del editor.
+ */
+function vicunav_editor_icon_defs_script() {
+	$header_path = get_stylesheet_directory() . '/parts/header.html';
+	if ( ! file_exists( $header_path ) ) {
+		return;
+	}
+	$header_html = file_get_contents( $header_path );
+	if ( ! preg_match( '/<svg class="icon-defs"[^>]*>.*?<\/svg>/s', $header_html, $matches ) ) {
+		return;
+	}
+	$icon_defs_json = wp_json_encode( $matches[0] );
+	$script         = <<<JS
+(function () {
+	var iconDefsHtml = {$icon_defs_json};
+	function inject() {
+		var iframe = document.querySelector('iframe[name="editor-canvas"]');
+		var doc = iframe && iframe.contentDocument;
+		if ( ! doc || ! doc.body ) {
+			return false;
+		}
+		if ( doc.querySelector( 'svg.icon-defs' ) ) {
+			return true;
+		}
+		var wrapper = doc.createElement( 'div' );
+		wrapper.setAttribute( 'aria-hidden', 'true' );
+		wrapper.style.display = 'none';
+		wrapper.innerHTML = iconDefsHtml;
+		doc.body.prepend( wrapper );
+		return true;
+	}
+	var attempts = 0;
+	var timer = setInterval( function () {
+		attempts++;
+		if ( inject() || attempts > 60 ) {
+			clearInterval( timer );
+		}
+	}, 250 );
+})();
+JS;
+	wp_add_inline_script( 'wp-blocks', $script );
+}
+add_action( 'enqueue_block_editor_assets', 'vicunav_editor_icon_defs_script' );
 
 function vicunav_enqueue_assets() {
 	$base = get_stylesheet_directory_uri() . '/assets/css/';
@@ -102,28 +219,6 @@ function vicunav_enqueue_assets() {
 		wp_enqueue_style( 'vicunav-page-' . $page_css_slug, $base . 'pages/' . $page_css_slug . '.css', array( 'vicunav-components' ), $ver );
 	}
 
-	/*
-	 * El bloque core/button exige que "className" viva en el div contenedor
-	 * (".wp-block-button"), no en el enlace, o el editor lo marca inválido.
-	 * WordPress pinta su propio botón oscuro por defecto en ".wp-block-button__link"
-	 * cuando no tiene color propio asignado; lo neutralizamos para que el
-	 * contenedor (con las clases reales .btn/.btn--accent) sea el único que
-	 * pinta, sin duplicar la píldora.
-	 */
-	wp_add_inline_style(
-		'vicunav-components',
-		'.wp-block-button.btn .wp-block-button__link{background:none;color:inherit;padding:0;border-radius:0;min-height:0;text-decoration:none;}'
-	);
-
-	/*
-	 * El baseline diseñó .filter-chip y los títulos de article-card como
-	 * <button>/texto plano; aquí son enlaces reales de WordPress (navegación
-	 * real a archivos de categoría y a cada post), así que se resetea el
-	 * subrayado por defecto del navegador para <a>.
-	 */
-	wp_add_inline_style(
-		'vicunav-components',
-		'.filter-chip{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;} .article-card__title a,.article-card__title.wp-block-post-title a,.badge a,.badge.wp-block-post-terms a{text-decoration:none;color:inherit;} ul.wp-block-post-template{list-style:none;margin:0;padding:0;} ul.wp-block-post-template>li{margin:0;}'
-	);
+	wp_add_inline_style( 'vicunav-components', vicunav_shared_inline_css() );
 }
 add_action( 'wp_enqueue_scripts', 'vicunav_enqueue_assets' );
