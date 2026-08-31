@@ -13,7 +13,7 @@
   },
   "target": {
     "repository": "vicunav/vicunav-web",
-    "commit": null,
+    "commit": "d4cf9a745599b65ac5bb9502b0711054f357ad56",
     "wordpressVersion": "7.1",
     "phpVersion": "8.2.29"
   },
@@ -382,7 +382,7 @@
       "id": "articulo",
       "owner": "vicunav/vicunav-web",
       "sourceUrl": "http://127.0.0.1:8080/articulo.html",
-      "targetUrl": "https://vicunav-web.local/articulos/menu-qr/",
+      "targetUrl": "https://vicunav-web.local/menu-qr/",
       "fixture": "public-default",
       "states": [
         "default"
@@ -407,7 +407,7 @@
       "id": "cv",
       "owner": "vicunav/vicunav-web",
       "sourceUrl": "http://127.0.0.1:8080/cv.html",
-      "targetUrl": "https://vicunav-web.local/mario/",
+      "targetUrl": "https://vicunav-web.local/cv/",
       "fixture": "public-default",
       "states": [
         "default"
@@ -499,7 +499,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:04.531Z",
-      "sourceCaptureSha256": "268cf53782947b318a2613258f9dd92341ea5233866c1260460d317848738f29"
+      "sourceCaptureSha256": "268cf53782947b318a2613258f9dd92341ea5233866c1260460d317848738f29",
+      "targetCapturedAt": "2026-08-31T01:39:17.824Z",
+      "targetCaptureSha256": "206a599df1f9fd9e828b5bc65da436c0dd1f2e6cf46aa14adfbf3731fa77d02c"
     },
     {
       "surface": "home",
@@ -515,7 +517,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:05.536Z",
-      "sourceCaptureSha256": "5087a7bc58c6135892d59858467fb61314aa9883d8b8d8d700697af5d3736739"
+      "sourceCaptureSha256": "5087a7bc58c6135892d59858467fb61314aa9883d8b8d8d700697af5d3736739",
+      "targetCapturedAt": "2026-08-31T01:39:19.072Z",
+      "targetCaptureSha256": "777ec7f949cf15b4c0527b177c457869cb66253218ac9fa4383b39c2a37a314b"
     },
     {
       "surface": "home",
@@ -531,7 +535,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:06.698Z",
-      "sourceCaptureSha256": "8281d8097065e790f8bc6139927c49414a2125b6bcc106d011b20124b36884e8"
+      "sourceCaptureSha256": "8281d8097065e790f8bc6139927c49414a2125b6bcc106d011b20124b36884e8",
+      "targetCapturedAt": "2026-08-31T01:39:20.529Z",
+      "targetCaptureSha256": "8a67a6d63f9e8b8f9187e590fda372649cc1c5f78019fcf4e2e3acd56a33e9a2"
     },
     {
       "surface": "servicios",
@@ -547,7 +553,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:07.631Z",
-      "sourceCaptureSha256": "d38b59b0a3380788e1fc371c2c4addf19785749585561df8c1c54e32783e4a37"
+      "sourceCaptureSha256": "d38b59b0a3380788e1fc371c2c4addf19785749585561df8c1c54e32783e4a37",
+      "targetCapturedAt": "2026-08-31T01:39:21.701Z",
+      "targetCaptureSha256": "18b6834e2d6ec30e7ace65911ad27e48630a9512f55ae27533b0edeecfee8f8d"
     },
     {
       "surface": "servicios",
@@ -563,7 +571,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:08.613Z",
-      "sourceCaptureSha256": "3d2472b29b2d0f33cbf406b401380236d6915aa5580200a3a67c03b8ceb72e9a"
+      "sourceCaptureSha256": "3d2472b29b2d0f33cbf406b401380236d6915aa5580200a3a67c03b8ceb72e9a",
+      "targetCapturedAt": "2026-08-31T01:39:22.925Z",
+      "targetCaptureSha256": "73a003f9bbfd74b1f324b30bfb5bd5da303daa5760d89ef75794489e66f82fa0"
     },
     {
       "surface": "servicios",
@@ -579,7 +589,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:09.642Z",
-      "sourceCaptureSha256": "9fa352f8c261d5224f0b9e8a5245dd318a0cffff6b5c6a21efb0d17a3f73ce7a"
+      "sourceCaptureSha256": "9fa352f8c261d5224f0b9e8a5245dd318a0cffff6b5c6a21efb0d17a3f73ce7a",
+      "targetCapturedAt": "2026-08-31T01:39:54.119Z",
+      "targetCaptureSha256": "7568f49c16a27ec6ac72ab358203cbbe7a8eb48087c43e266ed869a7d6d34ffd"
     },
     {
       "surface": "portafolio",
@@ -595,7 +607,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:10.417Z",
-      "sourceCaptureSha256": "29f58b4da9eb70f29c7a8137531bbd925c27e050fa6e4d9d91a780a1c285881e"
+      "sourceCaptureSha256": "29f58b4da9eb70f29c7a8137531bbd925c27e050fa6e4d9d91a780a1c285881e",
+      "targetCapturedAt": "2026-08-31T01:39:55.108Z",
+      "targetCaptureSha256": "0adc0dfae44b172601f338e96b25324c908fb0ce3f83db94e2542ea785302034"
     },
     {
       "surface": "portafolio",
@@ -611,7 +625,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:11.236Z",
-      "sourceCaptureSha256": "e8c5d20e99a470bc1ed2c4ee1acb4af6b4c7c7396a52ca54529317f4a807826d"
+      "sourceCaptureSha256": "e8c5d20e99a470bc1ed2c4ee1acb4af6b4c7c7396a52ca54529317f4a807826d",
+      "targetCapturedAt": "2026-08-31T01:39:56.118Z",
+      "targetCaptureSha256": "fa95a16836e193eeb32efa6ea1e22d090cc6a5df2029e146d48adc4cb27cb6b5"
     },
     {
       "surface": "portafolio",
@@ -627,7 +643,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:12.119Z",
-      "sourceCaptureSha256": "72c54c33ff8c2f316ec833a977918eec78f25f169d381c28a7c25b154a01b3ba"
+      "sourceCaptureSha256": "72c54c33ff8c2f316ec833a977918eec78f25f169d381c28a7c25b154a01b3ba",
+      "targetCapturedAt": "2026-08-31T01:39:57.187Z",
+      "targetCaptureSha256": "477dc4e1a134039c2e9a2601afe721f7279d452adf2ffaa95317e3d69ebf5b30"
     },
     {
       "surface": "contacto",
@@ -643,7 +661,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:12.888Z",
-      "sourceCaptureSha256": "69cc84ea5c0d9a41552a5d4fc63ac220352d7ab6f77d1f78128397de2799223d"
+      "sourceCaptureSha256": "69cc84ea5c0d9a41552a5d4fc63ac220352d7ab6f77d1f78128397de2799223d",
+      "targetCapturedAt": "2026-08-31T01:39:58.153Z",
+      "targetCaptureSha256": "8a13c9ec8c77466c4671b18e149c7b2a9941b16bdeceead31ea647cb5c0247d1"
     },
     {
       "surface": "contacto",
@@ -659,7 +679,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:13.678Z",
-      "sourceCaptureSha256": "2d9399d54a79f3603f9c4a1531e7eb9173ad5b88bb0c005d390448b5ea7043a9"
+      "sourceCaptureSha256": "2d9399d54a79f3603f9c4a1531e7eb9173ad5b88bb0c005d390448b5ea7043a9",
+      "targetCapturedAt": "2026-08-31T01:39:59.144Z",
+      "targetCaptureSha256": "1e0e4ea71c67b00b89911ea6341881567b656f3e1ed708bcc42f048bc124b303"
     },
     {
       "surface": "contacto",
@@ -675,7 +697,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:14.524Z",
-      "sourceCaptureSha256": "e0ef4df946b542db9ef77edfdf7b607ab055f6b684e5161faa8c7a3b9741e797"
+      "sourceCaptureSha256": "e0ef4df946b542db9ef77edfdf7b607ab055f6b684e5161faa8c7a3b9741e797",
+      "targetCapturedAt": "2026-08-31T01:40:00.167Z",
+      "targetCaptureSha256": "b28893a00d8f068e21153edf868d6bdcb361b24eca45be8b460a86d15b657e11"
     },
     {
       "surface": "nosotros",
@@ -691,7 +715,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:15.408Z",
-      "sourceCaptureSha256": "f252418a2586c18f67b1cd4edbe2a8c8f23e53d4d058adc8d55c802b4c74b2b1"
+      "sourceCaptureSha256": "f252418a2586c18f67b1cd4edbe2a8c8f23e53d4d058adc8d55c802b4c74b2b1",
+      "targetCapturedAt": "2026-08-31T01:40:15.940Z",
+      "targetCaptureSha256": "550142fe39583be6cd92667f4a1ecb21b6575e682052ed17315c3fad386443ad"
     },
     {
       "surface": "nosotros",
@@ -707,7 +733,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:16.351Z",
-      "sourceCaptureSha256": "00af33411abdf714dd2067dfd35ff0fb53c4a820ee4c5a190a1ed2fef3d04e21"
+      "sourceCaptureSha256": "00af33411abdf714dd2067dfd35ff0fb53c4a820ee4c5a190a1ed2fef3d04e21",
+      "targetCapturedAt": "2026-08-31T01:40:31.758Z",
+      "targetCaptureSha256": "8b5cbf5e611b885ca5f261ab2d988f37018a0ff0af956a1cf647e69a2a0da55e"
     },
     {
       "surface": "nosotros",
@@ -723,7 +751,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:17.420Z",
-      "sourceCaptureSha256": "6a32cd23a41d93e3c197e784f83af2e03706af6df9deb02a9937d2eb2ebe7b22"
+      "sourceCaptureSha256": "6a32cd23a41d93e3c197e784f83af2e03706af6df9deb02a9937d2eb2ebe7b22",
+      "targetCapturedAt": "2026-08-31T01:40:33.090Z",
+      "targetCaptureSha256": "b369494dbfb6be11bdb26c4fa024959955f6ebbe3bbe82a9301750a10cf429b0"
     },
     {
       "surface": "restaurantes",
@@ -739,7 +769,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:18.402Z",
-      "sourceCaptureSha256": "d7179f1cb1f39786ea75bc8a2189c80121941966de1f66a7764dbd5adc259611"
+      "sourceCaptureSha256": "d7179f1cb1f39786ea75bc8a2189c80121941966de1f66a7764dbd5adc259611",
+      "targetCapturedAt": "2026-08-31T01:40:34.308Z",
+      "targetCaptureSha256": "f486459ac0a99f8a54190ce58e11b9ab3c334f0079b36ae23caa1a0c3f82e9e8"
     },
     {
       "surface": "restaurantes",
@@ -755,7 +787,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:19.452Z",
-      "sourceCaptureSha256": "ee400812e0865a5f24133ae8d59cec03b2229926a55f76c2968e4923daf52a23"
+      "sourceCaptureSha256": "ee400812e0865a5f24133ae8d59cec03b2229926a55f76c2968e4923daf52a23",
+      "targetCapturedAt": "2026-08-31T01:40:35.612Z",
+      "targetCaptureSha256": "fafc121de22d6171157b33f8244fb6b7e4e43aec07fb5fa1af413fb453142912"
     },
     {
       "surface": "restaurantes",
@@ -771,7 +805,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:20.581Z",
-      "sourceCaptureSha256": "b43c516397b623f289abd1f073f88f6ce51633d75d92e9ffb53f1cac423727c2"
+      "sourceCaptureSha256": "b43c516397b623f289abd1f073f88f6ce51633d75d92e9ffb53f1cac423727c2",
+      "targetCapturedAt": "2026-08-31T01:40:36.997Z",
+      "targetCaptureSha256": "d4999ec83c40e2c9e58f3a6c75f5dc3b02b58b420f9e210a2e3f7ceee12f2cde"
     },
     {
       "surface": "hoteles",
@@ -787,7 +823,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:21.555Z",
-      "sourceCaptureSha256": "477d396f7eb79a0e5277928a33ff10350db2401273d81483ea56b50431d965c8"
+      "sourceCaptureSha256": "477d396f7eb79a0e5277928a33ff10350db2401273d81483ea56b50431d965c8",
+      "targetCapturedAt": "2026-08-31T01:40:38.198Z",
+      "targetCaptureSha256": "54204f3fa659275c5640f98b3b3b90d53645464b7e147ddb87337f4d3c2acf8c"
     },
     {
       "surface": "hoteles",
@@ -803,7 +841,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:22.583Z",
-      "sourceCaptureSha256": "3b7cb6779070539671cbac15e91fdbc155541ec8a88a1249a135a4546def0dcb"
+      "sourceCaptureSha256": "3b7cb6779070539671cbac15e91fdbc155541ec8a88a1249a135a4546def0dcb",
+      "targetCapturedAt": "2026-08-31T01:40:39.487Z",
+      "targetCaptureSha256": "def00709606a29d40596402051a5ce08a54087b28a3ca237d8b1370b31a4817d"
     },
     {
       "surface": "hoteles",
@@ -819,7 +859,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:23.685Z",
-      "sourceCaptureSha256": "d4fe33b2b85bf73e3b5bd7910c4c38b8ea6b33ce85be962dac17ef848b31ef3d"
+      "sourceCaptureSha256": "d4fe33b2b85bf73e3b5bd7910c4c38b8ea6b33ce85be962dac17ef848b31ef3d",
+      "targetCapturedAt": "2026-08-31T01:40:40.859Z",
+      "targetCaptureSha256": "9a085b7e704297f01db74f59feba191b06410ec96288b1ae38e896a91d71490d"
     },
     {
       "surface": "bienestar",
@@ -835,7 +877,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:24.647Z",
-      "sourceCaptureSha256": "e2caa207bf5ce8725d13934896ccd91272a34b3971e94e1b0afeba2fbffcab98"
+      "sourceCaptureSha256": "e2caa207bf5ce8725d13934896ccd91272a34b3971e94e1b0afeba2fbffcab98",
+      "targetCapturedAt": "2026-08-31T01:40:42.070Z",
+      "targetCaptureSha256": "c749337b84682de440e1ee6b8001524e4cd11cf52b63d03d88076abba419e48b"
     },
     {
       "surface": "bienestar",
@@ -851,7 +895,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:25.661Z",
-      "sourceCaptureSha256": "cd80712a104b9134fea260351851d76e8ff90c72db703486c2faf2366c9671b9"
+      "sourceCaptureSha256": "cd80712a104b9134fea260351851d76e8ff90c72db703486c2faf2366c9671b9",
+      "targetCapturedAt": "2026-08-31T01:40:43.347Z",
+      "targetCaptureSha256": "22d82ea201b10d44fc61fd374d5911bb906a38eca2a7fa187a8256a695f72ef0"
     },
     {
       "surface": "bienestar",
@@ -867,7 +913,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:26.749Z",
-      "sourceCaptureSha256": "494bb242202373ab64b2dfafea9f77587f4104c65ddf221d90578b0566833c4b"
+      "sourceCaptureSha256": "494bb242202373ab64b2dfafea9f77587f4104c65ddf221d90578b0566833c4b",
+      "targetCapturedAt": "2026-08-31T01:40:44.688Z",
+      "targetCaptureSha256": "44ca34a7212cfe6c86496087a12d21aeb7e6e236029c0e91f83ad513fa21fec3"
     },
     {
       "surface": "sistemas",
@@ -883,7 +931,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:27.654Z",
-      "sourceCaptureSha256": "79eca941ef669b1ec3702672d305765e573cde251bda921561ba6d3734f5fa88"
+      "sourceCaptureSha256": "79eca941ef669b1ec3702672d305765e573cde251bda921561ba6d3734f5fa88",
+      "targetCapturedAt": "2026-08-31T01:40:45.839Z",
+      "targetCaptureSha256": "926a4a9e751fc48392547f2c55cf7b70a19101d49a181758ac2f9a86c35aecf4"
     },
     {
       "surface": "sistemas",
@@ -899,7 +949,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:28.614Z",
-      "sourceCaptureSha256": "59f3b07e7f1513ba8125678c51a41ad50bec9759a857e88088d875bd9258c523"
+      "sourceCaptureSha256": "59f3b07e7f1513ba8125678c51a41ad50bec9759a857e88088d875bd9258c523",
+      "targetCapturedAt": "2026-08-31T01:40:47.038Z",
+      "targetCaptureSha256": "3b92743acf5d05d6b2c6ce8d4353db89d9c9810fce12654fec8f657943cd6798"
     },
     {
       "surface": "sistemas",
@@ -915,7 +967,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:29.632Z",
-      "sourceCaptureSha256": "18c27d588457bdbb077a102a6e48daf2ec075a3d376d4c94e074ea8e666a695e"
+      "sourceCaptureSha256": "18c27d588457bdbb077a102a6e48daf2ec075a3d376d4c94e074ea8e666a695e",
+      "targetCapturedAt": "2026-08-31T01:40:48.320Z",
+      "targetCaptureSha256": "7c2e4aa41bb6802669a114fb3003fb831b985a04aaadc04bb1bff747a2a2ac14"
     },
     {
       "surface": "automatizacion",
@@ -931,7 +985,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:30.519Z",
-      "sourceCaptureSha256": "c685ce3fc915675be12535aa02a46ed1d1052d9491d884ea9f45380c3f0a4ba8"
+      "sourceCaptureSha256": "c685ce3fc915675be12535aa02a46ed1d1052d9491d884ea9f45380c3f0a4ba8",
+      "targetCapturedAt": "2026-08-31T01:41:04.456Z",
+      "targetCaptureSha256": "155b5afb29d4ec35a22430c8abeeb3ce7779180e9a7cad3fbde66274acc48713"
     },
     {
       "surface": "automatizacion",
@@ -947,7 +1003,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:31.465Z",
-      "sourceCaptureSha256": "14cb063cd83666513b131d7a0ccd1a44b22b9e67c814adccb95972b0f9d4dc09"
+      "sourceCaptureSha256": "14cb063cd83666513b131d7a0ccd1a44b22b9e67c814adccb95972b0f9d4dc09",
+      "targetCapturedAt": "2026-08-31T01:41:05.665Z",
+      "targetCaptureSha256": "ab3cfe82526ec40031e3fd7c34d2956592358cebd396971a271c01fbd6242cd7"
     },
     {
       "surface": "automatizacion",
@@ -963,7 +1021,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:32.465Z",
-      "sourceCaptureSha256": "0dba95d5c5fa88a1936ea124429a802e2a66398f8ef8fb00b791d851a85a20cf"
+      "sourceCaptureSha256": "0dba95d5c5fa88a1936ea124429a802e2a66398f8ef8fb00b791d851a85a20cf",
+      "targetCapturedAt": "2026-08-31T01:41:06.923Z",
+      "targetCaptureSha256": "2607802f558111a32dd644ed2aa397df9672086ffd39e9cf2c9b2fdce6145386"
     },
     {
       "surface": "sitios",
@@ -979,7 +1039,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:33.376Z",
-      "sourceCaptureSha256": "c1a0adc174a16ca4eb23175d4d94ee8f2cf7ca7a2e2ee98bf523d5ffc3bfcd2b"
+      "sourceCaptureSha256": "c1a0adc174a16ca4eb23175d4d94ee8f2cf7ca7a2e2ee98bf523d5ffc3bfcd2b",
+      "targetCapturedAt": "2026-08-31T01:41:08.112Z",
+      "targetCaptureSha256": "9be88e10a4c6b833fab9105a375c2d3185c3495aa850d1409cc1e32e0b0e5ded"
     },
     {
       "surface": "sitios",
@@ -995,7 +1057,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:34.330Z",
-      "sourceCaptureSha256": "fc86a4e34000c298bd25f687e28abfa033f893b44e9cecabf7e3e3d5747a9569"
+      "sourceCaptureSha256": "fc86a4e34000c298bd25f687e28abfa033f893b44e9cecabf7e3e3d5747a9569",
+      "targetCapturedAt": "2026-08-31T01:41:09.304Z",
+      "targetCaptureSha256": "3d979b86131fb64f3c1a1e0fc503d759967bf177f50bdf2e4c4c54d176085ad1"
     },
     {
       "surface": "sitios",
@@ -1011,7 +1075,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:35.327Z",
-      "sourceCaptureSha256": "e0621dd9433da88e383ba228bc6db1b3caf6b910456c9e9365290f5adaa3e31c"
+      "sourceCaptureSha256": "e0621dd9433da88e383ba228bc6db1b3caf6b910456c9e9365290f5adaa3e31c",
+      "targetCapturedAt": "2026-08-31T01:41:10.582Z",
+      "targetCaptureSha256": "95dd14ea02fab353b0ee4855ef2e1ebe19f5da989eef8836fbda612e228cc261"
     },
     {
       "surface": "visibilidad",
@@ -1027,7 +1093,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:36.243Z",
-      "sourceCaptureSha256": "3d36f4b3d19f7a88e594ef7d00fe07996fa8adad389d004986df21f10c877596"
+      "sourceCaptureSha256": "3d36f4b3d19f7a88e594ef7d00fe07996fa8adad389d004986df21f10c877596",
+      "targetCapturedAt": "2026-08-31T01:41:41.917Z",
+      "targetCaptureSha256": "521931bf15d2bb85ffb760fb849689807f85354fcfa174ff25467d05c61e4773"
     },
     {
       "surface": "visibilidad",
@@ -1043,7 +1111,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:37.176Z",
-      "sourceCaptureSha256": "2487a51c254d2641edabbd78863b92c14a1838bdc66cc8468b67062adad81136"
+      "sourceCaptureSha256": "2487a51c254d2641edabbd78863b92c14a1838bdc66cc8468b67062adad81136",
+      "targetCapturedAt": "2026-08-31T01:41:43.122Z",
+      "targetCaptureSha256": "d06fded922035a4ce33462e9842592fbb8f4b94b08ba4ad5bec4fb5909fe1516"
     },
     {
       "surface": "visibilidad",
@@ -1059,7 +1129,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:38.197Z",
-      "sourceCaptureSha256": "ee795341d267c57d19f3c6b3cdde1e376289eb6bc47e02a998271de71b566db8"
+      "sourceCaptureSha256": "ee795341d267c57d19f3c6b3cdde1e376289eb6bc47e02a998271de71b566db8",
+      "targetCapturedAt": "2026-08-31T01:41:44.380Z",
+      "targetCaptureSha256": "3945dfccacfc3f371de22ddbb5224482c26b9a0ec19db532fa27e1f046eb6454"
     },
     {
       "surface": "articulos",
@@ -1075,7 +1147,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:39.039Z",
-      "sourceCaptureSha256": "be9484321eca4add561480fea3ac79f11dae20e5bf3739634c3b7d7599e29636"
+      "sourceCaptureSha256": "be9484321eca4add561480fea3ac79f11dae20e5bf3739634c3b7d7599e29636",
+      "targetCapturedAt": "2026-08-31T01:41:45.443Z",
+      "targetCaptureSha256": "442bbb4699d6befe28492bf33c55a50e7f4a00c4063390ab6b8d8b5bd9c2d9dd"
     },
     {
       "surface": "articulos",
@@ -1091,7 +1165,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:39.860Z",
-      "sourceCaptureSha256": "b1f579b4c48ed3ddb9486cd60cb7f522d42ab25297f3ae54e07405e12d2e8965"
+      "sourceCaptureSha256": "b1f579b4c48ed3ddb9486cd60cb7f522d42ab25297f3ae54e07405e12d2e8965",
+      "targetCapturedAt": "2026-08-31T01:41:46.509Z",
+      "targetCaptureSha256": "2bbb62daec648c76cbfdb80c9621726e2929f8cf288405364d27ffcdeee2b816"
     },
     {
       "surface": "articulos",
@@ -1107,7 +1183,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:40.735Z",
-      "sourceCaptureSha256": "df19e9cb1138339ab50f946e0671b6c29c80a6742e9551f0928676ce2184c9ac"
+      "sourceCaptureSha256": "df19e9cb1138339ab50f946e0671b6c29c80a6742e9551f0928676ce2184c9ac",
+      "targetCapturedAt": "2026-08-31T01:41:47.607Z",
+      "targetCaptureSha256": "120fd0c2b397a2186edf2d28b5238cc68cf2043895ac4c84e3673c53a3a0616f"
     },
     {
       "surface": "articulo",
@@ -1123,7 +1201,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:41.636Z",
-      "sourceCaptureSha256": "3240bbfbf399af5116d6dc3eddbdc4f39a7e86719cf172b106886508e2fbe9f9"
+      "sourceCaptureSha256": "3240bbfbf399af5116d6dc3eddbdc4f39a7e86719cf172b106886508e2fbe9f9",
+      "targetCapturedAt": "2026-08-31T01:41:48.572Z",
+      "targetCaptureSha256": "dde56525d28d630c51fb2d470a5853e98e6a8acaa18c6ea580e4fe740c99108f"
     },
     {
       "surface": "articulo",
@@ -1139,7 +1219,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:42.619Z",
-      "sourceCaptureSha256": "36350d85190b180104d4f7a5035cf340dbbc2bcb37fd2fcdcf2aa00d9b806ba5"
+      "sourceCaptureSha256": "36350d85190b180104d4f7a5035cf340dbbc2bcb37fd2fcdcf2aa00d9b806ba5",
+      "targetCapturedAt": "2026-08-31T01:41:49.542Z",
+      "targetCaptureSha256": "11677c5c95e6a42ddd2f67b63533d50e09d2e61489516592e2647721d57656ec"
     },
     {
       "surface": "articulo",
@@ -1155,7 +1237,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:43.660Z",
-      "sourceCaptureSha256": "bc6de035bf4294db1311f0c89baf3dc79b23e8b7c903b1d6da7ec5116a3ea713"
+      "sourceCaptureSha256": "bc6de035bf4294db1311f0c89baf3dc79b23e8b7c903b1d6da7ec5116a3ea713",
+      "targetCapturedAt": "2026-08-31T01:41:50.545Z",
+      "targetCaptureSha256": "9ea046cb2dd090a00f25550e14f0fbc2860d2cd240369af6a9b00c0e7a5b6ef1"
     },
     {
       "surface": "cv",
@@ -1171,7 +1255,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:44.646Z",
-      "sourceCaptureSha256": "d2f4efbf3a468504a07d6aca9000dffdf45a795bf7063d8ae2fce5adefd910d1"
+      "sourceCaptureSha256": "d2f4efbf3a468504a07d6aca9000dffdf45a795bf7063d8ae2fce5adefd910d1",
+      "targetCapturedAt": "2026-08-31T01:41:51.733Z",
+      "targetCaptureSha256": "cfa0086c151d988d285ab5d9eed6f03a055215d5ae9c2442059f8af6a21ce4f8"
     },
     {
       "surface": "cv",
@@ -1187,7 +1273,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:45.704Z",
-      "sourceCaptureSha256": "3c6cca8430b0bd0cb726bb4fe21b5d81723daf9fc7b2448b78a7c49116e3318a"
+      "sourceCaptureSha256": "3c6cca8430b0bd0cb726bb4fe21b5d81723daf9fc7b2448b78a7c49116e3318a",
+      "targetCapturedAt": "2026-08-31T01:41:52.990Z",
+      "targetCaptureSha256": "83649a0643860673ca413abfcda00fc0ee61d897480a2bdc7015812d2cc20650"
     },
     {
       "surface": "cv",
@@ -1203,7 +1291,9 @@
       "approval": null,
       "metrics": null,
       "sourceCapturedAt": "2026-08-29T20:58:46.804Z",
-      "sourceCaptureSha256": "83ccecff9ea4960bb88fcdae814bd6ae7a4b6290f89f8b943c00634b88adbc4f"
+      "sourceCaptureSha256": "83ccecff9ea4960bb88fcdae814bd6ae7a4b6290f89f8b943c00634b88adbc4f",
+      "targetCapturedAt": "2026-08-31T01:41:54.308Z",
+      "targetCaptureSha256": "316723a401c8b9e5a7ef002870b5769fd801b7fc953efe38d1e19bb1dbfa7b9f"
     }
   ],
   "report": {
